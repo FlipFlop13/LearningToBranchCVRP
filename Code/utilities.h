@@ -97,8 +97,7 @@ vector<string> glob(string path = "./Graphs/X/", string filetype = "*")
 /// @brief Reads a vrp file and returns the values needed to generate the graph.
 /// @param filename Path to the vrp file.
 /// @return A tuple, containing a vector of a vector of two integers(x and y coordinate), a vector of demands, a vector for the depot location and an integer for the vehicle capacity.
-tuple<vector<vector<int>>, vector<int>, vector<int>, int>
-read(string filename)
+tuple<vector<vector<int>>, vector<int>, vector<int>, int> read(string filename)
 {
     vector<vector<int>> vecNCS(101, vector<int>(2));
     vector<int> vecDS(101, 0);
@@ -429,7 +428,7 @@ vector<vector<int>> generateCustomerCoordinates(int n = 100, string customerPosi
 
         uniform_int_distribution<int> unifD(1, 999);
         default_random_engine rd;
-        for (int i = 0; i < s; i++) // create the location od the seed customers; They act as seed and as as customer hence two vectors;
+        for (int i = 0; i < s; i++) // create the location of the seed customers; They act as seed and as as customer hence two vectors;
         {
             seedCoordinates[i][0] = unifD(rd);
             seedCoordinates[i][1] = unifD(rd);
@@ -456,7 +455,7 @@ vector<vector<int>> generateCustomerCoordinates(int n = 100, string customerPosi
                 probCoordinates[i][j] = probSum;
             }
         }
-
+        double2dVectorDivisor(probCoordinates, probCoordinates.back().back());
         vector<vector<int>> V = generateCustomerClusters(probCoordinates, (n - s - half));
         customerCoordinates.insert(customerCoordinates.end(), V.begin(), V.end());
         return customerCoordinates;
