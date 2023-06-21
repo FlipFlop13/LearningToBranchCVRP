@@ -125,17 +125,17 @@ int main(int argc, char **argv)
 {
   Grapher grapher;
   vector<vector<int>> vec;
-  // vec = generateCustomerCoordinates(1000, "R");
-  // grapher.vec2Graph(vec);
-  // sleep(2);
+  vec = generateCustomerCoordinates(1000, "R");
+  grapher.vec2Graph(vec);
+  sleep(2);
 
-  // vec = generateCustomerCoordinates(1000, "C");
-  // grapher.vec2Graph(vec);
-  // sleep(2);
+  vec = generateCustomerCoordinates(1000, "C");
+  grapher.vec2Graph(vec);
+  sleep(2);
 
-  // vec = generateCustomerCoordinates(1000, "RC");
-  // grapher.vec2Graph(vec);
-  // sleep(2);
+  vec = generateCustomerCoordinates(1000, "RC");
+  grapher.vec2Graph(vec);
+  sleep(2);
 
   vec = generateCustomerCoordinates(1000, "RC");
   grapher.vec2Graph(vec);
