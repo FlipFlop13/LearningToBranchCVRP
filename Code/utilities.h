@@ -10,8 +10,12 @@
 #include <sstream>
 #include <random>
 #include <filesystem>
+#include <iomanip>
+#include <array>
+#include <map>
+#include <algorithm>
+
 using namespace std;
-namespace fs = filesystem;
 
 /// @brief This function prints every integer element in the vector to the console.
 /// @param vec A vector of integer to be displayed in the console.
@@ -66,6 +70,11 @@ void printVector(vector<vector<string>> vec)
         cout << endl;
     }
 }
+/// Helper for sorting alphabetically
+bool mycomp(string a, string b)
+{
+    return a < b;
+}
 /// @brief This function generates a vector containing all the files in a directory with the given filetype.
 /// @param path Path to the directory, default : ./Graphs/X/
 /// @param filetype The filetype, the function will return only this type. e.g. pdf. default:* (all filetypes)
@@ -74,7 +83,7 @@ vector<string> glob(string path = "./Graphs/X/", string filetype = "*")
 {
     vector<string> filenames;
     int lenghtFileType = filetype.length();
-    for (const auto &entry : fs::directory_iterator(path))
+    for (const auto &entry : filesystem::directory_iterator(path))
     {
         string filename = entry.path();
         if (filetype == "*")
@@ -91,17 +100,15 @@ vector<string> glob(string path = "./Graphs/X/", string filetype = "*")
         }
     }
 
+    sort(filenames.begin(), filenames.end(), mycomp);
     return filenames;
 }
-
 /// @brief Reads a vrp file and returns the values needed to generate the graph.
 /// @param filename Path to the vrp file.
-/// @return A tuple, containing a vector of a vector of two integers(x and y coordinate), a vector of demands, a vector for the depot location and an integer for the vehicle capacity.
-tuple<vector<vector<int>>, vector<int>, vector<int>, int> read(string filename)
+/// @return A tuple, containing a vector of a vector of three integers(x and y coordinate, demand) and an integer for the vehicle capacity.
+tuple<vector<vector<int>>, int> readCVRP(string filename)
 {
-    vector<vector<int>> vecNCS(101, vector<int>(2));
-    vector<int> vecDS(101, 0);
-    vector<int> vecDepot{1, -1};
+    vector<vector<int>> vecNCS(0, vector<int>(3));
     int capacity = -1;
 
     fstream newfile;
@@ -110,22 +117,28 @@ tuple<vector<vector<int>>, vector<int>, vector<int>, int> read(string filename)
     { // checking whether the file is open
         string tp;
 
-        bool bcap = false;
-        bool bncs = false;
-        bool bds = false;
-        bool bDepotS = false;
-
+        bool bcap = false, bncs = false, bds = false, bDepotS = false, bdim = false;
         int i = 0;
+
         while (getline(newfile, tp))
-        { // read data from file object and put it into string.
+        { // read data from file object and put it into string. Loops for every row.
             int j = 0;
             stringstream ss(tp);
             string word;
             while (ss >> word)
             { // Extract word from the stream.
-                // Check if we are in the section for node location, node demand or depot location
+              // Check if we are in the section for node location, node demand or depot location
+                if (word == "DIMENSION")
+                {
+                    bdim = true;
+                    bcap = false;
+                    bncs = false;
+                    bds = false;
+                    bDepotS = false;
+                }
                 if (word == "CAPACITY")
                 {
+                    bdim = false;
                     bcap = true;
                     bncs = false;
                     bds = false;
@@ -133,6 +146,7 @@ tuple<vector<vector<int>>, vector<int>, vector<int>, int> read(string filename)
                 }
                 if (word == "NODE_COORD_SECTION")
                 {
+                    bdim = false;
                     bcap = false;
                     bncs = true;
                     bds = false;
@@ -142,6 +156,7 @@ tuple<vector<vector<int>>, vector<int>, vector<int>, int> read(string filename)
                 }
                 if (word == "DEMAND_SECTION")
                 {
+                    bdim = false;
                     bcap = false;
                     bncs = false;
                     bds = true;
@@ -151,6 +166,7 @@ tuple<vector<vector<int>>, vector<int>, vector<int>, int> read(string filename)
                 }
                 if (word == "DEPOT_SECTION")
                 {
+                    bdim = false;
                     bcap = false;
                     bncs = false;
                     bds = false;
@@ -160,10 +176,25 @@ tuple<vector<vector<int>>, vector<int>, vector<int>, int> read(string filename)
                 }
                 if (word == "EOF")
                 {
-                    tuple<vector<vector<int>>, vector<int>, vector<int>, int> retTuple(vecNCS, vecDS, vecDepot, capacity);
+                    tuple<vector<vector<int>>, int> retTuple(vecNCS, capacity);
+                    // close the file object.
+                    newfile.close();
                     return retTuple;
                 }
 
+                if (bdim)
+                {
+                    try
+                    {
+                        int dimension = stoi(word);
+                        vector<vector<int>> t(dimension, vector<int>(3));
+                        vecNCS.insert(vecNCS.end(), t.begin(), t.end());
+                    }
+                    catch (invalid_argument)
+                    {
+                        continue;
+                    }
+                }
                 if (bcap)
                 {
                     try
@@ -174,31 +205,29 @@ tuple<vector<vector<int>>, vector<int>, vector<int>, int> read(string filename)
                     {
                         capacity = -1;
                     }
-                    cout << "Capacity: " << capacity << endl;
                 }
                 if (bncs)
                 {
                     if (j == 0)
                     {
-                        j++;
+                        j++; // in the files the first value is the index, then X then Y.
                         continue;
                     }
                     int strToInt;
                     strToInt = stoi(word);
+
                     vecNCS[i][(j - 1)] = strToInt;
                 }
                 if (bds)
                 {
+                    if (j == 0)
+                    {
+                        j++; // in the files the first value is the index, then the demand.
+                        continue;
+                    }
                     int strToInt;
                     strToInt = stoi(word);
-                    vecDS[i] = strToInt;
-                }
-                if (bDepotS)
-                {
-                    int strToInt;
-                    cout << word << "  ";
-                    strToInt = stoi(word);
-                    vecDepot[i] = strToInt;
+                    vecNCS[i][2] = strToInt;
                 }
                 j++;
             }
@@ -209,10 +238,54 @@ tuple<vector<vector<int>>, vector<int>, vector<int>, int> read(string filename)
         // close the file object.
         newfile.close();
     }
-    tuple<vector<vector<int>>, vector<int>, vector<int>, int> retTuple(vecNCS, vecDS, vecDepot, capacity);
+    tuple<vector<vector<int>>, int> retTuple(vecNCS, capacity);
     return retTuple;
 }
+/// @brief This function will write the instance to a file
+/// @param nodeCoordinatesAndDemand This is the vector conatining each nodes coordinate and demand i.e. (x,y,q)
+/// @param capacity The maximum vehicle capacity
+/// @param filePath Where to save the file
+/// @param filename Filename (not used to save the file, only written in it)
+void writeCVRP(vector<vector<int>> nodeCoordinatesAndDemand, int capacity, string filePath = "./Graphs/default.vrp", string filename = "CVRP_Graph_Instance")
+{
+    ofstream fw(filePath, ofstream::out);
+    if (!fw.is_open())
+    {
+        return;
+    }
+    int rowNumber = nodeCoordinatesAndDemand.size();
+    fw << "NAME:        " << filename << "\n";
+    fw << "COMMENT : 	\"Generated by Salomons, Philip (2023)\""
+       << "\n";
+    fw << "TYPE : 	CVRP"
+       << "\n";
+    fw << "DIMENSION : 	" << rowNumber << "\n";
+    fw << "EDGE_WEIGHT_TYPE : 	EUC_2D	"
+       << "\n";
+    fw << "CAPACITY : 	" << capacity << "\n";
+    fw << "NODE_COORD_SECTION"
+       << "\n";
 
+    for (int i = 0; i < rowNumber; i++)
+    { // in the vrp files, the nodes are 1 based...
+
+        fw << (i + 1) << "    " << nodeCoordinatesAndDemand[i][0] << "    " << nodeCoordinatesAndDemand[i][1] << "\n";
+    }
+    fw << "DEMAND_SECTION"
+       << "\n";
+
+    for (int i = 0; i < rowNumber; i++)
+    { // in the vrp files, the nodes are 1 based...
+        fw << (i + 1) << "    " << nodeCoordinatesAndDemand[i][2] << "\n";
+    }
+
+    fw << "DEPOT_SECTION"
+       << "\n";
+    fw << 1 << "\n";
+    fw << -1 << "\n";
+    fw << "EOF"
+       << "\n";
+}
 /// @brief This function generates the position of the depot.
 /// @param depotPosition String determining the depot position method, "C" center (500,500), "R" random "E" eccentric (0,0)
 /// @return Vector with the x and y coordinates of the depot.
@@ -371,14 +444,12 @@ vector<vector<int>> generateCustomerCoordinates(int n = 100, string customerPosi
 
         vector<vector<double>> probCoordinates(1000, vector<double>(1000)); // probability distributiion for customers
 
-        cout << "Number of seeds:" << s << endl;
         uniform_int_distribution<int> unifD(1, 999);
         default_random_engine rd;
         for (int i = 0; i < s; i++) // create the location od the seed customers; They act as seed and as as customer hence two vectors;
         {
             seedCoordinates[i][0] = unifD(rd);
             seedCoordinates[i][1] = unifD(rd);
-            cout << seedCoordinates[i][0] << " " << seedCoordinates[i][1] << endl;
         }
 
         double probSum = 0;
@@ -474,11 +545,13 @@ vector<int> generateDemand(vector<vector<int>> coordinateVector, int type)
     switch (type)
     {
     case 0:
+    {
         for (int i = 1; i < n; i++)
         {
             demandVector[i] = 1;
         }
         return demandVector;
+    }
     case 1:
     {
         int lower_bound = 1;
@@ -584,12 +657,48 @@ vector<int> generateDemand(vector<vector<int>> coordinateVector, int type)
         return demandVector;
     }
     default:
+    {
         for (int i = 1; i < n; i++)
         {
             demandVector[i] = 1;
         }
         return demandVector;
     }
+    }
+}
+/// @brief Generates a triangle distribution generator, with min mode and max.
+/// @param min
+/// @param peak
+/// @param max
+/// @return Double value from the triangular uniform distribution.
+piecewise_linear_distribution<double> triangular_distribution(double min, double peak, double max)
+{
+    std::array<double, 3> i{min, peak, max};
+    std::array<double, 3> w{0, 1, 0};
+    return std::piecewise_linear_distribution<double>{i.begin(), i.end(), w.begin()};
+}
+/// @brief Generates the capacity for the vehicles, as in Uchoa et al
+/// @param demandVector The demand values for each customer.
+/// @return Integer corresponding to the maximum vehicle capacity for this instance.
+int generateCapacity(vector<int> demandVector)
+{
+    int n = demandVector.size() - 1; // The depot does not count here
+    int totalDemand = 0;
+    for (int i : demandVector)
+    {
+        totalDemand += i;
+    }
+
+    random_device rd;
+    // create a mersenne twister PRNG seeded from some implementation-defined random source
+    mt19937 gen(rd());
+
+    // create a triangular distribution with a minimum of 0, a peak at 20, and a maximum of 30
+    auto dist = triangular_distribution(3, 6, 25);
+    double r = dist(gen);
+    int Q = ceil((r * totalDemand) / n);
+
+    return Q;
 }
 
 /// @brief This method generates an instance as descibed in Uchoa et al.
@@ -597,15 +706,181 @@ vector<int> generateDemand(vector<vector<int>> coordinateVector, int type)
 /// @param depotPosition "C" center (500,500), "R" random "E" eccentric (0,0)
 /// @param customerPositioning "R" Random, "C" clustered "CR" half clustered & half random
 /// @param demandDistribution Integer for the six options in Uchoa et al
-void generate(int n = 100, string depotPosition = "R", string customerPositioning = "R", string demandDistribution = "U")
+/// @return tuple with vector of vectors containing (x,y, demand) of each customer and an integer for the vehicle capacity
+tuple<vector<vector<int>>, int> generateCVRPInstance(int n = 100, string depotPosition = "R", string customerPositioning = "R", int demandDistribution = 0)
 {
-    vector<vector<int>> vecNCS(1, vector<int>(2));
-    vecNCS[0] = depotPositionGenerator("R");
+    vector<vector<int>> coordinates(1, vector<int>(2));
+    coordinates[0] = depotPositionGenerator("R");
+    vector<vector<int>> customerCoordinates = generateCustomerCoordinates(n, customerPositioning);
+    coordinates.insert(coordinates.end(), customerCoordinates.begin(), customerCoordinates.end());
+    vector<int> demandVector = generateDemand(coordinates, demandDistribution);
 
-    customerPositioning = "C";
-    vector<vector<int>> tempV = generateCustomerCoordinates(n, customerPositioning);
-    vecNCS.insert(vecNCS.end(), tempV.begin(), tempV.end());
-    vector<int> V1 = generateDemand(vecNCS, 6);
+    vector<vector<int>> returnVector((n + 1), vector<int>(3));
+    returnVector[0][0] = coordinates[0][0]; // depot coordinates
+    returnVector[0][1] = coordinates[0][1];
+    returnVector[0][2] = 0; // depot demand is 0
+    for (int i = 1; i <= n; i++)
+    {
+        returnVector[i][0] = coordinates[i][0];
+        returnVector[i][1] = coordinates[i][1];
+        returnVector[i][2] = demandVector[i];
+    }
+    int capacity = generateCapacity(demandVector);
+    tuple<vector<vector<int>>, int> retTuple(returnVector, capacity);
+    return retTuple;
+}
+/// @brief This function reads the solution file, and returnss a vector of vectors. Each vector is a route, with customers in order.
+/// @param filePath Path to the solution file
+/// @return  The vector of vecotrs containing the routes and the cost of the solution.
+tuple<vector<vector<int>>, int> readSolution(string filePath = "./Graphs/X/X-n101-k25.sol")
+{
+    fstream newfile;
+    newfile.open(filePath, ios::in); // open a file to perform read operation using file object
+    if (!newfile.is_open())
+    {
+        exit(-1);
+    }
+    vector<vector<int>> solutionVector;
+    int cost = -1;
+    string tp;
+    bool lastRow = false; // it reaches the last row when 'Cost' is seen
+    while (getline(newfile, tp))
+    { // read data from file object and put it into string. Loops for every row.
+        int j = 0;
+        stringstream ss(tp);
+        string word;
+        vector<int> routeVector;
+        while (ss >> word)
+        {
+            if (word == "Cost")
+            {
+                lastRow = true;
+            }
+            if (lastRow) // now we get the cost
+            {
+                try
+                {
+                    cost = stoi(word);
+                    tuple<vector<vector<int>>, int> returnTuple(solutionVector, cost);
+                    return returnTuple;
+                }
+                catch (invalid_argument)
+                {
+                    continue;
+                }
+            }
+            try
+            {
+                int nextCostumer = stoi(word);
+                routeVector.push_back(nextCostumer);
+            }
+            catch (invalid_argument)
+            {
+                continue;
+            }
+        }
+        solutionVector.push_back(routeVector);
+    }
+    tuple<vector<vector<int>>, int> returnTuple(solutionVector, cost);
+    return returnTuple;
+}
 
-    // printIntVector2D(vecNCS)
+/// @brief This function saves the solution to a file
+/// @param solutionVector Is the vecotr of vectors conatining the solution, each vector conatins the index order of the customers
+/// @param cost The cost of the route
+/// @param filePath The location to save the file
+void writeSolution(vector<vector<int>> solutionVector, int cost, string filePath = "./Graphs/default.sol")
+{
+    ofstream fw(filePath, ofstream::out);
+    if (!fw.is_open())
+    {
+        return;
+    }
+    int i = 0;
+    for (vector<int> route : solutionVector)
+    {
+        i++; // route numbers in the solution are 1 based
+        fw << "Route #" << i << ": ";
+        for (int index : route)
+        {
+            fw << index << " ";
+        }
+        fw << "\n";
+    }
+    fw << "Cost: " << cost << "\n";
+}
+/// @brief This function takes the  customers  and calculates the distance between each vertex.
+/// @param customers vector of vector of integeres, of the form (x,y, demand) for each vertes
+/// @return vector of vector of integers of the distances. i.e. a symmetric matrix with the distances between the vertices
+vector<vector<int>> calculateEdgeCost(vector<vector<int>> *customers)
+{
+    int n = customers->size();
+    vector<vector<int>> edgeCost(n, vector<int>(n, 10000)); // Set all values to be a very large number
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = (i + 1); j < n; j++)
+        {
+            int x0 = customers->at(i).at(0);
+            int x1 = customers->at(j).at(0);
+            int y0 = customers->at(i).at(1);
+            int y1 = customers->at(j).at(1);
+            int eucDistance = sqrt(pow(x0 - x1, 2) + pow(y0 - y1, 2));
+
+            edgeCost.at(i).at(j) = eucDistance;
+            edgeCost.at(j).at(i) = eucDistance;
+        }
+    }
+    return edgeCost;
+}
+
+/// @brief This function gets the binary matrix for the edges and returns the routes (iplicitly starting and ending at 0).
+/// @param edgeUsage vector of vector of integers, at position (i,j) 1 if verticess i and j are connected 0 otherwise.
+/// @return A vector of vector of integers each subvector contains in order the indices of the verices visited.
+vector<vector<int>> fromEdgeUsageToRouteSolution(vector<vector<int>> edgeUsage)
+{
+    int n = edgeUsage.size();
+    vector<vector<int>> solutionVector;
+    int lastVertex = 0;
+    for (int i = 0; i < n; i++)
+    {
+        vector<int> route;
+        if (edgeUsage.at(i).at(0) == 0)
+        {
+            continue; // no route starts here
+        }
+        else if (edgeUsage.at(i).at(0) == 2)
+        {
+            route.push_back(i); // Route consist only of one vertex
+            edgeUsage.at(i).at(0) = 0;
+            edgeUsage.at(0).at(i) = 0;
+        }
+        else
+        { // edgeUsage must be one
+
+            edgeUsage.at(i).at(0) = 0;
+            edgeUsage.at(0).at(i) = 0;
+            route.push_back(i);
+            lastVertex = i;
+            int j = 1;
+            while (true)
+            {
+                if (edgeUsage.at(lastVertex).at(j) == 1)
+                {
+                    if (j==0){//the route has finished
+                    edgeUsage.at(j).at(0) = 0;
+                    edgeUsage.at(0).at(j) = 0;
+                        break;
+                    }
+                    //else add the vertex to the route, and start looking where it connects to
+                    route.push_back(j);
+                    edgeUsage.at(j).at(lastVertex) = 0;
+                    edgeUsage.at(lastVertex).at(j) = 0;
+                    lastVertex = j;
+                }
+                
+            }
+        }
+        solutionVector.push_back(route);
+    }
+    return solutionVector;
 }
