@@ -3,12 +3,13 @@
 #include <stdio.h>
 #include <sstream>
 #include <typeinfo>
-//#include "./utilities.h"
-#include "./CVRPGrapher.cpp"
 #include </opt/ibm/ILOG/CPLEX_Studio_Community2211/cplex/include/ilcplex/cplex.h>
 #include </opt/ibm/ILOG/CPLEX_Studio_Community2211/cplex/include/ilcplex/ilocplex.h>
+#include <vector>
 using namespace std;
 
+#include "./utilities.h"
+#include "./CVRPGrapher.h"
 typedef IloArray<IloNumVarArray> NumVarMatrix;
 
 // class BranchCallback : public IloCplex::Callback::Function
@@ -115,26 +116,26 @@ void populate(IloModel model, NumVarMatrix edgeUsage, vector<vector<int>> *verte
 {
     int n = vertexMatrix->size();
     int sumOfDemands = 0;
-    for (int i = 1; i < n; i++)
+    for (int i = 1; i < n; i++) //Get the demandss for each customer
     {
         sumOfDemands += vertexMatrix->at(i).at(2);
     }
 
-    int kMin = 1 + sumOfDemands / *capacity;
-    cout << "sumOfDemands: " << sumOfDemands << endl; // The lower bound for the number of vehicles needed
-    cout << "capacity: " << *capacity << endl;        // The lower bound for the number of vehicles needed
+    int kMin = 1 + sumOfDemands / *capacity;           //At least 1, extra if the demand is larger than the caacity
+    cout << "sumOfDemands: " << sumOfDemands << endl; 
+    cout << "Capacity: " << *capacity << endl;        
     cout << "KMin: " << kMin << endl;                 // The lower bound for the number of vehicles needed
 
-    IloEnv env = model.getEnv();
+    IloEnv env = model.getEnv(); //get the environment 
     IloObjective obj = IloMinimize(env);
 
     // Create all the edge variables
-    edgeUsage[0] = IloNumVarArray(env, n, 0, 2, ILOINT); // Edges to the depot mmay be travelled twice, if the route is one costumer
-    edgeUsage[0][0].setBounds(0, 0);                     // Cant travel from vertex i to vertex i
+    edgeUsage[0] = IloNumVarArray(env, n, 0, 2, ILOINT); // Edges to the depot may be travelled twice, if the route is one costumer
+    edgeUsage[0][0].setBounds(0, 0);                     // Cant travel from the depot to itself
 
     for (int i = 1; i < n; i++)
     {
-        edgeUsage[i] = IloNumVarArray(env, n, 0, 1, ILOINT);
+        edgeUsage[i] = IloNumVarArray(env, n, 0, 1, ILOINT); //All other edges should be traversed at most once
         edgeUsage[i][i].setBounds(0, 0); // Cant travel from vertex i to vertex i
         edgeUsage[i][0].setBounds(0, 2); // Edges from the depot can be traveled twice
     }
@@ -193,7 +194,6 @@ void populate(IloModel model, NumVarMatrix edgeUsage, vector<vector<int>> *verte
 vector<vector<int>> createCPLEXInstance(vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity)
 {
     cout << "Creating instances!" << endl;
-
     IloEnv env;
     IloModel model(env);
     int n = vertexMatrix.size();
@@ -247,28 +247,58 @@ vector<vector<int>> createCPLEXInstance(vector<vector<int>> vertexMatrix, vector
     return edgeUsageSolution;
 }
 
+
 int main()
-{
-    CVRPGrapher grapher;
+{   
+    const std::time_t now = std::time(nullptr);
+    const std::tm calendar_time = *std::localtime( std::addressof(now) ) ;
+    string month = to_string(calendar_time.tm_mon + 1); 
+    string day = to_string(calendar_time.tm_mday);
+    string hour  = to_string(calendar_time.tm_hour);
+    string minute = to_string(calendar_time.tm_min);
+    string filename = "./log/logFile_M" + minute + "_H" + hour + "_D" + day  + "_M" + month + ".txt";
+    cout << endl << filename << endl;
+    ofstream out(filename);
+    streambuf *coutbuf = std::cout.rdbuf(); //save old buf
+    cout.rdbuf(out.rdbuf()); //redirect std::cout to out.txt!
+    cout << "Master Thesis Project Philip Salomons i6154933 \n";
+    cout << "Learning to Branch on the Capacitated Vehicle Routing Problem \n\n";
+    cout << "**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**\n";
+    cout << "**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**\n\n";    srand((unsigned int)time(NULL)); //Set the random seed as the current time, to avoid repetitions
+    
+    vector<string> customerCT{"R", "C", "CR"};
+    vector<string> DP{"R", "C", "E"};
+    int dpi;
+    string dp;
+    string cp;
+    CVRPGrapher grapher; //create a grapher object
+    for (int i = 5; i < 1000; i++){
+        int d = i % 6;
+        dpi = i % 3;
+        dp = DP[dpi];
+        cp = customerCT[dpi];
+        cout << "Size: " << i << ", Demand type" << d << ", DT: " << dp << ", CT: " << cp <<endl;
+        tuple<vector<vector<int>>, int> instance = generateCVRPInstance(i, dp, cp, d); //generate an instance of the problem
+        vector<vector<int>> customers = get<0>(instance);
+        int capacity = get<1>(instance);
+        cout << "Capacity: " << capacity << endl << endl;
+    }
 
-    tuple<vector<vector<int>>, int> instance = generateCVRPInstance(10, "C", "C", 0);
-    vector<vector<int>> customers = get<0>(instance);
-    int capacity = get<1>(instance);
-    vector<vector<int>> costVector = calculateEdgeCost(&customers);
+    // vector<vector<int>> costVector = calculateEdgeCost(&customers);
     
-    grapher.setInstanceCoordinates(customers);
+    // grapher.setInstanceCoordinates(customers); //Add points to the graph for each customer
     
-    printVector(customers);
-    printVector(costVector);
+    // printVector(costVector);
     
-    vector<vector<int>> edgeUsage = createCPLEXInstance(customers, costVector, capacity);
-    vector<vector<int>> solution = fromEdgeUsageToRouteSolution(edgeUsage);
-    
-    printVector(solution);
-    
-    grapher.setSolutionVector(solution);
+    // cout << "Starting..."<< endl;
+    // vector<vector<int>> edgeUsage = createCPLEXInstance(customers, costVector, capacity);
+    // cout << "Running..."<< endl;
 
+    // vector<vector<int>> solution = fromEdgeUsageToRouteSolution(edgeUsage);
 
+    // grapher.setSolutionVector(solution); 
+    // printVector(edgeUsage);
+    // printVector(solution);
 
     return 0;
 }

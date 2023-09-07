@@ -1,0 +1,741 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+Size: 5 Demand type5DT: ECT: CR
+R: 3
+Capacity: 138
+
+Size: 6 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 7 Demand type1DT: CCT: C
+N:3
+R: 3
+Capacity: 20
+
+Size: 8 Demand type2DT: ECT: CR
+R: 3
+Capacity: 22
+
+Size: 9 Demand type3DT: RCT: R
+R: 3
+Capacity: 190
+
+Size: 10 Demand type4DT: CCT: C
+N:2
+R: 3
+Capacity: 231
+
+Size: 11 Demand type5DT: ECT: CR
+R: 3
+Capacity: 104
+
+Size: 12 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 13 Demand type1DT: CCT: C
+N:5
+R: 3
+Capacity: 14
+
+Size: 14 Demand type2DT: ECT: CR
+N:1
+R: 3
+Capacity: 21
+
+Size: 15 Demand type3DT: RCT: R
+R: 3
+Capacity: 125
+
+Size: 16 Demand type4DT: CCT: C
+N:10
+R: 3
+Capacity: 202
+
+Size: 17 Demand type5DT: ECT: CR
+N:5
+R: 3
+Capacity: 134
+
+Size: 18 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 19 Demand type1DT: CCT: C
+N:11
+R: 3
+Capacity: 17
+
+Size: 20 Demand type2DT: ECT: CR
+N:7
+R: 3
+Capacity: 20
+
+Size: 21 Demand type3DT: RCT: R
+R: 3
+Capacity: 141
+
+Size: 22 Demand type4DT: CCT: C
+N:18
+R: 3
+Capacity: 224
+
+Size: 23 Demand type5DT: ECT: CR
+N:6
+R: 3
+Capacity: 159
+
+Size: 24 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 25 Demand type1DT: CCT: C
+N:19
+R: 3
+Capacity: 17
+
+Size: 26 Demand type2DT: ECT: CR
+N:5
+R: 3
+Capacity: 20
+
+Size: 27 Demand type3DT: RCT: R
+R: 3
+Capacity: 177
+
+Size: 28 Demand type4DT: CCT: C
+N:20
+R: 3
+Capacity: 219
+
+Size: 29 Demand type5DT: ECT: CR
+N:9
+R: 3
+Capacity: 124
+
+Size: 30 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 31 Demand type1DT: CCT: C
+N:23
+R: 3
+Capacity: 19
+
+Size: 32 Demand type2DT: ECT: CR
+N:13
+R: 3
+Capacity: 21
+
+Size: 33 Demand type3DT: RCT: R
+R: 3
+Capacity: 157
+
+Size: 34 Demand type4DT: CCT: C
+N:26
+R: 3
+Capacity: 209
+
+Size: 35 Demand type5DT: ECT: CR
+N:13
+R: 3
+Capacity: 189
+
+Size: 36 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 37 Demand type1DT: CCT: C
+N:33
+R: 3
+Capacity: 13
+
+Size: 38 Demand type2DT: ECT: CR
+N:12
+R: 3
+Capacity: 20
+
+Size: 39 Demand type3DT: RCT: R
+R: 3
+Capacity: 142
+
+Size: 40 Demand type4DT: CCT: C
+N:33
+R: 3
+Capacity: 218
+
+Size: 41 Demand type5DT: ECT: CR
+N:18
+R: 3
+Capacity: 129
+
+Size: 42 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 43 Demand type1DT: CCT: C
+N:39
+R: 3
+Capacity: 18
+
+Size: 44 Demand type2DT: ECT: CR
+N:16
+R: 3
+Capacity: 19
+
+Size: 45 Demand type3DT: RCT: R
+R: 3
+Capacity: 157
+
+Size: 46 Demand type4DT: CCT: C
+N:41
+R: 3
+Capacity: 218
+
+Size: 47 Demand type5DT: ECT: CR
+N:21
+R: 3
+Capacity: 156
+
+Size: 48 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 49 Demand type1DT: CCT: C
+N:45
+R: 3
+Capacity: 15
+
+Size: 50 Demand type2DT: ECT: CR
+N:21
+R: 3
+Capacity: 21
+
+Size: 51 Demand type3DT: RCT: R
+R: 3
+Capacity: 151
+
+Size: 52 Demand type4DT: CCT: C
+N:48
+R: 3
+Capacity: 224
+
+Size: 53 Demand type5DT: ECT: CR
+N:22
+R: 3
+Capacity: 152
+
+Size: 54 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 55 Demand type1DT: CCT: C
+N:51
+R: 3
+Capacity: 15
+
+Size: 56 Demand type2DT: ECT: CR
+N:23
+R: 3
+Capacity: 22
+
+Size: 57 Demand type3DT: RCT: R
+R: 3
+Capacity: 136
+
+Size: 58 Demand type4DT: CCT: C
+N:54
+R: 3
+Capacity: 230
+
+Size: 59 Demand type5DT: ECT: CR
+N:26
+R: 3
+Capacity: 185
+
+Size: 60 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 61 Demand type1DT: CCT: C
+N:54
+R: 3
+Capacity: 14
+
+Size: 62 Demand type2DT: ECT: CR
+N:28
+R: 3
+Capacity: 19
+
+Size: 63 Demand type3DT: RCT: R
+R: 3
+Capacity: 158
+
+Size: 64 Demand type4DT: CCT: C
+N:61
+R: 3
+Capacity: 210
+
+Size: 65 Demand type5DT: ECT: CR
+N:28
+R: 3
+Capacity: 180
+
+Size: 66 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 67 Demand type1DT: CCT: C
+N:59
+R: 3
+Capacity: 18
+
+Size: 68 Demand type2DT: ECT: CR
+N:27
+R: 3
+Capacity: 21
+
+Size: 69 Demand type3DT: RCT: R
+R: 3
+Capacity: 152
+
+Size: 70 Demand type4DT: CCT: C
+N:66
+R: 3
+Capacity: 232
+
+Size: 71 Demand type5DT: ECT: CR
+N:29
+R: 3
+Capacity: 112
+
+Size: 72 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 73 Demand type1DT: CCT: C
+N:66
+R: 3
+Capacity: 14
+
+Size: 74 Demand type2DT: ECT: CR
+N:33
+R: 3
+Capacity: 20
+
+Size: 75 Demand type3DT: RCT: R
+R: 3
+Capacity: 160
+
+Size: 76 Demand type4DT: CCT: C
+N:70
+R: 3
+Capacity: 220
+
+Size: 77 Demand type5DT: ECT: CR
+N:35
+R: 3
+Capacity: 156
+
+Size: 78 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 79 Demand type1DT: CCT: C
+N:73
+R: 3
+Capacity: 18
+
+Size: 80 Demand type2DT: ECT: CR
+N:35
+R: 3
+Capacity: 21
+
+Size: 81 Demand type3DT: RCT: R
+R: 3
+Capacity: 155
+
+Size: 82 Demand type4DT: CCT: C
+N:76
+R: 3
+Capacity: 220
+
+Size: 83 Demand type5DT: ECT: CR
+N:35
+R: 3
+Capacity: 177
+
+Size: 84 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 85 Demand type1DT: CCT: C
+N:79
+R: 3
+Capacity: 15
+
+Size: 86 Demand type2DT: ECT: CR
+N:38
+R: 3
+Capacity: 20
+
+Size: 87 Demand type3DT: RCT: R
+R: 3
+Capacity: 138
+
+Size: 88 Demand type4DT: CCT: C
+N:81
+R: 3
+Capacity: 228
+
+Size: 89 Demand type5DT: ECT: CR
+N:41
+R: 3
+Capacity: 149
+
+Size: 90 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 91 Demand type1DT: CCT: C
+N:88
+R: 3
+Capacity: 16
+
+Size: 92 Demand type2DT: ECT: CR
+N:40
+R: 3
+Capacity: 21
+
+Size: 93 Demand type3DT: RCT: R
+R: 3
+Capacity: 151
+
+Size: 94 Demand type4DT: CCT: C
+N:91
+R: 3
+Capacity: 220
+
+Size: 95 Demand type5DT: ECT: CR
+N:40
+R: 3
+Capacity: 145
+
+Size: 96 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 97 Demand type1DT: CCT: C
+N:90
+R: 3
+Capacity: 16
+
+Size: 98 Demand type2DT: ECT: CR
+N:41
+R: 3
+Capacity: 21
+
+Size: 99 Demand type3DT: RCT: R
+R: 3
+Capacity: 158
+
+Size: 100 Demand type4DT: CCT: C
+N:92
+R: 3
+Capacity: 224
+
+Size: 101 Demand type5DT: ECT: CR
+N:43
+R: 3
+Capacity: 145
+
+Size: 102 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 103 Demand type1DT: CCT: C
+N:95
+R: 3
+Capacity: 15
+
+Size: 104 Demand type2DT: ECT: CR
+N:49
+R: 3
+Capacity: 20
+
+Size: 105 Demand type3DT: RCT: R
+R: 3
+Capacity: 152
+
+Size: 106 Demand type4DT: CCT: C
+N:102
+R: 3
+Capacity: 224
+
+Size: 107 Demand type5DT: ECT: CR
+N:51
+R: 3
+Capacity: 161
+
+Size: 108 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 109 Demand type1DT: CCT: C
+N:101
+R: 3
+Capacity: 16
+
+Size: 110 Demand type2DT: ECT: CR
+N:51
+R: 3
+Capacity: 21
+
+Size: 111 Demand type3DT: RCT: R
+R: 3
+Capacity: 147
+
+Size: 112 Demand type4DT: CCT: C
+N:105
+R: 3
+Capacity: 220
+
+Size: 113 Demand type5DT: ECT: CR
+N:49
+R: 3
+Capacity: 131
+
+Size: 114 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 115 Demand type1DT: CCT: C
+N:111
+R: 3
+Capacity: 17
+
+Size: 116 Demand type2DT: ECT: CR
+N:54
+R: 3
+Capacity: 20
+
+Size: 117 Demand type3DT: RCT: R
+R: 3
+Capacity: 144
+
+Size: 118 Demand type4DT: CCT: C
+N:115
+R: 3
+Capacity: 223
+
+Size: 119 Demand type5DT: ECT: CR
+N:52
+R: 3
+Capacity: 141
+
+Size: 120 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 121 Demand type1DT: CCT: C
+N:117
+R: 3
+Capacity: 15
+
+Size: 122 Demand type2DT: ECT: CR
+N:57
+R: 3
+Capacity: 21
+
+Size: 123 Demand type3DT: RCT: R
+R: 3
+Capacity: 155
+
+Size: 124 Demand type4DT: CCT: C
+N:117
+R: 3
+Capacity: 222
+
+Size: 125 Demand type5DT: ECT: CR
+N:58
+R: 3
+Capacity: 188
+
+Size: 126 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 127 Demand type1DT: CCT: C
+N:119
+R: 3
+Capacity: 15
+
+Size: 128 Demand type2DT: ECT: CR
+N:60
+R: 3
+Capacity: 21
+
+Size: 129 Demand type3DT: RCT: R
+R: 3
+Capacity: 146
+
+Size: 130 Demand type4DT: CCT: C
+N:124
+R: 3
+Capacity: 229
+
+Size: 131 Demand type5DT: ECT: CR
+N:62
+R: 3
+Capacity: 165
+
+Size: 132 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 133 Demand type1DT: CCT: C
+N:126
+R: 3
+Capacity: 15
+
+Size: 134 Demand type2DT: ECT: CR
+N:64
+R: 3
+Capacity: 21
+
+Size: 135 Demand type3DT: RCT: R
+R: 3
+Capacity: 159
+
+Size: 136 Demand type4DT: CCT: C
+N:130
+R: 3
+Capacity: 230
+
+Size: 137 Demand type5DT: ECT: CR
+N:62
+R: 3
+Capacity: 164
+
+Size: 138 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 139 Demand type1DT: CCT: C
+N:132
+R: 3
+Capacity: 17
+
+Size: 140 Demand type2DT: ECT: CR
+N:67
+R: 3
+Capacity: 21
+
+Size: 141 Demand type3DT: RCT: R
+R: 3
+Capacity: 150
+
+Size: 142 Demand type4DT: CCT: C
+N:136
+R: 3
+Capacity: 229
+
+Size: 143 Demand type5DT: ECT: CR
+N:65
+R: 3
+Capacity: 133
+
+Size: 144 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 145 Demand type1DT: CCT: C
+N:138
+R: 3
+Capacity: 17
+
+Size: 146 Demand type2DT: ECT: CR
+N:70
+R: 3
+Capacity: 21
+
+Size: 147 Demand type3DT: RCT: R
+R: 3
+Capacity: 143
+
+Size: 148 Demand type4DT: CCT: C
+N:142
+R: 3
+Capacity: 226
+
+Size: 149 Demand type5DT: ECT: CR
+N:67
+R: 3
+Capacity: 143
+
+Size: 150 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 151 Demand type1DT: CCT: C
+N:144
+R: 3
+Capacity: 16
+
+Size: 152 Demand type2DT: ECT: CR
+N:73
+R: 3
+Capacity: 21
+
+Size: 153 Demand type3DT: RCT: R
+R: 3
+Capacity: 151
+
+Size: 154 Demand type4DT: CCT: C
+N:146
+R: 3
+Capacity: 229
+
+Size: 155 Demand type5DT: ECT: CR
+N:70
+R: 3
+Capacity: 171
+
+Size: 156 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 157 Demand type1DT: CCT: C
+N:149
+R: 3
+Capacity: 16
+
+Size: 158 Demand type2DT: ECT: CR
+N:76
+R: 3
+Capacity: 21
+
+Size: 159 Demand type3DT: RCT: R
+R: 3
+Capacity: 151
+
+Size: 160 Demand type4DT: CCT: C
+N:154
+R: 3
+Capacity: 227
+
+Size: 161 Demand type5DT: ECT: CR
+N:73
+R: 3
+Capacity: 139
+
+Size: 162 Demand type0DT: RCT: R
+R: 3
+Capacity: 3
+
+Size: 163 Demand type1DT: CCT: C

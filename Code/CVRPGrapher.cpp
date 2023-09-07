@@ -1,32 +1,9 @@
 #include "./CVRPGrapher.h"
-#include <iostream>
-#include "./utilities.h"
-#include <unistd.h>
 
 
 using namespace std;
 
-CVRPGrapher::CVRPGrapher()
-{
-  fprintf(gnuplotPipe, "set title 'CVRP' \n ");
-  fprintf(gnuplotPipe, "set term wxt title 'Capacitated Vehicle Routing Problem' \n ");
-  fprintf(gnuplotPipe, "set xrange [1:1000]\n ");
-  fprintf(gnuplotPipe, "set yrange [1:1000]\n ");
-  fprintf(gnuplotPipe, "set palette maxcolors 2 \n ");
-  fprintf(gnuplotPipe, "set palette defined ( 0 'blue', 1 'red') \n ");
-
-  fprintf(gnuplotPipe, "unset colorbox \n ");
-  fflush(gnuplotPipe);
-}
-CVRPGrapher::~CVRPGrapher()
-{
-  fprintf(gnuplotPipe, " quit \n ");
-  fflush(gnuplotPipe);
-  pclose(gnuplotPipe);
-}
-
-
-/// @brief Takes a 2D integer vector and saves it as a space separated txt file to be used by gnuplot, using defaultFilename. IT saves the depot coordinates in a new file.
+/// @brief Takes a 2D integer vector and saves it as a space separated txt file to be used by gnuplot, using defaultFilename. It saves the depot coordinates in a new separate file.
 /// @param vec Coordinate vector.
 void CVRPGrapher::vec2File()
 {
@@ -63,7 +40,6 @@ void CVRPGrapher::plotCurrentInstance()
     fprintf(gnuplotPipe, "unset arrow \n");
 
     string c = "plot '" + defaultFilename + "'  ps 1  lc rgb 'blue' notitle, '" + defaultDepotFilename + "'  ps 1 pt 7 lc rgb 'red' notitle\n ";
-    cout << c;
     const char *gnuplotCommand = c.c_str();
     fprintf(gnuplotPipe, gnuplotCommand);
     fprintf(gnuplotPipe, "pause -1 \n ");
@@ -83,7 +59,6 @@ void CVRPGrapher::replot()
 
 void CVRPGrapher::plotSolution()
 {
-  fflush(gnuplotPipe);
 
   fprintf(gnuplotPipe, "unset arrow \n"); // remove all the arrows that are in the current figure
   int x0, y0, x1, y1;
@@ -115,7 +90,6 @@ void CVRPGrapher::plotSolution()
   fprintf(gnuplotPipe, "replot \n ");
   fprintf(gnuplotPipe, "pause -1 \n ");
   fprintf(gnuplotPipe, "system 'clear'\n ");
-  fflush(gnuplotPipe);
   replot();
 }
 
@@ -137,62 +111,3 @@ void CVRPGrapher::setSolutionVector(vector<vector<int>> vec)
   plotSolution();
 }
 
-// int main(int argc, char **argv)
-// {
-//   CVRPGrapher grapher;
-//   vector<vector<int>> vec;
-//   tuple<vector<vector<int>>, int> instance;
-//   tuple<vector<vector<int>>, int> solution;
-//   // vec = generateCustomerCoordinates(1000, "R");
-//   // grapher.vec2Graph(vec);
-//   // sleep(2);
-//   //
-//   // vec = generateCustomerCoordinates(1000, "C");
-//   // grapher.vec2Graph(vec);
-//   // sleep(2);
-//   //
-//   // vec = generateCustomerCoordinates(1000, "RC");
-//   // grapher.vec2Graph(vec);
-//   // sleep(2);
-//   //
-//   // vec = generateCustomerCoordinates(1000, "RC");
-//   // grapher.vec2Graph(vec);
-//   // sleep(2);
-//   // grapher.addLines();
-
-//   // instance = readCVRP("./Graphs/X/X-n125-k30.vrp");
-//   // solution = readSolution("./Graphs/X/X-n125-k30.sol");
-
-//   // grapher.setInstanceCoordinates(get<0>(instance));
-//   // grapher.setSolutionVector(get<0>(solution));
-//   // grapher.setInstanceCost(get<1>(solution));
-
-//   // instance = readCVRP("./Graphs/X/X-n148-k46.vrp");
-//   // solution = readSolution("./Graphs/X/X-n148-k46.sol");
-//   // sleep(3);
-//   // grapher.setInstanceCoordinates(get<0>(instance));
-//   // grapher.setSolutionVector(get<0>(solution));
-//   // grapher.setInstanceCost(get<1>(solution));
-
-//   cout << "looking for files" << endl;
-//   vector<string> vrpInstances = glob("./Graphs/X/", ".vrp");
-//   vector<string> vrpSolutions = glob("./Graphs/X/", ".sol");
-//   printVector(vrpInstances);
-//   printVector(vrpSolutions);
-//   int nFiles = vrpInstances.size();
-//   for (int i = 0; i < nFiles; i++)
-//   {
-//     instance = readCVRP(vrpInstances.at(i));
-//     solution = readSolution(vrpSolutions.at(i));
-//     sleep(2);
-//     grapher.setInstanceCoordinates(get<0>(instance));
-//     grapher.setSolutionVector(get<0>(solution));
-//     grapher.setInstanceCost(get<1>(solution));
-//   }
-
-//   return 0;
-// }
-
-//int main(){
-//return 0;
-//}

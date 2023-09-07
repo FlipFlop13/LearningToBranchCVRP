@@ -1,7 +1,9 @@
 #!/bin/sh
 echo 'Compiling'
 g++ -std=c++2a -c CVRPGrapher.cpp -o CVRPGrapher.o
+echo 'Compiling 2' 
 g++ -std=c++2a -c -m64 -fPIC -fno-strict-aliasing -fexceptions -DNDEBUG -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include -I/opt/ibm/ILOG/CPLEX_Studio2211/concert/include  branchAndCut.cpp -o branchAndCut.o
-g++ -std=c++2a -m64 -fPIC -fno-strict-aliasing -fexceptions -DNDEBUG -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include -I/opt/ibm/ILOG/CPLEX_Studio2211/concert/include  -L/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic -L/opt/ibm/ILOG/CPLEX_Studio2211/concert/lib/x86-64_linux/static_pic  -o branchAndCut branchAndCut.o CVRPGrapher.o -lconcert -lilocplex -lcplex -lm -lpthread -ldl
+echo 'Compiling 3'
+g++ -std=c++2a -m64 -fPIC -fno-strict-aliasing -fexceptions -DNDEBUG -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include -I/opt/ibm/ILOG/CPLEX_Studio2211/concert/include  -L/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic -L/opt/ibm/ILOG/CPLEX_Studio2211/concert/lib/x86-64_linux/static_pic  -o runBranchAndCut branchAndCut.o -lconcert -lilocplex -lcplex -lm -lpthread -ldl
 echo 'Running'
-./branchAndCut
+./runBranchAndCut
