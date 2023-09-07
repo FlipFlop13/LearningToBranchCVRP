@@ -1,0 +1,11 @@
+#!/bin/sh
+echo 'Compiling Utilities' 
+g++ -std=c++2a -c utilities.cpp -o bin/build/utilities.o
+echo 'Compiling CVRPGrapher' 
+g++ -std=c++2a -c CVRPGrapher.cpp -o bin/build/CVRPGrapher.o
+echo 'Compiling branchAndCut' 
+g++ -std=c++2a -c -m64 -fPIC -fno-strict-aliasing -fexceptions -DNDEBUG -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include -I/opt/ibm/ILOG/CPLEX_Studio2211/concert/include  branchAndCut.cpp -o bin/build/branchAndCut.o
+echo 'Compiling Joiner'
+g++ -std=c++2a -m64 -fPIC -fno-strict-aliasing -fexceptions -DNDEBUG -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include -I/opt/ibm/ILOG/CPLEX_Studio2211/concert/include  -L/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic -L/opt/ibm/ILOG/CPLEX_Studio2211/concert/lib/x86-64_linux/static_pic  -o runBranchAndCut bin/build/branchAndCut.o bin/build/CVRPGrapher.o bin/build/utilities.o -lconcert -lilocplex -lcplex -lm -lpthread -ldl
+echo 'Running'
+./runBranchAndCut
