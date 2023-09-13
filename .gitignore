@@ -36,3 +36,9 @@
 
 #Literature directory
 Literature/**
+
+#Images
+*.png
+
+
+
