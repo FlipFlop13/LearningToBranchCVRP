@@ -1,0 +1,162 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+R: 3
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 21
+Sum of all demands: 1064
+Capacity: 159
+KMin: 6
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         -1
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_ZeroHalfCut                    -1
+CPXPARAM_MIP_Cuts_LiftProj                       -1
+CPXPARAM_MIP_Strategy_HeuristicFreq              -1
+CPXPARAM_TimeLimit                               60
+Generic callback                                 0x20
+Lazy constraint(s) or lazy constraint/branch callback is present.
+    Disabling dual reductions (CPX_PARAM_REDUCE) in presolve.
+    Disabling presolve reductions that prevent crushing forms (CPX_PARAM_PREREFORM).
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 21 columns.
+Aggregator did 190 substitutions.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 210 binaries, 20 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.60 ticks)
+Probing time = 0.00 sec. (0.12 ticks)
+Cover probing fixed 0 vars, tightened 20 bounds.
+Tried aggregator 1 time.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 230 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.20 ticks)
+Probing time = 0.00 sec. (0.05 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (0.17 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    15030.0000     6                  15030.0000       27         
+      0     2    15030.0000     6                  15030.0000       27         
+Elapsed time = 0.06 sec. (1.61 ticks, tree = 0.02 MB, solutions = 0)
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+*    69    21      integral     0    15868.0000    15123.0000       96    4.69%
+*    76    23      integral     0    15766.0000    15123.0000      115    4.08%
+CUUUUUUUUUUTTTT
+*    77    13      integral     0    15458.0000    15123.0000      139    2.17%
+CUUUUUUUUUUTTTT
+*   162    25      integral     0    15410.0000    15152.0000      253    1.67%
+
+User cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.01 sec. (1.59 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.23 sec. (2.99 ticks)
+  Sync time (average)   =    0.16 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.24 sec. (4.58 ticks)
+Solution status = Optimal
+Solution value  = 15410
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BOOOOOM
+Cost: 15410
+
+Vector:
+1 2 
+3 7 
+5 9 
+11 16 20 
+12 17 19 15 6 10 4 8 14 
+13 18 
+
+Vector:
+0 1 1 1 0 1 0 1 0 1 0 1 1 1 1 0 0 0 1 0 1 
+1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 
+1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 
+1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 
+1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 
+
+Vector:
+142 940 0 
+589 542 52 
+491 566 2 
+600 434 44 
+671 377 4 
+224 916 37 
+696 49 15 
+664 539 82 
+790 395 13 
+70 973 31 
+676 160 30 
+653 954 63 
+117 147 97 
+555 891 69 
+817 527 55 
+385 109 95 
+658 974 91 
+155 95 78 
+554 929 71 
+345 100 51 
+660 986 84 
+
+Vector:
+1 2 
+3 7 
+5 9 
+11 16 20 
+12 17 19 15 6 10 4 8 14 
+13 18 

@@ -1,8 +1,44 @@
 #include "./CVRPGrapher.h"
-
+#include "./utilities.h"
 
 using namespace std;
 
+CVRPGrapher::CVRPGrapher()
+{
+  fprintf(gnuplotPipe, "set title 'CVRP' \n ");
+  fprintf(gnuplotPipe, "set term wxt title 'Capacitated Vehicle Routing Problem' \n ");
+  fprintf(gnuplotPipe, "set xrange [1:1000]\n ");
+  fprintf(gnuplotPipe, "set yrange [1:1000]\n ");
+  fprintf(gnuplotPipe, "set palette maxcolors 2 \n ");
+  fprintf(gnuplotPipe, "set palette defined ( 0 'blue', 1 'red') \n ");
+
+  fprintf(gnuplotPipe, "unset colorbox \n ");
+  fflush(gnuplotPipe);
+}
+
+CVRPGrapher::CVRPGrapher(string graphFilename)
+{
+  fprintf(gnuplotPipe, "set title 'CVRP' \n ");
+  fprintf(gnuplotPipe, "set term wxt title 'Capacitated Vehicle Routing Problem' \n ");
+  fprintf(gnuplotPipe, "set xrange [1:1000]\n ");
+  fprintf(gnuplotPipe, "set yrange [1:1000]\n ");
+  fprintf(gnuplotPipe, "set palette maxcolors 2 \n ");
+  fprintf(gnuplotPipe, "set palette defined ( 0 'blue', 1 'red') \n ");
+
+  fprintf(gnuplotPipe, "unset colorbox \n ");
+  string saveCommand = "set output '" + graphFilename + "' \n";
+  const char *gnuplotCommand = saveCommand.c_str();
+  fprintf(gnuplotPipe, gnuplotCommand);
+  fprintf(gnuplotPipe, "unset colorbox \n ");
+  fflush(gnuplotPipe);
+}
+
+CVRPGrapher::~CVRPGrapher()
+{
+  fprintf(gnuplotPipe, " quit \n ");
+  fflush(gnuplotPipe);
+  pclose(gnuplotPipe);
+}
 /// @brief Takes a 2D integer vector and saves it as a space separated txt file to be used by gnuplot, using defaultFilename. It saves the depot coordinates in a new separate file.
 /// @param vec Coordinate vector.
 void CVRPGrapher::vec2File()
@@ -103,6 +139,7 @@ void CVRPGrapher::setInstanceCoordinates(vector<vector<int>> vec)
 void CVRPGrapher::setInstanceCost(int cost)
 {
   instanceCost = cost;
+  replot();
 }
 
 void CVRPGrapher::setSolutionVector(vector<vector<int>> vec)
@@ -110,4 +147,3 @@ void CVRPGrapher::setSolutionVector(vector<vector<int>> vec)
   solutionVector = vec;
   plotSolution();
 }
-

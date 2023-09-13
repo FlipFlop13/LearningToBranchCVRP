@@ -161,3 +161,83 @@ R: 3
 Capacity: 15
 
 Size: 44, Demand type2, DT: E, CT: CR
+R: 3
+Capacity: 21
+
+Size: 45, Demand type3, DT: R, CT: R
+R: 3
+Capacity: 158
+
+Size: 46, Demand type4, DT: C, CT: C
+R: 3
+Capacity: 215
+
+Size: 47, Demand type5, DT: E, CT: CR
+R: 3
+Capacity: 128
+
+Size: 48, Demand type0, DT: R, CT: R
+R: 3
+Capacity: 3
+
+Size: 49, Demand type1, DT: C, CT: C
+R: 3
+Capacity: 16
+
+Size: 50, Demand type2, DT: E, CT: CR
+R: 3
+Capacity: 21
+
+Size: 51, Demand type3, DT: R, CT: R
+R: 3
+Capacity: 144
+
+Size: 52, Demand type4, DT: C, CT: C
+R: 3
+Capacity: 222
+
+Size: 53, Demand type5, DT: E, CT: CR
+R: 3
+Capacity: 164
+
+Size: 54, Demand type0, DT: R, CT: R
+R: 3
+Capacity: 3
+
+Size: 55, Demand type1, DT: C, CT: C
+R: 3
+Capacity: 17
+
+Size: 56, Demand type2, DT: E, CT: CR
+R: 3
+Capacity: 21
+
+Size: 57, Demand type3, DT: R, CT: R
+R: 3
+Capacity: 144
+
+Size: 58, Demand type4, DT: C, CT: C
+R: 3
+Capacity: 225
+
+Size: 59, Demand type5, DT: E, CT: CR
+R: 3
+Capacity: 128
+
+Size: 60, Demand type0, DT: R, CT: R
+R: 3
+Capacity: 3
+
+Size: 61, Demand type1, DT: C, CT: C
+R: 3
+Capacity: 17
+
+Size: 62, Demand type2, DT: E, CT: CR
+R: 3
+Capacity: 21
+
+Size: 63, Demand type3, DT: R, CT: R
+R: 3
+Capacity: 157
+
+Size: 64, Demand type4, DT: C, CT: C

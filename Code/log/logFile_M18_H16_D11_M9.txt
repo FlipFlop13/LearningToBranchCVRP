@@ -1,0 +1,81 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 101
+Sum of all demands: 5147
+Capacity: 206
+KMin: 24
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         -1
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_ZeroHalfCut                    -1
+CPXPARAM_MIP_Cuts_LiftProj                       -1
+CPXPARAM_MIP_Strategy_HeuristicFreq              -1
+CPXPARAM_TimeLimit                               60
+Generic callback                                 0x20
+Lazy constraint(s) or lazy constraint/branch callback is present.
+    Disabling dual reductions (CPX_PARAM_REDUCE) in presolve.
+    Disabling presolve reductions that prevent crushing forms (CPX_PARAM_PREREFORM).
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 101 columns.
+Aggregator did 4950 substitutions.
+Reduced MIP has 202 rows, 5150 columns, and 20200 nonzeros.
+Reduced MIP has 5050 binaries, 100 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.06 sec. (12.29 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 202 rows, 5150 columns, and 20200 nonzeros.
+Reduced MIP has 5050 binaries, 100 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (5.03 ticks)
+Probing time = 0.04 sec. (1.83 ticks)
+Cover probing fixed 0 vars, tightened 100 bounds.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.02 sec. (3.25 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    38247.0000    18                  38247.0000      124         
+      0     2    38247.0000    18                  38247.0000      124         
+Elapsed time = 0.24 sec. (36.42 ticks, tree = 0.02 MB, solutions = 0)
+    440   415    48338.5000    32                  38350.0000     5962         
+    678   620    48421.0000    26                  38442.0000     9925         
+    933   873    infeasible                        38442.0000    13760         
+   1107  1074    50011.0000    20                  38463.0000    17246         
+   1255  1188    45502.1000   101                  38488.0000    20458         
+   1359  1271    46478.6000   123                  38488.0000    23205         
+   1468  1401    47848.2090   125                  38509.0000    26644         
+   1572  1493    50098.0000    14                  38509.0000    28485         
+   1718  1611    47383.0667    90                  38515.0000    30976         
+   2199  2110    47373.1964   135                  38526.0000    41496         
+Elapsed time = 20.00 sec. (3155.07 ticks, tree = 11.80 MB, solutions = 0)
+   2653  2540    47067.2222   108                  38541.0000    50950         
+   2935  2800    47380.1982   162                  38569.0000    59768         
+   3305  3171    47453.3333    79                  38584.0000    71521         
+   3646  3494    47080.2247   155                  38607.0000    79839         
+   3920  3745    47921.0000    29                  38634.0000    90292         
+
+User cuts applied:  908
+
+Root node processing (before b&c):
+  Real time             =    0.21 sec. (35.57 ticks)
+Parallel b&c, 4 threads:
+  Real time             =   59.83 sec. (7902.12 ticks)
+  Sync time (average)   =    9.78 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   60.04 sec. (7937.69 ticks)
+Solution status = Unknown

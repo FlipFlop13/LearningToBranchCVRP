@@ -1,0 +1,13 @@
+//comments are allowed in this JSON, there must be a space befor and after each :,
+//all values must be in between double quotes
+{
+    "logging" : "yes",
+    "graphSaving" : "yes",
+    "readCVRP" : "no",
+    "generateRandomCVRP" : "yes",
+    "nCustomer" : "10",
+    "customerDistribution" : "C",
+    "depotLocation" : "C",
+    "demandDistribution" : "0",
+
+}

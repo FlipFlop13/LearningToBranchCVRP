@@ -1,0 +1,56 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+R: 3
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 19
+Sum of all demands: 933
+Capacity: 155
+KMin: 6
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_TimeLimit                               600
+Generic callback                                 0x20
+Lazy constraint(s) or lazy constraint/branch callback is present.
+    Disabling dual reductions (CPX_PARAM_REDUCE) in presolve.
+    Disabling presolve reductions that prevent crushing forms (CPX_PARAM_PREREFORM).
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 19 columns.
+Aggregator did 153 substitutions.
+Reduced MIP has 38 rows, 189 columns, and 684 nonzeros.
+Reduced MIP has 171 binaries, 18 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.04 sec. (0.50 ticks)
+Probing time = 0.00 sec. (0.09 ticks)
+Cover probing fixed 0 vars, tightened 18 bounds.
+Tried aggregator 1 time.
+Reduced MIP has 38 rows, 189 columns, and 684 nonzeros.
+Reduced MIP has 189 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.16 ticks)
+Probing time = 0.00 sec. (0.04 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.02 sec. (0.13 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    14869.0000     8                  13770.0000       20         
+      0     0    15700.0000    16                     Cuts: 8       22         
+      0     0    15707.0000    18                     Cuts: 7       25         
+      0     0    15755.0000    16                 ZeroHalf: 4       26         
+      0     0    15762.0000    14                 ZeroHalf: 6       27         
+      0     0    15764.6000    30                 ZeroHalf: 4       28         
+      0     0    15766.8000    29                 ZeroHalf: 4       29         
+*     0+    0                        26348.0000    15766.8000            40.16%
+      0     2    15766.8000    29    26348.0000    15821.3333       29   39.95%
+Elapsed time = 1.07 sec. (16.30 ticks, tree = 0.02 MB, solutions = 1)
+*    12+    2                        24354.0000    15831.0000            35.00%
+*    49+   37                        18584.0000    16034.0000            13.72%
+*   145+   90                        18130.0000    16206.0000            10.61%
+    827   590    16866.9231    32    18130.0000    16524.0000     5612    8.86%

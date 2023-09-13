@@ -1,0 +1,88 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+R: 3
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 21
+Sum of all demands: 995
+Capacity: 149
+KMin: 6
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         -1
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_ZeroHalfCut                    -1
+CPXPARAM_MIP_Cuts_LiftProj                       -1
+CPXPARAM_MIP_Strategy_HeuristicFreq              -1
+CPXPARAM_TimeLimit                               60
+Generic callback                                 0x20
+Lazy constraint(s) or lazy constraint/branch callback is present.
+    Disabling dual reductions (CPX_PARAM_REDUCE) in presolve.
+    Disabling presolve reductions that prevent crushing forms (CPX_PARAM_PREREFORM).
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 21 columns.
+Aggregator did 190 substitutions.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 210 binaries, 20 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.60 ticks)
+Probing time = 0.00 sec. (0.12 ticks)
+Cover probing fixed 0 vars, tightened 20 bounds.
+Tried aggregator 1 time.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 230 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.20 ticks)
+Probing time = 0.00 sec. (0.05 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (0.19 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    12694.0000     6                  12694.0000       32         
+      0     2    12694.0000     6                  12694.0000       32         
+Elapsed time = 0.07 sec. (1.64 ticks, tree = 0.02 MB, solutions = 0)
+*   489   344      integral     0    26494.0000    16977.0000     5646   35.92%
+    636   428    19526.6667    28    26494.0000    17449.0000     7304   34.14%
+*   842   622      integral     0    25784.0000    17501.6364     8393   32.12%
+*   876   659      integral     0    25454.0000    17501.6364     8864   31.24%
+   1175   898    17858.0000    22    25454.0000    17592.2857    11199   30.89%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 2 times.
+MIP Presolve eliminated 1 rows and 1 columns.
+MIP Presolve modified 398 coefficients.
+Aggregator did 20 substitutions.
+Reduced MIP has 21 rows, 209 columns, and 418 nonzeros.
+Reduced MIP has 209 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.36 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 21 rows, 209 columns, and 418 nonzeros.
+Reduced MIP has 209 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.12 ticks)
+Represolve time = 0.02 sec. (4.89 ticks)
+   1633   337    18828.3333    19    25454.0000    17605.0000    16569   30.84%
+*  2037   674      integral     0    23068.0000    17686.0000    20618   23.33%
+   2296   905    20952.0000    16    23068.0000    17746.0000    23733   23.07%
+   2849  1365    19136.3333    21    23068.0000    17794.1111    30314   22.86%
+   3254  1709    20123.5000    25    23068.0000    17824.3077    35542   22.73%
+*  3373  1821      integral     0    22816.0000    17844.0000    36838   21.79%
+*  3430  1853      integral     0    20766.0000    17849.7143    37356   14.04%
+   3583  1703    20371.6667    24    20766.0000    17865.0000    40294   13.97%
+   3965  1979    20543.3333    15    20766.0000    17929.0000    45430   13.66%
+   4332  2252    18739.8889    36    20766.0000    17950.0000    51179   13.56%
+*  4479  2394      integral     0    20678.0000    17958.0000    53808   13.15%
+Elapsed time = 13.66 sec. (2260.19 ticks, tree = 0.94 MB, solutions = 8)

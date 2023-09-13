@@ -1,0 +1,222 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 101
+Sum of all demands: 5147
+Capacity: 206
+KMin: 25
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_TimeLimit                               60
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 101 columns.
+Aggregator did 4950 substitutions.
+Reduced MIP has 202 rows, 5150 columns, and 20200 nonzeros.
+Reduced MIP has 5050 binaries, 100 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.07 sec. (16.07 ticks)
+Found incumbent of value 120468.000000 after 0.12 sec. (28.26 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 202 rows, 5150 columns, and 20200 nonzeros.
+Reduced MIP has 5050 binaries, 100 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.03 sec. (8.36 ticks)
+Probing time = 0.02 sec. (2.01 ticks)
+Cover probing fixed 0 vars, tightened 100 bounds.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.02 sec. (3.92 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                       120468.0000        0.0000           100.00%
+      0     0    39948.0000    12   120468.0000    39948.0000      138   66.84%
+      0     0    40094.0000     6   120468.0000      Cuts: 14      144   66.72%
+*     0+    0                        40288.0000    40094.0000             0.48%
+      0     0    40117.0000     6    40288.0000       Cuts: 7      147    0.42%
+Detecting symmetries...
+
+Repeating presolve.
+Tried aggregator 2 times.
+MIP Presolve eliminated 50 rows and 4585 columns.
+MIP Presolve modified 251 coefficients.
+Aggregator did 2 substitutions.
+Reduced MIP has 150 rows, 563 columns, and 1636 nonzeros.
+Reduced MIP has 563 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (3.84 ticks)
+Probing time = 0.00 sec. (0.30 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve eliminated 2 rows and 2 columns.
+Reduced MIP has 148 rows, 561 columns, and 1618 nonzeros.
+Reduced MIP has 561 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (1.27 ticks)
+Represolve time = 0.03 sec. (8.70 ticks)
+Probing time = 0.00 sec. (0.30 ticks)
+Clique table members: 58.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (0.93 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                        40288.0000    40140.0000             0.37%
+      0     0    40117.0000     6    40288.0000    40140.0000      280    0.37%
+*     0+    0                        40156.0000    40140.0000             0.04%
+      0     0        cutoff          40156.0000    40156.0000      285    0.00%
+Elapsed time = 1.00 sec. (157.22 ticks, tree = 0.01 MB, solutions = 3)
+
+Clique cuts applied:  2
+Cover cuts applied:  2
+Zero-half cuts applied:  13
+Lift and project cuts applied:  6
+Gomory fractional cuts applied:  8
+
+Root node processing (before b&c):
+  Real time             =    1.01 sec. (157.63 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    1.01 sec. (157.63 ticks)
+Solution status = Optimal
+Solution value  = 40156
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cost: 40156
+
+Vector:
+3 64 
+4 18 
+5 15 
+8 34 
+11 19 
+12 58 
+14 28 63 
+17 80 
+20 35 
+21 23 
+22 41 
+24 46 
+27 97 
+30 85 
+31 32 
+33 53 
+40 44 
+50 79 
+56 94 
+59 96 
+61 100 
+67 60 87 48 26 47 38 89 98 99 62 71 51 83 52 81 91 
+73 95 
+75 93 
+77 88 

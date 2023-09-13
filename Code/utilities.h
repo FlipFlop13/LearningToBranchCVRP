@@ -129,4 +129,12 @@ vector<vector<int>> calculateEdgeCost(vector<vector<int>> *customers);
 /// @return A vector of vector of integers each subvector contains in order the indices of the verices visited.
 vector<vector<int>> fromEdgeUsageToRouteSolution(vector<vector<int>> edgeUsage);
 
+/// @brief This function takes the routes and the demands and ssums the demands for each route
+/// @param routes A vector of vectors of integers, each contains a route. (the customers served)
+/// @param demands The demand vector for each customer (depot included)
+void printRouteAndDemand(vector<vector<int>> routes, vector<int> demands);
+
+map<string, string> readJson(string filename = "cvrp.json");
+
+
 #endif /* UTILITIES_G */

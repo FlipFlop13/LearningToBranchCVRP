@@ -1,0 +1,14 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 101
+Sum of all demands: 5147
+Capacity: 206
+KMin: 25
+

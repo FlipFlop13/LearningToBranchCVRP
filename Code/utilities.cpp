@@ -422,7 +422,7 @@ vector<vector<int>> generateCustomerCoordinates(int n, string customerPositiong)
     else if (customerPositiong == "C") // clustered method
     {
         // First get the number of clusters [3,8]
-        int s = (rand() % 6) + 3; // This generates a random number between 3 and 8
+        int s = (rand() % 6) + 3;                               // This generates a random number between 3 and 8
         vector<vector<int>> seedCoordinates(s, vector<int>(2)); // a vector containing the cluster seeds
 
         vector<vector<double>> probCoordinates(1000, vector<double>(1000)); // probability distributiion for customers
@@ -473,7 +473,7 @@ vector<vector<int>> generateCustomerCoordinates(int n, string customerPositiong)
         }
     }
     else
-    { // Cluster and random method
+    {                             // Cluster and random method
         int s = (rand() % 6) + 3; // This generates a random number between 3 and 8 for the number of clusters
         int half = n / 2;
         vector<vector<int>> customerCoordinates((half + s), vector<int>(2));
@@ -516,7 +516,7 @@ vector<vector<int>> generateCustomerCoordinates(int n, string customerPositiong)
                 probCoordinates[i][j] = probSum;
             }
         }
-        
+
         double2dVectorDivisor(probCoordinates, probCoordinates.back().back());
 
         if (n > (s + half))
@@ -527,7 +527,7 @@ vector<vector<int>> generateCustomerCoordinates(int n, string customerPositiong)
             return customerCoordinates;
         }
         else
-        {   
+        {
             vector<vector<int>> V;
             V = vector<vector<int>>(customerCoordinates.begin(), customerCoordinates.begin() + n);
 
@@ -854,7 +854,7 @@ vector<vector<int>> fromEdgeUsageToRouteSolution(vector<vector<int>> edgeUsage)
             edgeUsage.at(0).at(i) = 0;
             route.push_back(i);
             lastVertex = i;
-            int j = 0;
+            int j = 0; // I think it can be one, for later
 
             while (true)
             {
@@ -883,3 +883,82 @@ vector<vector<int>> fromEdgeUsageToRouteSolution(vector<vector<int>> edgeUsage)
     return solutionVector;
 }
 
+/// @brief This function takes the routes and the demands and ssums the demands for each route
+/// @param routes A vector of vectors of integers, each contains a route. (the customers served)
+/// @param demands The demand vector for each customer (depot included)
+void printRouteAndDemand(vector<vector<int>> routes, vector<int> demands)
+{
+
+    for (vector<int> route : routes)
+    {
+        cout << "Route: ";
+        int demandSum = 0;
+        for (int costumer : route)
+        {
+            cout << costumer << " ";
+            demandSum += demands[costumer];
+        }
+        cout << "Demand sum: " << demandSum << endl;
+    }
+}
+
+map<string, string> readJson(string filename)
+{
+
+    fstream newfile;
+    newfile.open(filename, ios::in); // open a file to perform read operation using file object
+    if (!newfile.is_open())
+    {
+        exit(-1);
+    }
+    map<string, string> map;
+    string tp;
+    string type = "key";
+    string key;
+    string term;
+    while (getline(newfile, tp))
+    { // read data from file object and put it into string. Loops for every row.
+        int j = 0;
+        stringstream ss(tp);
+        string word;
+        vector<int> routeVector;
+        while (ss >> word)
+        {   
+            if (word[0] == '/' && word[1] == '/'){//is a comment
+                break;
+
+            }
+            for (int i = 0; i < word.size(); i++)
+            {
+                if (word[i] == '"')
+                {
+                    continue;
+                }
+                else if (word[i] == ':')
+                {
+                    type = ":";
+                    continue;
+                }else if (word[i] == ','){
+                    continue;
+                }
+                term += word[i];
+            }
+            if (type == "key")
+            {
+                key = term;
+                term = "";
+            }
+            else if (type == "term")
+            {
+                map[key] = term;
+                cout << key << "<->" << term << endl;
+                key = "";
+                term = "";
+                type = "key";
+            }else if (type == ":"){
+                type = "term";
+            }
+        }
+    }
+    return map;
+}

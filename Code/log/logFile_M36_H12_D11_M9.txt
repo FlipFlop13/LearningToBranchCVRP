@@ -1,0 +1,54 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 101
+Sum of all demands: 5147
+Capacity: 206
+KMin: 24
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         -1
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_ZeroHalfCut                    -1
+CPXPARAM_MIP_Cuts_LiftProj                       -1
+CPXPARAM_MIP_Strategy_HeuristicFreq              -1
+CPXPARAM_TimeLimit                               60
+Generic callback                                 0x20
+Lazy constraint(s) or lazy constraint/branch callback is present.
+    Disabling dual reductions (CPX_PARAM_REDUCE) in presolve.
+    Disabling presolve reductions that prevent crushing forms (CPX_PARAM_PREREFORM).
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 101 columns.
+Aggregator did 4950 substitutions.
+Reduced MIP has 202 rows, 5150 columns, and 20200 nonzeros.
+Reduced MIP has 5050 binaries, 100 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.12 sec. (12.29 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 202 rows, 5150 columns, and 20200 nonzeros.
+Reduced MIP has 5050 binaries, 100 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.04 sec. (5.03 ticks)
+Probing time = 0.21 sec. (1.83 ticks)
+Cover probing fixed 0 vars, tightened 100 bounds.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.04 sec. (3.25 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    38247.0000    18                  38247.0000      124         
+      0     2    38247.0000    18                  38247.0000      124         
+Elapsed time = 0.56 sec. (36.42 ticks, tree = 0.02 MB, solutions = 0)
+CUUUUUUUUUUTTTT

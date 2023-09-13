@@ -1,0 +1,83 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+R: 3
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 11
+Sum of all demands: 490
+Capacity: 147
+KMin: 3
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_TimeLimit                               600
+Generic callback                                 0x20
+Lazy constraint(s) or lazy constraint/branch callback is present.
+    Disabling dual reductions (CPX_PARAM_REDUCE) in presolve.
+    Disabling presolve reductions that prevent crushing forms (CPX_PARAM_PREREFORM).
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 11 columns.
+Aggregator did 45 substitutions.
+Reduced MIP has 22 rows, 65 columns, and 220 nonzeros.
+Reduced MIP has 55 binaries, 10 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.15 ticks)
+Probing time = 0.00 sec. (0.02 ticks)
+Cover probing fixed 0 vars, tightened 10 bounds.
+Tried aggregator 1 time.
+Reduced MIP has 22 rows, 65 columns, and 220 nonzeros.
+Reduced MIP has 65 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.06 ticks)
+Probing time = 0.00 sec. (0.01 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (0.06 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    13142.0000    14                  11524.0000       15         
+      0     0    13177.4286    17                    Fract: 1       18         
+      0     0    13210.0000     8                    Fract: 1       23         
+      0     0    13242.0000    16                     Cuts: 3       29         
+      0     0    13247.2000    21                     Cuts: 2       32         
+*     0+    0                        21462.0000    13247.2000            38.28%
+      0     2    13260.0000    12    21462.0000    13260.0000       32   38.22%
+Elapsed time = 0.22 sec. (6.55 ticks, tree = 0.02 MB, solutions = 1)
+*    51    18      integral     0    19832.0000    13338.0000      157   32.75%
+*    55    31      integral     0    18034.0000    13338.0000      292   26.04%
+*    85    36      integral     0    17042.0000    13378.0000      385   21.50%
+*    93+   32                        16372.0000    13378.0000            18.29%
+*   900+  227                        16212.0000    14808.0000             8.66%
+*   953   220      integral     0    16180.0000    15024.0000     6832    7.14%
+
+Cover cuts applied:  1
+Gomory fractional cuts applied:  4
+User cuts applied:  259
+
+Root node processing (before b&c):
+  Real time             =    0.14 sec. (6.52 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    1.95 sec. (105.96 ticks)
+  Sync time (average)   =    0.54 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    2.09 sec. (112.48 ticks)
+Solution status = Optimal
+Solution value  = 16180
+BOOOOOM
+Cost: 16180
+
+Vector:
+1 2 
+4 10 
+5 7 
+8 6 3 9 
+Route: 1 2 Demand sum: 102
+Route: 4 10 Demand sum: 105
+Route: 5 7 Demand sum: 140
+Route: 8 6 3 9 Demand sum: 143

@@ -1,0 +1,1587 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+R: 3
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 21
+Sum of all demands: 926
+Capacity: 138
+KMin: 6
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         -1
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_ZeroHalfCut                    -1
+CPXPARAM_MIP_Cuts_LiftProj                       -1
+CPXPARAM_MIP_Strategy_HeuristicFreq              -1
+CPXPARAM_TimeLimit                               60
+Generic callback                                 0x20
+Lazy constraint(s) or lazy constraint/branch callback is present.
+    Disabling dual reductions (CPX_PARAM_REDUCE) in presolve.
+    Disabling presolve reductions that prevent crushing forms (CPX_PARAM_PREREFORM).
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 21 columns.
+Aggregator did 190 substitutions.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 210 binaries, 20 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (0.60 ticks)
+Probing time = 0.00 sec. (0.12 ticks)
+Cover probing fixed 0 vars, tightened 20 bounds.
+Tried aggregator 1 time.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 230 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.20 ticks)
+Probing time = 0.00 sec. (0.05 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (0.19 ticks)
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(62)[0..1]  + 94 * IloIntVar(174)[0..1]  + 92 * IloIntVar(378)[0..1]  + 14 * IloIntVar(74)[0..1]  + 100 * IloIntVar(400)[0..1]  + 41 * IloIntVar(142)[0..1]  + 5 * IloIntVar(420)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(161)[0..1]  + 75 * IloIntVar(241)[0..1]  <= 138
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    13100.2692    14                  12830.0000       32         
+      0     2    13100.2692    14                  13100.2692       32         
+Elapsed time = 0.12 sec. (2.00 ticks, tree = 0.02 MB, solutions = 0)
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(53)[0..1]  + 14 * IloIntVar(72)[0..1]  + 94 * IloIntVar(188)[0..1]  + 41 * IloIntVar(142)[0..1]  + 92 * IloIntVar(378)[0..1]  + 32 * IloIntVar(283)[0..1]  + 100 * IloIntVar(398)[0..1]  + 81 * IloIntVar(163)[0..1]  + 30 * IloIntVar(336)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(383)[0..1]  + 85 * IloIntVar(63)[0..1]  + 94 * IloIntVar(174)[0..1]  + 14 * IloIntVar(74)[0..1]  + 41 * IloIntVar(138)[0..1]  + 33 * IloIntVar(198)[0..1]  + 2 * IloIntVar(96)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(163)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(53)[0..1]  + 14 * IloIntVar(72)[0..1]  + 94 * IloIntVar(188)[0..1]  + 41 * IloIntVar(136)[0..1]  + 92 * IloIntVar(380)[0..1]  + 81 * IloIntVar(156)[0..1]  + 86 * IloIntVar(440)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(396)[0..1]  + 30 * IloIntVar(336)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(53)[0..1]  + 41 * IloIntVar(132)[0..1]  + 94 * IloIntVar(174)[0..1]  + 14 * IloIntVar(74)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(199)[0..1]  + 32 * IloIntVar(287)[0..1]  + 81 * IloIntVar(159)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(389)[0..1]  + 94 * IloIntVar(189)[0..1]  + 85 * IloIntVar(53)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(196)[0..1]  + 2 * IloIntVar(96)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(142)[0..1]  + 81 * IloIntVar(156)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(53)[0..1]  + 14 * IloIntVar(73)[0..1]  + 94 * IloIntVar(177)[0..1]  + 81 * IloIntVar(153)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(112)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(74)[0..1]  + 41 * IloIntVar(140)[0..1]  + 94 * IloIntVar(188)[0..1]  + 75 * IloIntVar(240)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  + 30 * IloIntVar(337)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(199)[0..1]  + 32 * IloIntVar(280)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(65)[0..1]  + 14 * IloIntVar(72)[0..1]  + 86 * IloIntVar(431)[0..1]  + 41 * IloIntVar(140)[0..1]  + 94 * IloIntVar(191)[0..1]  + 75 * IloIntVar(240)[0..1]  + 32 * IloIntVar(305)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(285)[0..1]  <= 138
+Adding RCI: 30 * IloIntVar(336)[0..1]  + 92 * IloIntVar(375)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 30 * IloIntVar(319)[0..1]  + 100 * IloIntVar(382)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(65)[0..1]  + 14 * IloIntVar(74)[0..1]  + 86 * IloIntVar(437)[0..1]  + 94 * IloIntVar(180)[0..1]  + 32 * IloIntVar(317)[0..1]  + 33 * IloIntVar(200)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(134)[0..1]  + 11 * IloIntVar(114)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(65)[0..1]  + 14 * IloIntVar(74)[0..1]  + 86 * IloIntVar(437)[0..1]  + 94 * IloIntVar(180)[0..1]  + 32 * IloIntVar(317)[0..1]  + 33 * IloIntVar(200)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(134)[0..1]  + 11 * IloIntVar(114)[0..1]  <= 138
+59)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(401)[0..1]  + 86 * IloIntVar(441)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(74)[0..1]  + 30 * IloIntVar(320)[0..1]  + 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(62)[0..1]  + 14 * IloIntVar(72)[0..1]  + 92 * IloIntVar(379)[0..1]  + 41 * IloIntVar(137)[0..1]  + 5 * IloIntVar(419)[0..1]  + 94 * IloIntVar(177)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(203)[0..1]  + 32 * IloIntVar(283)[0..1]  + 75 * IloIntVar(243)[0..1]  + 81 * IloIntVar(163)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(441)[0..1]  + 100 * IloIntVar(401)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(65)[0..1]  + 14 * IloIntVar(75)[0..1]  + 86 * IloIntVar(425)[0..1]  + 33 * IloIntVar(196)[0..1]  + 2 * IloIntVar(96)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(74)[0..1]  + 30 * IloIntVar(338)[0..1]  + 94 * IloIntVar(185)[0..1]  + 86 * IloIntVar(438)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(133)[0..1]  + 33 * IloIntVar(203)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(142)[0..1]  + 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(284)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(396)[0..1]  + 30 * IloIntVar(336)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(74)[0..1]  + 30 * IloIntVar(320)[0..1]  + 94 * IloIntVar(176)[0..1]  + 11 * IloIntVar(116)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(203)[0..1]  + 32 * IloIntVar(280)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(Adding RCI: 50)[0..1]  + 85r( * IloIntVar(512 )[0l0..11]  + 7)[11 * * IloIloIntVar(110(3)[0....1]  +  + 4141 * IloIntVar(..1]  <= 11371[8.)[00.=1.31  + ]  + 33 * * IntVar(283Ilo)ntVar(41 [2050[.t10 (..1]  + 94 * IloIloIntVar(180)[[00..1] 1 +  + 9481IloIntVar(IloIntVar(184163[[ 0..1.1]]  +    33 * IloIntVar(2 * I[oIntVar( 0981[]  .. 1]  + 2 * IloIntVar(75)[0..2381[  +  0..1]  <= 13811 * IloIntVar(112)CUUUUUUUUUUTTTT
+ IloIntVar(Adding RCI: 50)[0..1]  + 85r( * IloIntVar(512 )[0l0..11]  + 7)[11 * * IloIloIntVar(110(3)[0....1]  +  + 4141 * IloIntVar(..1]  <= 11371[8.)[00.=1.31  + ]  + 33 * * IntVar(283Ilo)ntVar(41 [2050[.t10 (..1]  + 94 * IloIloIntVar(180)[[00..1] 1 +  + 9481IloIntVar(IloIntVar(184163[[ 0..1.1]]  +    33 * IloIntVar(2 * I[oIntVar( 0981[]  .. 1]  + 2 * IloIntVar(75)[0..2381[  +  0..1]  <= 13811 * IloIntVar(112)[0..1]  <= 138
+Adding RCI: 30 * IloIntVar(338)[0..1]  + 92 * IloIntVar(375)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+Adding RCI: 30 *Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(395)[0..1]  + 32 * IloIntVar(315)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(74)[0..1]  + 30 * IloIntVar(320)[0..1]  + 94 * IloIntVar(174)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(280)[0..1]  + 11 * IloIntVar(119)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(72)[0..1]  + 30 * IloIntVar(320)[0..1]  + 41 * IloIntVar(136)[0..1]  + 81 * IloIntVar(163)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  + 94 * IloIntVar(175)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(53)[0..1]  + 14 * IloIntVar(79)[0..1]  + 94 * IloIntVar(175)[0..1]  + 32 * IloIntVar(282)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(199)[0..1]  + 75 * IloIntVar(240)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(53)[0..1]  + 14 * IloIntVar(72)[0..1]  + 94 * IloIntVar(178)[0..1]  + 41 * IloIntVar(138)[0..1]  + 81 * IloIntVar(158)[0..1]  + 33 * IloIntVar(198)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 5 * IloIntVar(417)[0..1]  + 86 * IloIntVar(424)[0..1]  + 30 * IloIntVar(337)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 14 * IloIntVar(74)[0..1]  + 32 * IloIntVar(278)[0..1]  + 94 * IloIntVar(177)[0..1]  + 41 * IloIntVar(137)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(138)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(62)[0..1]  + 14 * IloIntVar(72)[0..1]  + 92 * IloIntVar(375)[0..1]  + 41 * IloIntVar(138)[0..1]  + 30 * IloIntVar(337)[0..1]  + 33 * IloIntVar(203)[0..1]  + 5 * IloIntVar(417)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(95)[0..1]  + 81 * IloIntVar(154)[0..1]  + 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(305)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(95)[0.Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(79)[0..1]  + 32 * IloIntVar(280)[0..1]  + 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(198)[0..1]  + 41 * IloIntVar(138)[0..1]  + 94 * IloIntVar(188)[0..1]  + 92 * IloIntVar(375)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(417)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 92 * IloIntVar(368)[0..1]  + 94 * IloIntVar(188)[0..1]  + 14 * IloIntVar(74)[0..1]  + 85 * IloIntVar(54)[0..1]  + 33 * IloIntVar(196)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(133)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(384)[0..1]  + 14 * IloIntVar(84)[0..1]  + 33 * IloIntVar(196)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(137)[0..1]  + 94 * IloIntVar(188)[0..1]  + 92 * IloIntVar(374)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(62)[0..1]  + 14 * IloIntVar(72)[0..1]  + 92 * IloIntVar(368)[0..1]  + 41 * IloIntVar(133)[0..1]  + 94 * IloIntVar(188)[0..1]  + 2 * IloIntVar(96)[0..1]  + 32 * IloIntVar(284)[0..1]  + 33 * IloIntVar(199)[0..1]  + 11 * IloIntVar(121)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 41 * IloIntVar(133)[0..1]  + 33 * IloIntVar(195)[0..1]  + 2 * IloIntVar(93)[0..1]  + 14 * IloIntVar(75)[0..1]  + 94 * IloIntVar(176)[0..1]  + 11 * IloIntVar(116)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(317)[0..1]  + 92 * IloIntVar(375)[0..1]  + 86 * IloIntVar(437)[0..1]  + 30 * IloIntVar(335)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(62)[0..1]  + 14 * IloIntVar(72)[0..1]  + 92 * IloIntVar(374)[0..1]  + 41 * IloIntVar(136)[0..1]  + 32 * IloIntVar(314)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(200)[0..1]  + 32 * IloIntVar(284)[0..1]  + 94 * IloIntVar(184)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(74)[0..1]  + 32 * IloIntVar(299)[0..1]  + 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(284)[0..1]  + 81 * IloIntVar(163)[0..1]  + 33 * IloIntVar(199)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(134)[0..1]  + 11 * IloIntVar(114)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(326)[0..1]  + 5 * IloIntVar(422)[0..1]  + 94 * IloIntVar(186)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(52)[0..1]  + 14 * IloIntVar(72)[0..1]  + 81 * IloIntVar(152)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 92 * IloIntVar(379)[0..1]  + 100 * IloIntVar(386)[0..1]  + 5 * IloIntVar(419)[0..1]  + 11 * IloIntVar(126)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(72)[0..1]  + 32 * IloIntVar(299)[0..1]  + 41 * IloIntVar(136)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(200)[0..1]  + 32 * IloIntVar(280)[0..1]  + 94 * IloIntVar(180)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 94 * IloIntVar(182)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(269)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * IloIntVar(375)[0..1]  + 30 * IloIntVar(335)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(336)[0..1]  + 92 * IloIntVar(361)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(132)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 92 * IloIntVar(361)[0..1]  + 100 * IloIntVar(382)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 14 * IloIntVar(74)[0..1]  + 32 * IloIntVar(283)[0..1]  + 94 * IloIntVar(185)[0..1]  + 81 * IloIntVar(163)[0..1]  + 32 * IloIntVar(305)[0..1]  + 33 * IloIntVar(199)[0..1]  + 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(112)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(393)[0..1]  + 31 * IloIntVar(273)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(72)[0..1]  + 33 * IloIntVar(200)[0..1]  + 41 * IloIntVar(136)[0..1]  + 94 * IloIntVar(180)[0..1]  + 81 * IloIntVar(156)[0..1]  + 2 * IloIntVar(98)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(312)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 32 * IloIntVar(299)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(400)[0..1]  + 5 * IloIntVar(420)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 33 * IloIntVar(198)[0..1]  + 32 * IloIntVar(280)[0..1]  + 41 * IloIntVar(138)[0..1]  + 2 * IloIntVar(100)[0..1]  + 94 * IloIntVar(177)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  + 31 * IloIntVar(273)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(83)[0..1]  + 41 * IloIntVar(136)[0..1]  + 92 * IloIntVar(363)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(336)[0..1]  + 92 * IloIntVar(361)[0..1]  + 100 * IloIntVar(396)[0..1]  + 29 * IloIntVar(231)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(53)[0..1]  + 41 * IloIntVar(132)[0..1]  + 94 * IloIntVar(190)[0..1]  + 14 * IloIntVar(79)[0..1]  + 5 * IloIntVar(410)[0..1]  + 32 * IloIntVar(279)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 92 * IloIntVar(362)[0..1]  + 5 * IloIntVar(412)[0..1]  + 85 * IloIntVar(62)[0..1]  + 29 * IloIntVar(232)[0..1]  + 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(186)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(62)[0..1]  + 14 * IloIntVar(72)[0..1]  + 92 * IloIntVar(362)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(190)[0..1]  + 30 * IloIntVar(336)[0..1]  + 5 * IloIntVar(410)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(190)[0..1]  + 30 * IloIntVar(336)[0..1]  + 5 * IloIntVar(410)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+oIntVar(240)[0..1]  <= 138
+4 * IloIntVar(173)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 33 * IloIntVar(203)[0..1]  + 86 * IloIntVar(437)[0..1]  + 75 * IloIntVar(243)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(79)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(280)[0..1]  + 11 * IloIntVar(117)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(230)[0..1]  + 92 * IloIntVar(372)[0..1]  + 31 * IloIntVar(272)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(317)[0..1]  + 11 * IloIntVar(117)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(133)[0..1]  + 32 * IloIntVar(287)[0..1]  + 2 * IloIntVar(95)[0..1]  + 75 * IloIntVar(247)[0..1]  + 94 * IloIntVar(186)[0..1]  + 30 * IloIntVar(326)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 14 * IloIntVar(72)[0..1]  + 32 * IloIntVar(278)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  + 2 * IloIntVar(98)[0..1]  + 11 * IloIntVar(116)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(317)[0..1]  + 30 * IloIntVar(336)[0..1]  + 86 * IloIntVar(437)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(79)[0..1]  + 32 * IloIntVar(317)[0..1]  + 32 * IloIntVar(281)[0..1]  + 86 * IloIntVar(437)[0..1]  + 11 * IloIntVar(121)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(94)[0..1]  + 41 * IloIntVar(140)[0..1]  + 81 * IloIntVar(154)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(209)[0..1]  + 92 * IloIntVar(370)[0..1]  + 29 * IloIntVar(230)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(337)[0..1]  + 92 * IloIntVar(361)[0..1]  + 5 * IloIntVar(420)[0..1]  + 100 * IloIntVar(400)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(145)[0..1]  + 32 * IloIntVar(287)[0..1]  + 41 * IloIntVar(345)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0Adding RCI: 12 * IloIntVar(43)[0..1]  + 92 * IloIntVar(374)[0..1]  + 5 * IloIntVar(403)[0..1]  + 32 * IloIntVar(314)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(137)[0..1]  + 33 * IloIntVar(195)[0..1]  + 94 * IloIntVar(177)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(137)[0..1]  + 33 * IlCUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 41 * IloIntVar(132)[0..1]  + 30 * IloIntVar(337)[0..1]  + 14 * IloIntVar(83)[0..1]  + 5 * IloIntVar(420)[0..1]  + 92 * IloIntVar(363)[0..1]  + 100 * IloIntVar(400)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 33 * IloIntVar(194)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(79)[0..1]  + 2 * IloIntVar(89)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  + 33 * IloIntVar(203)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(116)[0..1]  + 94 * IloIntVar(177)[0..1]  + 41 * IloIntVar(149)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(314)[0..1]  + 30 * IloIntVar(336)[0..1]  + 92 * IloIntVar(374)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(338)[0..1]  + 92 * IloIntVar(361)[0..1]  + 86 * IloIntVar(442)[0..1]  + 5 * IloIntVar(422)[0..1]  + 94 * IloIntVar(190)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(70)[0..1]  + 41 * IloIntVar(131)[0..1]  + 2 * IloIntVar(90)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(400)[0..1]  + 5 * IloIntVar(420)[0..1]  + 92 * IloIntVar(379)[0..1]  + 32 * IloIntVar(314)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 33 * IloIntVar(198)[0..1]  + 41 * IloIntVar(138)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(283)[0..1]  + 81 * IloIntVar(163)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 33 * IloIntVar(198)[0..1]  + 41 * IloIntVar(138)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(100)[0..1Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(320)[0..1]  + 85 * IloIntVar(60)[0..1]  + 32 * IloIntVar(299)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(149)[0..1]  + 32 * IloIntVar(279)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(115)[0..1]  + 33 * IloIntVar(203)[0..1]  + 81 * IloIntVar(155)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(357)[0..1]  + 100 * IloIntVar(397)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 85 * IloIntVar(48)[0..1]  + 94 * IloIntVar(185)[0..1]  + 14 * IloIntVar(72)[0..1]  + 32 * IloIntVar(305)[0..1]  + 41 * IloIntVar(136)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(212)[0..1]  + 32 * IloIntVar(281)[0..1]  + 86 * IloIntVar(432)[0..1]  + 11 * IloIntVar(121)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(320)[0..1]  + 85 * IloIntVar(60)[0..1]  + 32 * IloIntVar(278)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(83)[0..1]  + 2 * IloIntVar(96)[0..1]  + 92 * IloIntVar(379)[0..1]  + 33 * IloIntVar(203)[0..1]  + 5 * IloIntVar(419)[0..1]  + 75 * IloIntVar(243)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[0..1]  + 100 * IloIntVar(387)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(438)[0..1]  + 14 * IloIntVar(86)[0..1]  + 75 * IloIntVar(237)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 41 * IloIntVar(143)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(315)[0..1]  + 32 * IloIntVar(285)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 100 * IloIntVar(382)[0..1]  + 86 * IloIntVar(424)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(199)[0..1]  + 81 * IloIntVar(159)[0..1]  + 41 * IloIntVar(136)[0..1]  + 14 * IloIntVar(79)[0..1]  + 32 * IloIntVar(279)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(186)[0..1]  + 30 * IloIntVar(335)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(146)[0..1]  + 32 * IloIntVar(280)[0..1]  + 92 * IloIntVar(366)[0..1]  + 2 * IloIntVar(100)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+Adding RCI: 30 * IloIntVar(338)[0..1]  + 100 * IloIntVar(400)[0..1]  + 86 * IloIntVar(438)[0..1]  + 5 * IloIntVar(420)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 41 * IloIntVar(147)[0..1]  + 32 * IloIntVar(279)[0..1]  + 100 * IloIntVar(387)[0..1]  + 14 * IloIntVar(79)[0..1]  + 94 * IloIntVar(186)[0..1]  + 30 * IloIntVar(335)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(107)[0..1]  + 33 * IloIntVar(199)[0..1]  + 86 * IloIntVar(427)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 5 * IloIntVar(410)[0..1]  + 94 * IloIntVar(190)[0..1]  + 30 * IloIntVar(335)[0..1]  + 92 * IloIntVar(375)[0..1]  + 14 * IloIntVar(83)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(199)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[0..1]  + 32 * IloIntVar(303)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(74)[0..1]  + 2 * IloIntVar(96)[0..1]  + 94 * IloIntVar(186)[0..1]  + 33 * IloIntVar(196)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(140)[0..1]  + 81 * IloIntVar(163)[0..1]  + 75 * IloIntVar(240)[0..1]  + 32 * IloIntVar(283)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(134)[0..1]  + 32 * IloIntVar(280)[0..1]  + 11 * IloIntVar(117)[0..1]  + 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(212)[0..1]  + 75 * IloIntVar(238)[0..1]  + 86 * IloIntVar(432)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 92 * IloIntVar(361)[0..1]  + 5 * IloIntVar(404)[0..1]  + 85 * IloIntVar(64)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 94 * IloIntVar(174)[0..1]  + 32 * IloIntVar(279)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(112)[0..1]  + 33 * IloIntVar(203)[0..1]  + 75 * IloIntVar(243)[0..1]  + 41 * IloIntVar(140)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(315)[0..1]  + 30 * IloIntVar(332)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 41 * IloIntVar(138)[0..1]  + 33 * IloIntVar(198)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(280)[0..1]  + 14 * IloIntVar(79)[0..1]  + 81 * IloIntVar(153)[0..1]  <= 138
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(292)[0..1]  + 41 * IloIntVar(352)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(74)[0..1]  + 2 * IloIntVar(96)[0..1]  + 94 * IloIntVar(174)[0..1]  + 33 * IloIntVar(209)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(140)[0..1]  + 81 * IloIntVar(156)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(184)[0..1]  + 5 * IloIntVar(403)[0..1]  + 32 * IloIntVar(284)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(93)[0..1]  + 41 * IloIntVar(133)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(269)[0..1]  + 32 * IloIntVar(312)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 5 * IloIntVar(404)[0..1]  + 85 * IloIntVar(64)[0..1]  + 32 * IloIntVar(279)[0..1]  + 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(138)[0..1]  + 33 * IloIntVar(212)[0..1]  + 86 * IloIntVar(432)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(95)[0..1]  + 11 * IloIntVar(115)[0..1]  + 94 * IloIntVar(175)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(337)[0..1]  + 92 * IloIntVar(361)[0..1]  + 5 * IloIntVar(417)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 33 * IloIntVar(194)[0..1]  + 32 * IloIntVar(279)[0..1]  + 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(133)[0..1]  + 2 * IloIntVar(94)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(182)[0..1]  + 75 * IloIntVar(242)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 41 * IloIntVar(131)[0..1]  + 32 * IloIntVar(305)[0..1]  + 94 * IloIntVar(185)[0..1]  + 75 * IloIntVar(242)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 85 * IloIntVar(60)[0..1]  + 94 * IloIntVar(172)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(417)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(133)[0..1]  + 81 * IloIntVar(154)[0..1]  + 2 * IloIntVar(94)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(284)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(89)[0..1]  + 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(316)[0..1]  + 5 * IloIntVar(416)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(119)[0..1]  + 81 * IloIntVar(155)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(230)[0..1]  + 92 * IloIntVar(376)[0..1]  + 41 * IloIntVar(356)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(270)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(332)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 41 * IloIntVar(133)[0..1]  + 5 * IloIntVar(420)[0..1]  + 2 * IloIntVar(100)[0..1]  + 100 * IloIntVar(400)[0..1]  + 32 * IloIntVar(280)[0..1]  + 14 * IloIntVar(79)[0..1]  + 33 * IloIntVar(195)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(410)[0..1]  + 94 * IloIntVar(190)[0..1]  + 33 * IloIntVar(200)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(73)[0..1]  + 81 * IloIntVar(153)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 85 * IloIntVar(49)[0..1]  + 94 * IloIntVar(184)[0..1]  + 2 * IloIntVar(89)[0..1]  + 32 * IloIntVar(284)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(83)[0..1]  + 75 * IloIntVar(237)[0..1]  + 92 * IloIntVar(370)[0..1]  + 29 * IloIntVar(230)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(212)[0..1]  + 32 * IloIntVar(316)[0..1]  + 86 * IloIntVar(432)[0..1]  + 5 * IloIntVar(416)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(320)[0..1]  + 92 * IloIntVar(365)[0..1]  + 85 * IloIntVar(60)[0..1]  + 11 * IloIntVar(125)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(133)[0..1]  + 81 * IloIntVar(154)[0..1]  + 2 * IloIntVar(94)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(212)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(319)[0..1]  + 92 * IloIntVar(365)[0..1]  + 11 * IloIntVar(125)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(133)[0..1]  + 81 * IloIntVar(154)[0..1]  + 2 * IloIntVar(94)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(254)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  + 5 * IloIntVar(416)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 41 * IloIntVar(131)[0..1]  + 32 * IloIntVar(279)[0..1]  + 14 * IloIntVar(86)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  + 33 * IloIntVar(210)[0..1]  + 100 * IloIntVar(400)[0..1]  + 5 * IloIntVar(420)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 92 * IloIntVar(365)[0..1]  + 86 * IloIntVar(437)[0..1]  + 11 * IloIntVar(125)[0..1]  + 32 * IloIntVar(317)[0..1]  + 5 * IloIntVar(416)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(133)[0..1]  + 81 * IloIntVar(154)[0..1]  + 2 * IloIntVar(94)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(83)[0..1]  + 32 * IloIntVar(312)[0..1]  + 92 * IloIntVar(363)[0..1]  + 30 * IloIntVar(332)[0..1]  + 94 * IloIntVar(186)[0..1]  + 33 * IloIntVar(200)[0..1]  + 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(83)[0..1]  + 32 * IloIntVar(312)[0..1]  + 92 * IloIntVar(363)[0..1]  + 30 * IloIntVar(332)[0..1]  + 94 * IloIntVar(186)[0..1]  + 33 * IloIntVar(200)[0..1]  + 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 94 * IloIntVar(186)[0..1]  + 92 * IloIntVar(361)[0..1]  + 30 * IloIntVar(332)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  + 11 * IloIntVar(128)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(72)[0..1]  + 33 * IloIntVar(194)[0..1]  + 41 * IloIntVar(132)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(172)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(72)[0..1]  + 32 * IloIntVar(299)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(107)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(320)[0..1]  + 92 * IloIntVar(361)[0..1]  + 85 * IloIntVar(60)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(317)[0..1]  + 100 * IloIntVar(395)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 94 * IloIntVar(172)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  + 33 * IloIntVar(206)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 14 * IloIntVar(72)[0..1]  + 5 * IloIntVar(404)[0..1]  + 41 * IloIntVar(132)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 81 * IloIntVar(155)[0..1]  + 32 * IloIntVar(293)[0..1]  + 11 * IloIntVar(115)[0..1]  + 92 * IloIntVar(373)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(48)[0..1]  + 5 * IloIntVar(419)[0..1]  + 14 * IloIntVar(72)[0..1]  + 92 * IloIntVar(379)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(46)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(142)[0..1]  + 86 * IloIntVar(426)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(72)[0..1]  + 32 * IloIntVar(314)[0..1]  + 41 * IloIntVar(132)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(287)[0..1]  + 11 * IloIntVar(117)[0..1]  + 75 * IloIntVar(247)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(138)[0..1]  + 32 * IloIntVar(294)[0..1]  + 33 * IloIntVar(209)[0..1]  + 100 * IloIntVar(394)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  + 11 * IloIntVar(128)[0..1]  + 32 * IloIntVar(302)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(56)[0..1]  + 75 * IloIntVar(237)[0..1]  + 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 11 * IloIntVar(126)[0..1]  + 81 * IloIntVar(155)[0..1]  + 100 * IloIntVar(386)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(57)[0..1]  + 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(435)[0..1]  + 11 * IloIntVar(128)[0..1]  + 32 * IloIntVar(302)[0..1]  + 14 * IloIntVar(80)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(167)[0..1]  + 92 * IloIntVar(367)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(131)[0..1]  + 32 * IloIntVar(280)[0..1]  + 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(196)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(119)[0..1]  + 94 * IloIntVar(176)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(166)[0..1]  + 31 * IloIntVar(262)[0..1]  + 41 * IloIntVar(346)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 11 * IloIntVar(126)[0..1]  + 75 * IloIntVar(239)[0..1]  + 100 * IloIntVar(386)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(320)[0..1]  + 85 * IloIntVar(60)[0..1]  + 75 * IloIntVar(236)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(138)[0..1]  + 32 * IloIntVar(293)[0..1]  + 33 * IloIntVar(198)[0..1]  + 92 * IloIntVar(373)[0..1]  + 29 * IloIntVar(230)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: CUUUUUUUUUUTTTT
+Adding RCI: 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(350)[0..1]  + 75 * IloIntVar(250)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 29 * IloIntVar(230)[0..1]  + 92 * IloIntVar(371)[0..1]  + 75 * IloIntVar(251)[0..1]  <= 138
+85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(131)[0..1]  + 86 * IloIntVar(426)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(104)[0..1]  + 32 * IloIntVar(310)[0..1]  + 92 * IloIntVar(364)[0..1]  + 32 * IloIntVar(290)[0..1]  + 11 * IloIntVar(121)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 11 * IloIntVar(126)[0..1]  + 100 * IloIntVar(392)[0..1]  + 75 * IloIntVar(252)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 94 * IloIntVar(183)[0..1]  + 31 * IloIntVar(266)[0..1]  + 75 * IloIntVar(246)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 33 * IloIntVar(196)[0..1]  + 32 * IloIntVar(281)[0..1]  + 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(121)[0..1]  + 14 * IloIntVar(74)[0..1]  + 75 * IloIntVar(239)[0..1]  + 94 * IloIntVar(174)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(131)[0..1]  + 75 * IloIntVar(239)[0..1]  + 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(281)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(101)[0..1]  + 32 * IloIntVar(313)[0..1]  + 41 * IloIntVar(356)[0..1]  + 92 * IloIntVar(376)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(170)[0..1]  + 86 * IloIntVar(430)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 75 * IloIntVar(248)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(79)[0..1]  + 33 * IloIntVar(203)[0..1]  + 32 * IloIntVar(279)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(95)[0..1]  + 11 * IloIntVar(112)[0..1]  + 94 * IloIntVar(177)[0..1]  + 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(303)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 29 * IloIntVar(230)[0..1]  + 75 * IloIntVar(244)[0..1]  + 92 * IloIntVar(370)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(26)[0..1]  + 85 * IloIntVar(60)[0..1]  + 30 * IloIntVar(329)[0..1]  + 75 * IloIntVar(249)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(126)[0..1]  + 100 * IloIntVar(393)[0..1]  + 31 * IloIntVar(273)[0..1]  + 94 * IloIntVar(183)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 2 * IloIntVar(92)[0..1]  + 33 * IloIntVar(210)[0..1]  + 11 * IloIntVar(112)[0..1]  + 100 * IloIntVar(393)[0..1]  + 31 * IloIntVar(273)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 94 * IloIntVar(174)[0..1]  + 75 * IloIntVar(237)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(79)[0..1]  + 33 * IloIntVar(209)[0..1]  + 32 * IloIntVar(279)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(95)[0..1]  + 11 * IloIntVar(119)[0..1]  + 94 * IloIntVar(177)[0..1]  + 75 * IloIntVar(239)[0..1]  + 41 * IloIntVar(137)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 29 * IloIntVar(214)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  + 11 * IloIntVar(128)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(79)[0..1]  + 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(279)[0..1]  + 32 * IloIntVar(306)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(104)[0..1]  + 94 * IloIntVar(177)[0..1]  + 92 * IloIntVar(364)[0..1]  + 41 * IloIntVar(137)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 2 * IloIntVar(92)[0..1]  + 33 * IloIntVar(210)[0..1]  + 11 * IloIntVar(112)[0..1]  + 100 * IloIntVar(394)[0..1]  + 32 * IloIntVar(294)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 94 * IloIntVar(174)[0..1]  + 86 * IloIntVar(426)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 2 * IloIntVar(92)[0..1]  + 33 * IloIntVar(210)[0..1]  + 11 * IloIntVar(112)[0..1]  + 100 * IloIntVar(390)[0..1]  + 14 * IloIntVar(74)[0..1]  + 94 * IloIntVar(174)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(79)[0..1]  + 32 * IloIntVar(306)[0..1]  + 32 * IloIntVar(279)[0..1]  + 33 * IloIntVar(206)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(95)[0..1]  + 11 * IloIntVar(112)[0..1]  + 94 * IloIntVar(177)[0..1]  + 41 * IloIntVar(137)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(165)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(46)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(136)[0..1]  + 33 * IloIntVar(205)[0..1]  + 81 * IloIntVar(156)[0..1]  + 32 * IloIntVar(285)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(230)[0..1]  + 92 * IloIntVar(375)[0..1]  + 30 * IloIntVar(335)[0..1]  + 32 * IloIntVar(312)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(79)[0..1]  + 2 * IloIntVar(95)[0..1]  + 32 * IloIntVar(279)[0..1]  + 94 * IloIntVar(177)[0..1]  + 41 * IloIntVar(137)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(162)[0..1]  + 31 * IloIntVar(272)[0..1]  + 92 * IloIntVar(372)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 2 * IloIntVar(102)[0..1]  + 5 * IloIntVar(419)[0..1]  + 30 * IloIntVar(332)[0..1]  + 92 * IloIntVar(379)[0..1]  + 32 * IloIntVar(312)[0..1]  + 41 * IloIntVar(146)[0..1]  + 33 * IloIntVar(206)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(246)[0..1]  + 31 * IloIntVar(273)[0..1]  + 100 * IloIntVar(393)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 33 * IloIntVar(193)[0..1]  + 32 * IloIntVar(301)[0..1]  + 2 * IloIntVar(101)[0..1]  + 85 * IloIntVar(56)[0..1]  + 75 * IloIntVar(236)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(228)[0..1]  + 30 * IloIntVar(330)[0..1]  + 31 * IloIntVar(273)[0..1]  + 100 * IloIntVar(393)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 29 * IloIntVar(214)[0..1]  + 5 * IloIntVar(404)[0..1]  + 85 * IloIntVar(64)[0..1]  + 14 * IloIntVar(83)[0..1]  + 92 * IloIntVar(363)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(107)[0..1]  + 94 * IloIntVar(177)[0..1]  + 86 * IloIntVar(427)[0..1]  + 41 * IloIntVar(137)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(294)[0..1]  + 100 * IloIntVar(396)[0..1]  + 30 * IloIntVar(336)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 29 * IloIntVar(214)[0..1]  + 30 * IloIntVar(320)[0..1]  + 85 * IloIntVar(64)[0..1]  + 5 * IloIntVar(404)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 2 * IloIntVar(92)[0..1]  + 81 * IloIntVar(153)[0..1]  + 11 * IloIntVar(126)[0..1]  + 100 * IloIntVar(386)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(209)[0..1]  + 92 * IloIntVar(376)[0..1]  + 41 * IloIntVar(356)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(290)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(34)[0..1]  + 85 * IloIntVar(49)[0..1]  + 29 * IloIntVar(214)[0..1]  + 2 * IloIntVar(101)[0..1]  + 32 * IloIntVar(302)[0..1]  + 11 * IloIntVar(122)[0..1]  + 14 * IloIntVar(74)[0..1]  + 94 * IloIntVar(174)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  + 33 * IloIntVar(211)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 29 * IloIntVar(214)[0..1]  + 5 * IloIntVar(404)[0..1]  + 85 * IloIntVar(64)[0..1]  + 14 * IloIntVar(77)[0..1]  + 75 * IloIntVar(237)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 32 * IloIntVar(306)[0..1]  + 86 * IloIntVar(428)[0..1]  + 33 * IloIntVar(206)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(291)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 85 * IloIntVar(50)[0..1]  + 32 * IloIntVar(301)[0..1]  + 11 * IloIntVar(111)[0..1]  + 2 * IloIntVar(101)[0..1]  + 14 * IloIntVar(74)[0..1]  + 94 * IloIntVar(174)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(419)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(348)[0..1]  + 33 * IloIntVar(208)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(296)[0..1]  + 30 * IloIntVar(331)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(172)[0..1]  + 5 * IloIntVar(412)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(366)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(105)[0..1]  + 33 * IloIntVar(212)[0..1]  + 100 * IloIntVar(396)[0..1]  + 86 * IloIntVar(432)[0..1]  + 30 * IloIntVar(336)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 14 * IloIntVar(77)[0..1]  + 11 * IloIntVar(122)[0..1]  + 75 * IloIntVar(237)[0..1]  + 32 * IloIntVar(306)[0..1]  + 33 * IloIntVar(206)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(162)[0..1]  + 31 * IloIntVar(268)[0..1]  + 32 * IloIntVar(288)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 85 * IloIntVar(46)[0..1]  + 32 * IloIntVar(316)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  + 41 * IloIntVar(146)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(74)[0..1]  + 11 * IloIntVar(123)[0..1]  + 94 * IloIntVar(174)[0..1]  + 30 * IloIntVar(329)[0..1]  + 75 * IloIntVar(249)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(37)[0..1]  + 75 * IloIntVar(235)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(61)[0..1]  + 41 * IloIntVar(348)[0..1]  + 33 * IloIntVar(208)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(74)[0..1]  + 11 * IloIntVar(123)[0..1]  + 94 * IloIntVar(174)[0..1]  + 30 * IloIntVar(323)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(106)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  + 41 * IloIntVar(146)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(225)[0..1]  + 31 * IloIntVar(273)[0..1]  + 100 * IloIntVar(393)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(177)[0..1]  + 5 * IloIntVar(422)[0..1]  + 41 * IloIntVar(137)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(81)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  + 2 * IloIntVar(105)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(250)[0..1]  + 41 * IloIntVar(356)[0..1]  + 92 * IloIntVar(376)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 14 * IloIntVar(85)[0..1]  + 94 * IloIntVar(177)[0..1]  + 5 * IloIntVar(409)[0..1]  + 41 * IloIntVar(137)[0..1]  + 81 * IloIntVar(169)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(57)[0..1]  + 31 * IloIntVar(268)[0..1]  + 32 * IloIntVar(288)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(105)[0..1]  + 100 * IloIntVar(396)[0..1]  + 30 * IloIntVar(336)[0..1]  + 29 * IloIntVar(228)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(254)[0..1]  + 86 * IloIntVar(434)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(46)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 94 * IloIntVar(186)[0..1]  + 11 * IloIntVar(116)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(149)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(168)[0..1]  + 100 * IloIntVar(388)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(75)[0..1]  + 32 * IloIntVar(315)[0..1]  + 33 * IloIntVar(196)[0..1]  + 100 * IloIntVar(395)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(46)[0..1]  + 100 * IloIntVar(391)[0..1]  + 29 * IloIntVar(231)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(133)[0..1]  + 33 * IloIntVar(195)[0..1]  + 2 * IloIntVar(95)[0..1]  + 94 * IloIntVar(175)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(272)[0..1]  + 32 * IloIntVar(317)[0..1]  + 92 * IloIntVar(373)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(293)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 30 * IloIntVar(337)[0..1]  + 100 * IloIntVar(396)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 92 * IloIntVar(365)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(320)[0..1]  + 85 * IloIntVar(60)[0..1]  + 33 * IloIntVar(195)[0..1]  + 14 * IloIntVar(75)[0..1]  + 81 * IloIntVar(153)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(105)[0..1]  + 11 * IloIntVar(112)[0..1]  + 100 * IloIntVar(391)[0..1]  + 29 * IloIntVar(231)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(272)[0..1]  + 92 * IloIntVar(373)[0..1]  + 32 * IloIntVar(293)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(359)[0..1]  + 86 * IloIntVar(439)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 32 * IloIntVar(317)[0..1]  + 100 * IloIntVar(386)[0..1]  + 86 * IloIntVar(437)[0..1]  + 11 * IloIntVar(126)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(195)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 30 * IloIntVar(331)[0..1]  + 5 * IloIntVar(404)[0..1]  + 32 * IloIntVar(291)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(104)[0..1]  + 75 * IloIntVar(238)[0..1]  + 92 * IloIntVar(364)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(55)[0..1]  + 29 * IloIntVar(233)[0..1]  + 86 * IloIntVar(433)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 41 * IloIntVar(131)[0..1]  + 5 * IloIntVar(412)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(81)[0..1]  + 11 * IloIntVar(112)[0..1]  + 30 * IloIntVar(326)[0..1]  + 2 * IloIntVar(101)[0..1]  + 94 * IloIntVar(186)[0..1]  + 32 * IloIntVar(304)[0..1]  + 81 * IloIntVar(164)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 32 * IloIntVar(301)[0..1]  + 100 * IloIntVar(382)[0..1]  + 2 * IloIntVar(101)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(183)[0..1]  + 31 * IloIntVar(268)[0..1]  + 32 * IloIntVar(288)[0..1]  + 33 * IloIntVar(205)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(46)[0..1]  + 12 * IloIntVar(100 * IloIntVar(386)[0..1] 42 )[0..1] IloIntVar(28)126)[0..1]  + 32 * IloIntVar(298)[0..114 +  * IloIntVar(74)[0..1]  + 100 * IloIntVar(382)94.1IloIntVar(oI <=)[1385.Adding RCI: Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(46)[0..1]  + 12 * IloIntVar(100 * IloIntVar(386)[0..1] 42 )[0..1] IloIntVar(28)126)[0..1]  + 32 * IloIntVar(298)[0..114 +  * IloIntVar(74)[0..1]  + 100 * IloIntVar(382)94.1IloIntVar(oI <=)[1385.1]  <= 138
+Adding RCI: 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(356)[0..1]  + 92 * IloIntVar(376)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(145)[0..1]  + 32 * IloIntVar(280)[0..1]  + 41 * IloIntVar(350)[0..1]  + 75 * IloIntVar(250)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(286)[0..1]  + 29 * IloIntVar(233)[0..1]  + 86 * IloIntVar(433)[0..1]  <= 138
+81 * IloIntVar(164)[0..1]  + 32 * IloIntVar(306)[0..1]  + 33 * IloIntVar(206)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 81 * IloIntVar(153)[0..1]  + 75 * IloIntVar(237)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(105)[0..1]  + 41 * IloIntVar(133)[0..1]  + 100 * IloIntVar(393)[0..1]  + 31 * IloIntVar(273)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(46)[0..1]  + 30 * IloIntVar(324)[0..1]  + 41 * IloIntVar(144)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 75 * IloIntVar(237)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  + 11 * IloIntVar(122)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(105)[0..1]  + 32 * IloIntVar(280)[0..1]  + 100 * IloIntVar(393)[0..1]  + 31 * IloIntVar(273)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(49)[0..1]  + 30 * IloIntVar(337)[0..1]  + 2 * IloIntVar(100)[0..1]  + 5 * IloIntVar(417)[0..1]  + 32 * IloIntVar(280)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 94 * IloIntVar(176)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(204)[0..1]  + 31 * IloIntVar(273)[0..1]  + 100 * IloIntVar(393)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 2 * IloIntVar(90)[0..1]  + 5 * IloIntVar(417)[0..1]  + 14 * IloIntVar(75)[0..1]  + 30 * IloIntVar(337)[0..1]  + 33 * IloIntVar(200)[0..1]  + 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[0..1]  + 32 * IloIntVar(282)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(57)[0..1]  + 30 * IloIntVar(319)[0..1]  + 31 * IloIntVar(266)[0..1]  + 75 * IloIntVar(246)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 11 * IloIntVar(128)[0..1]  + 81 * IloIntVar(153)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  + 5 * IloIntVar(416)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 11 * IloIntVar(127)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(57)[0..1]  + 31 * IloIntVar(264)[0..1]  + 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(306)[0..1]  <= 138
+12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(46)[0..1]  + 30 * IloIntVar(321)[0..1]  + 14 * IloIntVar(81)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  + 5 * Adding RCI416oIntVar(314))[0..1]  <= 138
+12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(46)[0..1]  + 30 * IloIntVar(321)[0..1]  + 14 * IloIntVar(81)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  + 5 * Adding RCI416oIntVar(314))[0..1]  <= 138
+41 * IloIntVar(136)[0..1]  + 81 * IloIntVar(163)[0..1]  + 32 * IloIntVar(283)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(181)[0..1]  + 29 * IloIntVar(224)[0..1]  + 75 * IloIntVar(244)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 75 * IloIntVar(235)[0..1]  + 30 * IloIntVar(330)[0..1]  + 31 * IloIntVar(270)[0..1]  + 85 * IloIntVar(57)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(85)[0..1]  + 11 * IloIntVar(122)[0..1]  + 5 * IloIntVar(405)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(145)[0..1]  + 41 * IloIntVar(346)[0..1]  + 81 * IloIntVar(166)[0..1]  <= 138
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 2 times.
+MIP Presolve eliminated 1 rows and 19 columns.
+MIP Presolve modified 362 coefficients.
+Aggregator did 20 substitutions.
+Reduced MIP has 21 rows, 191 columns, and 382 nonzeros.
+Reduced MIP has 191 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.33 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 21 rows, 191 columns, and 382 nonzeros.
+Reduced MIP has 191 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.11 ticks)
+Represolve time = 0.01 sec. (0.80 ticks)
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 30 * IloIntVar(337)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(417)[0..1]  + 94 * IloIntVar(190)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(93)[0..1]  + 41 * IloIntVar(133)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(163)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(319)[0..1]  + 5 * IloIntVar(410)[0..1]  + 94 * IloIntVar(190)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 14 * IloIntVar(72)[0..1]  + 11 * IloIntVar(110)[0..1]  + 41 * IloIntVar(133)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(283)[0..1]  + 81 * IloIntVar(163)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(317)[0..1]  + 100 * IloIntVar(395)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+ IloIntVar(317)[0..1]  + 100 * IloIntVar(395)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+IntVar(133)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(283)[0..1]  + 81 * IloIntVar(163)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(395)[0..1]  + 32 * IloIntVar(315)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  + 41 * IloIntVar(140)[0..1]  + 81 * IloIntVar(156)[0..1]  + 14 * IloIntVar(74)[0..1]  + 94 * IloIntVar(174)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  + 41 * IloIntVar(140)[0..1]  + 81 * IloIntVar(156)[0..1]  + 14 * IloIntVar(74)[0..1]  + 94 * IloIntVar(174)[0..1] Adding RCI: 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(400)[0..1]  + 5 * IloIntVar(420)[0..1]  + 30 * IloIntVar(337)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(92)[0..1]  + 41 * IloIntVar(146)[0..1]  + 11 * IloIntVar(112)[0..1]  + 92 * IloIntVar(369)[0..1]  + 33 * IloIntVar(209)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(269)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(438)[0..1]  + 30 * IloIntVar(338)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 85 * IloIntVar(48)[0..1]  + 86 * IloIntVar(437)[0..1]  + 14 * IloIntVar(72)[0..1]  + 32 * IloIntVar(317)[0..1]  + 41 * IloIntVar(146)[0..1]  + 31 * IloIntVar(269)[0..1]  + 92 * IloIntVar(366)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(212)[0..1]  + 86 * IloIntVar(432)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(134)[0..1]  + 32 * IloIntVar(283)[0..1]  + 11 * IloIntVar(119)[0..1]  + 81 * IloIntVar(163)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(312)[0..1]  + 30 * IloIntVar(335)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 30 * IloIntVar(319)[0..1]  + 100 * IloIntVar(382)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 11 * IloIntVar(110)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(83)[0..1]  + 41 * IloIntVar(138)[0..1]  + 92 * IloIntVar(363)[0..1]  + 33 * IloIntVar(198)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 94 * IloIntVar(175)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 2 * IloIntVar(92)[0..1]  + 33 * IloIntVar(199)[0..1]  + 11 * IloIntVar(112)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(83)[0..1]  + 41 * IloIntVar(142)[0..1]  + 92 * IloIntVar(363)[0..1]  + 32 * IloIntVar(294)[0..1]  + 100 * IloIntVar(394)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(404)[0..1]  + 85 * IloIntVar(64)[0..1]  + 11 * IloIntVar(110)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(136)[0..1]  + 32 * IloIntVar(284)[0..1]  + 81 * IloIntVar(156)[0..1]  + 94 * IloIntVar(184)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(312)[0..1]  + 30 * IloIntVar(335)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 85 * IloIntVar(60)[0..1]  + 2 * IloIntVar(90)[0..1]  + 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(138)[0..1]  + 33 * IloIntVar(203)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(294)[0..1]  + 100 * IloIntVar(394)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(49)[0..1]  + 100 * IloIntVar(382)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(197)[0..1]  + 11 * IloIntVar(117)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(132)[0..1]  + 32 * IloIntVar(283)[0..1]  + 81 * IloIntVar(163)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(254)[0..1]  + 86 * IloIntVar(442)[0..1]  + 5 * IloIntVar(422)[0..1]  + 32 * IloIntVar(316)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(94)[0..1]  + 41 * IloIntVar(138)[0..1]  + 81 * IloIntVar(154)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(294)[0..1]  + 100 * IloIntVar(394)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 75 * IloIntVar(235)[0..1]  + 100 * IloIntVar(382)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(115)[0..1]  + 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(346)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(183)[0..1]  + 31 * IloIntVar(265)[0..1]  + 29 * IloIntVar(225)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 33 * IloIntVar(203)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(74)[0..1]  + 81 * IloIntVar(153)[0..1]  + 94 * IloIntVar(174)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(144)[0..1]  + 32 * IloIntVar(292)[0..1]  + 30 * IloIntVar(324)[0..1]  + 41 * IloIntVar(352)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(338)[0..1]  + 5 * IloIntVar(420)[0..1]  + 86 * IloIntVar(438)[0..1]  + 100 * IloIntVar(400)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(79)[0..1]  + 32 * IloIntVar(283)[0..1]  + 81 * IloIntVar(163)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(197)[0..1]  + 11 * IloIntVar(117)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(320)[0..1]  + 85 * IloIntVar(60)[0..1]  + 11 * IloIntVar(110)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 2 * IloIntVar(105)[0..1]  + 86 * IloIntVar(437)[0..1]  + 100 * IloIntVar(385)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(140)[0..1]  + 33 * IloIntVar(199)[0..1]  + 75 * IloIntVar(240)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(190)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(319)[0..1]  + 5 * IloIntVar(420)[0..1]  + 100 * IloIntVar(400)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(90)[0..1]  + 14 * IloIntVar(73)[0..1]  + 81 * IloIntVar(163)[0..1]  + 32 * IloIntVar(283)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(117)[0..1]  + 94 * IloIntVar(176)[0..1]  + 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(320)[0..1]  + 5 * IloIntVar(420)[0..1]  + 85 * IloIntVar(60)[0..1]  + 100 * IloIntVar(400)[0..1]  + 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(320)[0..1]  + 85 * IloIntVar(64)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(138)[0..1]  + 33 * IloIntVar(199)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(225)[0..1]  + 31 * IloIntVar(273)[0..1]  + 100 * IloIntVar(393)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(290)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 5 * IloIntVar(420)[0..1]  + 100 * IloIntVar(400)[0..1]  + 30 * IloIntVar(336)[0..1]  + 94 * IloIntVar(186)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(136)[0..1]  + 32 * IloIntVar(279)[0..1]  + 81 * IloIntVar(159)[0..1]  + 33 * IloIntVar(199)[0..1]  + 2 * IloIntVar(107)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 2 * IloIntVar(104)[0..1]  + 81 * IloIntVar(163)[0..1]  + 92 * IloIntVar(364)[0..1]  + 32 * IloIntVar(283)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(117)[0..1]  + 94 * IloIntVar(176)[0..1]  + 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(316)[0..1]  + 5 * IloIntVar(420)[0..1]  + 100 * IloIntVar(400)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(46)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(400)[0..1]  + 5 * IloIntVar(420)[0..1]  + 94 * IloIntVar(190)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(136)[0..1]  + 33 * IloIntVar(196)[0..1]  + 81 * IloIntVar(156)[0..1]  + 2 * IloIntVar(107)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(46)[0..1]  + 100 * IloIntVar(382)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(81)[0..1]  + 41 * IloIntVar(149)[0..1]  + 30 * IloIntVar(321)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  + 5 * IloIntVar(416)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 81 * IloIntVar(154)[0..1]  + 32 * IloIntVar(284)[0..1]  + 94 * IloIntVar(184)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(225)[0..1]  + 31 * IloIntVar(272)[0..1]  + 92 * IloIntVar(372)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 2 * IloIntVar(98)[0..1]  + 81 * IloIntVar(163)[0..1]  + 75 * IloIntVar(250)[0..1]  + 32 * IloIntVar(294)[0..1]  + 41 * IloIntVar(350)[0..1]  + 100 * IloIntVar(394)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(117)[0..1]  + 94 * IloIntVar(176)[0..1]  + 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(306)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(57)[0..1]  + 31 * IloIntVar(265)[0..1]  + 29 * IloIntVar(225)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(144)[0..1]  + 86 * IloIntVar(437)[0..1]  + 30 * IloIntVar(324)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(104)[0..1]  + 32 * IloIntVar(284)[0..1]  + 92 * IloIntVar(364)[0..1]  + 94 * IloIntVar(184)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(208)[0..1]  + 75 * IloIntVar(243)[0..1]  + 41 * IloIntVar(348)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(133)[0..1]  + 81 * IloIntVar(153)[0..1]  + 2 * IloIntVar(95)[0..1]  + 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(284)[0..1]  <= 138
+85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(74)[0..1]  + 33 * IloIntVar(212)[0..1]  + 94 * IloIntVar(186)[0..1]  + 86 * IloIntVar(432)[0..1]  + 30 * IloIntVar(326)[0..1]  + 41 * IloIntVar(149)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(280)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(143)[0..1]  + 81 * IloIntVar(153)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  + 11 * IloIntVar(128)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 94 * IloIntVar(175)[0..1]  + 32 * IloIntVar(292)[0..1]  + 41 * IloIntVar(352)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(55)[0..1]  + 29 * IloIntVar(225)[0..1]  + 31 * IloIntVar(265)[0..1]  + 41 * IloIntVar(141)[0..1]  + 14 * IloIntVar(86)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(102)[0..1]  + 32 * IloIntVar(284)[0..1]  + 30 * IloIntVar(322)[0..1]  + 94 * IloIntVar(184)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(57)[0..1]  + 5 * IloIntVar(419)[0..1]  + 31 * IloIntVar(257)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 32 * IloIntVar(280)[0..1]  + 86 * IloIntVar(426)[0..1]  + 2 * IloIntVar(100)[0..1]  + 94 * IloIntVar(175)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(117)[0..1]  + 33 * IloIntVar(198)[0..1]  + 6 * IloIntVar(426)[0..1]  + 2 * IloIntVar(100)[0..1]  + 94 * IloIntVar(175)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(74)[0..1]  + 33 * IloIntVar(207)[0..1]  + 94 * IloIntVar(174)[0..1]  + 30 * IloIntVar(327)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(280)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(280)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * ICUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 85 * IloIntVar(46)[0..1]  + 86 * IloIntVar(424)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 94 * IloIntVar(186)[0..1]  + 33 * IloIntVar(197)[0..1]  + 30 * IloIntVar(326)[0..1]  + 11 * IloIntVar(117)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 75 * IloIntVar(238)[0..1]  + 32 * IloIntVar(283)[0..1]  + 81 * IloIntVar(163)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(148)[0..1]  + 32 * IloIntVar(303)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 100 * IloIntVar(390)[0..1]  + 86 * IloIntVar(424)[0..1]  + 33 * IloIntVar(210)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(74)[0..1]  + 94 * IloIntVar(174)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(293)[0..1]  + 32 * IloIntVar(316)[0..1]  + 92 * IloIntVar(373)[0..1]  + 5 * IloIntVar(416)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(104)[0..1]  + 92 * IloIntVar(364)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(138)[0..1]  + 86 * IloIntVar(437)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(317)[0..1]  + 32 * IloIntVar(285)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(54)[0..1]  + 30 * IloIntVar(337)[0..1]  + 33 * IloIntVar(194)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(95)[0..1]  + 41 * IloIntVar(139)[0..1]  + 94 * IloIntVar(175)[0..1]  + 29 * IloIntVar(219)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(336)[0..1]  + 5 * IloIntVar(404)[0..1]  + 100 * IloIntVar(396)[0..1]  + 85 * IloIntVar(64)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 2 * IloIntVar(100)[0..1]  + 81 * IloIntVar(153)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 41 * IloIntVar(138)[0..1]  + 11 * IloIntVar(114)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(46)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(417)[0..1]  + 41 * IloIntVar(148)[0..1]  + 2 * IloIntVar(95)[0..1]  + 94 * IloIntVar(175)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(80)[0..1]  + 75 * IloIntVar(237)[0..1]  + 32 * IloIntVar(317)[0..1]  + 86 * IloIntVar(437)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 41 * IloIntVar(132)[0..1]  + 30 * IloIntVar(337)[0..1]  + 14 * IloIntVar(80)[0..1]  + 5 * IloIntVar(417)[0..1]  + 32 * IloIntVar(317)[0..1]  + 85 * IloIntVar(64)[0..1]  + 86 * IloIntVar(437)[0..1]  + 11 * IloIntVar(128)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(104)[0..1]  + 75 * IloIntVar(238)[0..1]  + 92 * IloIntVar(364)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 2 * IloIntVar(94)[0..1]  + 32 * IloIntVar(279)[0..1]  + 81 * IloIntVar(156)[0..1]  + 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(379)[0..1]  + 5 * IloIntVar(420)[0..1]  + 100 * IloIntVar(400)[0..1]  + 30 * IloIntVar(336)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(212)[0..1]  + 75 * IloIntVar(243)[0..1]  + 86 * IloIntVar(432)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(116)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(136)[0..1]  + 33 * IloIntVar(203)[0..1]  + 81 * IloIntVar(156)[0..1]  + 75 * IloIntVar(243)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 94 * IloIntVar(172)[0..1]  + 100 * IloIntVar(390)[0..1]  + 33 * IloIntVar(210)[0..1]  + 14 * IloIntVar(75)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(282)[0..1]  + 41 * IloIntVar(142)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(138)[0..1]  + 81 * IloIntVar(154)[0..1]  + 33 * IloIntVar(206)[0..1]  + 2 * IloIntVar(107)[0..1]  + 32 * IloIntVar(306)[0..1]  + 86 * IloIntVar(442)[0..1]  + 5 * IloIntVar(422)[0..1]  + 100 * IloIntVar(400)[0..1]  + 30 * IloIntVar(336)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(35)[0..1]  + 85 * IloIntVar(46)[0..1]  + 75 * IloIntVar(243)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(285)[0..1]  + 2 * IloIntVar(100)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+12 * IloIntVar(32)[0..1]  + 85 * IloIntVar(46)[0..1]  + 94 * IloIntVar(176)[0..1]  + 11 * IloIntVar(116)[0..1]  + 41 * IloIntVar(134)[0..1]  + 14 * IloIntVar(86)[0..1]  + 86 * IloIntVar(438)[0..1]  + 30 * IloIntVar(338)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(104)[0..1]  + 81 * IloIntVar(154)[0..1]  + 92 * IloIntVar(364)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 100 * IloIntVar(382)[0..1]  + 86 * IloIntVar(424)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(114)[0..1]  + 41 * IloIntVar(136)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(181)[0..1]  + 29 * IloIntVar(225)[0..1]  + 31 * IloIntVar(265)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 11 * IloIntVar(117)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(133)[0..1]  + 86 * IloIntVar(442)[0..1]  + 2 * IloIntVar(98)[0..1]  + 5 * IloIntVar(422)[0..1]  + 75 * IloIntVar(238)[0..1]  + 30 * IloIntVar(337)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 31 * IloIntVar(265)[0..1]  + 100 * IloIntVar(382)[0..1]  + 29 * IloIntVar(225)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(72)[0..1]  + 30 * IloIntVar(326)[0..1]  + 41 * IloIntVar(133)[0..1]  + 94 * IloIntVar(186)[0..1]  + 2 * IloIntVar(93)[0..1]  + 11 * IloIntVar(112)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 32 * IloIntVar(312)[0..1]  + 30 * IloIntVar(332)[0..1]  + 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(137)[0..1]  + 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(284)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(177)[0..1]  + 5 * IloIntVar(403)[0..1]  + 41 * IloIntVar(137)[0..1]  + 14 * IloIntVar(72)[0..1]  + 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(94)[0..1]  + 81 * IloIntVar(159)[0..1]  + 33 * IloIntVar(199)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(315)[0..1]  + 92 * IloIntVar(374)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(172)[0..1]  + 5 * IloIntVar(412)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(94)[0..1]  + 41 * IloIntVar(134)[0..1]  + 81 * IloIntVar(154)[0..1]  + 11 * IloIntVar(117)[0..1]  + 33 * IloIntVar(197)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(315)[0..1]  + 30 * IloIntVar(332)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(315)[Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(332)[0..1]  + 5 * IloIntVar(404)[0..1]  + 32 * IloIntVar(312)[0..1]  + 85 * IloIntVar(64)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(285)[0..1]  + 41 * IloIntVar(142)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(90)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(170)[0..1]  + 86 * IloIntVar(430)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 94 * IloIntVar(184)[0..1]  + 30 * IloIntVar(327)[0..1]  + 32 * IloIntVar(287)[0..1]  + 33 * IloIntVar(207)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(149)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(98)[0..1]  + 41 * IloIntVar(139)[0..1]  + 75 * IloIntVar(238)[0..1]  + 29 * IloIntVar(219)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 32 * IloIntVar(293)[0..1]  + 86 * IloIntVar(428)[0..1]  + 92 * IloIntVar(373)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(143)[0..1]  + 75 * IloIntVar(237)[0..1]  + 32 * IloIntVar(303)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 94 * IloIntVar(183)[0..1]  + 86 * IloIntVar(430)[0..1]  + 31 * IloIntVar(263)[0..1]  + 81 * IloIntVar(170)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 2 * IloIntVar(100)[0..1]  + 100 * IloIntVar(382)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(145)[0..1]  + 75 * IloIntVar(237)[0..1]  + 41 * IloIntVar(345)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(116)[0..1]  + 81 * IloIntVar(155)[0..1]  + 94 * IloIntVar(183)[0..1]  + 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(435)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 2 * IloIntVar(90)[0..1]  + 41 * IloIntVar(140)[0..1]  + 14 * IloIntVar(86)[0..1]  + 75 * IloIntVar(240)[0..1]  + 86 * IloIntVar(426)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 5 * IloIntVar(417)[0..1]  + 86 * IloIntVar(424)[0..1]  + 30 * IloIntVar(337)[0..1]  + 94 * IloIntVar(186)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 14 * IloIntVar(72)[0..1]  + 32 * IloIntVar(287)[0..1]  + 41 * IloIntVar(134)[0..1]  + 75 * IloIntVar(247)[0..1]  + 11 * IloIntVar(114)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 92 * IloIntVar(363)[0..1]  + 5 * IloIntVar(403)[0..1]  + 14 * IloIntVar(83)[0..1]  + 2 * IloIntVar(90)[0..1]  + 85 * IloIntVar(59)[0..1]  + 32 * IloIntVar(312)[0..1]  + 30 * IloIntVar(332)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[0..1]  + 75 * IloIntVar(240)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(90)[0..1]  + 14 * IloIntVar(71)[0..1]  + 11 * IloIntVar(116)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(143)[0..1]  + 75 * IloIntVar(240)[0..1]  + 32 * IloIntVar(312)[0..1]  + 30 * IloIntVar(332)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(186)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(303)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(247)[0..1]  + 32 * IloIntVar(292)[0..1]  + 41 * IloIntVar(352)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(80)[0..1]  + 2 * IloIntVar(107)[0..1]  + 32 * IloIntVar(303)[0..1]  + 86 * IloIntVar(427)[0..1]  + 41 * IloIntVar(143)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 94 * IloIntVar(177)[0..1]  + 100 * IloIntVar(382)[0..1]  + 41 * IloIntVar(137)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(79)[0..1]  + 32 * IloIntVar(280)[0..1]  + 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(196)[0..1]  <= 138
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(172)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(83)[0..1]  + 41 * IloIntVar(143)[0..1]  + 92 * IloIntVar(363)[0..1]  + 32 * IloIntVar(303)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  + 33 * IloIntVar(208)[0..1]  + 41 * IloIntVar(348)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 32 * IloIntVar(287)[0..1]  + 86 * IloIntVar(428)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 5 * IloIntVar(408)[0..1]  + 86 * IloIntVar(424)[0..1]  + 41 * IloIntVar(148)[0..1]  + 31 * IloIntVar(265)[0..1]  + 29 * IloIntVar(225)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(83)[0..1]  + 92 * IloIntVar(363)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(98)[0..1]  + 11 * IloIntVar(115)[0..1]  + 75 * IloIntVar(243)[0..1]  + 81 * IloIntVar(155)[0..1]  + 33 * IloIntVar(203)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(172)[0..1]  + 5 * IloIntVar(416)[0..1]  + 32 * IloIntVar(316)[0..1]  + 41 * IloIntVar(143)[0..1]  + 14 * IloIntVar(86)[0..1]  + 86 * IloIntVar(426)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(125)[0..1]  + 32 * IloIntVar(287)[0..1]  + 92 * IloIntVar(365)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 92 * IloIntVar(379)[0..1]  + 86 * IloIntVar(424)[0..1]  + 5 * IloIntVar(419)[0..1]  + 32 * IloIntVar(316)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(55)[0..1]  + 29 * IloIntVar(219)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(81)[0..1]  + 2 * IloIntVar(92)[0..1]  + 30 * IloIntVar(321)[0..1]  + 11 * IloIntVar(116)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(70)[0..1]  + 30 * IloIntVar(320)[0..1]  + 2 * IloIntVar(93)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(282)[0..1]  + 11 * IloIntVar(121)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(70)[0..1]  + 30 * IloIntVar(320)[0..1]  + 2 * IloIntVar(93)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(282)[0..1]  + 11 * IloIntVar(121)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 81 * IloIntVar(159)[0..1]  + 33 * IloIntVar(200)[0..1]  + 94 * IloIntVar(180)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(61)[0..1]  + 41 * IloIntVar(359)[0..1]  + 86 * IloIntVar(439)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(81)[0..1]  + 41 * IloIntVar(143)[0..1]  + 30 * IloIntVar(321)[0..1]  + 32 * IloIntVar(308)[0..1]  + 75 * IloIntVar(248)[0..1]  + 32 * IloIntVar(287)[0..1]  + 11 * IloIntVar(121)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(332)[0..1]  + 5 * IloIntVar(419)[0..1]  + 32 * IloIntVar(312)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 2 * IloIntVar(95)[0..1]  + 32 * IloIntVar(279)[0..1]  + 94 * IloIntVar(175)[0..1]  + 14 * IloIntVar(79)[0..1]  + 81 * IloIntVar(153)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(61)[0..1]  + 41 * IloIntVar(353)[0..1]  + 32 * IloIntVar(313)[0..1]  + 41 * IloIntVar(143)[0..1]  + 14 * IloIntVar(81)[0..1]  + 30 * IloIntVar(321)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(233)[0..1]  + 92 * IloIntVar(370)[0..1]  + 86 * IloIntVar(433)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(55)[0..1]  + 29 * IloIntVar(227)[0..1]  + 32 * IloIntVar(307)[0..1]  + 41 * IloIntVar(143)[0..1]  + 14 * IloIntVar(81)[0..1]  + 30 * IloIntVar(321)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(359)[0..1]  + 92 * IloIntVar(376)[0..1]  + 86 * IloIntVar(439)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 2 * IloIntVar(98)[0..1]  + 11 * IloIntVar(115)[0..1]  + 75 * IloIntVar(238)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 5 * IloIntVar(406)[0..1]  + 86 * IloIntVar(424)[0..1]  + 2 * IloIntVar(106)[0..1]  + 100 * IloIntVar(385)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 32 * IloIntVar(279)[0..1]  + 14 * IloIntVar(79)[0..1]  + 11 * IloIntVar(116)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(145)[0..1]  + 32 * IloIntVar(312)[0..1]  + 41 * IloIntVar(345)[0..1]  + 30 * IloIntVar(332)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 92 * IloIntVar(361)[0..1]  + 5 * IloIntVar(410)[0..1]  + 94 * IloIntVar(190)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(73)[0..1]  + 2 * IloIntVar(100)[0..1]  + 81 * IloIntVar(153)[0..1]  + 32 * IloIntVar(282)[0..1]  + 41 * IloIntVar(145)[0..1]  + 41 * IloIntVar(345)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 41 * IloIntVar(132)[0..1]  + 94 * IloIntVar(172)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(106)[0..1]  + 5 * IloIntVar(416)[0..1]  + 32 * IloIntVar(316)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 33 * IloIntVar(197)[0..1]  + 11 * IloIntVar(117)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(412)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(195)[0..1]  + 32 * IloIntVar(282)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(186)[0..1]  + 30 * IloIntVar(332)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(70)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(282)[0..1]  + 41 * IloIntVar(142)[0..1]  + 11 * IloIntVar(117)[0..1]  + 33 * IloIntVar(203)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(164)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(79)[0..1]  + 33 * IloIntVar(194)[0..1]  + 32 * IloIntVar(281)[0..1]  + 11 * IloIntVar(121)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(94)[0..1]  + 41 * IloIntVar(137)[0..1]  + 81 * IloIntVar(154)[0..1]  + 94 * IloIntVar(190)[0..1]  + 5 * IloIntVar(412)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(73)[0..1]  + 81 * IloIntVar(154)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(281)[0..1]  + 11 * IloIntVar(126)[0..1]  + 100 * IloIntVar(386)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[0..1]  + 29 * IloIntVar(225)[0..1]  + 86 * IloIntVar(429)[0..1]  + 31 * IloIntVar(265)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 5 * IloIntVar(416)[0..1]  + 86 * IloIntVar(424)[0..1]  + 32 * IloIntVar(316)[0..1]  + 30 * IloIntVar(332)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(94)[0..1]  + 41 * IloIntVar(142)[0..1]  + 81 * IloIntVar(154)[0..1]  + 32 * IloIntVar(282)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(79)[0..1]  + 33 * IloIntVar(194)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(93)[0..1]  + 11 * IloIntVar(112)[0..1]  + 41 * IloIntVar(137)[0..1]  + 94 * IloIntVar(190)[0..1]  + 5 * IloIntVar(410)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(231)[0..1]  + 100 * IloIntVar(393)[0..1]  + 31 * IloIntVar(273)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(319)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(284)[0..1]  + 32 * IloIntVar(303)[0..1]  + 94 * IloIntVar(184)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 2 * IloIntVar(105)[0..1]  + 33 * IloIntVar(195)[0..1]  + 100 * IloIntVar(385)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 81 * IloIntVar(155)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 14 * IloIntVar(79)[0..1]  + 30 * IloIntVar(320)[0..1]  + 32 * IloIntVar(294)[0..1]  + 100 * IloIntVar(394)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(139)[0..1]  + 94 * IloIntVar(177)[0..1]  + 29 * IloIntVar(219)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 31 * IloIntVar(272)[0..1]  + 100 * IloIntVar(382)[0..1]  + 92 * IloIntVar(374)[0..1]  + 32 * IloIntVar(316)[0..1]  + 5 * IloIntVar(416)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(145)[0..1]  + 75 * IloIntVar(240)[0..1]  + 41 * IloIntVar(345)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 92 * IloIntVar(361)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 14 * IloIntVar(72)[0..1]  + 32 * IloIntVar(281)[0..1]  + 41 * IloIntVar(132)[0..1]  + 11 * IloIntVar(121)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(162)[0..1]  + 31 * IloIntVar(265)[0..1]  + 29 * IloIntVar(225)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(210)[0..1]  + 100 * IloIntVar(395)[0..1]  + 32 * IloIntVar(315)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(320)[0..1]  + 92 * IloIntVar(361)[0..1]  + 85 * IloIntVar(60)[0..1]  + 32 * IloIntVar(280)[0..1]  + 2 * IloIntVar(100)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(132)[0..1]  + 33 * IloIntVar(197)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(61)[0..1]  + 41 * IloIntVar(346)[0..1]  + 81 * IloIntVar(166)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(140)[0..1]  + 32 * IloIntVar(285)[0..1]  + 75 * IloIntVar(240)[0..1]  + 33 * IloIntVar(205)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 32 * IloIntVar(316)[0..1]  + 86 * IloIntVar(428)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(175)[0..1]  + 5 * IloIntVar(403)[0..1]  + 2 * IloIntVar(95)[0..1]  + 41 * IloIntVar(133)[0..1]  + 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(199)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 2 * IloIntVar(92)[0..1]  + 30 * IloIntVar(320)[0..1]  + 11 * IloIntVar(117)[0..1]  + 85 * IloIntVar(60)[0..1]  + 33 * IloIntVar(197)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(139)[0..1]  + 75 * IloIntVar(237)[0..1]  + 29 * IloIntVar(219)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(139)[0..1]  + 75 * IloIntVar(237)[0..1]  + 29 * IloIntVar(219)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(48)[0..1]  + 5 * IloIntVar(403)[0..1]  + 14 * IloIntVar(73)[0..1]  + 81 * IloIntVar(153)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(134)[0..1]  + 33 * IloIntVar(212)[0..1]  + 11 * IloIntVar(121)[0..1]  + 86 * IloIntVar(432)[0..1]  + 32 * IloIntVar(293)[0..1]  + 92 * IloIntVar(373)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(169)[0..1]  + 41 * IloIntVar(356)[0..1]  + 5 * IloIntVar(409)[0..1]  + 92 * IloIntVar(376)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 92 * IloIntVar(370)[0..1]  + 5 * IloIntVar(416)[0..1]  + 29 * IloIntVar(230)[0..1]  + 32 * IloIntVar(316)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 14 * IloIntVar(75)[0..1]  + 32 * IloIntVar(278)[0..1]  + 33 * IloIntVar(200)[0..1]  + 94 * IloIntVar(180)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(81)[0..1]  + 11 * IloIntVar(121)[0..1]  + 30 * IloIntVar(332)[0..1]  + 32 * IloIntVar(296)[0..1]  + 32 * IloIntVar(312)[0..1]  + 86 * IloIntVar(436)[0..1]  + 41 * IloIntVar(143)[0..1]  + 2 * IloIntVar(98)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(81)[0..1]  + 11 * IloIntVar(121)[0..1]  + 30 * IloIntVar(332)[0..1]  + 32 * IloIntVar(281)[0..1]  + 32 * IloIntVar(312)[0..1]  + 41 * IloIntVar(143)[0..1]  + 2 * IloIntVar(105)[0..1]  + 100 * IloIntVar(390)[0..1]  + 33 * IloIntVar(210)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(254)[0..1]  + 86 * IloIntVar(434)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(195)[0..1]  + 32 * IloIntVar(282)[0..1]  + 2 * IloIntVar(107)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(116)[0..1]  + 81 * IloIntVar(155)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(37)[0..1]  + 94 * IloIntVar(172)[0..1]  + 32 * IloIntVar(277)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(81)[0..1]  + 11 * IloIntVar(128)[0..1]  + 30 * IloIntVar(332)[0..1]  + 86 * IloIntVar(428)[0..1]  + 32 * IloIntVar(312)[0..1]  + 41 * IloIntVar(143)[0..1]  + 2 * IloIntVar(105)[0..1]  + 100 * IloIntVar(385)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(350)[0..1]  + 75 * IloIntVar(250)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(350)[0..1]  + 75 * IloIntVar(250)[0..1]  <= 138
+loIntVar(428)[0..1]  + 32 * IloIntVar(312)[0..1]  + 41 * IloIntVar(143)[0..1]  + 2 * IloIntVar(105)[0..1]  + 100 * IloIntVar(385)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(393)[0..1]  + 5 * IloIntVar(403)[0..1]  + 31 * IloIntVar(273)[0..1]  + 94 * IloIntVar(183)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(133)[0..1]  + 33 * IloIntVar(195)[0..1]  + 2 * IloIntVar(94)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(122)[0..1]  + 32 * IloIntVar(296)[0..1]  + 32 * IloIntVar(302)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 33 * IloIntVar(193)[0..1]  + 30 * IloIntVar(335)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(142)[0..1]  + 81 * IloIntVar(153)[0..1]  + 32 * IloIntVar(282)[0..1]  + 2 * IloIntVar(100)[0..1]  + 11 * IloIntVar(116)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 92 * IloIntVar(361)[0..1]  + 86 * IloIntVar(424)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 14 * IloIntVar(70)[0..1]  + 5 * IloIntVar(416)[0..1]  + 2 * IloIntVar(93)[0..1]  + 32 * IloIntVar(316)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 33 * IloIntVar(200)[0..1]  + 32 * IloIntVar(281)[0..1]  + 94 * IloIntVar(180)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(391)[0..1]  + 5 * IloIntVar(408)[0..1]  + 29 * IloIntVar(231)[0..1]  + 41 * IloIntVar(148)[0..1]  + 85 * IloIntVar(55)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(195)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(183)[0..1]  + 31 * IloIntVar(266)[0..1]  + 75 * IloIntVar(246)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(183)[0..1]  + 31 * IloIntVar(266)[0..1]  + 75 * IloIntVar(246)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 32 * IloIntVar(316)[0..1]  + 30 * IloIntVar(338)[0..1]  + 5 * IloIntVar(416)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(79)[0..1]  + 32 * IloIntVar(280)[0..1]  + 2 * IloIntVar(100)[0..1]  + 11 * IloIntVar(117)[0..1]  + 33 * IloIntVar(197)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(140)[0..1]  + 94 * IloIntVar(177)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 92 * IloIntVar(375)[0..1]  + 5 * IloIntVar(412)[0..1]  + 30 * IloIntVar(335)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 33 * IloIntVar(195)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 14 * IloIntVar(86)[0..1]  + 5 * IloIntVar(416)[0..1]  + 86 * IloIntVar(436)[0..1]  + 32 * IloIntVar(316)[0..1]  + 32 * IloIntVar(296)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(72)[0..1]  + 41 * IloIntVar(132)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 81 * IloIntVar(155)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 32 * IloIntVar(306)[0..1]  + 92 * IloIntVar(361)[0..1]  + 33 * IloIntVar(206)[0..1]  + 85 * IloIntVar(54)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(142)[0..1]  + 75 * IloIntVar(237)[0..1]  + 32 * IloIntVar(282)[0..1]  + 2 * IloIntVar(100)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 32 * IloIntVar(298)[0..1]  + 100 * IloIntVar(400)[0..1]  + 5 * IloIntVar(420)[0..1]  + 41 * IloIntVar(148)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(196)[0..1]  + 2 * IloIntVar(107)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(162)[0..1]  + 31 * IloIntVar(270)[0..1]  + 30 * IloIntVar(330)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(181)[0..1]  + 29 * IloIntVar(230)[0..1]  + 92 * IloIntVar(370)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 41 * IloIntVar(139)[0..1]  + 29 * IloIntVar(221)[0..1]  + 94 * IloIntVar(181)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(165)[0..1]  + 30 * IloIntVar(330)[0..1]  + 31 * IloIntVar(270)[0..1]  + 75 * IloIntVar(246)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 32 * IloIntVar(315)[0..1]  + 5 * IloIntVar(419)[0..1]  + 100 * IloIntVar(395)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(78)[0..1]  + 2 * IloIntVar(95)[0..1]  + 31 * IloIntVar(258)[0..1]  + 94 * IloIntVar(175)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 81 * IloIntVar(155)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(34)[0..1]  + 94 * IloIntVar(177)[0..1]  + 29 * IloIntVar(214)[0..1]  + 41 * IloIntVar(138)[0..1]  + 33 * IloIntVar(198)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(335)[0..1]  + 5 * IloIntVar(403)[0..1]  + 92 * IloIntVar(375)[0..1]  + 29 * IloIntVar(230)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(115)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(142)[0..1]  + 86 * IloIntVar(426)[0..1]  + 32 * IloIntVar(282)[0..1]  + 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(196)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(252)[0..1]  + 100 * IloIntVar(392)[0..1]  <= 138
+
+Performing restart 2
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 0 rows and 1 columns.
+Reduced MIP has 21 rows, 190 columns, and 380 nonzeros.
+Reduced MIP has 190 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.11 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 21 rows, 190 columns, and 380 nonzeros.
+Reduced MIP has 190 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.11 ticks)
+Represolve time = 0.01 sec. (0.68 ticks)
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(412)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 41 * IloIntVar(131)[0..1]  + 32 * IloIntVar(278)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 41 * IloIntVar(131)[0..1]  + 32 * IloIntVar(278)[0..1]  <= 138
+IloIntVar(232)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(420)[0..1]  + 100 * IloIntVar(400)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(73)[0..1]  + 33 * IloIntVar(196)[0..1]  + 81 * IloIntVar(153)[0..1]  + 2 * IloIntVar(96)[0..1]  + 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 94 * IloIntVar(186)[0..1]  + 33 * IloIntVar(203)[0..1]  + 30 * IloIntVar(335)[0..1]  + 75 * IloIntVar(243)[0..1]  + 92 * IloIntVar(375)[0..1]  + 32 * IloIntVar(314)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(83)[0..1]  + 33 * IloIntVar(203)[0..1]  + 92 * IloIntVar(363)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(137)[0..1]  + 32 * IloIntVar(280)[0..1]  + 94 * IloIntVar(177)[0..1]  + 11 * IloIntVar(116)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 32 * IloIntVar(305)[0..1]  + 94 * IloIntVar(185)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 33 * IloIntVar(196)[0..1]  + 32 * IloIntVar(283)[0..1]  + 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(163)[0..1]  + 41 * IloIntVar(136)[0..1]  <= 138
+Adding RCI: 30 * IloIntVar(338)[0..1]  + 92 * IloIntVar(375)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 33 * IloIntVar(195)[0..1]  + 32 * IloIntVar(309)[0..1]  + 14 * IloIntVar(77)[0..1]  + 31 * IloIntVar(269)[0..1]  + 75 * IloIntVar(237)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(149)[0..1]  + 32 * IloIntVar(283)[0..1]  + 86 * IloIntVar(429)[0..1]  + 81 * IloIntVar(163)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(83)[0..1]  + 32 * IloIntVar(299)[0..1]  + 92 * IloIntVar(363)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 94 * IloIntVar(180)[0..1]  + 32 * IloIntVar(287)[0..1]  + 33 * IloIntVar(203)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(114)[0..1]  + 41 * IloIntVar(149)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 92 * IloIntVar(375)[0..1]  + 41 * IloIntVar(146)[0..1]  + 85 * IloIntVar(54)[0..1]  + 33 * IloIntVar(195)[0..1]  + 14 * IloIntVar(75)[0..1]  + 94 * IloIntVar(174)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(107)[0..1]  + 75 * IloIntVar(238)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(107)[0Adding RCI: 85 * IloIntVar(58)[0..1]  + 14 * IloIntVar(70)[0..1]  + 32 * IloIntVar(278)[0..1]  + 2 * IloIntVar(95)[0..1]  + 94 * IloIntVar(177)[0..1]  + 41 * IloIntVar(146)[0..1]  + 92 * IloIntVar(366)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(84)[0..1]  + 32 * IloIntVar(299)[0..1]  + 100 * IloIntVar(384)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(209)[0..1]  + 75 * IloIntVar(243)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(442)[0..1]  + 5 * IloIntVar(422)[0..1]  + 85 * IloIntVar(64)[0..1]  + 14 * IloIntVar(84)[0..1]  + 100 * IloIntVar(384)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(384)[0..1]  + 5 * IloIntVar(403)[0..1]  + 14 * IloIntVar(84)[0..1]  + 81 * IloIntVar(163)[0..1]  + 32 * IloIntVar(283)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(133)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 32 * IloIntVar(306)[0..1]  + 33 * IloIntVar(212)[0..1]  + 86 * IloIntVar(432)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 30 * IloIntVar(319)[0..1]  + 100 * IloIntVar(400)[0..1]  + 5 * IloIntVar(420)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(75)[0..1]  + 32 * IloIntVar(299)[0..1]  + 33 * IloIntVar(203)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(114)[0..1]  + 41 * IloIntVar(149)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 14 * IloIntVar(70)[0..1]  + 32 * IloIntVar(299)[0..1]  + 2 * IloIntVar(93)[0..1]  + 41 * IloIntVar(137)[0..1]  + 94 * IloIntVar(177)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(210)[0..1]  + 75 * IloIntVar(243)[0..1]  + 100 * IloIntVar(390)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(391)[0..1]  + 5 * IloIntVar(403)[0..1]  + 29 * IloIntVar(231)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 32 * IloIntVar(306)[0..1]  + 33 * IloIntVar(206)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(119)[0..1]  + 94 * IloIntVar(176)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 94 * IloIntVar(172)[0..1]  + 100 * IloIntVar(400)[0..1]  + 5 * IloIntVar(420)[0..1]  + 85 * IloIntVar(64)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(203)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(114)[0..1]  + 41 * IloIntVar(149)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(26)[0..1]  + 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(80)[0..1]  + 32 * IloIntVar(300)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(94)[0..1]  + 41 * IloIntVar(137)[0..1]  + 81 * IloIntVar(166)[0..1]  + 94 * IloIntVar(177)[0..1]  + 41 * IloIntVar(346)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(294)[0..1]  + 92 * IloIntVar(373)[0..1]  + 100 * IloIntVar(394)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 94 * IloIntVar(172)[0..1]  + 100 * IloIntVar(382)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 32 * IloIntVar(316)[0..1]  + 5 * IloIntVar(416)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(64)[0..1]  + 30 * IloIntVar(338)[0..1]  + 5 * IloIntVar(419)[0..1]  + 86 * IloIntVar(438)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(74)[0..1]  + 2 * IloIntVar(100)[0..1]  + 94 * IloIntVar(174)[0..1]  + 32 * IloIntVar(283)[0..1]  + 81 * IloIntVar(163)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(231)[0..1]  + 100 * IloIntVar(395)[0..1]  + 32 * IloIntVar(315)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 32 * IloIntVar(299)[0..1]  + 100 * IloIntVar(382)[0..1]  + 85 * IloIntVar(59)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(46)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  + 14 * IloIntVar(83)[0..1]  + 94 * IloIntVar(176)[0..1]  + 11 * IloIntVar(117)[0..1]  + 33 * IloIntVar(197)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(312)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 100 * IloIntVar(395)[0..1]  + 32 * IloIntVar(315)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(83)[0..1]  + 41 * IloIntVar(133)[0..1]  + 92 * IloIntVar(363)[0..1]  + 2 * IloIntVar(98)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(190)[0..1]  + 32 * IloIntVar(284)[0..1]  + 5 * IloIntVar(412)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(438)[0..1]  + 30 * IloIntVar(338)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(404)[0..1]  + 85 * IloIntVar(64)[0..1]  + 11 * IloIntVar(110)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 94 * IloIntVar(183)[0..1]  + 75 * IloIntVar(237)[0..1]  + 31 * IloIntVar(263)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(149)[0..1]  + 32 * IloIntVar(280)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(54)[0..1]  + 30 * IloIntVar(336)[0..1]  + 33 * IloIntVar(196)[0..1]  + 100 * IloIntVar(396)[0..1]  + 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 75 * IloIntVar(237)[0..1]  + 86 * IloIntVar(426)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(142)[0..1]  + 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(282)[0..1]  + 32 * IloIntVar(305)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(410)[0..1]  + 94 * IloIntVar(190)[0..1]  + 14 * IloIntVar(77)[0..1]  + 75 * IloIntVar(237)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(115)[0..1]  + 81 * IloIntVar(155)[0..1]  + 2 * IloIntVar(94)[0..1]  + 41 * IloIntVar(133)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(394)[0..1]  + 5 * IloIntVar(414)[0..1]  + 32 * IloIntVar(294)[0..1]  + 31 * IloIntVar(274)[0..1]  + 85 * IloIntVar(57)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 94 * IloIntVar(174)[0..1]  + 86 * IloIntVar(437)[0..1]  + 32 * IloIntVar(317)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 94 * IloIntVar(172)[0..1]  + 5 * IloIntVar(412)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 14 * IloIntVar(79)[0..1]  + 11 * IloIntVar(110)[0..1]  + 32 * IloIntVar(280)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(312)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 11 * IloIntVar(117)[0..1]  + 41 * IloIntVar(149)[0..1]  + 33 * IloIntVar(203)[0..1]  + 86 * IloIntVar(430)[0..1]  + 75 * IloIntVar(243)[0..1]  + 81 * IloIntVar(170)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(74)[0..1]  + 2 * IloIntVar(104)[0..1]  + 94 * IloIntVar(174)[0..1]  + 92 * IloIntVar(364)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(48)[0..1]  + 5 * IloIntVar(422)[0..1]  + 14 * IloIntVar(79)[0..1]  + 86 * IloIntVar(442)[0..1]  + 32 * IloIntVar(279)[0..1]  + 30 * IloIntVar(338)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(209)[0..1]  + 32 * IloIntVar(306)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(48)[0..1]  + 5 * IloIntVar(412)[0..1]  + 14 * IloIntVar(73)[0..1]  + 29 * IloIntVar(232)[0..1]  + 81 * IloIntVar(153)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(105)[0..1]  + 41 * IloIntVar(140)[0..1]  + 100 * IloIntVar(385)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(212)[0..1]  + 92 * IloIntVar(369)[0..1]  + 86 * IloIntVar(438)[0..1]  + 30 * IloIntVar(338)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 11 * IloIntVar(117)[0..1]  + 41 * IloIntVar(143)[0..1]  + 33 * IloIntVar(209)[0..1]  + 32 * IloIntVar(304)[0..1]  + 92 * IloIntVar(369)[0..1]  + 81 * IloIntVar(164)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(74)[0..1]  + 2 * IloIntVar(107)[0..1]  + 94 * IloIntVar(174)[0..1]  + 86 * IloIntVar(434)[0..1]  + 75 * IloIntVar(254)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 11 * IloIntVar(117)[0..1]  + 41 * IloIntVar(143)[0..1]  + 33 * IloIntVar(208)[0..1]  + 32 * IloIntVar(303)[0..1]  + 41 * IloIntVar(348)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(74)[0..1]  + 2 * IloIntVar(107)[0..1]  + 94 * IloIntVar(174)[0..1]  + 86 * IloIntVar(436)[0..1]  + 32 * IloIntVar(296)[0..1]  + 92 * IloIntVar(373)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 2 * IloIntVar(96)[0..1]  + 30 * IloIntVar(335)[0..1]  + 33 * IloIntVar(198)[0..1]  + 92 * IloIntVar(375)[0..1]  + 41 * IloIntVar(138)[0..1]  + 14 * IloIntVar(79)[0..1]  + 32 * IloIntVar(284)[0..1]  + 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(305)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(48)[0..1]  + 5 * IloIntVar(403)[0..1]  + 14 * IloIntVar(70)[0..1]  + 2 * IloIntVar(92)[0..1]  + 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(281)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(140)[0..1]  + 75 * IloIntVar(252)[0..1]  + 100 * IloIntVar(392)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(309)[0..1]  + 31 * IloIntVar(272)[0..1]  + 92 * IloIntVar(372)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(58)[0..1]  + 100 * IloIntVar(382)[0..1]  + 32 * IloIntVar(284)[0..1]  + 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(305)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(136)[0..1]  + 86 * IloIntVar(426)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(48)[0..1]  + 30 * IloIntVar(332)[0..1]  + 14 * IloIntVar(83)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[0..1]  + 94 * IloIntVar(177)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 100 * IloIntVar(400)[0..1]  + 86 * IloIntVar(424)[0..1]  + 5 * IloIntVar(420)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 81 * IloIntVar(163)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(314)[0..1]  + 30 * IloIntVar(332)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(49)[0..1]  + 100 * IloIntVar(391)[0..1]  + 2 * IloIntVar(96)[0..1]  + 29 * IloIntVar(231)[0..1]  + 33 * IloIntVar(197)[0..1]  + 94 * IloIntVar(181)[0..1]  + 11 * IloIntVar(117)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(142)[0..1]  + 86 * IloIntVar(426)[0..1]  + 32 * IloIntVar(282)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 32 * IloIntVar(314)[0..1]  + 100 * IloIntVar(400)[0..1]  + 92 * IloIntVar(374)[0..1]  + 5 * IloIntVar(420)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(417)[0..1]  + 85 * IloIntVar(64)[0..1]  + 31 * IloIntVar(257)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(83)[0..1]  + 41 * IloIntVar(136)[0..1]  + 92 * IloIntVar(363)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(112)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(285)[0..1]  + 94 * IloIntVar(184)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(319)[0..1]  + 5 * IloIntVar(420)[0..1]  + 100 * IloIntVar(400)[0..1]  + 14 * IloIntVar(84)[0..1]  + 41 * IloIntVar(138)[0..1]  + 33 * IloIntVar(212)[0..1]  + 86 * IloIntVar(432)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(95)[0..1]  + 81 * IloIntVar(154)[0..1]  + 94 * IloIntVar(175)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(247)[0..1]  + 32 * IloIntVar(292)[0..1]  + 41 * IloIntVar(352)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(51)[0..1]  + 100 * IloIntVar(382)[0..1]  + 41 * IloIntVar(131)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(74)[0..1]  + 2 * IloIntVar(107)[0..1]  + 94 * IloIntVar(174)[0..1]  + 86 * IloIntVar(432)[0..1]  + 33 * IloIntVar(212)[0..1]  + 11 * IloIntVar(117)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(290)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 31 * IloIntVar(257)[0..1]  + 5 * IloIntVar(410)[0..1]  + 94 * IloIntVar(190)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(136)[0..1]  + 32 * IloIntVar(285)[0..1]  + 81 * IloIntVar(156)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(104)[0..1]  + 92 * IloIntVar(364)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(46)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(94)[0..1]  + 41 * IloIntVar(142)[0..1]  + 81 * IloIntVar(154)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 94 * IloIntVar(180)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(337)[0..1]  + 92 * IloIntVar(361)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(136)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 31 * IloIntVar(263)[0..1]  + 5 * IloIntVar(404)[0..1]  + 94 * IloIntVar(183)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  + 33 * IloIntVar(209)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+   6565   229    19536.8889     4                  17479.3142    34892         
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(84)[0..1]  + 41 * IloIntVar(145)[0..1]  + 100 * IloIntVar(400)[0..1]  + 41 * IloIntVar(348)[0..1]  + 5 * IloIntVar(420)[0..1]  + 33 * IloIntVar(209)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(95)[0..1]  + 11 * IloIntVar(115)[0..1]  + 94 * IloIntVar(175)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(337)[0..1]  + 92 * IloIntVar(361)[0..1]  + 5 * IloIntVar(417)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(136)[0..1]  + 33 * IloIntVar(196)[0..1]  + 81 * IloIntVar(156)[0..1]  + 2 * IloIntVar(98)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 32 * IloIntVar(292)[0..1]  + 86 * IloIntVar(428)[0..1]  + 41 * IloIntVar(352)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 86 * IloIntVar(438)[0..1]  + 30 * IloIntVar(338)[0..1]  + 41 * IloIntVar(144)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(104)[0..1]  + 92 * IloIntVar(364)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(164)[0..1]  + 32 * IloIntVar(309)[0..1]  + 31 * IloIntVar(269)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(180)[0..1]  + 33 * IloIntVar(210)[0..1]  + 100 * IloIntVar(390)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(180)[0..1]  + 33 * IloIntVar(210)[0..1]  + 100 * IloIntVar(390)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(92)[0..1]  + 41 * IloIntVar(149)[0..1]  + 11 * IloIntVar(112)[0..1]  + 86 * IlAdding RCI: 94 * IloIntVar(187)[0..1]  + 41 * IloIntVar(350)[0..1]  + 75 * IloIntVar(250)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(187)[0..1]  + 41 * IloIntVar(350)[0..1]  + 75 * IloIntVar(250)[0..1]  <= 138
+IntVar(112)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(232)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 100 * IloIntVar(396)[0..1]  + 32 * IloIntVar(315)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 32 * IloIntVar(298)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(98)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 31 * IloIntVar(259)[0..1]  + 5 * IloIntVar(416)[0..1]  + 2 * IloIntVar(99)[0..1]  + 32 * IloIntVar(316)[0..1]  + 33 * IloIntVar(209)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(132)[0..1]  + 32 * IloIntVar(284)[0..1]  + 94 * IloIntVar(184)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(319)[0..1]  + 92 * IloIntVar(374)[0..1]  + 32 * IloIntVar(314)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 32 * IloIntVar(282)[0..1]  + 41 * IloIntVar(142)[0..1]  + 14 * IloIntVar(73)[0..1]  + 81 * IloIntVar(153)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 94 * IloIntVar(175)[0..1]  + 33 * IloIntVar(197)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 94 * IloIntVar(175)[0..1]  + 33 * IloIntVar(197)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 2 * IloIntVar(98)[0..1]  + 11 * IloIntVar(128)[0..1]  + 75 * IloIntVar(238)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 85 * IloIntVar(58)[0..1]  + 86 * IloIntVar(435)[0..1]  + 32 * IloIntVar(278)[0..1]  + 31 * IloIntVar(275)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(232)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(232)[Adding RCI: 12 * IloIntVar(38)[0..1]  + 32 * IloIntVar(304)[0..1]  + 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(346)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(107)[0..1]  + 86 * IloIntVar(428)[0..1]  + 11 * IloIntVar(128)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 2 * IloIntVar(107)[0..1]  + 86 * IloIntVar(428)[0..1]  + 11 * IloIntVar(128)[0..1]  + 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(346)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 85 * IloIntVar(58)[0..1]  + 86 * IloIntVar(424)[0..1]  + 32 * IloIntVar(278)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(180)[0..1]  + 33 * IloIntVar(209)[0..1]  + 92 * IloIntVar(375)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(417)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(180)[Adding RCI: 2 * IloIntVar(107)[0..1]  + 11 * IloIntVar(115)[0..1]  + 86 * IloIntVar(427)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 32 * IloIntVar(293)[0..1]  + 92 * IloIntVar(373)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(95)[0..1]  + 41 * IloIntVar(138)[0..1]  + 94 * IloIntVar(190)[0..1]  + 33 * IloIntVar(198)[0..1]  + 5 * IloIntVar(410)[0..1]  + 11 * IloIntVar(117)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(269)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(50)[0..1]  + 5 * IloIntVar(403)[0..1]  + 11 * IloIntVar(112)[0..1]  + 2 * IloIntVar(107)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 81 * IloIntVar(166)[0..1]  + 41 * IloIntVar(350)[0..1]  + 75 * IloIntVar(250)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(119)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 81 * IloIntVar(165)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(26)[0..1]  + 85 * IloIntVar(58)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(442)[0..1]  + 5 * IloIntVar(422)[0..1]  + 30 * IloIntVar(337)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(134)[0..1]  + 33 * IloIntVar(199)[0..1]  + 11 * IloIntVar(114)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(282)[0..1]  + 11 * IloIntVar(119)[0..1]  + 2 * IloIntVar(107)[0..1]  + 75 * IloIntVar(239)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 85 * IloIntVar(50)[0..1]  + 32 * IloIntVar(314)[0..1]  + 11 * IloIntVar(121)[0..1]  + 92 * IloIntVar(374)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(132)[0..1]  + 33 * IloIntVar(199)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(31)[0..1]  + 85 * IloIntVar(46)[0..1]  + 81 * IloIntVar(151)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(282)[0..1]  + 11 * IloIntVar(117)[0..1]  + 2 * IloIntVar(105)[0..1]  + 100 * IloIntVar(385)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(190)[0..1]  + 5 * IloIntVar(416)[0..1]  + 32 * IloIntVar(316)[0..1]  + 75 * IloIntVar(248)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(282)[0..1]  + 11 * IloIntVar(126)[0..1]  + 2 * IloIntVar(104)[0..1]  + 100 * IloIntVar(386)[0..1]  + 92 * IloIntVar(364)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(50)[0..1]  + 30 * IloIntVar(319)[0..1]  + 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(281)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(55)[0..1]  + 29 * IloIntVar(230)[0..1]  + 92 * IloIntVar(370)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(282)[0..1]  + 11 * IloIntVar(117)[0..1]  + 2 * IloIntVar(100)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 11 * IloIntVar(117)[0..1]  + 32 * IloIntVar(278)[0..1]  + 33 * IloIntVar(198)[0..1]  + 41 * IloIntVar(138)[0..1]  + 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(95)[0..1]  + 94 * IloIntVar(175)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(249)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(107)[0..1]  + 41 * IloIntVar(138)[0..1]  + 86 * IloIntVar(427)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(285)[0..1]  + 11 * IloIntVar(125)[0..1]  + 92 * IloIntVar(365)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(55)[0..1]  + 29 * IloIntVar(220)[0..1]  + 81 * IloIntVar(160)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(282)[0..1]  + 11 * IloIntVar(125)[0..1]  + 2 * IloIntVar(100)[0..1]  + 92 * IloIntVar(365)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(55)[0..1]  + 29 * IloIntVar(232)[0..1]  + 5 * IloIntVar(416)[0..1]  + 32 * IloIntVar(316)[0..1]  + 75 * IloIntVar(248)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 81 * IloIntVar(153)[0..1]  + 33 * IloIntVar(197)[0..1]  + 11 * IloIntVar(117)[0..1]  + 41 * IloIntVar(134)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 81 * IloIntVar(151)[0..1]  + 32 * IloIntVar(306)[0..1]  + 33 * IloIntVar(206)[0..1]  + 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(293)[0..1]  + 92 * IloIntVar(373)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(107)[0..1]  + 41 * IloIntVar(148)[0..1]  + 86 * IloIntVar(427)[0..1]  + 5 * IloIntVar(408)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(290)[0..1]  + 32 * IloIntVar(316)[0..1]  + 5 * IloIntVar(420)[0..1]  + 100 * IloIntVar(400)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(50)[0..1]  + 30 * IloIntVar(331)[0..1]  + 11 * IloIntVar(110)[0..1]  + 32 * IloIntVar(291)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(50)[0..1]  + 30 * IloIntVar(319)[0..1]  + 11 * IloIntVar(110)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(250)[0..1]  + 41 * IloIntVar(352)[0..1]  + 32 * IloIntVar(292)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 81 * IloIntVar(151)[0..1]  + 32 * IloIntVar(310)[0..1]  + 32 * IloIntVar(290)[0..1]  + 11 * IloIntVar(121)[0..1]  + 33 * IloIntVar(209)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(107)[0..1]  + 41 * IloIntVar(132)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 29 * IloIntVar(230)[0..1]  + 32 * IloIntVar(286)[0..1]  + 92 * IloIntVar(370)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 92 * IloIntVar(375)[0..1]  + 86 * IloIntVar(424)[0..1]  + 30 * IloIntVar(335)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(164)[0..1]  + 32 * IloIntVar(308)[0..1]  + 75 * IloIntVar(248)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(164)[0..1]  + 32 * IloIntVar(308)[0..1]  + 75 * IloIntVar(248)[0..1]  <= 138
+loIntVar(335)[0..1]  <= 138
+oIntVar(96)[0..1]  + 33 * IloIntVar(199)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[0..1]  + 32 * IloIntVar(303)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 32 * IloIntVar(303)[0..1]  + 92 * IloIntVar(361)[0..1]  + 41 * IloIntVar(143)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(57)[0..1]  + 31 * IloIntVar(273)[0..1]  + 100 * IloIntVar(393)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 2 * IloIntVar(96)[0..1]  + 86 * IloIntVar(426)[0..1]  + 33 * IloIntVar(199)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 94 * IloIntVar(190)[0..1]  + 32 * IloIntVar(281)[0..1]  + 5 * IloIntVar(410)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 92 * IloIntVar(361)[0..1]  + 86 * IloIntVar(424)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(162)[0..1]  + 31 * IloIntVar(273)[0..1]  + 100 * IloIntVar(393)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(61)[0..1]  + 41 * IloIntVar(350)[0..1]  + 75 * IloIntVar(250)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 33 * IloIntVar(199)[0..1]  + 32 * IloIntVar(281)[0..1]  + 81 * IloIntVar(159)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(183)[0..1]  + 31 * IloIntVar(273)[0..1]  + 100 * IloIntVar(393)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 100 * IloIntVar(382)[0..1]  + 86 * IloIntVar(436)[0..1]  + 32 * IloIntVar(296)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(143)[0..1]  + 33 * IloIntVar(207)[0..1]  + 32 * IloIntVar(316)[0..1]  + 30 * IloIntVar(327)[0..1]  + 5 * IloIntVar(416)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(116)[0..1]  + 81 * IloIntVar(155)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+*  7197   485      integral     0    19754.0000    17653.4216    37040   10.63%
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 81 * IloIntVar(151)[0..1]  + 92 * IloIntVar(361)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(275)[0..1]  + 100 * IloIntVar(393)[0..1]  + 86 * IloIntVar(435)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(212)[0..1]  + 32 * IloIntVar(282)[0..1]  + 86 * IloIntVar(432)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(273)[0..1]  + 92 * IloIntVar(372)[0..1]  + 100 * IloIntVar(393)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(92)[0..1]  + 11 * IloIntVar(117)[0..1]  + 33 * IloIntVar(197)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(250)[0..1]  + 41 * IloIntVar(356)[0..1]  + 92 * IloIntVar(376)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(282)[0..1]  + 41 * IloIntVar(142)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(196)[0..1]  + 2 * IloIntVar(98)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(183)[0..1]  + 31 * IloIntVar(272)[0..1]  + 92 * IloIntVar(372)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 81 * IloIntVar(151)[0..1]  + 32 * IloIntVar(301)[0..1]  + 2 * IloIntVar(102)[0..1]  + 30 * IloIntVar(322)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(117)[0..1]  + 33 * IloIntVar(197)[0..1]  + 14 * IloIntVar(83)[0..1]  + 92 * IloIntVar(363)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(149)[0..1]  + 32 * IloIntVar(282)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(132)[0..1]  + 86 * IloIntVar(436)[0..1]  + 32 * IloIntVar(296)[0..1]  + 32 * IloIntVar(316)[0..1]  + 5 * IloIntVar(416)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(116)[0..1]  + 81 * IloIntVar(155)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 85 * IloIntVar(46)[0..1]  + 92 * IloIntVar(375)[0..1]  + 30 * IloIntVar(335)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(92)[0..1]  + 41 * IloIntVar(140)[0..1]  + 11 * IloIntVar(121)[0..1]  + 75 * IloIntVar(240)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(212)[0..1]  + 86 * IloIntVar(432)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(136)[0..1]  + 32 * IloIntVar(280)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 30 * IloIntVar(337)[0..1]  + 86 * IloIntVar(437)[0..1]  + 5 * IloIntVar(417)[0..1]  + 32 * IloIntVar(317)[0..1]  + 85 * IloIntVar(64)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(95)[0..1]  + 41 * IloIntVar(142)[0..1]  + 94 * IloIntVar(175)[0..1]  + 32 * IloIntVar(282)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 85 * IloIntVar(46)[0..1]  + 92 * IloIntVar(374)[0..1]  + 32 * IloIntVar(314)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(138)[0..1]  + 32 * IloIntVar(287)[0..1]  + 33 * IloIntVar(210)[0..1]  + 75 * IloIntVar(247)[0..1]  + 100 * IloIntVar(390)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(94)[0..1]  + 11 * IloIntVar(128)[0..1]  + 81 * IloIntVar(154)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(138)[0..1]  + 32 * IloIntVar(287)[0..1]  + 33 * IloIntVar(206)[0..1]  + 75 * IloIntVar(247)[0..1]  + 32 * IloIntVar(306)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(128)[0..1]  + 81 * IloIntVar(155)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(186)[0..1]  + 30 * IloIntVar(336)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(138)[0..1]  + 75 * IloIntVar(237)[0..1]  + 33 * IloIntVar(198)[0..1]  + 11 * IloIntVar(117)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(232)[0..1]  + 5 * IloIntVar(416)[0..1]  + 32 * IloIntVar(316)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 100 * IloIntVar(382)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(338)[0..1]  + 86 * IloIntVar(438)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(136)[0..1]  + 32 * IloIntVar(292)[0..1]  + 81 * IloIntVar(156)[0..1]  + 41 * IloIntVar(352)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(101)[0..1]  + 11 * IloIntVar(116)[0..1]  + 32 * IloIntVar(301)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(101)[0..1]  + 11 * IloIntVar(116)[0..1]  + 32 * IloIntVar(301)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 2 * IloIntVar(96)[0..1]  + 30 * IloIntVar(332)[0..1]  + 33 * IloIntVar(203)[0..1]  + 32 * IloIntVar(316)[0..1]  + 75 * IloIntVar(243)[0..1]  + 5 * IloIntVar(416)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 32 * IloIntVar(314)[0..1]  + 86 * IloIntVar(424)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  + 33 * IloIntVar(197)[0..1]  + 11 * IloIntVar(117)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 30 * IloIntVar(337)[0..1]  + 86 * IloIntVar(424)[0..1]  + 5 * IloIntVar(417)[0..1]  + 85 * IloIntVar(64)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(146)[0..1]  + 32 * IloIntVar(285)[0..1]  + 92 * IloIntVar(366)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(101)[0..1]  + 32 * IloIntVar(301)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(26)[0..1]  + 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(95)[0..1]  + 94 * IloIntVar(180)[0..1]  + 33 * IloIntVar(200)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(143)[0..1]  + 81 * IloIntVar(153)[0..1]  + 32 * IloIntVar(303)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(320)[0..1]  + 92 * IloIntVar(361)[0..1]  + 85 * IloIntVar(60)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(96)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(210)[0..1]  + 32 * IloIntVar(282)[0..1]  + 100 * IloIntVar(390)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(329)[0..1]  + 92 * IloIntVar(361)[0..1]  + 75 * IloIntVar(249)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(112)[0..1]  + 2 * IloIntVar(93)[0..1]  + 41 * IloIntVar(133)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(285)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(133)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(101)[0..1]  + 32 * IloIntVar(285)[0..1]  + 32 * IloIntVar(305)[0..1]  + 94 * IloIntVar(190)[0..1]  + 5 * IloIntVar(410)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(119)[0..1]  + 81 * IloIntVar(155)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(323)[0..1]  + 5 * IloIntVar(410)[0..1]  + 11 * IloIntVar(123)[0..1]  + 94 * IloIntVar(190)[0..1]  + 2 * IloIntVar(94)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(203)[0..1]  + 32 * IloIntVar(282)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 30 * IloIntVar(320)[0..1]  + 86 * IloIntVar(424)[0..1]  + 85 * IloIntVar(60)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(196)[0..1]  + 32 * IloIntVar(282)[0..1]  + 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(121)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(231)[0..1]  + 92 * IloIntVar(370)[0..1]  + 100 * IloIntVar(391)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 94 * IloIntVar(172)[0..1]  + 32 * IloIntVar(298)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(86)[0..1]  + 41 * IloIntVar(133)[0..1]  + 86 * IloIntVar(426)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(285)[0..1]  + 11 * IloIntVar(121)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 94 * IloIntVar(186)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(417)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(57)[0..1]  + 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(435)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(138)[0..1]  + 32 * IloIntVar(281)[0..1]  + 33 * IloIntVar(198)[0..1]  + 11 * IloIntVar(121)[0..1]  + 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 81 * IloIntVar(155)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(275)[0..1]  + 92 * IloIntVar(372)[0..1]  + 86 * IloIntVar(435)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(136)[0..1]  + 32 * IloIntVar(279)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(101)[0..1]  + 11 * IloIntVar(117)[0..1]  + 32 * IloIntVar(312)[0..1]  + 33 * IloIntVar(212)[0..1]  + 30 * IloIntVar(332)[0..1]  + 86 * IloIntVar(432)[0..1]  + 94 * IloIntVar(186)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(136)[0..1]  + 32 * IloIntVar(279)[0..1]  + 81 * IloIntVar(156)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(101)[0..1]  + 11 * IloIntVar(117)[0..1]  + 32 * IloIntVar(312)[0..1]  + 33 * IloIntVar(212)[0..1]  + 30 * IloIntVar(335)[0..1]  + 86 * IloIntVar(432)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(46)[0..1]  + 100 * IloIntVar(400)[0..1]  + 5 * IloIntVar(420)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(134)[0..1]  + 33 * IloIntVar(196)[0..1]  + 11 * IloIntVar(121)[0..1]  + 2 * IloIntVar(98)[0..1]  + 32 * IloIntVar(281)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(186)[0..1]  + 30 * IloIntVar(332)[0..1]  + 32 * IloIntVar(312)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(326)[0..1]  + 5 * IloIntVar(404)[0..1]  + 94 * IloIntVar(186)[0..1]  + 85 * IloIntVar(64)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(143)[0..1]  + 33 * IloIntVar(205)[0..1]  + 32 * IloIntVar(303)[0..1]  + 32 * IloIntVar(285)[0..1]  + 2 * IloIntVar(100)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(332)[0..1]  + 92 * IloIntVar(361)[0..1]  + 32 * IloIntVar(312)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 14 * IloIntVar(75)[0..1]  + 2 * IloIntVar(93)[0..1]  + 33 * IloIntVar(210)[0..1]  + 41 * IloIntVar(140)[0..1]  + 100 * IloIntVar(390)[0..1]  + 75 * IloIntVar(240)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(59)[0..1]  + 33 * IloIntVar(195)[0..1]  + 32 * IloIntVar(299)[0..1]  + 14 * IloIntVar(75)[0..1]  + 2 * IloIntVar(92)[0..1]  + 11 * IloIntVar(112)[0..1]  <= 138
+Adding RCI: 41 * IloIntVar(142)[0..1]  + 81 * IloIntVar(156)[0..1]  + 32 * IloIntVar(282)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 85 * IloIntVar(46)[0..1]  + 94 * IloIntVar(172)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(138)[0..1]  + 32 * IloIntVar(280)[0..1]  + 33 * IloIntVar(198)[0..1]  + 2 * IloIntVar(100)[0..1]  + 11 * IloIntVar(117)[0..1]  + 75 * IloIntVar(238)[0..1]  + 81 * IloIntVar(155)[0..1]  <= 138
+Adding RCI: 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(396)[0..1]  + 30 * IloIntVar(336)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 30 * IloIntVar(326)[0..1]  + 94 * IloIntVar(190)[0..1]  + 5 * IloIntVar(410)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 30 * IloIntVar(326)[0..1]  + 94 * IloIntVar(186)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(61)[0..1]  + 5 * IloIntVar(403)[0..1]  + 41 * IloIntVar(341)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(92)[0..1]  + 41 * IloIntVar(136)[0..1]  + 11 * IloIntVar(121)[0..1]  + 81 * IloIntVar(156)[0..1]  + 32 * IloIntVar(281)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(306)[0..1]  + 33 * IloIntVar(206)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: CUUUUUUUUUUTTTT
+32 * IloIntVar(314)[0..1]  + 33 * IloIntVar(205)[0..1]  + 81 * IloIntVar(164)[0..1]  + 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(112)[0..1]  <= 138
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(46)[0..1]  + 30 * IloIntVar(332)[0..1]  + 32 * IloIntVar(312)[0..1]  + 75 * IloIntVar(248)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(83)[0..1]  + 41 * IloIntVar(142)[0..1]  + 92 * IloIntVar(363)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(112)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 100 * IloIntVar(382)[0..1]  + 86 * IloIntVar(424)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(293)[0..1]  + 92 * IloIntVar(373)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(133)[0..1]  + 81 * IloIntVar(153)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(200)[0..1]  + 94 * IloIntVar(186)[0..1]  + 30 * IloIntVar(326)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(196)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(143)[0..1]  + 32 * IloIntVar(305)[0..1]  + 94 * IloIntVar(185)[0..1]  <= 138
+Adding RCI: 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(442)[0..1]  + 5 * IloIntVar(422)[0..1]  + 100 * IloIntVar(400)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 29 * IloIntVar(214)[0..1]  + 32 * IloIntVar(314)[0..1]  + 92 * IloIntVar(374)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(133)[0..1]  + 32 * IloIntVar(287)[0..1]  + 2 * IloIntVar(95)[0..1]  + 75 * IloIntVar(247)[0..1]  + 94 * IloIntVar(176)[0..1]  + 11 * IloIntVar(116)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(86)[0..1]  + 33 * IloIntVar(196)[0..1]  + 86 * IloIntVar(426)[0..1]  + 2 * IloIntVar(96)[0..1]  + 94 * IloIntVar(177)[0..1]  + 41 * IloIntVar(137)[0..1]  + 11 * IloIntVar(121)[0..1]  + 32 * IloIntVar(281)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 14 * IloIntVar(71)[0..1]  + 33 * IloIntVar(196)[0..1]  + 11 * IloIntVar(121)[0..1]  + 2 * IloIntVar(96)[0..1]  + 32 * IloIntVar(281)[0..1]  + 41 * IloIntVar(137)[0..1]  + 94 * IloIntVar(177)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(326)[0..1]  + 5 * IloIntVar(412)[0..1]  + 94 * IloIntVar(186)[0..1]  + 29 * IloIntVar(232)[0..1]  + 32 * IloIntVar(284)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(149)[0..1]  + 33 * IloIntVar(195)[0..1]  + 86 * IloIntVar(429)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 41 * IloIntVar(138)[0..1]  + 14 * IloIntVar(80)[0..1]  + 32 * IloIntVar(300)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(126)[0..1]  + 75 * IloIntVar(239)[0..1]  + 100 * IloIntVar(386)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(38)[0..1]  + 94 * IloIntVar(172)[0..1]  + 32 * IloIntVar(298)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(57)[0..1]  + 31 * IloIntVar(272)[0..1]  + 92 * IloIntVar(372)[0..1]  <= 138
+  14063  4432    19267.8861    22    19754.0000    18377.7233    77317    6.97%
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(64)[0..1]  + 30 * IloIntVar(336)[0..1]  + 5 * IloIntVar(412)[0..1]  + 100 * IloIntVar(396)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(133)[0..1]  + 33 * IloIntVar(200)[0..1]  + 2 * IloIntVar(104)[0..1]  + 94 * IloIntVar(180)[0..1]  + 92 * IloIntVar(364)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(83)[0..1]  + 41 * IloIntVar(134)[0..1]  + 92 * IloIntVar(369)[0..1]  + 11 * IloIntVar(122)[0..1]  + 33 * IloIntVar(209)[0..1]  + 32 * IloIntVar(302)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 94 * IloIntVar(175)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(138)[0..1]  + 32 * IloIntVar(280)[0..1]  + 33 * IloIntVar(198)[0..1]  + 2 * IloIntVar(104)[0..1]  + 11 * IloIntVar(119)[0..1]  + 92 * IloIntVar(364)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 94 * IloIntVar(180)[0..1]  + 33 * IloIntVar(200)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(133)[0..1]  + 2 * IloIntVar(98)[0..1]  + 75 * IloIntVar(238)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 32 * IloIntVar(281)[0..1]  + 11 * IloIntVar(122)[0..1]  + 32 * IloIntVar(302)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(60)[0..1]  + 32 * IloIntVar(279)[0..1]  + 30 * IloIntVar(337)[0..1]  + 14 * IloIntVar(79)[0..1]  + 5 * IloIntVar(417)[0..1]  + 41 * IloIntVar(134)[0..1]  + 11 * IloIntVar(114)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  + 33 * IloIntVar(212)[0..1]  + 86 * IloIntVar(432)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(280)[0..1]  + 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(138)[0..1]  + 33 * IloIntVar(198)[0..1]  + 11 * IloIntVar(117)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(183)[0..1]  + 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(435)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(248)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 85 * IloIntVar(46)[0..1]  + 86 * IloIntVar(424)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(169)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 94 * IloIntVar(186)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(112)[0..1]  + 2 * IloIntVar(95)[0..1]  + 94 * IloIntVar(180)[0..1]  + 33 * IloIntVar(203)[0..1]  + 75 * IloIntVar(243)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(146)[0..1]  + 81 * IloIntVar(153)[0..1]  + 92 * IloIntVar(366)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 5 * IloIntVar(417)[0..1]  + 86 * IloIntVar(424)[0..1]  + 30 * IloIntVar(337)[0..1]  + 94 * IloIntVar(186)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(112)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(198)[0..1]  + 41 * IloIntVar(138)[0..1]  + 14 * IloIntVar(79)[0..1]  + 32 * IloIntVar(279)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 32 * IloIntVar(298)[0..1]  + 30 * IloIntVar(335)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(169)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(70)[0..1]  + 41 * IloIntVar(133)[0..1]  + 2 * IloIntVar(93)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(119)[0..1]  + 33 * IloIntVar(210)[0..1]  + 75 * IloIntVar(239)[0..1]  + 100 * IloIntVar(395)[0..1]  + 32 * IloIntVar(315)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(60)[0..1]  + 100 * IloIntVar(382)[0..1]  + 30 * IloIntVar(325)[0..1]  + 81 * IloIntVar(165)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 14 * IloIntVar(75)[0..1]  + 2 * IloIntVar(92)[0..1]  + 11 * IloIntVar(122)[0..1]  + 32 * IloIntVar(308)[0..1]  + 75 * IloIntVar(248)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(142)[0..1]  + 75 * IloIntVar(237)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(96)[0..1]  + 11 * IloIntVar(122)[0..1]  + 32 * IloIntVar(302)[0..1]  <= 138
+Adding RCI: 30 * IloIntVar(337)[0..1]  + 92 * IloIntVar(375)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(42)[0..1]  + 85 * IloIntVar(46)[0..1]  + 100 * IloIntVar(382)[0..1]  <= 138
+Adding RCI: 75 * IloIntVar(246)[0..1]  + 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(435)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 94 * IloIntVar(172)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(138)[0..1]  + 32 * IloIntVar(280)[0..1]  + 33 * IloIntVar(209)[0..1]  + 2 * IloIntVar(100)[0..1]  + 92 * IloIntVar(369)[0..1]  + 11 * IloIntVar(112)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 30 * IloIntVar(332)[0..1]  + 86 * IloIntVar(424)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(46)[0..1]  + 30 * IloIntVar(326)[0..1]  + 94 * IloIntVar(190)[0..1]  + 5 * IloIntVar(422)[0..1]  + 86 * IloIntVar(442)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(326)[0..1]  + 94 * IloIntVar(190)[0..1]  + 5 * IloIntVar(410)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(142)[0..1]  + 33 * IloIntVar(196)[0..1]  + 32 * IloIntVar(293)[0..1]  + 2 * IloIntVar(96)[0..1]  + 92 * IloIntVar(373)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 85 * IloIntVar(46)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 94 * IloIntVar(186)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(84)[0..1]  + 41 * IloIntVar(142)[0..1]  + 100 * IloIntVar(384)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 2 * IloIntVar(101)[0..1]  + 32 * IloIntVar(301)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 2 * IloIntVar(92)[0..1]  + 32 * IloIntVar(279)[0..1]  + 11 * IloIntVar(114)[0..1]  + 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(134)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(417)[0..1]  + 94 * IloIntVar(190)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(92)[0..1]  + 11 * IloIntVar(128)[0..1]  + 86 * IloIntVar(428)[0..1]  <= 138
+Adding RCI: 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(306)[0..1]  + 81 * IloIntVar(164)[0..1]  <= 138
+Adding RCI: 29 * IloIntVar(228)[0..1]  + 30 * IloIntVar(335)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(202)[0..1]  + 29 * IloIntVar(222)[0..1]  <= 138
+Adding RCI: 81 * IloIntVar(162)[0..1]  + 31 * IloIntVar(275)[0..1]  + 86 * IloIntVar(435)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(50)[0..1]  + 11 * IloIntVar(114)[0..1]  + 41 * IloIntVar(134)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(196)[0..1]  + 2 * IloIntVar(96)[0..1]  + 81 * IloIntVar(154)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(335)[0..1]  + 5 * IloIntVar(404)[0..1]  + 92 * IloIntVar(375)[0..1]  + 85 * IloIntVar(64)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(142)[0..1]  + 75 * IloIntVar(237)[0..1]  + 32 * IloIntVar(282)[0..1]  + 2 * IloIntVar(100)[0..1]  + 33 * IloIntVar(197)[0..1]  + 11 * IloIntVar(117)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 81 * IloIntVar(162)[0..1]  + 31 * IloIntVar(263)[0..1]  + 94 * IloIntVar(183)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(146)[0..1]  + 33 * IloIntVar(206)[0..1]  + 92 * IloIntVar(366)[0..1]  + 32 * IloIntVar(306)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(105)[0..1]  + 11 * IloIntVar(119)[0..1]  + 100 * IloIntVar(385)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(338)[0..1]  + 5 * IloIntVar(410)[0..1]  + 86 * IloIntVar(438)[0..1]  + 94 * IloIntVar(190)[0..1]  + 32 * IloIntVar(284)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(131)[0..1]  + 33 * IloIntVar(195)[0..1]  <= 138
+  20157  5670    19533.1190    19    19754.0000    18921.7183   116816    4.21%
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(49)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(209)[0..1]  + 92 * IloIntVar(375)[0..1]  + 30 * IloIntVar(335)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(80)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(300)[0..1]  + 32 * IloIntVar(282)[0..1]  + 11 * IloIntVar(121)[0..1]  + 94 * IloIntVar(176)[0..1]  <= 138
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(335)[0..1]  + 5 * IloIntVar(403)[0..1]  + 92 * IloIntVar(375)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 32 * IloIntVar(279)[0..1]  + 14 * IloIntVar(79)[0..1]  + 41 * IloIntVar(133)[0..1]  + 2 * IloIntVar(96)[0..1]  + 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(306)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(126)[0..1]  + 81 * IloIntVar(155)[0..1]  + 100 * IloIntVar(386)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(73)[0..1]  + 41 * IloIntVar(133)[0..1]  + 81 * IloIntVar(153)[0..1]  + 2 * IloIntVar(95)[0..1]  + 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(305)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 33 * IloIntVar(209)[0..1]  + 32 * IloIntVar(281)[0..1]  + 92 * IloIntVar(369)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(51)[0..1]  + 14 * IloIntVar(77)[0..1]  + 41 * IloIntVar(133)[0..1]  + 75 * IloIntVar(237)[0..1]  + 2 * IloIntVar(107)[0..1]  + 86 * IloIntVar(435)[0..1]  + 31 * IloIntVar(275)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(121)[0..1]  + 33 * IloIntVar(197)[0..1]  + 32 * IloIntVar(284)[0..1]  + 94 * IloIntVar(184)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(72)[0..1]  + 2 * IloIntVar(100)[0..1]  + 41 * IloIntVar(132)[0..1]  + 32 * IloIntVar(285)[0..1]  + 33 * IloIntVar(205)[0..1]  + 11 * IloIntVar(119)[0..1]  + 75 * IloIntVar(239)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(316)[0..1]  + 5 * IloIntVar(417)[0..1]  + 30 * IloIntVar(337)[0..1]  + 100 * IloIntVar(396)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 14 * IloIntVar(75)[0..1]  + 41 * IloIntVar(143)[0..1]  + 33 * IloIntVar(196)[0..1]  + 32 * IloIntVar(308)[0..1]  + 2 * IloIntVar(100)[0..1]  + 75 * IloIntVar(248)[0..1]  + 32 * IloIntVar(280)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(41)[0..1]  + 30 * IloIntVar(319)[0..1]  + 92 * IloIntVar(365)[0..1]  + 11 * IloIntVar(125)[0..1]  + 32 * IloIntVar(302)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(58)[0..1]  + 2 * IloIntVar(96)[0..1]  + 32 * IloIntVar(279)[0..1]  + 33 * IloIntVar(203)[0..1]  + 14 * IloIntVar(79)[0..1]  + 75 * IloIntVar(243)[0..1]  + 41 * IloIntVar(132)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(39)[0..1]  + 85 * IloIntVar(46)[0..1]  + 30 * IloIntVar(337)[0..1]  + 5 * IloIntVar(417)[0..1]  + 29 * IloIntVar(232)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(83)[0..1]  + 41 * IloIntVar(134)[0..1]  + 92 * IloIntVar(363)[0..1]  + 11 * IloIntVar(114)[0..1]  <= 138
+Adding RCI: 2 * IloIntVar(100)[0..1]  + 81 * IloIntVar(154)[0..1]  + 32 * IloIntVar(287)[0..1]  + 75 * IloIntVar(247)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(185)[0..1]  + 32 * IloIntVar(315)[0..1]  + 100 * IloIntVar(395)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(319)[0..1]  + 5 * IloIntVar(404)[0..1]  + 85 * IloIntVar(64)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(206)[0..1]  + 32 * IloIntVar(306)[0..1]  <= 138
+Adding RCI: 94 * IloIntVar(184)[0..1]  + 32 * IloIntVar(296)[0..1]  + 86 * IloIntVar(436)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(57)[0..1]  + 31 * IloIntVar(262)[0..1]  + 81 * IloIntVar(162)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(32)[0..1]  + 81 * IloIntVar(151)[0..1]  + 94 * IloIntVar(172)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(43)[0..1]  + 30 * IloIntVar(326)[0..1]  + 5 * IloIntVar(403)[0..1]  + 94 * IloIntVar(186)[0..1]  + 32 * IloIntVar(305)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 41 * IloIntVar(136)[0..1]  + 33 * IloIntVar(197)[0..1]  + 81 * IloIntVar(156)[0..1]  + 11 * IloIntVar(117)[0..1]  <= 138
+Adding RCI: 14 * IloIntVar(84)[0..1]  + 2 * IloIntVar(107)[0..1]  + 100 * IloIntVar(384)[0..1]  + 86 * IloIntVar(427)[0..1]  <= 138
+  26161  3686        cutoff          19754.0000    19376.2103   151227    1.91%
+CUUUUUUUUUUTTTT
+Adding RCI: 85 * IloIntVar(48)[0..1]  + 14 * IloIntVar(75)[0..1]  + 33 * IloIntVar(196)[0..1]  + 2 * IloIntVar(100)[0..1]  + 32 * IloIntVar(284)[0..1]  + 94 * IloIntVar(190)[0..1]  + 5 * IloIntVar(420)[0..1]  + 100 * IloIntVar(400)[0..1]  <= 138
+Adding RCI: 11 * IloIntVar(119)[0..1]  + 41 * IloIntVar(143)[0..1]  + 75 * IloIntVar(239)[0..1]  + 32 * IloIntVar(303)[0..1]  <= 138
+CUUUUUUUUUUTTTT
+Adding RCI: 12 * IloIntVar(44)[0..1]  + 30 * IloIntVar(337)[0..1]  + 86 * IloIntVar(424)[0..1]  + 5 * IloIntVar(419)[0..1]  + 92 * IloIntVar(379)[0..1]  <= 138
+Adding RCI: 85 * IloIntVar(54)[0..1]  + 33 * IloIntVar(198)[0..1]  + 41 * IloIntVar(142)[0..1]  + 32 * IloIntVar(282)[0..1]  + 14 * IloIntVar(79)[0..1]  + 2 * IloIntVar(92)[0..1]  + 11 * IloIntVar(112)[0..1]  <= 138
+
+User cuts applied:  415
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (1.98 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    7.64 sec. (1068.73 ticks)
+  Sync time (average)   =    1.11 sec.
+  Wait time (average)   =    0.03 sec.
+                          ------------
+Total (root+branch&cut) =    7.66 sec. (1070.71 ticks)
+Solution status = Optimal
+Solution value  = 19754
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BOOOOOM
+Cost: 19754
+
+Vector:
+2 5 
+7 19 
+8 16 
+10 18 
+11 14 
+12 20 
+
+Vector:
+0 0 1 0 0 1 0 1 1 0 1 1 1 0 1 0 1 0 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 
+1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 
+0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 
+1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 
+
+Vector:
+841 302 0 
+550 140 12 
+9 299 85 
+136 661 14 
+490 524 2 
+577 429 11 
+183 990 41 
+647 781 81 
+45 351 94 
+455 597 33 
+759 160 29 
+720 712 75 
+641 291 31 
+498 668 32 
+504 296 32 
+509 158 30 
+738 411 41 
+298 100 92 
+368 101 100 
+537 73 5 
+454 284 86 
+
+Vector:
+2 5 
+7 19 
+8 16 
+10 18 
+11 14 
+12 20 

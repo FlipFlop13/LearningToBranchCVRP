@@ -1,0 +1,124 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+R: 3
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 21
+Sum of all demands: 828
+Capacity: 124
+KMin: 6
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         -1
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_ZeroHalfCut                    -1
+CPXPARAM_MIP_Cuts_LiftProj                       -1
+CPXPARAM_MIP_Strategy_HeuristicFreq              -1
+CPXPARAM_TimeLimit                               60
+Generic callback                                 0x20
+Lazy constraint(s) or lazy constraint/branch callback is present.
+    Disabling dual reductions (CPX_PARAM_REDUCE) in presolve.
+    Disabling presolve reductions that prevent crushing forms (CPX_PARAM_PREREFORM).
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 21 columns.
+Aggregator did 190 substitutions.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 210 binaries, 20 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.60 ticks)
+Probing time = 0.00 sec. (0.12 ticks)
+Cover probing fixed 0 vars, tightened 20 bounds.
+Tried aggregator 1 time.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 230 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.20 ticks)
+Probing time = 0.00 sec. (0.05 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (0.18 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    17416.0000     6                  17416.0000       28         
+      0     2    17416.0000     6                  17416.0000       28         
+Elapsed time = 0.04 sec. (1.62 ticks, tree = 0.02 MB, solutions = 0)
+*   231   148      integral     0    31280.0000    22253.0000     1569   28.86%
+*   381   267      integral     0    31240.0000    22253.0000     2375   28.77%
+    655   490    24565.0000     8    31240.0000    22347.2000     3993   28.47%
+   1129   920    22696.0000    12    31240.0000    22389.0000     6698   28.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 2 times.
+MIP Presolve eliminated 1 rows and 8 columns.
+MIP Presolve modified 384 coefficients.
+Aggregator did 20 substitutions.
+Reduced MIP has 21 rows, 202 columns, and 404 nonzeros.
+Reduced MIP has 202 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.35 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 21 rows, 202 columns, and 404 nonzeros.
+Reduced MIP has 202 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.12 ticks)
+Represolve time = 0.03 sec. (5.47 ticks)
+   1473   169    23132.0000    26    31240.0000    22407.0000     9332   28.27%
+   2011   599    24577.0000     8    31240.0000    22440.0000    12783   28.17%
+   2601  1132    22897.6667    22    31240.0000    22475.0000    17004   28.06%
+   3229  1592    infeasible          31240.0000    22501.0000    20390   27.97%
+*  3524  1936      integral     0    29806.0000    22509.0000    23263   24.48%
+   3964  2303    23889.0000    13    29806.0000    22514.0000    26562   24.46%
+*  4282  2579      integral     0    29500.0000    22520.0000    28917   23.66%
+   4451  2737    22786.6667    21    29500.0000    22523.0000    30345   23.65%
+   6257  4288    24034.0000     8    29500.0000    22548.0000    43056   23.57%
+Elapsed time = 23.08 sec. (3039.44 ticks, tree = 1.78 MB, solutions = 4)
+*  7659  5522      integral     0    29122.0000    22564.0000    54669   22.52%
+   8994  6546    infeasible          29122.0000    22572.0000    64602   22.49%
+  10133  7542    23553.5000    17    29122.0000    22586.0000    75762   22.44%
+* 10368  7705      integral     0    28826.0000    22586.0000    77234   21.65%
+  11170  8440    22737.0667    29    28826.0000    22596.0000    85068   21.61%
+  12620  9751    24596.5000    17    28826.0000    22605.0000    97169   21.58%
+
+User cuts applied:  3374
+
+Root node processing (before b&c):
+  Real time             =    0.01 sec. (1.61 ticks)
+Parallel b&c, 4 threads:
+  Real time             =   60.01 sec. (8118.24 ticks)
+  Sync time (average)   =    2.24 sec.
+  Wait time (average)   =    0.01 sec.
+                          ------------
+Total (root+branch&cut) =   60.02 sec. (8119.86 ticks)
+Solution status = Feasible
+Solution value  = 28826
+BOOOOOM
+Cost: 28826
+
+Vector:
+1 2 
+3 6 
+4 9 17 11 
+5 20 
+7 15 
+8 19 14 
+10 13 18 
+12 16 
+Route: 1 2 Demand sum: 121
+Route: 3 6 Demand sum: 100
+Route: 4 9 17 11 Demand sum: 110
+Route: 5 20 Demand sum: 85
+Route: 7 15 Demand sum: 118
+Route: 8 19 14 Demand sum: 103
+Route: 10 13 18 Demand sum: 85
+Route: 12 16 Demand sum: 106

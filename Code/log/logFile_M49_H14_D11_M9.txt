@@ -1,0 +1,1345 @@
+Master Thesis Project Philip Salomons i6154933 
+Learning to Branch on the Capacitated Vehicle Routing Problem 
+
+**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
+**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
+
+R: 3
+Starting...
+Creating CPLEX instance!
+
+Number of customers: 21
+Sum of all demands: 1047
+Capacity: 157
+KMin: 6
+
+Version identifier: 22.1.1.0 | 2022-11-28 | 9160aff4d
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         -1
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_ZeroHalfCut                    -1
+CPXPARAM_MIP_Cuts_LiftProj                       -1
+CPXPARAM_MIP_Strategy_HeuristicFreq              -1
+CPXPARAM_TimeLimit                               60
+Generic callback                                 0x20
+Lazy constraint(s) or lazy constraint/branch callback is present.
+    Disabling dual reductions (CPX_PARAM_REDUCE) in presolve.
+    Disabling presolve reductions that prevent crushing forms (CPX_PARAM_PREREFORM).
+Tried aggregator 2 times.
+MIP Presolve eliminated 0 rows and 21 columns.
+Aggregator did 190 substitutions.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 210 binaries, 20 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.60 ticks)
+Probing time = 0.00 sec. (0.12 ticks)
+Cover probing fixed 0 vars, tightened 20 bounds.
+Tried aggregator 1 time.
+Reduced MIP has 42 rows, 230 columns, and 840 nonzeros.
+Reduced MIP has 230 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.20 ticks)
+Probing time = 0.00 sec. (0.05 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (0.17 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    15821.0000     6                  15821.0000       28         
+      0     2    15821.0000     6                  15821.0000       28         
+Elapsed time = 0.03 sec. (1.61 ticks, tree = 0.02 MB, solutions = 0)
+CUUUUUUUUUUTTTT
+
+Vector:
+1
+3
+Demand: 37
+K(S): 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 38
+
+Vector:
+2
+14
+16
+13
+20
+4
+5
+Demand: 260
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+6
+9
+10
+Demand: 218
+K(S): 2
+0 0 0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+Candidate connecting edges: 0
+Adding RCI: 
+
+Vector:
+6
+9
+10
+KK(S): 1.38854
+K(S): 2
+
+Vector:
+7
+15
+Demand: 154
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+8
+12
+Demand: 175
+K(S): 2
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 24
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+17
+18
+Demand: 148
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Candidate connecting edges: 6
+CUUUUUUUUUUTTTT
+
+Vector:
+UUUTTTT
+CUUUUUUUUUUTTTT
+Vector:
+1
+9
+10
+6
+Demand: 241
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+Candidate connecting edges: 0
+Adding RCI: 
+
+Vector:
+1
+9
+10
+6
+KK(S): 1.53503
+K(S): 2
+
+Vector:
+2
+14
+20
+15
+4
+5
+Demand: 307
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 28
+
+Vector:
+3
+8
+Demand: 100
+K(S): 1
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 34
+
+Vector:
+7
+12
+Demand: 153
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+ 1 1 
+CUUUUUUUUUUTTTT
+Candidate connecting edges: 26
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+K(S): 1
+
+Vector:
+1
+9
+110
+6
+0
+1 
+6
+Demand: 241
+K(S): 2
+1 1 0 1 1  0 1 
+Candidate connecting edges: 18
+0 0 0 0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+Vector:
+ -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 
+Vector:
+13
+16
+-0 Demand: 43
+K(S): 1
+d: 43
+-0 -0 -0 
+K(S): 1
+-0 -0 0 -0 0 - 0 -   0-0 -000 -0 -0  -0 0 -0 0 -0 0 -0 
+Candidate connecting edges: 01
+Adding RCI: 
+necting edges: 01
+1 
+Adding RCI: 
+
+Vector:
+1
+9
+10
+ 
+Can6
+ndidate connecting edges: 14
+6
+KK(S): 1.53503
+K(S): 2
+
+Vector:
+17
+18
+Demand: 148
+K(S): 1
+0 0 0 0 
+Vector:
+2
+14
+ 0 0 1 1 
+14
+15
+0 16
+Demand: 0248 
+K(S): 2
+K(S): 2
+1 
+-0 6
+-0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 32
+
+Vector:
+3
+8
+Demand: 100
+K(S): 1
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 34
+
+Vector:
+4
+5
+20
+13
+Demand: 102
+K(S): 1
+0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 28
+
+Vector:
+7
+12
+Demand: 153
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+ 1 1 
+CUUUUUUUUUUTTTT
+Candidate connecting edges: 18
+
+Vector:
+17
+18
+Demand: 148
+K(S): 1
+K(S): 1
+
+Vector:
+1
+9
+6
+10
+ 
+10
+15
+14
+2
+120 
+4
+0 
+
+Ca5
+ndidate connecting edges: 6
+5
+Demand: 548
+K(S): 4
+1 1 1 1 1 1 1 1 1 1 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 22
+
+Vector:
+1
+9
+10
+6
+Demand: 241
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+Candidate connecting edges: 0
+Adding RCI: 
+
+Vector:
+1
+9
+10
+6
+KK(S): 1.53503
+K(S): 2
+
+Vector:
+2
+14
+15
+16
+Demand: 248
+K(S): 2
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 32
+
+Vector:
+3
+8
+Demand: 100
+K(S): 1
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 34
+
+Vector:
+4
+5
+20
+13
+Demand: 102
+K(S): 1
+0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 28
+
+Vector:
+7
+17
+Demand: 159
+K(S): 2
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+12
+18
+Demand: 142
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+Candidate connecting edges: 16
+
+Vector:
+3
+8
+Demand: 100
+K(S): 1
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 34
+
+Vector:
+7
+12
+Demand: 153
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+13
+16
+Demand: 43
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 
+Candidate connecting edges: 14
+
+Vector:
+17
+18
+Demand: 148
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Candidate connecting edges: 6
+*    29    13      integral     0    16600.0000    15876.0000       68    4.36%
+CUUUUUUUUUUTTTT
+
+Vector:
+1
+9
+6
+10
+15
+2
+14
+16
+Demand: 489
+K(S): 4
+1 1 1 1 1 1 1 1 1 1 1 1 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+3
+8
+Demand: 100
+K(S): 1
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 34
+
+Vector:
+4
+5
+20
+13
+Demand: 102
+K(S): 1
+0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 28
+
+Vector:
+7
+17
+Demand: 159
+K(S): 2
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+12
+18
+Demand: 142
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+Candidate connecting edges: 16
+CUUUUUUUUUUTTTT
+
+Vector:
+1
+3
+Demand: 37
+UUTTTT
+
+Vector:
+1
+9
+6
+10
+15
+2
+14
+16
+Demand: 489
+K(S): 4
+1 1 1 1 1 1 1 1 1 1 1 1 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+3
+8
+Demand: 100
+K(S): 1
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 34
+
+Vector:
+4
+5
+20
+13
+Demand: 102
+K(S): 1
+0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 28
+
+Vector:
+7
+12
+Demand: 153
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+17
+18
+Demand: 148
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Candidate connecting edges: 6
+*    35    14      integral     0    16454.0000    15876.0000       79    3.51%
+CUUUUUUUUUUTTTT
+
+Vector:
+1
+3
+10
+9
+6
+Demand: 255
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 32
+
+Vector:
+2
+13
+14
+16
+20
+4
+5
+Demand: 260
+K(S): 2
+0 -0 -0 -0 -0 -0 -0CUUUUUUUUUUTTTT0
+0 -0 -0 -0 -0 -0 -0CUUUUUUUUUUTTTT0
+-0 -0 -0 -0 -0 -0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 
+Vector:
+0 0 0 0 0 0 
+0 0 0 
+Vector:
+1
+3
+
+
+10
+9
+60 0
+Demand: -0 255
+K(S): 2
+-0 255
+0K(S): 2
+1 1 0 1 0 1 1  0 1 0 1 0 1 0 1 
+Candidate connecting edges: 26
+Candidate connecting edges: 26
+0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 
+Vector:
+0 0 0 0 
+0 0 0 0 0 0 0 
+Vector:
+7
+0 15
+Demand: 1540K(S): 1
+1540  0 0 
+K(S): 1
+1 1 0 1 0 0 0 1 0 1 0 1 11 1  1 1 1 1 
+Candidate connecting edges: 321Candidate connecting edges: 321 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+Candidate connecting edges: 26
+
+Vector:
+2
+13
+14
+20
+
+Vec16
+tor:
+8
+
+4
+125
+
+DeDemand: 260
+K(S): 2
+260
+K(S): 2
+K(S): 2
+0 0 0 0 0 00 01c 10 1 0 1 0 1 0 0 1  0 1 0 1 0 
+0 0 0 0 0 00 01c 10 1 0 1 0 1 0 0 1  0 1 0 1 0 
+1 1 
+00 0 0 00 0  0  0 0 0 0 0 0 1 0 1 0 
+1 0 1 1  1  
+Candidate connecting edges: -0241
+-0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+Vector:
+111t
+19
+DemandDem 0 0 0 00 K(S): 
+0 K(S): 
+1
+1 1 0 1 0 1 0 1 1  1 0 1 0 1 1  
+1 Candidate connecting edges: 26
+1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+17
+18
+Demand: 148
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Candidate connecting edges: 6
+Candidate cK(S): 1
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 38
+
+Vector:
+2
+14
+16
+20
+13
+4
+5
+Demand: 260
+K(S): 2
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+6
+9
+10
+Demand: 218
+K(S): 2
+0 0 0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 0 0 0 0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+Candidate connecting edges: 0
+Adding RCI: 
+
+Vector:
+6
+9
+10
+KK(S): 1.38854
+K(S): 2
+
+Vector:
+7
+15
+Demand: 154
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+8
+17
+Demand: 181
+K(S): 2
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 24
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+12
+18
+Demand: 142
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+Candidate connecting edges: 16
+
+Vector:
+7
+ctor:
+CUUUUUUUUUUTTTT
+
+Vector:
+1
+3
+9
+6
+10
+Demand: 255
+K(S): 2
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 32
+
+Vector:
+2
+14
+16
+13
+20
+4
+5
+Demand: 260
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+7
+15
+Demand: 154
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+8
+17
+Demand: 181
+K(S): 2
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 24
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+12
+18
+Demand: 142
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+Candidate connecting edges: 16
+*    60    22      integral     0    16272.0000    15887.0000      154    2.37%
+* 15
+Demand: 154
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+8
+17
+Demand: 181
+K(S): 2
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 24
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+12
+18
+Demand: 142
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+Candidate connecting edges: 16
+CUUUUUUUUUUTTTT
+CUUUUUUUUUUTTTT
+
+Vector:
+1
+3
+9
+6
+10
+Demand: 255
+K(S): 2
+K(S): 2
+
+Vector:
+1
+3
+9
+6
+-0 -0 -0 -0 -0 
+6
+10
+1 Demand: 255
+K(S): 2
+K(S): 2
+1 1 1 
+0 -0 0 -00 -0  00  0 0 -0 0 -0 0 -0 0 -0 0 -0 0 -0 -00 
+0 -0 0 -00 -0  00  0 0 -0 0 -0 0 -0 0 -0 0 -0 0 -0 -00 
+-0 -0 -0 -0 
+1 1 0 1  0 1 0 1 0 1 0 1 0 1 0 0  0 00 1 0 1 
+1 1 0 1  0 1 0 1 0 1 0 1 0 1 0 0  0 00 1 0 1 
+0 0 0 
+0 0  10 01  0  0 1 0 1 010 1  0 1 0 1 1  
+0 0  10 01  0  0 1 0 1 010 1  0 1 0 1 1  
+1 1 1 1 
+Candidate connecting edges: 32
+-0 -0 -0 -0 -0 -0 -0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 32
+Candidate connecting edges: 32
+
+Vector:
+2
+14
+20
+16
+4
+13
+Vec5
+ctor:
+2
+De14
+and: 260
+K(S16
+): 2
+16
+20
+13
+4
+5
+0 0 
+5
+Demand: 260
+K(S): 2
+K(S): 2
+-0 -0 -0 -0 -0 
+-0 -0 0 -0 0 0 0 -0  00  00  -0 0 -0 0 -0 
+-0 -0 0 0 0 0  0 -0  00  00  -0 0 -0 0 -0 
+0 0 0 0 0 
+0 
+0 0  00  00 0  0  0 0 0 0 0 
+0 
+-0 0-0 -0 0 -0 0 -0 0 -0 0 -0 0 -0 0 -0 
+0 
+1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 
+1 1 0 1 -0 1 -0 1 -0 1 -0 1 -0 1 -0 1 -0 1 
+Candidate connecting edges: 26
+1 -0 1 -0 1 
+-0 -0 -0 -0 -0 
+Candidate connecting edges: 26
+1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+7
+15
+DemaVector:
+154
+K(S): 1
+7
+S): 1
+7
+15
+ Demand: 154
+1 K(S): 1
+1 1 
+0 1 
+0 1 0 1 0 1 0 1 1 0 1 1 1 1 1 1 1 1 1 1 1 
+1 1 
+Candidate connecting edges: 26
+1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+8
+17
+DemaVector:
+181
+K(S): 2
+8
+S): 2
+8
+170
+Demand: 181
+K(S): 2
+1 
+0 0 0 00 1 0 1 0 1 0 1 0 1 0 1  11 1 1 1 11 1  
+1 
+Candidate connecting edges: 24
+1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 24
+Candidate connecting edges: 24
+
+Vector:
+11
+19
+DemaVector:
+55
+K(S): 1
+11
+): 1
+11
+19
+Demand: 55
+K(S): 1
+ 1 
+0 0 0 0 0  0 0  01 1  0  s0  1  1  1 1 1 
+1 
+Candidate connecting edges: 18
+0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+12
+18
+DemaVector:
+142
+K(S): 1
+12
+): 1
+12
+18
+Demand: 142
+K(S): 1
+1 
+0 00 0  0 0 0 0 0 0 1 0 0 1 1 10 0  1  1  
+1 1 
+Candidate connecting edges: 16
+0 1 1 1 1 1 1 1 
+Candidate connecting edges: 16
+*    69    21      integral     0    16220.0000    15887.0000      137    2.05%
+CUUUUUUUUUUTTTT
+
+Vector:
+1
+3
+10
+6
+9
+Demand: 255
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+-0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 32
+
+Vector:
+2
+14
+20
+13
+4
+16
+5
+Demand: 260
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+7
+15
+Demand: 154
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+8
+17
+Demand: 181
+K(S): 2
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 24
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+Candidate connecting edges: 18
+*    76    19      integral     0    16154.0000    15887.0000      179    1.65%
+CUUUUUUUUUUTTTT
+
+Vector:
+1
+3
+10
+9
+6
+Demand: 255
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 32
+
+Vector:
+2
+14
+20
+16
+4
+13
+5
+Demand: 260
+K(S): 2
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 -0 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+7
+15
+Demand: 154
+K(S): 1
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 26
+
+Vector:
+8
+17
+Demand: 181
+K(S): 2
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 24
+
+Vector:
+11
+19
+Demand: 55
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 
+Candidate connecting edges: 18
+
+Vector:
+12
+18
+Demand: 142
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+Candidate connecting edges: 16
+
+Vector:
+12
+18
+Demand: 142
+K(S): 1
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+Candidate connecting edges: 16
+*   143    23      integral     0    16150.0000    15974.0840      304    1.09%
+
+User cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.01 sec. (1.61 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.22 sec. (2.37 ticks)
+  Sync time (average)   =    0.12 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.23 sec. (3.98 ticks)
+Solution status = Optimal
+Solution value  = 16150
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BOOOOOM
+Cost: 16150
+
+Vector:
+3 1 10 9 6 
+5 4 20 2 14 16 13 
+7 15 
+8 17 
+11 19 
+12 18 
+
+Vector:
+0 0 0 1 0 1 1 1 1 0 0 1 1 1 0 1 0 1 1 1 0 
+0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 
+0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 
+1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 
+1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 
+0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+Vector:
+791 984 0 
+624 154 23 
+236 484 78 
+890 406 14 
+113 595 7 
+44 951 48 
+389 206 90 
+513 619 64 
+998 902 86 
+370 178 74 
+477 231 54 
+481 644 43 
+648 703 89 
+279 569 2 
+265 510 39 
+465 436 90 
+299 549 41 
+573 811 95 
+699 666 53 
+487 643 12 
+199 589 45 
+
+Vector:
+3 1 10 9 6 
+5 4 20 2 14 16 13 
+7 15 
+8 17 
+11 19 
+12 18 
