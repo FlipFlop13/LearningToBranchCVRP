@@ -1,0 +1,96 @@
+//***---***---***---***---***---***---***---***---***---***---***---***---***---***---***///
+class BranchCallback : public IloCplex::Callback::Function
+{
+    NumVarMatrix edgeUsage;
+    int calls;
+    int branches;
+
+public:
+    BranchCallback(NumVarMatrix _x) : edgeUsage(_x), calls(0), branches(0)
+    {
+    }
+
+    void invoke(IloCplex::Callback::Context const &context) ILO_OVERRIDE
+    {
+        // NOTE: Strictly speaking, the increment of calls and branches
+        //       should be protected by a lock/mutex/semaphore. However, to keep
+        //       the code simple we don't do that here.
+        ++calls;
+
+        // Get the current relaxation.
+        // The function not only fetches the objective value but also makes sure
+        // the node lp is solved and returns the node lp's status. That status can
+        // be used to identify numerical issues or similar
+        IloCplex::CplexStatus status = context.getRelaxationStatus(0);
+        double obj = context.getRelaxationObjective();
+
+        // Only branch if the current node relaxation could be solved to
+        // optimality.
+        // If there was any sort of trouble then don't do anything and thus let
+        // CPLEX decide how to cope with that.
+        if (status != IloCplex::Optimal &&
+            status != IloCplex::OptimalInfeas)
+        {
+            return;
+        }
+
+        NumVarMatrix v(context.getEnv(), edgeUsage.getSize());
+
+        // Node lp was solved to optimality. Grab the current relaxation
+        // and find the most fractional variable
+        // context.getRelaxationPoint(edgeUsage, v);
+        IloInt maxVarI = -1;
+        IloInt maxVarJ = -1;
+        IloNum maxFrac = 0.0;
+        IloInt n =  edgeUsage.getSize();
+        for (IloInt i = 0; i < n; ++i)
+        {
+            for (IloInt j = 0; j < n; j++)
+            {   
+                IloNum const s = context.getRelaxationPoint(edgeUsage[i][j]);
+
+                double const intval = ::round(s);
+                double const frac = ::fabs(intval - s);
+
+                if (frac > maxFrac)
+                {
+                    maxFrac = frac;
+                    maxVarI = i;
+                    maxVarJ = j;
+                }
+            }
+        }
+
+        // If the maximum fractionality of all integer variables is small then
+        // don't create a custom branch. Instead let CPLEX decide how to
+        // branch.
+        IloNum minFrac = 0.1;
+        if (maxFrac > minFrac)
+        {
+            // There is a variable with a sufficiently fractional value.
+            // Branch on that variable.
+            CPXLONG upChild, downChild;
+            double const up = ::ceil(maxFrac);
+            double const down = ::floor(maxFrac);
+            IloNumVar branchVar = edgeUsage[maxVarI][maxVarJ];
+
+            // Create UP branch (branchVar >= up)
+            upChild = context.makeBranch(branchVar, up, IloCplex::BranchUp, obj);
+            ++branches;
+
+            // Create DOWN branch (branchVar <= down)
+            downChild = context.makeBranch(branchVar, down, IloCplex::BranchDown, obj);
+            ++branches;
+
+            // We don't use the unique ids of the down and up child. We only
+            // have them so illustrate how they are returned from
+            // CPXcallbackmakebranch().
+            (void)downChild;
+            (void)upChild;
+        }
+        v.end();
+    }
+
+    int getCalls() const { return calls; }
+    int getBranches() const { return branches; }
+};

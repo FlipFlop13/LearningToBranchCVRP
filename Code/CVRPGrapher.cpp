@@ -147,3 +147,6 @@ void CVRPGrapher::setSolutionVector(vector<vector<int>> vec)
   solutionVector = vec;
   plotSolution();
 }
+
+
+

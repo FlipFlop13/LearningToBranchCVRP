@@ -1,0 +1,6 @@
+#!/bin/sh
+echo 'Compiling Runner' 
+g++ -std=c++2a  -o bin/build/runner.o -c runner.cpp
+echo 'Comopiling Joiner'
+g++ -std=c++2a -o runner bin/build/runner.o -lboost_serialization
+./runner

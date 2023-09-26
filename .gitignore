@@ -37,6 +37,12 @@
 #Literature directory
 Literature/**
 
+#bin
+Code/bin/**
+
+#log
+Code/log/**
+
 #Images
 *.png
 
