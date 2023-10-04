@@ -23,6 +23,7 @@ using namespace std;
 std::mutex mtx; // mutex for critical section
 
 typedef IloArray<IloNumVarArray> NumVarMatrix;
+typedef IloArray<IloNumArray> NumMatrix;
 
 #define EPS 1e-6 // epsilon useed for violation of cuts
 
@@ -84,7 +85,7 @@ private:
     string filepathCGC;
 
     // If we are in training we will save each node's instance
-    mutable bool training = true;
+    mutable bool training;
 
     // tracks how often we have made a cut here
     IloInt cutCalls = 0;
@@ -94,18 +95,20 @@ private:
 public:
     // Constructor with data.
     CVRPCallback(const IloInt capacity, const IloInt n, const vector<int> demands,
-                 const NumVarMatrix &_edgeUsage, string filepath) : edgeUsage(_edgeUsage)
-    {
+                 const NumVarMatrix &_edgeUsage, bool _training) : edgeUsage(_edgeUsage)
+    {   
+        training = _training;
         Q = capacity;
         N = n;
         demandVector = demands;
+        vector<string> directories = glob("./bin/training/", "*");
+        filepathCGC = "./bin/training/Instance" + to_string(size(directories));
 
-        filepathCGC = filepath;
         struct stat sb;
-        if (!(stat(filepathCGC.c_str(), &sb) == 0)){
+        if (!(stat(filepathCGC.c_str(), &sb) == 0))
+        {
             mkdir(filepathCGC.c_str(), 0777);
         }
-            
     }
 
     // This wil check the connected components, guarantueed to find an error (if one exists)
@@ -413,7 +416,8 @@ NumVarMatrix populate(IloModel *model, NumVarMatrix edgeUsage, vector<vector<int
 
     // Create all the edge variables
     IloNumVarArray EedgeUsage = IloNumVarArray(env, n, 0, 2, ILOINT); // Edges to the depot may be travelled twice, if the route is one costumer
-    edgeUsage[0] = EedgeUsage;                                        // Edges to the depot may be travelled twice, if the route is one costumer
+    edgeUsage[0] = EedgeUsage;
+    // Edges to the depot may be travelled twice, if the route is one costumer
     // edgeUsage[0] = IloNumVarArray(env, n, 0, 2, ILOINT); // Edges to the depot may be travelled twice, if the route is one costumer
     edgeUsage[0][0].setBounds(0, 0); // Cant travel from the depot to itself
 
@@ -476,7 +480,7 @@ NumVarMatrix populate(IloModel *model, NumVarMatrix edgeUsage, vector<vector<int
     return edgeUsage;
 }
 
-tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity)
+tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity, bool training, bool trivialStart)
 {
     IloEnv env;
     IloModel model(env);
@@ -490,17 +494,46 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
     }
 
     edgeUsage = populate(&model, edgeUsage, &vertexMatrix, &costMatrix, &capacity);
-
+    cout << "***********************************************************--------------------------------*******************************************" << endl;
     IloCplex cplex(model);
     cplex.setParam(IloCplex::Param::TimeLimit, 600);
+    cplex.setParam(IloCplex::Param::Threads, 12);
 
+    // The trivial start is when each route is depot customer and back.
+    // i.e. all values in the fisrt column (except 0,0) are 2
+    // Does not appear to make a difference
+    if (trivialStart)
+    {
+        IloNumArray startVal(env);
+        startVal.add(0);
+
+        for (IloInt i = 1; i < n; i++)
+        {
+            startVal.add(2);
+        }
+        cplex.addMIPStart(edgeUsage[0], startVal);
+        startVal.end();
+
+        for (IloInt i = 1; i < n; i++)
+        {
+            IloNumArray startVal(env);
+            startVal.add(2);
+            for (IloInt j = 1; j < n; j++)
+            {
+                startVal.add(0);
+            }
+            cplex.addMIPStart(edgeUsage[i], startVal);
+            startVal.end();
+        }
+    }
 
     // Custom Cuts and Branch in one Custom Generic Callback
     CPXLONG contextMask = 0;
     contextMask |= IloCplex::Callback::Context::Id::Candidate;
     contextMask |= IloCplex::Callback::Context::Id::Branching;
-    CVRPCallback cgc(capacity, n, demands, edgeUsage, "./bin/training/Instance0" );
+    CVRPCallback cgc(capacity, n, demands, edgeUsage, training);
     cplex.use(&cgc, contextMask);
+
 
     // These are the CUTS that are standard in CPLEX,
     // we can remove them to force CPLEX to use the custom Cuts
@@ -551,8 +584,6 @@ int main()
         cout << i.first << " " << i.second
              << endl;
     }
-    // cout << jsonMap.find("customerDistribution").second() << endl;
-    // cout << jsonMap.find("customerDisstribution")->second << endl;
 
     // This first block prepares the log file (name bassed on the current starting time)
     const std::time_t now = std::time(nullptr);
@@ -564,8 +595,8 @@ int main()
     string filename = "./log/logFile_M" + minute + "_H" + hour + "_D" + day + "_M" + month + ".txt";
     string graphname = "./Graphs/images/graph_M" + minute + "_H" + hour + "_D" + day + "_M" + month + ".png";
     ofstream out(filename);
-    streambuf *coutbuf = out.rdbuf();
     streambuf *coutBufBack = std::cout.rdbuf();
+    streambuf *coutbuf = out.rdbuf();
     cout.rdbuf(coutbuf);
     cout << "Master Thesis Project Philip Salomons i6154933 \n";
     cout << "Learning to Branch on the Capacitated Vehicle Routing Problem \n\n";
@@ -601,12 +632,12 @@ int main()
     cout << "Creating CPLEX instance..." << endl;
     vector<vector<int>> edgeUsage;
     int cost;
-    tie(edgeUsage, cost) = createAndRunCPLEXInstance(customers, costVector, capacity);
-
+    tie(edgeUsage, cost) = createAndRunCPLEXInstance(customers, costVector, capacity, true, false);
     cout << "Cost: " << cost << endl;
+    // tie(edgeUsage, cost) = createAndRunCPLEXInstance(customers, costVector, capacity, true, true);
+    // cout << "Cost: " << cost << endl;
 
     vector<vector<int>> solution = fromEdgeUsageToRouteSolution(edgeUsage);
-    cout << "CCC";
     grapher.setSolutionVector(solution);
     grapher.setInstanceCost(cost);
 

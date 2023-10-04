@@ -1,7 +1,0 @@
-Master Thesis Project Philip Salomons i6154933 
-Learning to Branch on the Capacitated Vehicle Routing Problem 
-
-**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
-**--**--**--**--**--**--       LOG File           ---**--**--**--**--**--**
-
-Size: 5 Demand type5DT: ECT: CR
