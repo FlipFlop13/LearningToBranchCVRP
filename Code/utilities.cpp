@@ -1,6 +1,16 @@
 #include "./utilities.h"
 /// This file contains all the helper functions, including custom printer functions and the graph creator functions
-
+/// @brief This function prints every integer element in the vector to the console.
+/// @param vec A vector of integer to be displayed in the console.
+void printVector(vector<float> vec)
+{
+    cout << endl
+         << "Vector:" << endl;
+    for (float i : vec)
+    {
+        cout << i << endl;
+    }
+}
 /// @brief This function prints every integer element in the vector to the console.
 /// @param vec A vector of integer to be displayed in the console.
 void printVector(vector<int> vec)
@@ -12,6 +22,7 @@ void printVector(vector<int> vec)
         cout << i << endl;
     }
 }
+//
 /// @brief This function prints every string element in the vector to the console.
 /// @param vec A vector of string to be displayed in the console.
 void printVector(vector<string> vec)
@@ -33,6 +44,21 @@ void printVector(vector<vector<int>> vec)
     for (vector<int> i : vec)
     {
         for (int j : i)
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+}
+/// @brief This function prints every integer element in the vector to the console.
+/// @param vec A vector of vectors of floats to be displayed in the console.
+void printVector(vector<vector<float>> vec)
+{
+    cout << endl
+         << "Vector:" << endl;
+    for (vector<float> i : vec)
+    {
+        for (float j : i)
         {
             cout << j << " ";
         }
@@ -374,7 +400,7 @@ vector<vector<int>> generateCustomerClusters(vector<vector<double>> &probVec, in
     while (idx < n)
     {
         // Getting a random double value
-        double randomDouble = (float)(rand()%100000)/100000;
+        double randomDouble = (float)(rand() % 100000) / 100000;
         vector<int> location = findLocation(flatProb, randomDouble);
         // if location already seen pick new number and go again
         repeat = false;
@@ -918,10 +944,10 @@ map<string, string> readJson(string filename)
         string word;
         vector<int> routeVector;
         while (ss >> word)
-        {   
-            if (word[0] == '/' && word[1] == '/'){//is a comment
+        {
+            if (word[0] == '/' && word[1] == '/')
+            { // is a comment
                 break;
-
             }
             for (int i = 0; i < word.size(); i++)
             {
@@ -933,7 +959,9 @@ map<string, string> readJson(string filename)
                 {
                     type = ":";
                     continue;
-                }else if (word[i] == ','){
+                }
+                else if (word[i] == ',')
+                {
                     continue;
                 }
                 term += word[i];
@@ -950,10 +978,76 @@ map<string, string> readJson(string filename)
                 key = "";
                 term = "";
                 type = "key";
-            }else if (type == ":"){
+            }
+            else if (type == ":")
+            {
                 type = "term";
             }
         }
     }
     return map;
+}
+
+vector<vector<vector<vector<float>>>> fourDimensionVectorCreator(int x, int y, int z, int w, float defaultValue)
+{
+    vector<vector<vector<vector<float>>>> bigBoy(x, vector<vector<vector<float>>>(y, vector<vector<float>>(z, vector<float>(w, defaultValue))));
+    return bigBoy;
+}
+vector<vector<vector<vector<int>>>> fourDimensionVectorCreator(int x, int y, int z, int w, int defaultValue)
+{
+    vector<vector<vector<vector<int>>>> bigBoy(x, vector<vector<vector<int>>>(y, vector<vector<int>>(z, vector<int>(w, defaultValue))));
+    return bigBoy;
+}
+vector<vector<vector<vector<bool>>>> fourDimensionVectorCreator(int x, int y, int z, int w, bool defaultValue)
+{
+    vector<vector<vector<vector<bool>>>> bigBoy(x, vector<vector<vector<bool>>>(y, vector<vector<bool>>(z, vector<bool>(w, defaultValue))));
+    return bigBoy;
+}
+
+vector<vector<vector<float>>> threeDimensionVectorCreator(int x, int y, int z, float defaultValue)
+{
+    vector<vector<vector<float>>> bigBoy(x, vector<vector<float>>(y, vector<float>(z, defaultValue)));
+    return bigBoy;
+}
+vector<vector<vector<int>>> threeDimensionVectorCreator(int x, int y, int z, int defaultValue)
+{
+    vector<vector<vector<int>>> bigBoy(x, vector<vector<int>>(y, vector<int>(z, defaultValue)));
+    return bigBoy;
+}
+vector<vector<vector<bool>>> threeDimensionVectorCreator(int x, int y, int z, bool defaultValue)
+{
+    vector<vector<vector<bool>>> bigBoy(x, vector<vector<bool>>(y, vector<bool>(z, defaultValue)));
+    return bigBoy;
+}
+
+vector<vector<float>> twoDimensionVectorCreator(int x, int y, float defaultValue)
+{
+    vector<vector<float>> bigBoy(x, vector<float>(y, defaultValue));
+    return bigBoy;
+}
+vector<vector<int>> twoDimensionVectorCreator(int x, int y, int defaultValue)
+{
+    vector<vector<int>> bigBoy(x, vector<int>(y, defaultValue));
+    return bigBoy;
+}
+vector<vector<bool>> twoDimensionVectorCreator(int x, int y, bool defaultValue)
+{
+    vector<vector<bool>> bigBoy(x, vector<bool>(y, defaultValue));
+    return bigBoy;
+}
+
+vector<float> oneDimensionVectorCreator(int x, float defaultValue)
+{
+    vector<float> bigBoy(x, defaultValue);
+    return bigBoy;
+}
+vector<int> oneDimensionVectorCreator(int x, int defaultValue)
+{
+    vector<int> bigBoy(x, defaultValue);
+    return bigBoy;
+}
+vector<bool> oneDimensionVectorCreator(int x, bool defaultValue)
+{
+    vector<bool> bigBoy(x, defaultValue);
+    return bigBoy;
 }

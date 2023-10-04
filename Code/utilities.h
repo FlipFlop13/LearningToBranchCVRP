@@ -19,9 +19,13 @@
 #include <algorithm>
 
 using namespace std;
-
 /// This file contains all the helper functions, including custom printer functions and the graph creator functions
-
+/// @brief This function prints every integer element in the vector to the console.
+/// @param vec A vector of integer to be displayed in the console.
+void printVector(vector<float> vec);
+/// @brief This function prints every integer element in the vector to the console.
+/// @param vec A vector of vectors of floats to be displayed in the console.
+void printVector(vector<vector<float>> vec);
 /// @brief This function prints every integer element in the vector to the console.
 /// @param vec A vector of integer to be displayed in the console.
 void printVector(vector<int> vec);
@@ -135,6 +139,21 @@ vector<vector<int>> fromEdgeUsageToRouteSolution(vector<vector<int>> edgeUsage);
 void printRouteAndDemand(vector<vector<int>> routes, vector<int> demands);
 
 map<string, string> readJson(string filename = "cvrp.json");
+
+vector<vector<vector<vector<float>>>> fourDimensionVectorCreator(int x, int y, int z, int w, float defaultValue);
+vector<vector<vector<vector<int>>>> fourDimensionVectorCreator(int x, int y, int z, int w, int defaultValue);
+vector<vector<vector<vector<bool>>>> fourDimensionVectorCreator(int x, int y, int z, int w, bool defaultValue);
+vector<vector<vector<float>>> threeDimensionVectorCreator(int x, int y, int z, float defaultValue);
+vector<vector<vector<int>>> threeDimensionVectorCreator(int x, int y, int z,  int defaultValue);
+vector<vector<vector<bool>>> threeDimensionVectorCreator(int x, int y, int z, bool defaultValue);
+vector<vector<float>> twoDimensionVectorCreator(int x, int y, float defaultValue);
+vector<vector<int>> twoDimensionVectorCreator(int x, int y, int defaultValue);
+vector<vector<bool>> twoDimensionVectorCreator(int x, int y, bool defaultValue);
+vector<float> oneDimensionVectorCreator(int x,  float defaultValue);
+vector<int> oneDimensionVectorCreator(int x, int defaultValue);
+vector<bool> oneDimensionVectorCreator(int x, bool defaultValue);
+
+
 
 
 #endif /* UTILITIES_G */
