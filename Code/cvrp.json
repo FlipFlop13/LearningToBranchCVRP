@@ -3,7 +3,7 @@
 {
     "graphSaving" : "yes",
     "readCVRP" : "no",
-    "nCustomer" : "15",
+    "nCustomer" : "35",
     "customerDistribution" : "CR",
     "depotLocation" : "C",
     "demandDistribution" : "4",
