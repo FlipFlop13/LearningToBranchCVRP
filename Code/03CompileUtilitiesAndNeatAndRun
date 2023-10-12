@@ -2,7 +2,8 @@
 echo 'Compiling Utilities' 
 g++  -std=c++2a -c utilities.cpp -o bin/build/utilities.o
 echo 'Compiling NEAT' 
-g++  -std=c++2a -fopenmp -c neat.cpp -o bin/build/neat.o
+g++  -std=c++2a -m64 -fPIC  -fno-strict-aliasing -fexceptions -DNDEBUG -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include -I/opt/ibm/ILOG/CPLEX_Studio2211/concert/include  -L/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic -L/opt/ibm/ILOG/CPLEX_Studio2211/concert/lib/x86-64_linux/static_pic -c neat.cpp -o bin/build/neat.o -lgomp -lconcert -lilocplex -lcplex -lm -lpthread -ldl -lboost_serialization 
 echo 'Compiling Joiner'
-g++  -std=c++2a -o runNEAT bin/build/neat.o bin/build/utilities.o -lgomp
+g++  -std=c++2a -m64 -fPIC  -fno-strict-aliasing -fexceptions -DNDEBUG -I/opt/ibm/ILOG/CPLEX_Studio2211/cplex/include -I/opt/ibm/ILOG/CPLEX_Studio2211/concert/include -L/opt/ibm/ILOG/CPLEX_Studio2211/cplex/lib/x86-64_linux/static_pic -L/opt/ibm/ILOG/CPLEX_Studio2211/concert/lib/x86-64_linux/static_pic -o runNEAT bin/build/neat.o bin/build/utilities.o -lgomp -lconcert -lilocplex -lcplex -lm -lpthread -ldl -lboost_serialization 
+echo 'Running NEAT'
 ./runNEAT   

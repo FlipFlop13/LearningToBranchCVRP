@@ -1051,3 +1051,267 @@ vector<bool> oneDimensionVectorCreator(int x, bool defaultValue)
     vector<bool> bigBoy(x, defaultValue);
     return bigBoy;
 }
+
+tuple<float, int> fourDimensionLikeness(vector<vector<vector<vector<float>>>> &v0, vector<vector<vector<vector<float>>>> &v1)
+{
+    int ED = 0;
+    float W = 0;
+    int s0 = v0.size();
+    int s1 = v0[0].size();
+    int s2 = v0[0][0].size();
+    int s3 = v0[0][0][0].size();
+    int i, j, k, l;
+
+#pragma omp parallel for private(i, j, k, l) shared(v0, v1)
+    for (i = 0; i < s0; ++i)
+    {
+        for (j = 0; j < s1; ++j)
+        {
+            for (k = 0; k < s2; ++k)
+            {
+                for (l = 0; l < s3; ++l)
+                {
+                    if (abs(v0[i][j][k][l]) < EPSU && abs(v1[i][j][k][l]) < EPSU) // If they are both zero they are both innexistent (skip)
+                    {
+                        continue;
+                    }
+                    else if (!(abs(v0[i][j][k][l]) < EPSU) && !(abs(v1[i][j][k][l]) < EPSU)) // If they are both not zero they  both exist
+                    {
+                        W += abs(v0[i][j][k][l] - v1[i][j][k][l]);
+                    }
+                    else // Else one exist and the other doesnt add ED counter
+                    {
+                        ED++;
+                    }
+                }
+            }
+        }
+    }
+    return make_tuple(W, ED);
+}
+tuple<float, int> threeDimensionLikeness(vector<vector<vector<float>>> &v0, vector<vector<vector<float>>> &v1)
+{
+    int ED = 0;
+    float W = 0;
+    int s0 = v0.size();
+    int s1 = v0[0].size();
+    int s2 = v0[0][0].size();
+    int i, j, k;
+
+#pragma omp parallel for private(i, j, k) shared(v0, v1)
+    for (i = 0; i < s0; ++i)
+    {
+        for (j = 0; j < s1; ++j)
+        {
+            for (k = 0; k < s2; ++k)
+            {
+                if (abs(v0[i][j][k]) < EPSU && abs(v1[i][j][k]) < EPSU) // If they are both zero they are both innexistent (skip)
+                {
+                    continue;
+                }
+                else if (!(abs(v0[i][j][k]) < EPSU) && !(abs(v1[i][j][k]) < EPSU)) // If they are both not zero they  both exist
+                {
+                    W += abs(v0[i][j][k] - v1[i][j][k]);
+                }
+                else // Else one exist and the other doesnt add ED counter
+                {
+                    ED++;
+                }
+            }
+        }
+    }
+    return make_tuple(W, ED);
+}
+tuple<float, int> twoDimensionLikeness(vector<vector<float>> &v0, vector<vector<float>> &v1)
+{
+    int ED = 0;
+    float W = 0;
+    int s0 = v0.size();
+    int s1 = v0[0].size();
+    int i, j;
+
+#pragma omp parallel for private(i, j) shared(v0, v1)
+    for (i = 0; i < s0; ++i)
+    {
+        for (j = 0; j < s1; ++j)
+        {
+
+            if (abs(v0[i][j]) < EPSU && abs(v1[i][j]) < EPSU) // If they are both zero they are both innexistent (skip)
+            {
+                continue;
+            }
+            else if (!(abs(v0[i][j]) < EPSU) && !(abs(v1[i][j]) < EPSU)) // If they are both not zero they  both exist
+            {
+                W += abs(v0[i][j] - v1[i][j]);
+            }
+            else // Else one exist and the other doesnt add ED counter
+            {
+                ED++;
+            }
+        }
+    }
+    return make_tuple(W, ED);
+}
+
+int boolVectorCounter(vector<vector<vector<vector<bool>>>> &v0)
+{
+    int count = 0;
+    int s0 = v0.size();
+    int s1 = v0[0].size();
+    int s2 = v0[0][0].size();
+    int s3 = v0[0][0][0].size();
+    int i, j, k;
+
+#pragma omp parallel for private(i, j, k) shared(v0, count)
+    for (i = 0; i < s0; ++i)
+    {
+        for (j = 0; j < s1; ++j)
+        {
+            for (k = 0; k < s2; ++k)
+            {
+                auto countT = std::count(v0[i][j][k].begin(), v0[i][j][k].end(), true);
+                count += countT;
+            }
+        }
+    }
+    return count;
+}
+int boolVectorCounter(vector<vector<vector<bool>>> &v0)
+{
+    int count = 0;
+    int s0 = v0.size();
+    int s1 = v0[0].size();
+    int s2 = v0[0][0].size();
+    int i, j, k, l;
+
+#pragma omp parallel for private(i, j) shared(v0, count)
+    for (i = 0; i < s0; ++i)
+    {
+        for (j = 0; j < s1; ++j)
+        {
+
+            auto countT = std::count(v0[i][j].begin(), v0[i][j].end(), true);
+            count += countT;
+        }
+    }
+    return count;
+}
+int boolVectorCounter(vector<vector<bool>> &v0)
+{
+    int count = 0;
+    int s0 = v0.size();
+    int s1 = v0[0].size();
+
+    int i;
+
+#pragma omp parallel for private(i, j, k, l) shared(v0, count)
+    for (i = 0; i < s0; ++i)
+    {
+
+        auto countT = std::count(v0[i].begin(), v0[i].end(), true);
+        count += countT;
+    }
+    return count;
+}
+
+void chooseRandomForMatchingGenes(vector<vector<vector<vector<float>>>> &vF0, vector<vector<vector<vector<float>>>> &vF1, vector<vector<vector<vector<float>>>> &vFkid, vector<vector<vector<vector<bool>>>> &vA0, vector<vector<vector<vector<bool>>>> &vA1, vector<vector<vector<vector<bool>>>> &vAkid)
+{
+    int i, j, k, l;
+    int s0 = vF0.size();
+    int s1 = vF0[0].size();
+    int s2 = vF0[0][0].size();
+    int s3 = vF0[0][0][0].size();
+    float randomFloat;
+#pragma omp parallel for private(i, j, k, l) shared(vFkid, vF0, vF1, vAkid, vA0, vA1)
+    for (i = 0; i < s0; ++i)
+    {
+        for (j = 0; j < s1; ++j)
+        {
+            for (k = 0; k < s2; ++k)
+            {
+                for (l = 0; l < s3; ++l)
+                {
+                    if (!(abs(vF0[i][j][k][l]) < EPSU) && !(abs(vF1[i][j][k][l]) < EPSU)) // If they are both not zero they  both exist, and thus matching
+                    {
+
+                        randomFloat = ((float)rand() / (float)RAND_MAX);
+                        if (randomFloat > 0.5)
+                        {
+                            vFkid[i][j][k][l] = vF0[i][j][k][l];
+                            vAkid[i][j][k][l] = vA0[i][j][k][l];
+                        }
+                        else
+                        {
+                            vFkid[i][j][k][l] = vF1[i][j][k][l];
+                            vAkid[i][j][k][l] = vA1[i][j][k][l];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+void chooseRandomForMatchingGenes(vector<vector<vector<float>>> &vF0, vector<vector<vector<float>>> &vF1, vector<vector<vector<float>>> &vFkid, vector<vector<vector<bool>>> &vA0, vector<vector<vector<bool>>> &vA1, vector<vector<vector<bool>>> &vAkid)
+{
+
+    int i, j, k;
+
+    int s0 = vF0.size();
+    int s1 = vF0[0].size();
+    int s2 = vF0[0][0].size();
+    float randomFloat;
+#pragma omp parallel for private(i, j, k) shared(vFkid, vF0, vF1, vAkid, vA0, vA1)
+    for (i = 0; i < s0; ++i)
+    {
+        for (j = 0; j < s1; ++j)
+        {
+            for (k = 0; k < s2; ++k)
+            {
+                if (!(abs(vF0[i][j][k]) < EPSU) && !(abs(vF1[i][j][k]) < EPSU)) // If they are both not zero they  both exist, and thus matching
+                {
+                    randomFloat = ((float)rand() / (float)RAND_MAX);
+                    if (randomFloat > 0.5)
+                    {
+                        vFkid[i][j][k] = vF0[i][j][k];
+                        vAkid[i][j][k] = vA0[i][j][k];
+                    }
+                    else
+                    {
+                        vFkid[i][j][k] = vF1[i][j][k];
+                        vAkid[i][j][k] = vA1[i][j][k];
+                    }
+                }
+            }
+        }
+    }
+}
+void chooseRandomForMatchingGenes(vector<vector<float>> &vF0, vector<vector<float>> &vF1, vector<vector<float>> &vFkid, vector<vector<bool>> &vA0, vector<vector<bool>> &vA1, vector<vector<bool>> &vAkid)
+{
+
+    int i, j;
+
+    int s0 = vF0.size();
+    int s1 = vF0[0].size();
+    float randomFloat;
+#pragma omp parallel for private(i, j) shared(vFkid, vF0, vF1, vAkid, vA0, vA1)
+    for (i = 0; i < s0; ++i)
+    {
+        for (j = 0; j < s1; ++j)
+        {
+            if (!(abs(vF0[i][j]) < EPSU) && !(abs(vF1[i][j]) < EPSU)) // If they are both not zero they  both exist, and thus matching
+            {
+                randomFloat = ((float)rand() / (float)RAND_MAX);
+                if (randomFloat > 0.5)
+                {
+                    vFkid[i][j] = vF0[i][j];
+                    vAkid[i][j] = vA0[i][j];
+                }
+                else
+                {
+                    vFkid[i][j] = vF1[i][j];
+                    vAkid[i][j] = vA1[i][j];
+                }
+            }
+        }
+    }
+}

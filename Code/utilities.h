@@ -1,6 +1,8 @@
 #ifndef UTILITIES_G // include guard
 #define UTILITIES_G
 
+#define EPSU 1e-10
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -153,7 +155,16 @@ vector<float> oneDimensionVectorCreator(int x,  float defaultValue);
 vector<int> oneDimensionVectorCreator(int x, int defaultValue);
 vector<bool> oneDimensionVectorCreator(int x, bool defaultValue);
 
+tuple<float, int> fourDimensionLikeness(vector<vector<vector<vector<float>>>> &v0, vector<vector<vector<vector<float>>>> &v1);
+tuple<float, int> threeDimensionLikeness(vector<vector<vector<float>>> &v0, vector<vector<vector<float>>> &v1);
+tuple<float, int> twoDimensionLikeness(vector<vector<float>> &v0, vector<vector<float>> &v1);
 
+int boolVectorCounter(vector<vector<vector<vector<bool>>>> &v0);
+int boolVectorCounter(vector<vector<vector<bool>>> &v0);
+int boolVectorCounter(vector<vector<bool>> &v0);
 
+void chooseRandomForMatchingGenes(vector<vector<float>> &vF0, vector<vector<float>> &vF1, vector<vector<float>> &vFkid, vector<vector<bool>> &vA0, vector<vector<bool>> &vA1, vector<vector<bool>> &vAkid);
+void chooseRandomForMatchingGenes(vector<vector<vector<float>>> &vF0, vector<vector<vector<float>>> &vF1, vector<vector<vector<float>>> &vFkid, vector<vector<vector<bool>>> &vA0, vector<vector<vector<bool>>> &vA1, vector<vector<vector<bool>>> &vAkid);
+void chooseRandomForMatchingGenes(vector<vector<vector<vector<float>>>> &vF0, vector<vector<vector<vector<float>>>> &vF1, vector<vector<vector<vector<float>>>> &vFkid, vector<vector<vector<vector<bool>>>> &vA0, vector<vector<vector<vector<bool>>>> &vA1, vector<vector<vector<vector<bool>>>> &vAkid);
 
 #endif /* UTILITIES_G */

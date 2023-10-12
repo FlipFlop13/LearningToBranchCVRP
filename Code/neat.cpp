@@ -24,13 +24,15 @@
 // #include "./branchAndCut.h"
 using namespace std;
 
-std::mutex mtxCVRP; // mutex for critical section
-
+std::mutex mtxCVRP;            // mutex for critical section
 #define PERTURBEPROB 0.1       // Probability that the weight of a gene is perturbed (in reality this is PERTURBEPROB-MUTATEPROB)
 #define MUTATEPROB 0.01        // or that a complete new value is given
-#define NEWNODEPROB 0.03       // or that a complete new value is given
-#define NEWCONNECTIONPROB 0.05 // or that a complete new value is given
-
+#define NEWNODEPROB 0.001      //
+#define NEWCONNECTIONPROB 0.05 //
+#define C1 1                   //
+#define C2 1                   //
+#define C3 1                   //
+#define nSpeciesThreshold 10   // We never let the number of species be higher than 10, if this happens we decrease the likeness thraeshold
 typedef IloArray<IloNumVarArray> NumVarMatrix;
 typedef IloArray<IloNumArray> NumMatrix;
 
@@ -44,13 +46,17 @@ class GenomeCVRP
     // The input also contains a number of other information in a 1-d vector(1*s) (e.g. node depth, relaxation value, incumbent solution found) (I2)
     // The input contains one bias Integer (1) the weights should handle the size and direction of the bias (I3)
 
-private:
-    int maxNodesHiddenLayer = 500;
-    int maxInputSize = 15;
+public:
+    int maxNodesHiddenLayer = 2000;
+    int maxInputSize = 30;
     int s = 25;
     int bias = 1;
     float startingValue = 0.01;
     bool TEMPBOOL = 0;
+    int activeConnections = 0;
+    int randID = rand();
+    vector<float> fitness = oneDimensionVectorCreator(5, (float)0);
+
     // These are the nodes of the hidden layers, they will only hold the information during computation.
     mutable vector<float> HLV1 = oneDimensionVectorCreator(maxNodesHiddenLayer, (float)0);
     mutable vector<float> HLV2 = oneDimensionVectorCreator(maxNodesHiddenLayer, (float)0);
@@ -125,27 +131,29 @@ private:
     vector<vector<vector<float>>> WLH2OL = threeDimensionVectorCreator(maxNodesHiddenLayer, maxInputSize, maxInputSize, (float)startingValue);
     vector<vector<vector<float>>> WLH3OL = threeDimensionVectorCreator(maxNodesHiddenLayer, maxInputSize, maxInputSize, (float)startingValue);
 
-public:
-    int fitness = 0;
-    int specieNumber = 0;
+    //------------*********Functions***********------------------
     GenomeCVRP();
     vector<int> feedForwardFirstTry(vector<vector<float>> *M1, vector<vector<float>> *coordinates, vector<vector<float>> *misc) const;
     void mutateGenomeWeights();
     void mutateGenomeNodeStructure();
     void mutateGenomeConnectionStructure();
-    void setFitness(int value);
-    int getFitness();
+    void countActiveConnections();
+    void setFitness(vector<float> value);
+    vector<float> getFitness();
+    void inheritParentData(GenomeCVRP &g);
 };
 class PopulationCVRP
 {
 
 private:
-    int populationSize = 10;
-    GenomeCVRP population[1];
+    int populationSize = 20;
+    GenomeCVRP standardCPLEXPlaceholder;
     GenomeCVRP speciesRepresentative[4]; // Each species needs a representative from the previous generation, such that new genomes can check if they belong
 
 public:
-    int generation = 12;
+    vector<vector<GenomeCVRP>> population;
+    int generation = 0;
+
     vector<vector<int>> vertexMatrix;
     int capacity;
     vector<vector<int>> costMatrix;
@@ -153,7 +161,10 @@ public:
     PopulationCVRP();
     void getCVRP(int nCostumers, string depotLocation, string customerDistribution, int demandDistribution);
     void getCVRP(string filepath);
+    void initializePopulation();
     void runCPLEXGenome();
+    void reorganizeSpecies(float deltaMultiplier);
+    GenomeCVRP reproduce(GenomeCVRP &g0, GenomeCVRP &g1);
 };
 class CVRPCallback : public IloCplex::Callback::Function
 {
@@ -203,6 +214,10 @@ public:
 };
 
 tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity, bool training, GenomeCVRP genome);
+float calculateLikeness(GenomeCVRP &g0, GenomeCVRP &g1);
+void chooseRandomForMatchingGenes(vector<vector<float>> &vF0, vector<vector<float>> &vF1, vector<vector<float>> &vFkid, vector<vector<bool>> &vA0, vector<vector<bool>> &vA1, vector<vector<bool>> &vAkid);
+void chooseRandomForMatchingGenes(vector<vector<vector<float>>> &vF0, vector<vector<vector<float>>> &vF1, vector<vector<vector<float>>> &vFkid, vector<vector<vector<bool>>> &vA0, vector<vector<vector<bool>>> &vA1, vector<vector<vector<bool>>> &vAkid);
+void chooseRandomForMatchingGenes(vector<vector<vector<vector<float>>>> &vF0, vector<vector<vector<vector<float>>>> &vF1, vector<vector<vector<vector<float>>>> &vFkid, vector<vector<vector<vector<bool>>>> &vA0, vector<vector<vector<vector<bool>>>> &vA1, vector<vector<vector<vector<bool>>>> &vAkid);
 
 //----------**********GENOME*****-----
 GenomeCVRP::GenomeCVRP()
@@ -2522,27 +2537,92 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
     }
 }
 
-void GenomeCVRP::setFitness(int value)
+void GenomeCVRP::setFitness(vector<float> fitnessValue)
 {
-    fitness = value;
+    fitness = fitnessValue;
 }
-int GenomeCVRP::getFitness()
+vector<float> GenomeCVRP::getFitness()
 {
     return fitness;
 }
-// TODO Create function to determine an individuals fitness (Mainly get from CPLEX)
 
+void GenomeCVRP::countActiveConnections()
+{
+    int count = 0;
+
+    count += boolVectorCounter(ALI0OL);
+    count += boolVectorCounter(ALI1OL);
+    count += boolVectorCounter(ALI2OL);
+    count += boolVectorCounter(ALI0H1);
+    count += boolVectorCounter(ALI1H1);
+    count += boolVectorCounter(ALI2H1);
+    count += boolVectorCounter(ALI0H2);
+    count += boolVectorCounter(ALI1H2);
+    count += boolVectorCounter(ALI2H2);
+    count += boolVectorCounter(ALI0H3);
+    count += boolVectorCounter(ALI1H3);
+    count += boolVectorCounter(ALI2H3);
+    count += boolVectorCounter(ALH1H2);
+    count += boolVectorCounter(ALH1H3);
+    count += boolVectorCounter(ALH2H3);
+    count += boolVectorCounter(ALH1OL);
+    count += boolVectorCounter(ALH2OL);
+    count += boolVectorCounter(ALH3OL);
+
+    activeConnections = count;
+
+    return;
+}
+
+void GenomeCVRP::inheritParentData(GenomeCVRP &g)
+{
+    HLA1 = g.HLA1;
+    HLA2 = g.HLA2;
+    HLA3 = g.HLA3;
+    ALI0OL = g.ALI0OL;
+    ALI1OL = g.ALI1OL;
+    ALI2OL = g.ALI2OL;
+    WLI0OL = g.WLI0OL;
+    WLI1OL = g.WLI1OL;
+    WLI2OL = g.WLI2OL;
+    ALI0H1 = g.ALI0H1;
+    ALI1H1 = g.ALI1H1;
+    ALI2H1 = g.ALI2H1;
+    WLI0H1 = g.WLI0H1;
+    WLI1H1 = g.WLI1H1;
+    WLI2H1 = g.WLI2H1;
+    ALI0H2 = g.ALI0H2;
+    ALI1H2 = g.ALI1H2;
+    ALI2H2 = g.ALI2H2;
+    WLI0H2 = g.WLI0H2;
+    WLI1H2 = g.WLI1H2;
+    WLI2H2 = g.WLI2H2;
+    ALI0H3 = g.ALI0H3;
+    ALI1H3 = g.ALI1H3;
+    ALI2H3 = g.ALI2H3;
+    WLI0H3 = g.WLI0H3;
+    WLI1H3 = g.WLI1H3;
+    WLI2H3 = g.WLI2H3;
+    ALH1H2 = g.ALH1H2;
+    ALH1H3 = g.ALH1H3;
+    ALH2H3 = g.ALH2H3;
+    WLH1H2 = g.WLH1H2;
+    WLH1H3 = g.WLH1H3;
+    WLH2H3 = g.WLH2H3;
+    ALH1OL = g.ALH1OL;
+    ALH2OL = g.ALH2OL;
+    ALH3OL = g.ALH3OL;
+    WLH1OL = g.WLH1OL;
+    WLH2OL = g.WLH2OL;
+    WLH3OL = g.WLH3OL;
+}
 //-----*****-----*****-----*****-----*****-----*****-----*****-----*****-----*****-----*****
 
 PopulationCVRP::PopulationCVRP()
 {
-    population[0] = GenomeCVRP();
-    population[0].mutateGenomeWeights();
-    population[0].mutateGenomeNodeStructure();
-    population[0].mutateGenomeConnectionStructure();
-    cout << "\nCreating Population: " << population[0].fitness << "\n";
-    getCVRP(15, "R", "R", 4);
-    runCPLEXGenome();
+    initializePopulation();
+    reproduce(population[0][0], population[0][1]);
+    reorganizeSpecies((float)1);
 }
 void PopulationCVRP::getCVRP(int nCostumers, string depotLocation, string customerDistribution, int demandDistribution)
 {
@@ -2559,29 +2639,241 @@ void PopulationCVRP::getCVRP(string filepath)
     costMatrix = calculateEdgeCost(&vertexMatrix);
 }
 
+/// @brief This method will let all the genomes run on the current CVRP istance. It finalizes by letting cplex run with its standard branching scheme.
 void PopulationCVRP::runCPLEXGenome()
 {
-    for (GenomeCVRP g : population)
+    for (vector<GenomeCVRP> vecG : population)
     {
-        cout << "LOLOLO\n"
-             << flush;
-        cout << time(nullptr) << endl
-             << flush;
-        createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, true, g);
+        for (GenomeCVRP g : vecG)
+        {
+            createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, true, g);
+        }
     }
+    createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, false, standardCPLEXPlaceholder);
 }
 
+void PopulationCVRP::initializePopulation()
+{
+    for (int i = 0; i < 5; ++i)
+    {
+        vector<GenomeCVRP> temp;
+        population.push_back(temp);
+    }
+    int speciesNumber = 0;
+    for (int i = 0; i < populationSize; ++i)
+    {
+        speciesNumber = i % 5;
+        GenomeCVRP g;
+
+        g.mutateGenomeWeights();
+        g.mutateGenomeNodeStructure();
+        g.mutateGenomeConnectionStructure();
+        g.countActiveConnections();
+
+        population[speciesNumber].push_back(g);
+    }
+}
 // TODO Create function to calculate the distance between two individuals (species representative and current individual)
 
-// TODO Create function that will run the cplex with the standar CPLEX branching scheme
+void PopulationCVRP::reorganizeSpecies(float deltaMultiplier)
+{
+
+    // For each species there is a representative, we calculate the distance between the genome and the representative
+    // If the distance is small enough we add the genome to the given species
+    // Otherwise we will create a new species
+    int deltaT = 160000 * deltaMultiplier; // This is the likeness threshold that a pair must be under to be in the same species
+    int i, j, currentSpecies;
+    vector<GenomeCVRP> tempVec;
+    bool foundSpecies;
+    for (i = 0; i < population.size(); i++)
+    {
+        for (j = 0; j < population[i].size(); ++j)
+        {
+            if (j == 0)
+            {
+                continue;
+            }
+            tempVec.push_back(population[i][j]);
+        }
+        population[i].resize(1); // Only the species representative remains
+    }
+    vector<vector<GenomeCVRP>> tempPop = population;
+    int rotatingStart = 0;
+    float likeness;
+    for (GenomeCVRP g : tempVec) // Each genome that is not a species representative must now be allocated
+    {
+        foundSpecies = false;
+        for (i = 0; i < population.size(); ++i) // Compare to each species representative
+        {
+            currentSpecies = (rotatingStart + i) % population.size();
+            likeness = calculateLikeness(g, population[i][0]);
+            if (likeness < deltaT)
+            {
+                population[i].push_back(g);
+                foundSpecies = true;
+                break;
+            }
+        }
+        rotatingStart++;
+        if (foundSpecies)
+        {
+            continue;
+        }
+
+        vector<GenomeCVRP> vgt{g};
+        population.push_back(vgt);
+        if (population.size() > nSpeciesThreshold)
+        {
+            cout << "\nThreshold requires too many species, reducing to: " << (deltaMultiplier * 1.05) << flush;
+            tempPop[(tempPop.size() - 1)].insert(tempPop[(tempPop.size() - 1)].end(), tempVec.begin(), tempVec.end());
+            population = tempPop;
+            reorganizeSpecies((deltaMultiplier * 1.05));
+            break;
+        }
+    }
+    cout << "last likeness score: " << likeness << endl;
+    return;
+}
+
+/// This function calculates the likeness between two individuals and returns it as a float
+/// Folowing the paper by NEAT but as C1 and C2 are both 1 we do not distinguish between Excess and Disjoint connections
+float calculateLikeness(GenomeCVRP &g0, GenomeCVRP &g1)
+{
+    int ED = 0;
+    int N = 0;
+    float W = 0;
+    int EDT = 0;
+    int NT = 0;
+    float WT = 0;
+
+    tie(WT, EDT) = fourDimensionLikeness(g0.WLI0OL, g1.WLI0OL);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = fourDimensionLikeness(g0.WLI1OL, g1.WLI1OL);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = fourDimensionLikeness(g0.WLI2OL, g1.WLI2OL);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLI0H1, g1.WLI0H1);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLI1H1, g1.WLI1H1);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLI2H1, g1.WLI2H1);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLI0H2, g1.WLI0H2);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLI1H2, g1.WLI1H2);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLI2H2, g1.WLI2H2);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLI0H3, g1.WLI0H3);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLI1H3, g1.WLI1H3);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLI2H3, g1.WLI2H3);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = twoDimensionLikeness(g0.WLH1H2, g1.WLH1H2);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = twoDimensionLikeness(g0.WLH1H3, g1.WLH1H3);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = twoDimensionLikeness(g0.WLH2H3, g1.WLH2H3);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLH1OL, g1.WLH1OL);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLH2OL, g1.WLH2OL);
+    W += WT;
+    ED += EDT;
+
+    tie(WT, EDT) = threeDimensionLikeness(g0.WLH3OL, g1.WLH3OL);
+    W += WT;
+    ED += EDT;
+
+    if (g0.activeConnections > g1.activeConnections)
+    {
+        N = g0.activeConnections;
+    }
+    else
+    {
+        N = g1.activeConnections;
+    }
+
+    float likeness;
+    likeness = (((C1 * ED) / N) + (C3 * W));
+
+    return likeness;
+}
 
 // TODO Create function that reports and log what happened in the current generation (one log file is better to use later)
 
 // TODO Create function that will generate an ofspring from two individuals
+GenomeCVRP PopulationCVRP::reproduce(GenomeCVRP &g0, GenomeCVRP &g1)
+{
+
+    // g0 is by definition the more fit parent, and the disjouint and excess genes always comes from it
+    // the matching genes are chosen randomly, hence we first copy the more fit parent and only need to check for the mathing genes
+    GenomeCVRP gkid;
+    gkid.inheritParentData(g0);
+
+
+    chooseRandomForMatchingGenes(g0.WLI0OL, g1.WLI0OL, gkid.WLI0OL, g0.ALI0OL, g1.ALI0OL, gkid.ALI0OL);
+    chooseRandomForMatchingGenes(g0.WLI1OL, g1.WLI1OL, gkid.WLI1OL, g0.ALI1OL, g1.ALI1OL, gkid.ALI1OL);
+    chooseRandomForMatchingGenes(g0.WLI2OL, g1.WLI2OL, gkid.WLI2OL, g0.ALI2OL, g1.ALI2OL, gkid.ALI2OL);
+
+    chooseRandomForMatchingGenes(g0.WLI0H1, g1.WLI0H1, gkid.WLI0H1, g0.ALI0H1, g1.ALI0H1, gkid.ALI0H1);
+    chooseRandomForMatchingGenes(g0.WLI1H1, g1.WLI1H1, gkid.WLI1H1, g0.ALI1H1, g1.ALI1H1, gkid.ALI1H1);
+    chooseRandomForMatchingGenes(g0.WLI2H1, g1.WLI2H1, gkid.WLI2H1, g0.ALI2H1, g1.ALI2H1, gkid.ALI2H1);
+
+    chooseRandomForMatchingGenes(g0.WLI0H2, g1.WLI0H2, gkid.WLI0H2, g0.ALI0H2, g1.ALI0H2, gkid.ALI0H2);
+    chooseRandomForMatchingGenes(g0.WLI1H2, g1.WLI1H2, gkid.WLI1H2, g0.ALI1H2, g1.ALI1H2, gkid.ALI1H2);
+    chooseRandomForMatchingGenes(g0.WLI2H2, g1.WLI2H2, gkid.WLI2H2, g0.ALI2H2, g1.ALI2H2, gkid.ALI2H2);
+
+    chooseRandomForMatchingGenes(g0.WLI0H3, g1.WLI0H3, gkid.WLI0H3, g0.ALI0H3, g1.ALI0H3, gkid.ALI0H3);
+    chooseRandomForMatchingGenes(g0.WLI1H3, g1.WLI1H3, gkid.WLI1H3, g0.ALI1H3, g1.ALI1H3, gkid.ALI1H3);
+    chooseRandomForMatchingGenes(g0.WLI2H3, g1.WLI2H3, gkid.WLI2H3, g0.ALI2H3, g1.ALI2H3, gkid.ALI2H3);
+
+    chooseRandomForMatchingGenes(g0.WLH1H2, g1.WLH1H2, gkid.WLH1H2, g0.ALH1H2, g1.ALH1H2, gkid.ALH1H2);
+    chooseRandomForMatchingGenes(g0.WLH1H3, g1.WLH1H3, gkid.WLH1H3, g0.ALH1H3, g1.ALH1H3, gkid.ALH1H3);
+    chooseRandomForMatchingGenes(g0.WLH2H3, g1.WLH2H3, gkid.WLH2H3, g0.ALH2H3, g1.ALH2H3, gkid.ALH2H3);
+
+    chooseRandomForMatchingGenes(g0.WLH1OL, g1.WLH1OL, gkid.WLH1OL, g0.ALH1OL, g1.ALH1OL, gkid.ALH1OL);
+    chooseRandomForMatchingGenes(g0.WLH2OL, g1.WLH2OL, gkid.WLH2OL, g0.ALH2OL, g1.ALH2OL, gkid.ALH2OL);
+    chooseRandomForMatchingGenes(g0.WLH3OL, g1.WLH3OL, gkid.WLH3OL, g0.ALH3OL, g1.ALH3OL, gkid.ALH3OL);
+    return gkid;
+}
+
+
 
 // TODO Create function that will eliminate x% of the worst individuals of the population
-
-// TODO Create a functional branchingWithGenome
 
 CVRPCallback::CVRPCallback(const IloInt capacity, const IloInt n, const vector<int> demands,
                            const NumVarMatrix &_edgeUsage, vector<vector<int>> &_costMatrix, vector<vector<int>> &_coordinates, GenomeCVRP &_genome) : edgeUsage(_edgeUsage)
@@ -2769,10 +3061,10 @@ CVRPCallback::branchingWithGenome(const IloCplex::Callback::Context &context) co
         double const down = 0;
 
         vector<int> branchVarIJ = genome.feedForwardFirstTry(&M1, &coordinates, &misc);
-        cout << "\ni j " << flush;
+        // cout << "\ni j " << flush;
 
-        cout << "\ni: " << branchVarIJ[0] << flush;
-        cout << "\nj: " << branchVarIJ[1] << flush;
+        // cout << "\ni: " << branchVarIJ[0] << flush;
+        // cout << "\nj: " << branchVarIJ[1] << flush;
         IloNumVar branchVar = edgeUsage[branchVarIJ[0]][branchVarIJ[1]];
         // Create UP branch (branchVar >= up)
         upChild = context.makeBranch(branchVar, up, IloCplex::BranchUp, obj);
@@ -2892,11 +3184,8 @@ NumVarMatrix populate(IloModel *model, NumVarMatrix edgeUsage, vector<vector<int
     return edgeUsage;
 }
 
-tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity, bool training, GenomeCVRP genome)
+tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity, bool genomeBool, GenomeCVRP genome)
 {
-    cout << time(nullptr) << endl
-         << flush;
-
     IloEnv env;
     IloModel model(env);
     int n = vertexMatrix.size();
@@ -2910,28 +3199,26 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
 
     edgeUsage = populate(&model, edgeUsage, &vertexMatrix, &costMatrix, &capacity);
     IloCplex cplex(model);
+
     cplex.setParam(IloCplex::Param::TimeLimit, 600);
     cplex.setParam(IloCplex::Param::Threads, 12);
+    // cplex.setParam(IloCplex::Param::MIP::Strategy::HeuristicFreq, -1);
 
     // Custom Cuts and Branch in one Custom Generic Callback
     CPXLONG contextMask = 0;
     contextMask |= IloCplex::Callback::Context::Id::Candidate;
-    cout << "1" << flush;
     // If true we will use the custom branching scheme with the genome as the AI
-    if (training = true)
+    if (genomeBool == true)
     {
         contextMask |= IloCplex::Callback::Context::Id::Branching;
     }
-    cout << "1" << flush;
 
     CVRPCallback cgc(capacity, n, demands, edgeUsage, costMatrix, vertexMatrix, genome);
-    cout << "1" << flush;
 
     cplex.use(&cgc, contextMask);
 
     // These are the CUTS that are standard in CPLEX,
     // we can remove them to force CPLEX to use the custom Cuts
-    cplex.setParam(IloCplex::Param::MIP::Strategy::HeuristicFreq, -1);
     cplex.setParam(IloCplex::Param::MIP::Cuts::MIRCut, -1);
     cplex.setParam(IloCplex::Param::MIP::Cuts::Implied, -1);
     cplex.setParam(IloCplex::Param::MIP::Cuts::Gomory, -1);
@@ -2942,11 +3229,20 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
     cplex.setParam(IloCplex::Param::MIP::Cuts::Cliques, -1);
     cplex.setParam(IloCplex::Param::MIP::Cuts::Covers, -1);
     cplex.setOut(env.getNullStream());
+
+    cout << "GOTHEsRE\n"
+         << flush;
+
     // Optimize the problem and obtain solution.
     if (!cplex.solve())
     {
+        cout << "GOTHEsRE\n"
+             << flush;
+
         env.error() << "Failed to optimize LP" << endl;
     }
+    cout << "GOTHERE\n"
+         << flush;
 
     NumVarMatrix vals(env);
     env.out() << "Solution status = " << cplex.getStatus() << endl;
@@ -2962,9 +3258,13 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
         }
     }
     int cost = cplex.getObjValue();
+    int nodes = cplex.getNnodes();
+    cout << "Number of nodes: " << nodes << endl;
+    vector<float> genomeFitness(2, 0);
+    genomeFitness[0] = cost;
+    genomeFitness[1] = nodes;
 
-    cout << "Custom branches created: " << cgc.getBranches() << endl;
-
+    genome.setFitness(genomeFitness);
     env.end();
     return make_tuple(edgeUsageSolution, cost);
 }
