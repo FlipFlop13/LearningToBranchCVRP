@@ -22,7 +22,19 @@ void printVector(vector<int> vec)
         cout << i << endl;
     }
 }
-//
+/// @brief This function prints every integer element in the vector to the console.
+/// @param vec A vector of bool to be displayed in the console.
+void printVector(vector<bool> vec)
+{
+    cout << endl
+         << "Vector:" << endl;
+    for (bool i : vec)
+    {
+        cout << i << endl;
+    }
+}
+
+
 /// @brief This function prints every string element in the vector to the console.
 /// @param vec A vector of string to be displayed in the console.
 void printVector(vector<string> vec)
@@ -80,6 +92,22 @@ void printVector(vector<vector<string>> vec)
         cout << endl;
     }
 }
+/// @brief This function prints every string element in the vector to the console.
+/// @param vec A vector of vectors of bool to be displayed in the console.
+void printVector(vector<vector<bool>> vec)
+{
+    cout << endl
+         << "Vector:" << endl;
+    for (vector<bool> i : vec)
+    {
+        for (bool j : i)
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+}
+
 /// Helper for sorting alphabetically
 bool mycomp(string a, string b)
 {
@@ -878,7 +906,7 @@ vector<vector<int>> fromEdgeUsageToRouteSolution(vector<vector<int>> edgeUsage)
             int j = 0; // I think it can be one, for later
 
             while (true)
-            {
+            {   
                 if (edgeUsage.at(lastVertex).at(j) == 1)
                 {
                     if (j == 0)
@@ -988,70 +1016,140 @@ map<string, string> readJson(string filename)
     return map;
 }
 
+/// @brief Creates a vector of dimension 4
+/// @param x Size of dimension 1
+/// @param y Size of dimension 2 
+/// @param z Size of dimension 3 
+/// @param w Size of dimension 4 
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<vector<vector<vector<float>>>> fourDimensionVectorCreator(int x, int y, int z, int w, float defaultValue)
 {
     vector<vector<vector<vector<float>>>> bigBoy(x, vector<vector<vector<float>>>(y, vector<vector<float>>(z, vector<float>(w, defaultValue))));
     return bigBoy;
 }
+/// @brief Creates a vector of dimension 4
+/// @param x Size of dimension 1
+/// @param y Size of dimension 2 
+/// @param z Size of dimension 3 
+/// @param w Size of dimension 4 
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<vector<vector<vector<int>>>> fourDimensionVectorCreator(int x, int y, int z, int w, int defaultValue)
 {
     vector<vector<vector<vector<int>>>> bigBoy(x, vector<vector<vector<int>>>(y, vector<vector<int>>(z, vector<int>(w, defaultValue))));
     return bigBoy;
 }
+/// @brief Creates a vector of dimension 4
+/// @param x Size of dimension 1
+/// @param y Size of dimension 2 
+/// @param z Size of dimension 3 
+/// @param w Size of dimension 4 
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<vector<vector<vector<bool>>>> fourDimensionVectorCreator(int x, int y, int z, int w, bool defaultValue)
 {
     vector<vector<vector<vector<bool>>>> bigBoy(x, vector<vector<vector<bool>>>(y, vector<vector<bool>>(z, vector<bool>(w, defaultValue))));
     return bigBoy;
 }
 
+/// @brief Creates a vector of dimension 3
+/// @param x Size of dimension 1
+/// @param y Size of dimension 2 
+/// @param z Size of dimension 3 
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<vector<vector<float>>> threeDimensionVectorCreator(int x, int y, int z, float defaultValue)
 {
     vector<vector<vector<float>>> bigBoy(x, vector<vector<float>>(y, vector<float>(z, defaultValue)));
     return bigBoy;
 }
+/// @brief Creates a vector of dimension 3
+/// @param x Size of dimension 1
+/// @param y Size of dimension 2 
+/// @param z Size of dimension 3 
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<vector<vector<int>>> threeDimensionVectorCreator(int x, int y, int z, int defaultValue)
 {
     vector<vector<vector<int>>> bigBoy(x, vector<vector<int>>(y, vector<int>(z, defaultValue)));
     return bigBoy;
 }
+/// @brief Creates a vector of dimension 3
+/// @param x Size of dimension 1
+/// @param y Size of dimension 2 
+/// @param z Size of dimension 3 
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<vector<vector<bool>>> threeDimensionVectorCreator(int x, int y, int z, bool defaultValue)
 {
     vector<vector<vector<bool>>> bigBoy(x, vector<vector<bool>>(y, vector<bool>(z, defaultValue)));
     return bigBoy;
 }
 
+/// @brief Creates a vector of dimension 2
+/// @param x Size of dimension 1
+/// @param y Size of dimension 2 
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<vector<float>> twoDimensionVectorCreator(int x, int y, float defaultValue)
 {
     vector<vector<float>> bigBoy(x, vector<float>(y, defaultValue));
     return bigBoy;
 }
+/// @brief Creates a vector of dimension 2
+/// @param x Size of dimension 1
+/// @param y Size of dimension 2 
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<vector<int>> twoDimensionVectorCreator(int x, int y, int defaultValue)
 {
     vector<vector<int>> bigBoy(x, vector<int>(y, defaultValue));
     return bigBoy;
 }
+/// @brief Creates a vector of dimension 2
+/// @param x Size of dimension 1
+/// @param y Size of dimension 2 
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<vector<bool>> twoDimensionVectorCreator(int x, int y, bool defaultValue)
 {
     vector<vector<bool>> bigBoy(x, vector<bool>(y, defaultValue));
     return bigBoy;
 }
 
+/// @brief Creates a vector of dimension 1
+/// @param x Size of dimension 1
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<float> oneDimensionVectorCreator(int x, float defaultValue)
 {
     vector<float> bigBoy(x, defaultValue);
     return bigBoy;
 }
+/// @brief Creates a vector of dimension 1
+/// @param x Size of dimension 1
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<int> oneDimensionVectorCreator(int x, int defaultValue)
 {
     vector<int> bigBoy(x, defaultValue);
     return bigBoy;
 }
+/// @brief Creates a vector of dimension 1
+/// @param x Size of dimension 1
+/// @param defaultValue Value used to fill the vector
+/// @return Vector 
 vector<bool> oneDimensionVectorCreator(int x, bool defaultValue)
 {
     vector<bool> bigBoy(x, defaultValue);
     return bigBoy;
 }
 
+/// @brief Calculates the likeness between the two vectors
+/// @param v0 Vector of weights of an individual
+/// @param v1 Vector of weights of another individual
+/// @return tuple of the weight likeness and the active connections likeness
 tuple<float, int> fourDimensionLikeness(vector<vector<vector<vector<float>>>> &v0, vector<vector<vector<vector<float>>>> &v1)
 {
     int ED = 0;
@@ -1089,6 +1187,10 @@ tuple<float, int> fourDimensionLikeness(vector<vector<vector<vector<float>>>> &v
     }
     return make_tuple(W, ED);
 }
+/// @brief Calculates the likeness between the two vectors
+/// @param v0 Vector of weights of an individual
+/// @param v1 Vector of weights of another individual
+/// @return tuple of the weight likeness and the active connections likeness
 tuple<float, int> threeDimensionLikeness(vector<vector<vector<float>>> &v0, vector<vector<vector<float>>> &v1)
 {
     int ED = 0;
@@ -1122,6 +1224,10 @@ tuple<float, int> threeDimensionLikeness(vector<vector<vector<float>>> &v0, vect
     }
     return make_tuple(W, ED);
 }
+/// @brief Calculates the likeness between the two vectors
+/// @param v0 Vector of weights of an individual
+/// @param v1 Vector of weights of another individual
+/// @return tuple of the weight likeness and the active connections likeness
 tuple<float, int> twoDimensionLikeness(vector<vector<float>> &v0, vector<vector<float>> &v1)
 {
     int ED = 0;
@@ -1152,7 +1258,40 @@ tuple<float, int> twoDimensionLikeness(vector<vector<float>> &v0, vector<vector<
     }
     return make_tuple(W, ED);
 }
+/// @brief Calculates the likeness between the two vectors
+/// @param v0 Vector of weights of an individual
+/// @param v1 Vector of weights of another individual
+/// @return tuple of the weight likeness and the active connections likeness
+tuple<float, int> oneDimensionLikeness(vector<float> &v0, vector<float> &v1)
+{
+    int ED = 0;
+    float W = 0;
+    int s0 = v0.size();
+    int i;
 
+#pragma omp parallel for private(i) shared(v0, v1)
+    for (i = 0; i < s0; ++i)
+    {
+            if (abs(v0[i]) < EPSU && abs(v1[i]) < EPSU) // If they are both zero they are both innexistent (skip)
+            {
+                continue;
+            }
+            else if (!(abs(v0[i]) < EPSU) && !(abs(v1[i]) < EPSU)) // If they are both not zero they  both exist
+            {
+                W += abs(v0[i] - v1[i]);
+            }
+            else // Else one exist and the other doesnt add ED counter
+            {
+                ED++;
+            }
+        
+    }
+    return make_tuple(W, ED);
+}
+
+/// @brief Counts the number of active boolean values in a vector
+/// @param v0 Vector of boolean values
+/// @return  Number of active boolean values (Number of 1/true)
 int boolVectorCounter(vector<vector<vector<vector<bool>>>> &v0)
 {
     int count = 0;
@@ -1176,6 +1315,9 @@ int boolVectorCounter(vector<vector<vector<vector<bool>>>> &v0)
     }
     return count;
 }
+/// @brief Counts the number of active boolean values in a vector
+/// @param v0 Vector of boolean values
+/// @return  Number of active boolean values (Number of 1/true)
 int boolVectorCounter(vector<vector<vector<bool>>> &v0)
 {
     int count = 0;
@@ -1196,6 +1338,9 @@ int boolVectorCounter(vector<vector<vector<bool>>> &v0)
     }
     return count;
 }
+/// @brief Counts the number of active boolean values in a vector
+/// @param v0 Vector of boolean values
+/// @return  Number of active boolean values (Number of 1/true)
 int boolVectorCounter(vector<vector<bool>> &v0)
 {
     int count = 0;
@@ -1214,6 +1359,13 @@ int boolVectorCounter(vector<vector<bool>> &v0)
     return count;
 }
 
+/// @brief This function will take the activation layers of the two parents and of the kid, and will choose, for genes that both parents have, a value from eihter parent at random
+/// @param vF0 Weight layer of parent 0
+/// @param vF1 Weight laer of parent 1
+/// @param vFkid Weight layer of the kid (This will be updated here)
+/// @param vA0  Activation layer of parent 0
+/// @param vA1 Activation layer of parent 1
+/// @param vAkid Activation layer of kid 
 void chooseRandomForMatchingGenes(vector<vector<vector<vector<float>>>> &vF0, vector<vector<vector<vector<float>>>> &vF1, vector<vector<vector<vector<float>>>> &vFkid, vector<vector<vector<vector<bool>>>> &vA0, vector<vector<vector<vector<bool>>>> &vA1, vector<vector<vector<vector<bool>>>> &vAkid)
 {
     int i, j, k, l;
@@ -1251,6 +1403,13 @@ void chooseRandomForMatchingGenes(vector<vector<vector<vector<float>>>> &vF0, ve
         }
     }
 }
+/// @brief This function will take the activation layers of the two parents and of the kid, and will choose, for genes that both parents have, a value from eihter parent at random
+/// @param vF0 Weight layer of parent 0
+/// @param vF1 Weight laer of parent 1
+/// @param vFkid Weight layer of the kid (This will be updated here)
+/// @param vA0  Activation layer of parent 0
+/// @param vA1 Activation layer of parent 1
+/// @param vAkid Activation layer of kid
 void chooseRandomForMatchingGenes(vector<vector<vector<float>>> &vF0, vector<vector<vector<float>>> &vF1, vector<vector<vector<float>>> &vFkid, vector<vector<vector<bool>>> &vA0, vector<vector<vector<bool>>> &vA1, vector<vector<vector<bool>>> &vAkid)
 {
 
@@ -1285,6 +1444,13 @@ void chooseRandomForMatchingGenes(vector<vector<vector<float>>> &vF0, vector<vec
         }
     }
 }
+/// @brief This function will take the activation layers of the two parents and of the kid, and will choose, for genes that both parents have, a value from eihter parent at random
+/// @param vF0 Weight layer of parent 0
+/// @param vF1 Weight laer of parent 1
+/// @param vFkid Weight layer of the kid (This will be updated here)
+/// @param vA0  Activation layer of parent 0
+/// @param vA1 Activation layer of parent 1
+/// @param vAkid Activation layer of kid 
 void chooseRandomForMatchingGenes(vector<vector<float>> &vF0, vector<vector<float>> &vF1, vector<vector<float>> &vFkid, vector<vector<bool>> &vA0, vector<vector<bool>> &vA1, vector<vector<bool>> &vAkid)
 {
 
@@ -1314,4 +1480,214 @@ void chooseRandomForMatchingGenes(vector<vector<float>> &vF0, vector<vector<floa
             }
         }
     }
+}
+
+/// @brief Get all the permutations of the CVRP modes we can generate
+/// @return a vector filled with tuples that can be used to generate an instance
+vector<tuple<string, string, int>> getCVRPPermutations()
+{
+    vector<tuple<string, string, int>> permutations;
+    vector<string> depotLocations{"E", "C", "R"};
+    vector<string> customerDistributions{"R", "C", "CR"};
+    for (auto x : depotLocations)
+    {
+        for (auto y : customerDistributions)
+        {
+            for (int i = 0; i < 6; ++i)
+            {
+                permutations.push_back(make_tuple(x, y, i));
+            }
+        }
+    }
+    return permutations;
+}
+
+
+/// @brief Tries to clear the memory of these vectors
+/// @param vec A vector to be forgotten
+void clearAndResizeVector(vector<vector<vector<vector<bool>>>> *vec)
+{
+    int s1, s2, s3;
+    int i, j, k;
+    s1 = vec->size();
+    for (i = 0; i < s1; ++i)
+    {
+        s2 = vec->at(i).size();
+        for (j = 0; j < s2; ++j)
+        {
+            s3 = vec->at(i).at(j).size();
+
+            for (k = 0; k < s3; ++k)
+            {
+                // vec->at(i).at(j).at(k).clear();
+                vec->at(i).at(j).at(k).resize(0);
+                vec->at(i).at(j).at(k).shrink_to_fit();
+                // vec->at(i).at(j).at(k).~vector();
+                // vector<float>().swap(vec->at(i).at(j).at(k));
+            }
+            // vec->at(i).at(j).clear();
+            vec->at(i).at(j).resize(0);
+            vec->at(i).at(j).shrink_to_fit();
+        }
+        // vec->at(i).clear();
+        vec->at(i).resize(0);
+        vec->at(i).shrink_to_fit();
+    }
+    // vec->clear();
+    vec->resize(0);
+    vec->shrink_to_fit();
+}
+void clearAndResizeVector(vector<vector<vector<vector<float>>>> *vec)
+{
+    int s1, s2, s3;
+    int i, j, k;
+    s1 = vec->size();
+    for (i = 0; i < s1; ++i)
+    {
+        s2 = vec->at(i).size();
+        for (j = 0; j < s2; ++j)
+        {
+            s3 = vec->at(i).at(j).size();
+
+            for (k = 0; k < s3; ++k)
+            {
+                // vec->at(i).at(j).at(k).clear();
+                vec->at(i).at(j).at(k).resize(0);
+                vec->at(i).at(j).at(k).shrink_to_fit();
+                // vec->at(i).at(j).at(k).~vector();
+                // vector<float>().swap(vec->at(i).at(j).at(k));
+            }
+            // vec->at(i).at(j).clear();
+            vec->at(i).at(j).resize(0);
+            vec->at(i).at(j).shrink_to_fit();
+        }
+        // vec->at(i).clear();
+        vec->at(i).resize(0);
+        vec->at(i).shrink_to_fit();
+    }
+    // vec->clear();
+    vec->resize(0);
+    vec->shrink_to_fit();
+}
+void clearAndResizeVector(vector<vector<vector<bool>>> *vec)
+{
+    int s1, s2;
+    int i, j;
+    s1 = vec->size();
+    for (i = 0; i < s1; ++i)
+    {
+        s2 = vec->at(i).size();
+        for (j = 0; j < s2; ++j)
+        {
+            // vec->at(i).at(j).clear();
+            vec->at(i).at(j).resize(0);
+            vec->at(i).at(j).shrink_to_fit();
+            // vec->at(i).at(j).~vector();
+            // vector<float>().swap(vec->at(i).at(j));
+        }
+        // vec->at(i).clear();
+        vec->at(i).resize(0);
+        vec->at(i).shrink_to_fit();
+    }
+    // vec->clear();
+    vec->resize(0);
+    vec->shrink_to_fit();
+}
+void clearAndResizeVector(vector<vector<vector<float>>> *vec)
+{
+    int s1, s2;
+    int i, j;
+    s1 = vec->size();
+    for (i = 0; i < s1; ++i)
+    {
+        s2 = vec->at(i).size();
+        for (j = 0; j < s2; ++j)
+        {
+            // vec->at(i).at(j).clear();
+            vec->at(i).at(j).resize(0);
+            vec->at(i).at(j).shrink_to_fit();
+            // vec->at(i).at(j).~vector();
+            // vector<float>().swap(vec->at(i).at(j));
+        }
+        // vec->at(i).clear();
+        vec->at(i).resize(0);
+        vec->at(i).shrink_to_fit();
+    }
+    // vec->clear();
+    vec->resize(0);
+    vec->shrink_to_fit();
+}
+void clearAndResizeVector(vector<vector<bool>> *vec)
+{
+    int s1;
+    int i;
+    s1 = vec->size();
+    for (i = 0; i < s1; ++i)
+    {
+        // vec->at(i).clear();
+        vec->at(i).resize(0);
+        vec->at(i).shrink_to_fit();
+    }
+    // vec->clear();
+    vec->resize(0);
+    vec->shrink_to_fit();
+}
+void clearAndResizeVector(vector<vector<float>> *vec)
+{
+    int s1;
+    int i;
+    s1 = vec->size();
+    for (i = 0; i < s1; ++i)
+    {
+        // vec->at(i).clear();
+        vec->at(i).resize(0);
+        vec->at(i).shrink_to_fit();
+    }
+    // vec->clear();
+    vec->resize(0);
+    vec->shrink_to_fit();
+}
+void clearAndResizeVector(vector<bool> *vec)
+{
+    // vec->clear();
+    vec->resize(0);
+    vec->shrink_to_fit();
+
+    // vec->~vector();
+    // vector<bool>().swap(*vec);
+}
+void clearAndResizeVector(vector<float> *vec)
+{
+    // vec->clear();
+    vec->resize(0);
+    vec->shrink_to_fit();
+    // vec->~vector();
+    // vector<float>().swap(*vec);
+}
+
+/// @brief Generates a random uniform float value
+/// @param range difference between the maximum and the minimum value
+/// @param mean The mean of the distribution
+/// @return Random float value with mean mean, and lowest possible value mean -0.5range and max mean +0.5range
+float randomUniformFloatGenerator(float range, float mean)
+{
+    int top = 1000000;
+    int bottom = top / range;
+    float shift = ((float)top / bottom) / 2 - mean;
+    return (((float)(rand() % top) / bottom) - shift);
+}
+float randomUniformFloatGenerator(double range, double mean)
+{
+    int top = 1000000;
+    int bottom = top / range;
+    float shift = ((float)top / bottom) / 2 - mean;
+    return (((float)(rand() % top) / bottom) - shift);
+}
+
+/// @brief Caculates the sigmoid value of x with sigma
+/// @param x 
+/// @param sigma 
+/// @return Sigmoid of x
+float sigmoid(float x, float sigma){
+    return 1.0/(1.0+exp(-sigma*x)); 
 }

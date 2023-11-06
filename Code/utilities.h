@@ -34,12 +34,14 @@ void printVector(vector<int> vec);
 /// @brief This function prints every string element in the vector to the console.
 /// @param vec A vector of string to be displayed in the console.
 void printVector(vector<string> vec);
+void printVector(vector<bool> vec);
 /// @brief This function prints every integer element in the vector to the console.
 /// @param vec A vector of vectors of integers to be displayed in the console.
 void printVector(vector<vector<int>> vec);
 /// @brief This function prints every string element in the vector to the console.
 /// @param vec A vector of vectors of strings to be displayed in the console.
 void printVector(vector<vector<string>> vec);
+void printVector(vector<vector<bool>> vec);
 /// Helper for sorting alphabetically
 bool mycomp(string a, string b);
 /// @brief This function generates a vector containing all the files in a directory with the given filetype.
@@ -158,6 +160,7 @@ vector<bool> oneDimensionVectorCreator(int x, bool defaultValue);
 tuple<float, int> fourDimensionLikeness(vector<vector<vector<vector<float>>>> &v0, vector<vector<vector<vector<float>>>> &v1);
 tuple<float, int> threeDimensionLikeness(vector<vector<vector<float>>> &v0, vector<vector<vector<float>>> &v1);
 tuple<float, int> twoDimensionLikeness(vector<vector<float>> &v0, vector<vector<float>> &v1);
+tuple<float, int> oneDimensionLikeness(vector<float> &v0, vector<float> &v1);
 
 int boolVectorCounter(vector<vector<vector<vector<bool>>>> &v0);
 int boolVectorCounter(vector<vector<vector<bool>>> &v0);
@@ -166,5 +169,21 @@ int boolVectorCounter(vector<vector<bool>> &v0);
 void chooseRandomForMatchingGenes(vector<vector<float>> &vF0, vector<vector<float>> &vF1, vector<vector<float>> &vFkid, vector<vector<bool>> &vA0, vector<vector<bool>> &vA1, vector<vector<bool>> &vAkid);
 void chooseRandomForMatchingGenes(vector<vector<vector<float>>> &vF0, vector<vector<vector<float>>> &vF1, vector<vector<vector<float>>> &vFkid, vector<vector<vector<bool>>> &vA0, vector<vector<vector<bool>>> &vA1, vector<vector<vector<bool>>> &vAkid);
 void chooseRandomForMatchingGenes(vector<vector<vector<vector<float>>>> &vF0, vector<vector<vector<vector<float>>>> &vF1, vector<vector<vector<vector<float>>>> &vFkid, vector<vector<vector<vector<bool>>>> &vA0, vector<vector<vector<vector<bool>>>> &vA1, vector<vector<vector<vector<bool>>>> &vAkid);
+
+vector<tuple<string, string, int>> getCVRPPermutations();
+
+void clearAndResizeVector(vector<vector<vector<vector<bool>>>> *vec);
+void clearAndResizeVector(vector<vector<vector<vector<float>>>> *vec);
+void clearAndResizeVector(vector<vector<vector<bool>>> *vec);
+void clearAndResizeVector(vector<vector<vector<float>>> *vec);
+void clearAndResizeVector(vector<vector<bool>> *vec);
+void clearAndResizeVector(vector<vector<float>> *vec);
+void clearAndResizeVector(vector<bool> *vec);
+void clearAndResizeVector(vector<float> *vec);
+
+float randomUniformFloatGenerator(float range, float mean);
+float randomUniformFloatGenerator(double range, double mean);
+
+float sigmoid(float x, float sigma);
 
 #endif /* UTILITIES_G */

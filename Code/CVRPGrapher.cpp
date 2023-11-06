@@ -128,7 +128,8 @@ void CVRPGrapher::plotSolution()
   replot();
 }
 
-void CVRPGrapher::setInstanceCoordinates(vector<vector<int>> vec)
+void CVRPGrapher::
+(vector<vector<int>> vec)
 {
   instanceCoordinates = vec;
   vec2File();
