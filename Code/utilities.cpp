@@ -736,7 +736,6 @@ int generateCapacity(vector<int> demandVector)
     }
 
     r = r + 3;
-    cout << "R: " << r << endl;
     int Q = ceil((r * totalDemand) / n);
     return Q;
 }
@@ -1493,7 +1492,7 @@ vector<tuple<string, string, int>> getCVRPPermutations()
     {
         for (auto y : customerDistributions)
         {
-            for (int i = 0; i < 6; ++i)
+            for (int i = 0; i < 7; ++i)
             {
                 permutations.push_back(make_tuple(x, y, i));
             }
