@@ -186,4 +186,7 @@ float randomUniformFloatGenerator(double range, double mean);
 
 float sigmoid(float x, float sigma);
 
+void deleteDirectoryContents(const filesystem::path& dir);
+
+
 #endif /* UTILITIES_G */

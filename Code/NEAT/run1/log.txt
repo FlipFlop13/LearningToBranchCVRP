@@ -1,0 +1,355 @@
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 4 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 5 and number of costumers: 10.
+Number of node of strong branching: 26.
+Strong branching found optimal: 1.
+Strong branching found value: 14210.
+
+Number of node of shortest distance heuristc: 15.
+Heuristc found optimal: 1.
+Heuristc found value: 14210.
+
+Number of node of longest distance heuristc: 65.
+Heuristc found optimal: 1.
+Heuristc found value: 14210.
+
+Number of node of best of species 0: 28.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 14210.
+Number of node of best of species 1: 42.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 14210.
+Number of node of best of species 2: 27.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 14210.
+Number of node of best of species 3: 27.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 14210.
+Number of node of best of species 4: 27.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 14210.
+
+Generation number: 1.
+With depot location: E, customer distribution: R, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: C, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: C, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: C, demand distribution: 2 and number of costumers: 10.
+Number of node of strong branching: 12.
+Strong branching found optimal: 1.
+Strong branching found value: 14388.
+
+Number of node of shortest distance heuristc: 9.
+Heuristc found optimal: 1.
+Heuristc found value: 14388.
+
+Number of node of longest distance heuristc: 15.
+Heuristc found optimal: 1.
+Heuristc found value: 14388.
+
+Number of node of best of species 0: 7.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 14388.
+Number of node of best of species 1: 18.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 14388.
+Number of node of best of species 2: 7.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 14388.
+Number of node of best of species 3: 39.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 14388.
+Number of node of best of species 4: 7.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 14388.
+
+Generation number: 2.
+With depot location: E, customer distribution: C, demand distribution: 3 and number of costumers: 10.
+Number of node of strong branching: 20.
+Strong branching found optimal: 1.
+Strong branching found value: 13514.
+
+Number of node of shortest distance heuristc: 87.
+Heuristc found optimal: 1.
+Heuristc found value: 13514.
+
+Number of node of longest distance heuristc: 223.
+Heuristc found optimal: 1.
+Heuristc found value: 13514.
+
+Number of node of best of species 0: 111.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 13514.
+Number of node of best of species 1: 82.
+Best of species 1 found optimal: 0.
+Best of species 1 found value: 13846.
+Number of node of best of species 2: 142.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 13514.
+Number of node of best of species 3: 127.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 13514.
+Number of node of best of species 4: 62.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 13846.
+
+Generation number: 3.
+With depot location: E, customer distribution: C, demand distribution: 4 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 3.
+With depot location: E, customer distribution: C, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 3.
+With depot location: E, customer distribution: C, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 3.
+With depot location: E, customer distribution: CR, demand distribution: 0 and number of costumers: 10.
+Number of node of strong branching: 9.
+Strong branching found optimal: 1.
+Strong branching found value: 17354.
+
+Number of node of shortest distance heuristc: 11.
+Heuristc found optimal: 1.
+Heuristc found value: 17354.
+
+Number of node of longest distance heuristc: 11.
+Heuristc found optimal: 1.
+Heuristc found value: 17354.
+
+Number of node of best of species 0: 9.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 17354.
+Number of node of best of species 1: 14.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 17354.
+Number of node of best of species 2: 13.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 17354.
+Number of node of best of species 3: 16.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 17354.
+Number of node of best of species 4: 13.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 17354.
+
+Generation number: 4.
+With depot location: E, customer distribution: CR, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 4.
+With depot location: E, customer distribution: CR, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 4.
+With depot location: E, customer distribution: CR, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 4.
+With depot location: E, customer distribution: CR, demand distribution: 4 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 4.
+With depot location: E, customer distribution: CR, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 4.
+With depot location: E, customer distribution: CR, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 4.
+With depot location: C, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 4.
+With depot location: C, customer distribution: R, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 4.
+With depot location: C, customer distribution: R, demand distribution: 2 and number of costumers: 10.
+Number of node of strong branching: 25.
+Strong branching found optimal: 1.
+Strong branching found value: 11222.
+
+Number of node of shortest distance heuristc: 29.
+Heuristc found optimal: 1.
+Heuristc found value: 11222.
+
+Number of node of longest distance heuristc: 68.
+Heuristc found optimal: 1.
+Heuristc found value: 11222.
+
+Number of node of best of species 0: 24.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 11222.
+Number of node of best of species 1: 40.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 11222.
+Number of node of best of species 2: 18.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 11222.
+Number of node of best of species 3: 22.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 11222.
+Number of node of best of species 4: 22.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 11222.
+
+Generation number: 5.
+With depot location: C, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: R, demand distribution: 4 and number of costumers: 10.
+Number of node of strong branching: 35.
+Strong branching found optimal: 1.
+Strong branching found value: 10436.
+
+Number of node of shortest distance heuristc: 47.
+Heuristc found optimal: 1.
+Heuristc found value: 10436.
+
+Number of node of longest distance heuristc: 85.
+Heuristc found optimal: 1.
+Heuristc found value: 10436.
+
+Number of node of best of species 0: 97.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 10436.
+Number of node of best of species 1: 76.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 10436.
+Number of node of best of species 2: 154.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 10436.
+Number of node of best of species 3: 51.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 10436.
+Number of node of best of species 4: 110.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 10436.
+
+Generation number: 6.
+With depot location: C, customer distribution: R, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 6.
+With depot location: C, customer distribution: R, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 6.
+With depot location: C, customer distribution: C, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 6.
+With depot location: C, customer distribution: C, demand distribution: 1 and number of costumers: 10.
+Number of node of strong branching: 24.
+Strong branching found optimal: 1.
+Strong branching found value: 5782.
+
+Number of node of shortest distance heuristc: 234.
+Heuristc found optimal: 1.
+Heuristc found value: 5782.
+
+Number of node of longest distance heuristc: 66500.
+Heuristc found optimal: 0.
+Heuristc found value: 5782.
+
+Number of node of best of species 0: 133.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 5782.
+Number of node of best of species 1: 223.
+Best of species 1 found optimal: 0.
+Best of species 1 found value: 5782.
+Number of node of best of species 2: 182.
+Best of species 2 found optimal: 0.
+Best of species 2 found value: 5782.
+Number of node of best of species 3: 197.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 5782.
+Number of node of best of species 4: 116.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 5782.
+
+Generation number: 7.
+With depot location: C, customer distribution: C, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: C, customer distribution: C, demand distribution: 3 and number of costumers: 10.
+Number of node of strong branching: 43.
+Strong branching found optimal: 1.
+Strong branching found value: 7260.
+
+Number of node of shortest distance heuristc: 47.
+Heuristc found optimal: 1.
+Heuristc found value: 7260.
+
+Number of node of longest distance heuristc: 413.
+Heuristc found optimal: 1.
+Heuristc found value: 7260.
+
+Number of node of best of species 0: 55.
+Best of species 0 found optimal: 0.
+Best of species 0 found value: 7260.
+Number of node of best of species 1: 58.
+Best of species 1 found optimal: 0.
+Best of species 1 found value: 7260.
+Number of node of best of species 2: 45.
+Best of species 2 found optimal: 0.
+Best of species 2 found value: 7282.
+Number of node of best of species 3: 59.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 7260.
+Number of node of best of species 4: 64.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 7260.
+
+Generation number: 8.
+With depot location: C, customer distribution: C, demand distribution: 4 and number of costumers: 10.
+No branching needed in this instance, moving on.

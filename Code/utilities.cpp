@@ -1690,3 +1690,10 @@ float randomUniformFloatGenerator(double range, double mean)
 float sigmoid(float x, float sigma){
     return 1.0/(1.0+exp(-sigma*x)); 
 }
+
+void deleteDirectoryContents(const filesystem::path& dir)
+{
+    for (const auto& entry : filesystem::directory_iterator(dir)) {
+        filesystem::remove_all(entry.path());
+    }
+}

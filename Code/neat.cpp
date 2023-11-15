@@ -43,7 +43,7 @@ std::mutex mtxCVRP; // mutex for critical section
 #define C2 1                   //
 #define C3 1                   //
 #define nSpeciesThreshold 10   // We never let the number of species be higher than 10, if this happens we decrease the likeness thraeshold
-#define DIRECTORY "./NEAT/run0/"
+#define DIRECTORY "./NEAT/run6/"
 #define WEIGHTMUTATIONRANGE 0.2 // the value range that the weight will be perturbed with
 #define WEIGHTMUTATIONMEAN 0.0  // the mean perturbation
 #define SIGMA 4.9               // the sigma value for the sigmoid activation function
@@ -181,20 +181,25 @@ private:
     GenomeCVRP standardCPLEXPlaceholder;
     GenomeCVRP heuristicShortestPlaceholder;
     GenomeCVRP heuristicLongestPlaceholder;
-    GenomeCVRP speciesRepresentative[4]; // Each species needs a representative from the previous generation, such that new genomes can check if they belong
     string logFile = (string)DIRECTORY + "log.txt";
 
 public:
     vector<vector<GenomeCVRP>> population;
     int generation = 0;
-    vector<vector<int>> vertexMatrix;
+    vector<vector<int>> vertexMatrix; // This is the instance of CVRP for whihc the current generation is run on
     int capacity;
     vector<vector<int>> costMatrix;
+
+    // This vector contains all the ids of the genomes in the population, used for saving
+    vector<vector<int>> genomeIDs;
 
     PopulationCVRP();
 
     void log(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers, bool branched);
-    void setLogFile(string filepath);
+    void logTable(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers);
+    void logSemiColonSeparated(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers);
+
+        void setLogFile(string filepath);
     void getCVRP(int nCostumers, string depotLocation, string customerDistribution, int demandDistribution);
     void getCVRP(string filepath);
     void initializePopulation();
@@ -205,10 +210,16 @@ public:
     void mutatePopulation();
     void evolutionLoop();
     void saveGenomesAndFreeRAM();
+    void saveGenomes();
     void loadAllGenomes();
     void orderSpecies();
     void setFloatFitnessP();
+    void updateGenomeIDs();
+    void IDToPopulation();
     GenomeCVRP reproduce(GenomeCVRP &g0, GenomeCVRP &g1);
+
+    template <class Archive>
+    void serialize(Archive &a, const unsigned version);
 };
 class CVRPCallback : public IloCplex::Callback::Function
 {
@@ -277,6 +288,8 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
 float calculateLikeness(GenomeCVRP &g0, GenomeCVRP &g1);
 void saveGenomeInstance(GenomeCVRP &genome);
 void loadGenomeInstance(GenomeCVRP &genome);
+void savePopulation(PopulationCVRP &population);
+void loadPopulation(PopulationCVRP &population);
 
 //------------------------------GenomeCVRP---------------------------------------------------
 GenomeCVRP::GenomeCVRP()
@@ -293,7 +306,9 @@ void GenomeCVRP::serialize(Archive &ar, const unsigned int file_version)
 void saveGenomeInstance(GenomeCVRP &genome)
 {
 
-    string filename = string(DIRECTORY) + "Genome" + to_string(genome.randID) + ".dat";
+    string filename = string(DIRECTORY) + "data/Genome" + to_string(genome.randID) + ".dat";
+    cout << "ALH1H2: " << genome.ALH1H2.size() << "\n";
+    cout << "ALH1H2: " << genome.ALH1H2[0].size() << "\n";
     cout << "Filename: " << filename << "\n";
     std::ofstream outfile(filename, std::ofstream::binary);
     // boost::archive::text_oarchive archive(outfile);
@@ -304,7 +319,7 @@ void saveGenomeInstance(GenomeCVRP &genome)
 void loadGenomeInstance(GenomeCVRP &genome)
 {
 
-    string filename = string(DIRECTORY) + "Genome" + to_string(genome.randID) + ".dat";
+    string filename = string(DIRECTORY) + "data/Genome" + to_string(genome.randID) + ".dat";
     std::ifstream infile(filename, std::ifstream::binary);
     // boost::archive::text_iarchive archive(infile);
     boost::archive::binary_iarchive archive(infile, boost::archive::no_header);
@@ -321,6 +336,10 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     struct timeval start, end;
     gettimeofday(&start, NULL);
     ios_base::sync_with_stdio(false);
+    HLV1 = oneDimensionVectorCreator(maxNodesHiddenLayer, (float)0);
+    HLV2 = oneDimensionVectorCreator(maxNodesHiddenLayer, (float)0);
+    HLV3 = oneDimensionVectorCreator(maxNodesHiddenLayer, (float)0);
+
     // Step 1.1 M1->H1
 
 #pragma omp parallel for private(i, j, k) shared(HLV1, ALI0H1, WLI0H1, M1)
@@ -369,7 +388,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
 
     // step 2, calculate the values of the second hidden layer
     // Step 2.1 M1->H2
-
 #pragma omp parallel for private(i, j, k) shared(HLV2, ALI0H2, WLI0H2, M1)
     for (k = 0; k < maxNodesHiddenLayer; ++k)
     {
@@ -383,7 +401,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step 2.2 coordinates -> H2
-
 #pragma omp parallel for private(i, j, k) shared(HLV2, ALI1H2, WLI1H2, coordinates)
     for (k = 0; k < maxNodesHiddenLayer; ++k)
     {
@@ -397,7 +414,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step 2.3 misc-> H2
-
 #pragma omp parallel for private(i, k) shared(HLV2, ALI2H2, WLI2H2, misc)
     for (k = 0; k < maxNodesHiddenLayer; ++k)
     {
@@ -406,8 +422,8 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
             HLV2[k] += misc->at(0).at(i) * ALI2H2[0][i][k] * WLI2H2[0][i][k];
         }
     }
-    // Step 2.4 H1->H2
 
+    // Step 2.4 H1->H2
 #pragma omp parallel for private(i, j) shared(HLV2, HLV1, ALH1H2, WLH1H2)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -416,7 +432,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
             HLV2[i] += HLV1[j] * ALH1H2[i][j] * WLH1H2[i][j];
         }
     }
-
     // Add the bias and calculate the sigmoid of the layer
 #pragma omp parallel for private(i) shared(BH2, HLA2, HLV2)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
@@ -441,7 +456,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step 3.2 coordinates -> H3
-
 #pragma omp parallel for private(i, j, k) shared(HLV3, ALI1H3, WLI1H3, coordinates)
     for (k = 0; k < maxNodesHiddenLayer; ++k)
     {
@@ -455,7 +469,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step 3.3 misc-> H3
-
 #pragma omp parallel for private(i, k) shared(HLV3, ALI2H3, WLI2H3, misc)
     for (k = 0; k < maxNodesHiddenLayer; ++k)
     {
@@ -466,7 +479,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step 3.4 H1->H3
-
 #pragma omp parallel for private(i, j) shared(HLV3, HLV1, ALH1H3, WLH1H3)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -477,7 +489,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step 3.5 H2->H3
-
 #pragma omp parallel for private(i, j) shared(HLV3, HLV2, ALH1H3, WLH1H3)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -514,7 +525,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step OL.2 coordinates -> OL
-
 #pragma omp parallel for private(i, j, k, l) shared(OUTPUT2D, ALI1OL, WLI1OL, coordinates)
     for (k = 0; k < maxInputSize; ++k)
     {
@@ -531,7 +541,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step OL.3 misc-> OL
-
 #pragma omp parallel for private(i, k, l) shared(OUTPUT2D, ALI2OL, WLI2OL, misc)
     for (k = 0; k < maxInputSize; ++k)
     {
@@ -545,7 +554,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step OL.4 H1->OL
-
 #pragma omp parallel for private(i, k, l) shared(OUTPUT2D, HLV1, ALH1OL, WLH1OL)
     for (k = 0; k < maxInputSize; ++k)
     {
@@ -560,7 +568,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     // Step OL.5 H2->OL
-
 #pragma omp parallel for private(i, k, l) shared(OUTPUT2D, HLV2, ALH2OL, WLH2OL)
     for (k = 0; k < maxInputSize; ++k)
     {
@@ -574,7 +581,6 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     }
 
     //     // Step OL.6 H3->OL
-
 #pragma omp parallel for private(i, k, l) shared(OUTPUT2D, HLV3, ALH3OL, WLH3OL)
     for (k = 0; k < maxInputSize; ++k)
     {
@@ -3136,6 +3142,21 @@ void PopulationCVRP::saveGenomesAndFreeRAM()
         }
     }
 }
+
+void PopulationCVRP::saveGenomes()
+{
+    int i, j;
+    int nSpecies = population.size();
+    int nInSpecies;
+    for (i = 0; i < nSpecies; ++i)
+    {
+        nInSpecies = population[i].size();
+        for (j = 0; j < nInSpecies; ++j)
+        {
+            saveGenomeInstance(population[i][j]);
+        }
+    }
+}
 void PopulationCVRP::loadAllGenomes()
 {
     int i, j;
@@ -3151,6 +3172,75 @@ void PopulationCVRP::loadAllGenomes()
     }
 }
 
+void PopulationCVRP::updateGenomeIDs()
+{
+    genomeIDs = twoDimensionVectorCreator(0, 0, 0);
+    int i, j, nSpecies, nGenomes;
+    nSpecies = population.size();
+    for (i = 0; i < nSpecies; ++i)
+    {
+        nGenomes = population[i].size();
+        vector<int> speciesIDs;
+        for (j = 0; j < nGenomes; ++j)
+        {
+            speciesIDs.push_back(population[i][j].randID);
+        }
+        genomeIDs.push_back(speciesIDs);
+    }
+}
+
+void PopulationCVRP::IDToPopulation()
+{
+    population.resize(0);
+    int i, j;
+    int nSpecies = genomeIDs.size();
+    int nGenomes;
+    for (i = 0; i < nSpecies; ++i)
+    {
+        nGenomes = genomeIDs[i].size();
+        cout << "Number of genomes in species " << i << ": " << nGenomes << "\n";
+        vector<GenomeCVRP> species;
+        for (j = 0; j < nGenomes; ++j)
+        {
+            GenomeCVRP g;
+            g.randID = genomeIDs[i][j];
+            species.push_back(g);
+        }
+        population.push_back(species);
+    }
+}
+template <class Archive>
+void PopulationCVRP::serialize(Archive &ar, const unsigned int file_version)
+{
+    // boost::serialization::split_member(ar, *this, file_version);
+    ar & genomeIDs & generation;
+}
+void savePopulation(PopulationCVRP &population)
+{
+    filesystem::path directoryPath = string(DIRECTORY) + "data/";
+    deleteDirectoryContents(directoryPath);
+    population.updateGenomeIDs();
+    population.saveGenomes();
+
+    string filename = string(DIRECTORY) + "data/Population.dat";
+    std::ofstream outfile(filename);
+    boost::archive::text_oarchive archive(outfile);
+
+    archive & population;
+}
+
+void loadPopulation(PopulationCVRP &population)
+{
+    cout << "Loading population from : " << DIRECTORY << "\n";
+    string filename = string(DIRECTORY) + "data/Population.dat";
+    std::ifstream infile(filename);
+    boost::archive::text_iarchive archive(infile);
+    archive & population;
+    cout << "Loading genomes.\n";
+    population.IDToPopulation();
+    population.loadAllGenomes();
+}
+
 /// @brief This method will let all the genomes run on the current CVRP istance. It starts by letting cplex run with its standard branching scheme.If it doesn branch return false.
 bool PopulationCVRP::runCPLEXGenome()
 {
@@ -3158,7 +3248,6 @@ bool PopulationCVRP::runCPLEXGenome()
     cout << "Nodes CPLEX: " << standardCPLEXPlaceholder.fitness[0] << ".\n";
     if (standardCPLEXPlaceholder.fitness[0] == 0)
     {
-        cout << "Correctly returned false.\n";
         return false; // There was no branching in this instance
     }
     createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 1, heuristicShortestPlaceholder);
@@ -3178,6 +3267,8 @@ bool PopulationCVRP::runCPLEXGenome()
             // loadGenomeInstance(population[i][j]);
             cout << "Running on genome: " << j << " on thread: " << tid << ".\n"
                  << flush;
+            //  cout << "ALH1H2: " << population[i][j].ALH1H2.size() << "\n";
+            //  cout << "ALH1H2[0]: " << population[i][j].ALH1H2[0].size() << "\n";
             createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 3, population[i][j]);
             // saveGenomeInstance(population[i][j]);
             // population[i][j].clearGenomeRAM();
@@ -3547,22 +3638,28 @@ void PopulationCVRP::mutatePopulation()
     int i, j, nInSpecies;
     int nSpecies = population.size();
     float randFloat;
+    cout << "Mutating\n";
     for (i = 0; i < nSpecies; ++i)
     {
         nInSpecies = population[i].size();
+            cout << "Mutating species: "<<i<<"\n";
+
         for (j = 0; j < nInSpecies; ++j)
         {
             randFloat = (float)(rand() % 100000) / 100000;
-            if (j == 0 && nInSpecies > 5)
+            if (j == 0 && nInSpecies > 4)
             { // If the species has more than 5 we copy its best genome
                 continue;
             }
             if (randFloat < MUTATEWEIGHTSPROB)
-            {
-                population[i][j].mutateGenomeNodeStructure();
+            {   
+                cout << "Mutating genome weights\n" << flush;
+                population[i][j].mutateGenomeWeights();
             }
+            cout << "mutateGenomeConnectionStructure\n" << flush;
             population[i][j].mutateGenomeConnectionStructure();
-            population[i][j].mutateGenomeWeights();
+            cout << "mutateGenomeNodeStructure\n" << flush;
+            population[i][j].mutateGenomeNodeStructure();
         }
     }
 }
@@ -3598,6 +3695,10 @@ void PopulationCVRP::orderSpecies()
     for (i = 0; i < nSpecies; ++i) // We reorder each species
     {
         int nGenomes = population[i].size();
+        if (nGenomes == 0)
+        {
+            continue;
+        }
         vector<float> fitness(nGenomes, 0);
         vector<GenomeCVRP> tempGenomes;
         tempGenomes.push_back(population[i][0]); // Add the first genome
@@ -3658,20 +3759,134 @@ void PopulationCVRP::log(string depotLocation, string customerDistribution, int 
     ofile << "Strong branching found optimal: " << standardCPLEXPlaceholder.fitness[1] << ".\n";
     ofile << "Strong branching found value: " << standardCPLEXPlaceholder.fitness[2] << ".\n\n";
 
-    ofile << "Number of node of shortest distance heuristc: " << heuristicShortestPlaceholder.fitness[0] << ".\n";
+    ofile << "Number of nodes of shortest distance heuristc: " << heuristicShortestPlaceholder.fitness[0] << ".\n";
     ofile << "Heuristc found optimal: " << heuristicShortestPlaceholder.fitness[1] << ".\n";
     ofile << "Heuristc found value: " << heuristicShortestPlaceholder.fitness[2] << ".\n\n";
 
-    ofile << "Number of node of longest distance heuristc: " << heuristicLongestPlaceholder.fitness[0] << ".\n";
+    ofile << "Number of nodes of longest distance heuristc: " << heuristicLongestPlaceholder.fitness[0] << ".\n";
     ofile << "Heuristc found optimal: " << heuristicLongestPlaceholder.fitness[1] << ".\n";
     ofile << "Heuristc found value: " << heuristicLongestPlaceholder.fitness[2] << ".\n\n";
 
     for (i = 0; i < population.size(); ++i)
     {
-        ofile << "Number of node of best of species " << i << ": " << population[i][0].fitness[0] << ".\n";
+        ofile << "Number of nodes of best of species " << i << ": " << population[i][0].fitness[0] << ".\n";
         ofile << "Best of species " << i << " found optimal: " << population[i][0].fitness[1] << ".\n";
         ofile << "Best of species " << i << " found value: " << population[i][0].fitness[2] << ".\n";
     }
+}
+
+void PopulationCVRP::logTable(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers)
+{
+    string logFileTable = (string)DIRECTORY + "tables.txt";
+    ofstream ofile(logFileTable, ios::out | ios::app);
+
+    int i, j, nSpecies, nGenomes, maxGenomes;
+    nSpecies = population.size();
+    maxGenomes = 3; // We need at least 3, as there is at least cplex heursitc short and long
+    for (i = 0; i < nSpecies; ++i)
+    { // Find the species that has the most genomes
+        nGenomes = population[i].size();
+        if (nGenomes > maxGenomes)
+        {
+            maxGenomes = nGenomes;
+        }
+    }
+    ofile << "\n\\begin{table}[ht]\n";
+    ofile << "\\centering\n";
+    ofile << "\\begin{tabular}{|";
+    for (i = 0; i <= maxGenomes; ++i)
+    {
+        ofile << "l|";
+    }
+    ofile << "}\n ";
+
+    ofile << "\\hline\n";
+    ofile << "MISC & ";
+    ofile << standardCPLEXPlaceholder.fitness[0] << "/" << standardCPLEXPlaceholder.fitness[2] << " & ";
+    ofile << heuristicShortestPlaceholder.fitness[0] << "/" << heuristicShortestPlaceholder.fitness[2] << " & ";
+    if (maxGenomes == 3)
+    { // treat it as a last column
+        ofile << heuristicLongestPlaceholder.fitness[0] << "/" << heuristicLongestPlaceholder.fitness[2] << " \\\\ ";
+    }
+    else
+    {
+        ofile << heuristicLongestPlaceholder.fitness[0] << "/" << heuristicLongestPlaceholder.fitness[2] << " & ";
+    }
+
+    for (i = 3; i < maxGenomes; ++i)
+    {
+        if (i == (maxGenomes - 1))
+        { // Check if it is the last column
+            ofile << "-/- \\\\ ";
+        }
+        else
+        { // If it is not the last column
+            ofile << "-/- & ";
+        }
+    }
+    ofile << "\\hline\n";
+
+    for (i = 0; i < nSpecies; ++i)
+    {
+        ofile << "Species " << i << " & ";
+
+        nGenomes = population[i].size();
+        for (j = 0; j < maxGenomes; ++j)
+        {
+            if (j < nGenomes)
+            { // This genome exists
+                if (j == (maxGenomes - 1))
+                { // Check if it is the last column
+                    ofile << population[i][j].fitness[0] << "/" << population[i][j].fitness[2] << " \\\\ ";
+                }
+                else
+                { // If it is not the last column
+                    ofile << population[i][j].fitness[0] << "/" << population[i][j].fitness[2] << " & ";
+                }
+                continue;
+            }
+            if (j == (maxGenomes - 1))
+            { // Check if it is the last column
+                ofile << "-/- \\\\ ";
+            }
+            else
+            { // If it is not the last column
+                ofile << "-/- & ";
+            }
+        }
+        ofile << "\\hline\n";
+    }
+    ofile << "\\end{tabular}\n";
+    ofile << "\\caption{Generation: " << generation << "}\n";
+    ofile << "\\label{TableGeneration: " << generation << "}\n";
+    ofile << "\\end{table}\n";
+
+    ofile << "With depot location: " << depotLocation << ", customer distribution: " << customerDistribution << ", demand distribution: " << demandDistribution << " and number of costumers: " << nCostumers << ".\n";
+}
+
+void PopulationCVRP::logSemiColonSeparated(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers)
+{
+    int i, j, nSpecies, nGenomes;
+    nSpecies = population.size();
+    string logFileTable = (string)DIRECTORY + "logSemiColonSeparated.csv";
+    ofstream ofile(logFileTable, ios::out | ios::app);
+    int cplexFitness = standardCPLEXPlaceholder.fitness[2];
+    ofile << depotLocation << ";" << customerDistribution << ";" << demandDistribution << ";" << nCostumers << ";";
+    ofile << standardCPLEXPlaceholder.fitness[0] << ";";
+    ofile << heuristicShortestPlaceholder.fitness[0] << ";";
+    ofile << heuristicLongestPlaceholder.fitness[0] << ";";
+    for (i = 0; i < nSpecies; ++i)
+    {
+        nGenomes = population[i].size();
+        for (j = 0; j < nGenomes; ++j)
+        {
+            if (population[i][j].fitness[2] == cplexFitness)
+            {
+                ofile << population[i][j].fitness[0] << ";";
+            }
+        }
+    }
+    ofile << "\n";
 }
 
 void PopulationCVRP::decimate(float percentage)
@@ -3711,7 +3926,6 @@ void PopulationCVRP::decimate(float percentage)
             population[i].erase(it);
             --j; // Decrease j by one if we have removed the current Genome, as the following genomes are all moved one up
             --nInSpecies;
-            cout << "Murdered!\n";
             ++decimationInt;
         }
     }
@@ -3724,7 +3938,7 @@ void PopulationCVRP::evolutionLoop()
     string depotLocation, customerDistribution;
     int demandDistribution;
     vector<tuple<string, string, int>> permutations = getCVRPPermutations();
-    bool branched;
+    bool branched = true;
     while (true) // We have an endless training loop
     {
         for (tuple<string, string, int> instanceValues : permutations) // For each of the permutations of the CVRP we will run all the steps once
@@ -3734,7 +3948,11 @@ void PopulationCVRP::evolutionLoop()
             demandDistribution = get<2>(instanceValues);
 
             getCVRP(nCostumers, depotLocation, customerDistribution, demandDistribution);
-
+            cout << "Generation: " << generation << "\n";
+            cout << "depotLocation: " << depotLocation << "\n";
+            cout << "customerDistribution: " << customerDistribution << "\n";
+            cout << "demandDistribution: " << demandDistribution << "\n";
+            cout << "NCustomers: " << nCostumers << "\n";
             branched = runCPLEXGenome();
             if (!branched)
             { // If it hasnt branched we take another instance
@@ -3742,12 +3960,20 @@ void PopulationCVRP::evolutionLoop()
                 log(depotLocation, customerDistribution, demandDistribution, nCostumers, false);
                 continue;
             }
+            if (generation % 5 == 0)
+            {
+                savePopulation(*this);
+            }
+
             cout << "Got here1\n"
                  << flush;
             // loadAllGenomes();
             cout << "Got here1.1\n"
                  << flush;
             setFloatFitnessP();
+            log(depotLocation, customerDistribution, demandDistribution, nCostumers, true); // makes log cleare if in order
+            logTable(depotLocation, customerDistribution, demandDistribution, nCostumers);
+            logSemiColonSeparated(depotLocation, customerDistribution, demandDistribution, nCostumers);
             cout << "Got here2\n"
                  << flush;
             orderSpecies();
@@ -3762,9 +3988,7 @@ void PopulationCVRP::evolutionLoop()
             mutatePopulation();
             cout << "Got here6\n"
                  << flush;
-            log(depotLocation, customerDistribution, demandDistribution, nCostumers, true);
-            cout << "Got here7\n"
-                 << flush;
+
             ++generation;
         }
         ++nCostumers;
@@ -3964,9 +4188,11 @@ CVRPCallback::branchingWithGenome(const IloCplex::Callback::Context &context) co
         // we make a forward pass and get the i and j values, and get the cplex variable to split
         vector<vector<bool>> splittedBefore = getEdgeBranches();
         int iSplit, jSplit;
+
         tie(iSplit, jSplit) = genome.feedForwardFirstTry(&M1, &coordinates, &misc, &splittedBefore);
 
         IloNumVar branchVar = edgeUsage[iSplit][jSplit];
+
         // cout << "\ni: " << iSplit << ";  j: " << jSplit << "\n"
         //      << flush;
         // cout << "____GENOME____\n"
@@ -4209,6 +4435,7 @@ CVRPCallback::~CVRPCallback()
 
 NumVarMatrix populate(IloModel *model, NumVarMatrix edgeUsage, vector<vector<int>> *vertexMatrix, vector<vector<int>> *costMatrix, int *capacity)
 {
+
     int n = vertexMatrix->size();
     int sumOfDemands = 0;
     for (int i = 1; i < n; i++) // Get the demands for each customer
@@ -4293,7 +4520,6 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
     int n = vertexMatrix.size();
     NumVarMatrix edgeUsage(env, n);
     vector<int> demands(n, 0);
-
     for (int i = 1; i < n; i++) // Get the demands for each customer
     {
         demands[i] = vertexMatrix[i][2];
@@ -4331,10 +4557,12 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
     cplex.setParam(IloCplex::Param::MIP::Cuts::Cliques, -1);
     cplex.setParam(IloCplex::Param::MIP::Cuts::Covers, -1);
     cplex.setOut(env.getNullStream());
+    cplex.setWarning(env.getNullStream());
 
     int cost, nodes;
     vector<int> genomeFitness(3, 0);
     vector<vector<int>> edgeUsageSolution(n, vector<int>(n, 0));
+
     // Optimize the problem and obtain solution.
     if (!cplex.solve())
     {
@@ -4383,7 +4611,6 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
 
 int main()
 {
-
     srand((unsigned int)time(NULL));
     // GenomeCVRP g0;
     // while (true)
@@ -4400,6 +4627,41 @@ int main()
     // }
 
     PopulationCVRP p0;
+    loadPopulation(p0);
+
+    // int i, j, nSpecies, nGenomes;
+    // nSpecies = p0.population.size();
+    // for (i = 0; i < nSpecies; i++)
+    // {
+    //     nGenomes = p0.population[i].size();
+    //     for (j = 0; j < nGenomes; j++)
+    //     {
+    //         cout << "RID: " << p0.population[i][j].randID << ".\n";
+    //     }
+    // }
+    // savePopulation(p0);
+    // PopulationCVRP p1;
+
+    // nSpecies = p1.population.size();
+    // for (i = 0; i < nSpecies; i++)
+    // {
+    //     nGenomes = p1.population[i].size();
+    //     for (j = 0; j < nGenomes; j++)
+    //     {
+    //         cout << "RID: " << p1.population[i][j].randID << ".\n";
+    //     }
+    // }
+    // loadPopulation(p1);
+
+    // nSpecies = p1.population.size();
+    // for (i = 0; i < nSpecies; i++)
+    // {
+    //     nGenomes = p1.population[i].size();
+    //     for (j = 0; j < nGenomes; j++)
+    //     {
+    //         cout << "RID: " << p1.population[i][j].randID << ".\n";
+    //     }
+    // }
     p0.evolutionLoop();
 
     return 0;
