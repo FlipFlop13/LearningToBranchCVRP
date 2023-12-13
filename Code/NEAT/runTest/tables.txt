@@ -1,0 +1,64 @@
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 41/13278 & 43/13278 & 23/13278 & 0/13278 & 0/13278 & 41/13278 & 249/13278 & 339/13278 & 752/13278 & -/- \\ \hline
+Species 0 & 60/13314 & 74/13314 & 82/13314 & 150/13278 & 166/13278 & 168/13278 & 186/13278 & 216/13278 & 222/13278 & 225/13278 \\ \hline
+Species 1 & 245/13278 & 299/13278 & 321/13278 & 325/13278 & 342/13278 & 361/13278 & 376/13278 & 388/13278 & 398/13278 & 331/13278 \\ \hline
+Species 2 & 31/13314 & 79/13314 & 96/13314 & 109/13288 & 137/13278 & 156/13278 & 162/13278 & 196/13278 & 205/13278 & 309/13278 \\ \hline
+Species 3 & 136/13278 & 145/13278 & 163/13278 & 168/13278 & 199/13278 & 206/13278 & 206/13278 & 211/13278 & 223/13278 & 232/13278 \\ \hline
+Species 4 & 61/13326 & 62/13314 & 80/13314 & 122/13314 & 152/13278 & 189/13278 & 193/13278 & 201/13278 & 221/13278 & 232/13278 \\ \hline
+\end{tabular}
+\caption{Generation: 0}
+\label{TableGeneration: 0}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 12.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+\end{tabular}
+\caption{Generation: 0}
+\label{TableGeneration: 0}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 12.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+\end{tabular}
+\caption{Generation: 0}
+\label{TableGeneration: 0}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 12.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+\end{tabular}
+\caption{Generation: 0}
+\label{TableGeneration: 0}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 12.

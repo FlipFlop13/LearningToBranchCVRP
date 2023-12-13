@@ -1,0 +1,14 @@
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 12.
+Result routes:
+D->1->11->5->D
+D->2->6->12->D
+D->4->9->10->D
+D->7->3->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 12.
+Result routes:
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 12.
+Result routes:
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 12.
+Result routes:

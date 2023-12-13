@@ -1683,6 +1683,14 @@ float randomUniformFloatGenerator(double range, double mean)
     return (((float)(rand() % top) / bottom) - shift);
 }
 
+/// @brief Generates a uniform random integer between 0 and max
+/// @param max max value for the integer
+/// @return random integer
+int randomUniformIntGenerator(int max)
+{
+    return rand() % max;
+    }
+
 /// @brief Caculates the sigmoid value of x with sigma
 /// @param x 
 /// @param sigma 

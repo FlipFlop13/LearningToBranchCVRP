@@ -47,6 +47,7 @@ void CVRPGrapher::vec2File()
   ofstream fwD(defaultDepotFilename, ofstream::out);
 
   int length = instanceCoordinates.size();
+  string label ="";
   if (fw.is_open())
   {
     // store array contents to text file
@@ -54,17 +55,18 @@ void CVRPGrapher::vec2File()
     {
       if (i == 0)
       {
-        fwD << instanceCoordinates[i][0] << " " << instanceCoordinates[i][1] << " \n";
-
+        fwD << instanceCoordinates[i][0] << " " << instanceCoordinates[i][1] << " D \n";
         continue;
       }
-
+      label = "C:" + to_string(i) + ",D:" + to_string(instanceCoordinates[i][2]);
+      // fw << instanceCoordinates[i][0] << " " << instanceCoordinates[i][1] << " "<< label << " \n";
       fw << instanceCoordinates[i][0] << " " << instanceCoordinates[i][1] << " \n";
     }
     fw.close();
   }
-  else
+  else{
     cout << "Problem with opening file";
+  }
 }
 
 void CVRPGrapher::plotCurrentInstance()
@@ -74,7 +76,8 @@ void CVRPGrapher::plotCurrentInstance()
     fflush(gnuplotPipe);
     fprintf(gnuplotPipe, "unset arrow \n");
 
-    string c = "plot '" + defaultFilename + "'  ps 1  lc rgb 'blue' notitle, '" + defaultDepotFilename + "'  ps 1 pt 7 lc rgb 'red' notitle\n ";
+    string c = "plot '" + defaultFilename + "'  ps 1  lc rgb 'blue' notitle, '" + defaultDepotFilename + "'  using 1:2:3 with labels font 'Times,8' notitle\n ";
+    // string c = "plot '" + defaultFilename + "' using 1:2:3 with labels font 'Times,8' offset 0,0.5 point pt 7 notitle,'" + defaultDepotFilename + "'  using 1:2:3 with labels font 'Times,8' notitle\n ";
     const char *gnuplotCommand = c.c_str();
     fprintf(gnuplotPipe, gnuplotCommand);
     fprintf(gnuplotPipe, "pause -1 \n ");
@@ -128,8 +131,7 @@ void CVRPGrapher::plotSolution()
   replot();
 }
 
-void CVRPGrapher::
-(vector<vector<int>> vec)
+void CVRPGrapher::setInstanceCoordinates(vector<vector<int>> vec)
 {
   instanceCoordinates = vec;
   vec2File();

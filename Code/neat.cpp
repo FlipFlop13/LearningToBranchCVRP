@@ -26,6 +26,7 @@
 #include <bits/stdc++.h>
 #include </opt/ibm/ILOG/CPLEX_Studio_Community2211/cplex/include/ilcplex/cplex.h>
 #include </opt/ibm/ILOG/CPLEX_Studio_Community2211/cplex/include/ilcplex/ilocplex.h>
+#include <chrono>
 
 #include "./utilities.h"
 #include "./CVRPGrapher.h"
@@ -33,17 +34,19 @@
 using namespace std;
 
 std::mutex mtxCVRP; // mutex for critical section
+std::mutex mtxInvoke; // mutex for critical section
 
-#define MUTATEWEIGHTSPROB 0.8  // The probability that this genome will have its weights mutated, if they are mutatet each weight will be mutate with p as follows
-#define PERTURBEPROB 1.0       // Probability that the weight of a gene is perturbed (in reality this is PERTURBEPROB-MUTATEPROB)
-#define MUTATEPROB 0.1         // or that a complete new value is given for the weight
-#define NEWNODEPROB 0.001      // Probability that a new node is added to split an existing edge
-#define NEWCONNECTIONPROB 0.05 // Probability that a new edge is added between two existing nodes
-#define C1 1                   //
-#define C2 1                   //
-#define C3 1                   //
-#define nSpeciesThreshold 10   // We never let the number of species be higher than 10, if this happens we decrease the likeness thraeshold
-#define DIRECTORY "./NEAT/run6/"
+#define MUTATEWEIGHTSPROB 0.8       // The probability that this genome will have its weights mutated, if they are mutatet each weight will be mutate with p as follows
+#define PERTURBEPROB 1.0            // Probability that the weight of a gene is perturbed (in reality this is PERTURBEPROB-MUTATEPROB)
+#define MUTATEPROB 0.1              // or that a complete new value is given for the weight
+#define NEWNODEPROB 0.001           // Probability that a new node is added to split an existing edge
+#define NEWCONNECTIONPROB 0.05      // Probability that a new edge is added between two existing nodes
+#define REMOVECONNECTIONPROB 0.0125 // The probability that an existing connection gets removed (In equilibrium the percentage of active connections is  (NEWCONNECTIONPROB/(NEWCONNECTIONPROB+REMOVECONNECTIONPROB)))
+#define C1 1                        //
+#define C2 1                        //
+#define C3 1                        //
+#define nSpeciesThreshold 10        // We never let the number of species be higher than 10, if this happens we decrease the likeness thraeshold
+#define DIRECTORY "./NEAT/run16/"
 #define WEIGHTMUTATIONRANGE 0.2 // the value range that the weight will be perturbed with
 #define WEIGHTMUTATIONMEAN 0.0  // the mean perturbation
 #define SIGMA 4.9               // the sigma value for the sigmoid activation function
@@ -62,9 +65,11 @@ class GenomeCVRP
     // The input contains one bias Integer (1) the weights should handle the size and direction of the bias (I3)
 
 public:
+    mutable int nnTime = 0;
+
     int maxNodesHiddenLayer = 2000;
-    int maxInputSize = 30;
-    int s = 25;
+    int maxInputSize = 15;
+    int s = 5;
     int bias = 1;
     float startingValue = 0.01;
     bool TEMPBOOL = 0;
@@ -72,6 +77,12 @@ public:
     int randID = rand();
     vector<int> fitness = oneDimensionVectorCreator(3, 0);
     float fitnessFloat = (float)(rand() % 100000) / 100000;
+
+    // save the node orders of the last instance
+    mutable map<int, tuple<int, int, int, int>> searchTreeParentToChildren;
+    mutable map<int, int> searchTreeChildToParent;
+    int lastID;
+    vector<vector<int>> result; // We save the result of the last instance
 
     // These are the nodes of the hidden layers, they will only hold the information during computation.
     mutable vector<float> HLV1 = oneDimensionVectorCreator(maxNodesHiddenLayer, (float)0);
@@ -161,6 +172,7 @@ public:
     void mutateGenomeWeights();
     void mutateGenomeNodeStructure();
     void mutateGenomeConnectionStructure();
+    void removeGenomeConnections();
     void countActiveConnections();
     void setFitness(vector<int> value);
     vector<int> getFitness();
@@ -178,9 +190,17 @@ class PopulationCVRP
 
 private:
     int populationSize = 50;
-    GenomeCVRP standardCPLEXPlaceholder;
+    int nCostumers = 10; // startin value of the number of costumers for the evolution loop
+
+    GenomeCVRP defaultCPLEXPlaceholder;
+    GenomeCVRP minInfeasibleCPLEXPlaceholder;
+    GenomeCVRP maxInfeasibleCPLEXPlaceholder;
+    GenomeCVRP pseudoCPLEXPlaceholder;
+    GenomeCVRP strongCPLEXPlaceholder;
+    GenomeCVRP pseudoReducedCPLEXPlaceholder;
     GenomeCVRP heuristicShortestPlaceholder;
     GenomeCVRP heuristicLongestPlaceholder;
+    GenomeCVRP heuristicRandomPlaceholder;
     string logFile = (string)DIRECTORY + "log.txt";
 
 public:
@@ -198,14 +218,17 @@ public:
     void log(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers, bool branched);
     void logTable(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers);
     void logSemiColonSeparated(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers);
+    void logBestSplitOrder(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers);
 
-        void setLogFile(string filepath);
+    void setLogFile(string filepath);
     void getCVRP(int nCostumers, string depotLocation, string customerDistribution, int demandDistribution);
     void getCVRP(string filepath);
     void initializePopulation();
     bool runCPLEXGenome();
     void reorganizeSpecies();
     void decimate(float percentage = 0.1);
+    void decimatePreserveSpecies(float percentage = 0.1);
+    void eliminateSpeciesAndMakeNew();
     void reproducePopulation();
     void mutatePopulation();
     void evolutionLoop();
@@ -257,15 +280,24 @@ private:
 
     // This map will keep track of the structure of the cplex tree, key is the node and value the parent node
     mutable map<int, int> nodeStructure;
+    // This map keps track of how each node is split, it maps the parent id to a tuple of child1ID child2ID branched i and j
+    mutable map<int, tuple<int, int, int, int>> nodeStructureParentToChilds;
     // This map will keep track of wich variables (edge) was split in this node
     mutable map<int, tuple<int, int>> nodeSplit;
     mutable CPXLONG currentNodeID;
+    mutable CPXLONG lastNodeID;
+    mutable int ioTime = 0;
+    mutable int nnTime = 0;
+    mutable int invokeTime = 0;
 
 public:
+    CVRPCallback();
     // Constructor with data.
     CVRPCallback(const IloInt capacity, const IloInt n, const vector<int> demands,
-                 const NumVarMatrix &_edgeUsage, vector<vector<int>> &_costMatrix, vector<vector<int>> &_coordinates, GenomeCVRP &_genome, int genomeBool);
+                 const NumVarMatrix &_edgeUsage, const vector<vector<int>> &_costMatrix, const vector<vector<int>> &_coordinates, const GenomeCVRP &_genome, const int genomeBool);
 
+    inline void 
+    branchingWithCPLEX() const;
     inline void
     connectedComponents(const IloCplex::Callback::Context &context) const;
     inline void
@@ -274,17 +306,26 @@ public:
     branchingWithShortestHeuristic(const IloCplex::Callback::Context &context) const;
     inline void
     branchingWithLongestHeuristic(const IloCplex::Callback::Context &context) const;
+    inline void
+    branchingWithRandomHeuristic(const IloCplex::Callback::Context &context) const;
     tuple<int, int> findClosestNotSplit(vector<vector<bool>> *splittedBefore) const;
     tuple<int, int> findFurthestNotSplit(vector<vector<bool>> *splittedBefore) const;
+    tuple<int, int> findRandomNotSplit(vector<vector<bool>> *splittedBefore) const;
 
     int getCalls() const;
     int getBranches() const;
     virtual void invoke(const IloCplex::Callback::Context &context) ILO_OVERRIDE;
     virtual ~CVRPCallback();
     vector<vector<bool>> getEdgeBranches() const;
+
+    int getLastNodeID() const;
+    map<int, tuple<int, int, int, int>> getNodeStructureParentToChilds() const;
+    map<int, int> getNodeStructureChildToParent() const;
+
+    void printTimes();
 };
 
-tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity, int runType, GenomeCVRP &genome);
+tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(const vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity, int runType, GenomeCVRP &genome, const int timeout);
 float calculateLikeness(GenomeCVRP &g0, GenomeCVRP &g1);
 void saveGenomeInstance(GenomeCVRP &genome);
 void loadGenomeInstance(GenomeCVRP &genome);
@@ -307,9 +348,6 @@ void saveGenomeInstance(GenomeCVRP &genome)
 {
 
     string filename = string(DIRECTORY) + "data/Genome" + to_string(genome.randID) + ".dat";
-    cout << "ALH1H2: " << genome.ALH1H2.size() << "\n";
-    cout << "ALH1H2: " << genome.ALH1H2[0].size() << "\n";
-    cout << "Filename: " << filename << "\n";
     std::ofstream outfile(filename, std::ofstream::binary);
     // boost::archive::text_oarchive archive(outfile);
     boost::archive::binary_oarchive archive(outfile, boost::archive::no_header);
@@ -341,7 +379,7 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     HLV3 = oneDimensionVectorCreator(maxNodesHiddenLayer, (float)0);
 
     // Step 1.1 M1->H1
-
+    auto startTime = chrono::high_resolution_clock::now();
 #pragma omp parallel for private(i, j, k) shared(HLV1, ALI0H1, WLI0H1, M1)
     for (k = 0; k < maxNodesHiddenLayer; ++k)
     {
@@ -353,7 +391,23 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
             }
         }
     }
-
+    // auto stopTime = chrono::high_resolution_clock::now();
+    // auto duration = chrono::duration_cast<chrono::microseconds>(stopTime - startTime);
+    // cout << "DurationP: " << duration.count() << "\n" << flush;
+    // startTime = chrono::high_resolution_clock::now();
+    // for (k = 0; k < maxNodesHiddenLayer; ++k)
+    // {
+    //     for (i = 0; i < maxInputSize; ++i)
+    //     {
+    //         for (j = 0; j < maxInputSize; ++j)
+    //         {
+    //             HLV1[k] += M1->at(i).at(j) * ALI0H1[i][j][k] * WLI0H1[i][j][k];
+    //         }
+    //     }
+    // }
+    // stopTime = chrono::high_resolution_clock::now();
+    // duration = chrono::duration_cast<chrono::microseconds>(stopTime - startTime);
+    // cout << "DurationS: " << duration.count() << "\n" << flush;
     // Step 1.2 coordinates -> H1
 #pragma omp parallel for private(i, j, k) shared(HLV1, ALI1H1, WLI1H1, coordinates)
     for (k = 0; k < maxNodesHiddenLayer; ++k)
@@ -647,10 +701,13 @@ tuple<int, int> GenomeCVRP::feedForwardFirstTry(vector<vector<float>> *M1, vecto
     time_taken = (time_taken + (end.tv_usec -
                                 start.tv_usec)) *
                  1e-6;
-    // cout << "\nTime taken by program is : " << fixed
-    //      << time_taken << setprecision(6);
-    // cout << " sec" << endl << flush;
 
+    // stopTime = chrono::high_resolution_clock::now();
+    // duration = chrono::duration_cast<chrono::microseconds>(stopTime - startTime);
+    auto stopTime = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(stopTime - startTime);
+    nnTime += duration.count();
+    // cout << "Duration: " << duration.count() << "\n" << flush;
     return OUTPUT1D;
 }
 
@@ -1236,7 +1293,6 @@ void GenomeCVRP::mutateGenomeNodeStructure()
     //(e.g. a connection between the input and the first hidden layer cannot be split)
     float randFloat;
     int i, j, k, l, m, newNode;
-
     // IL0->HL2
 #pragma omp parallel for private(i, j, k, l) shared(ALI0H2, WLI0H2, ALI0H1, WLI0H1, ALH1H2, WLH1H2, HLA1)
     for (i = 0; i < maxInputSize; ++i)
@@ -1368,7 +1424,7 @@ void GenomeCVRP::mutateGenomeNodeStructure()
 
     int l1, l2, l3;
 // IL0->HL3
-#pragma omp parallel for private(i, j, k, l) shared(ALI0H3, WLI0H3, ALI0H1, WLI0H1, ALI0H2, WLI0H2, ALH1H3, WLH1H3, ALH2H3, WLH2H3, HLA1, HLA2)
+#pragma omp parallel for private(i, j, k, l, l2, l3) shared(ALI0H3, WLI0H3, ALI0H1, WLI0H1, ALI0H2, WLI0H2, ALH1H3, WLH1H3, ALH2H3, WLH2H3, HLA1, HLA2)
     for (i = 0; i < maxInputSize; ++i)
     {
         for (j = 0; j < maxInputSize; ++j)
@@ -1391,12 +1447,12 @@ void GenomeCVRP::mutateGenomeNodeStructure()
 
                     if (HLA1[l] == false)
                     { // node k is not yet active
-                        l1 = k;
+                        l1 = l;
                         freeNode1 = true;
                     }
                     if (HLA2[l] == false)
                     { // node k is not yet active
-                        l2 = k;
+                        l2 = l;
                         freeNode2 = true;
                     }
                 }
@@ -1454,7 +1510,7 @@ void GenomeCVRP::mutateGenomeNodeStructure()
     }
 
 // IL1->HL3
-#pragma omp parallel for private(i, j, k, l) shared(ALI1H3, WLI1H3, ALI1H1, WLI1H1, ALI1H2, WLI1H2, ALH1H3, WLH1H3, ALH2H3, WLH2H3, HLA1, HLA2)
+#pragma omp parallel for private(i, j, k, l, l2, l3) shared(ALI1H3, WLI1H3, ALI1H1, WLI1H1, ALI1H2, WLI1H2, ALH1H3, WLH1H3, ALH2H3, WLH2H3, HLA1, HLA2)
     for (i = 0; i < 3; ++i)
     {
         for (j = 0; j < maxInputSize; ++j)
@@ -1476,13 +1532,13 @@ void GenomeCVRP::mutateGenomeNodeStructure()
                 {
 
                     if (HLA1[l] == false)
-                    { // node k is not yet active
-                        l1 = k;
+                    { // node l is not yet active
+                        l1 = l;
                         freeNode1 = true;
                     }
                     if (HLA2[l] == false)
-                    { // node k is not yet active
-                        l2 = k;
+                    { // node l is not yet active
+                        l2 = l;
                         freeNode2 = true;
                     }
                 }
@@ -1540,7 +1596,7 @@ void GenomeCVRP::mutateGenomeNodeStructure()
     }
 
     // IL2->HL3
-#pragma omp parallel for private(i, j, k, l) shared(ALI2H3, WLI2H3, ALI2H1, WLI2H1, ALI2H2, WLI2H2, ALH1H3, WLH1H3, ALH2H3, WLH2H3, HLA1, HLA2)
+#pragma omp parallel for private(i, j, k, l, l2, l3) shared(ALI2H3, WLI2H3, ALI2H1, WLI2H1, ALI2H2, WLI2H2, ALH1H3, WLH1H3, ALH2H3, WLH2H3, HLA1, HLA2)
     for (i = 0; i < 1; ++i)
     {
         for (j = 0; j < s; ++j)
@@ -1562,13 +1618,13 @@ void GenomeCVRP::mutateGenomeNodeStructure()
                 {
 
                     if (HLA1[l] == false)
-                    { // node k is not yet active
-                        l1 = k;
+                    { // node l is not yet active
+                        l1 = l;
                         freeNode1 = true;
                     }
                     if (HLA2[l] == false)
-                    { // node k is not yet active
-                        l2 = k;
+                    { // node l is not yet active
+                        l2 = l;
                         freeNode2 = true;
                     }
                 }
@@ -1626,7 +1682,7 @@ void GenomeCVRP::mutateGenomeNodeStructure()
     }
 
     // IL0->OL
-#pragma omp parallel for private(i, j, k, m, l) shared(ALI0OL, WLI0OL, ALI0H1, WLI0H1, ALI0H2, WLI0H2, ALI0H3, WLI0H3, ALH1OL, WLH1OL, ALH2OL, WLH2OL, ALH3OL, WLH3OL, HLA1, HLA2, HLA3)
+#pragma omp parallel for private(i, j, k, m, l, l1, l2, l3) shared(ALI0OL, WLI0OL, ALI0H1, WLI0H1, ALI0H2, WLI0H2, ALI0H3, WLI0H3, ALH1OL, WLH1OL, ALH2OL, WLH2OL, ALH3OL, WLH3OL, HLA1, HLA2, HLA3)
     for (i = 0; i < maxInputSize; ++i)
     {
         for (j = 0; j < maxInputSize; ++j)
@@ -1651,18 +1707,18 @@ void GenomeCVRP::mutateGenomeNodeStructure()
                     {
 
                         if (HLA1[l] == false)
-                        { // node k is not yet active
-                            l1 = k;
+                        { // node l is not yet active
+                            l1 = l;
                             freeNode1 = true;
                         }
                         if (HLA2[l] == false)
-                        { // node k is not yet active
-                            l2 = k;
+                        { // node l is not yet active
+                            l2 = l;
                             freeNode2 = true;
                         }
                         if (HLA3[l] == false)
-                        { // node k is not yet active
-                            l3 = k;
+                        { // node l is not yet active
+                            l3 = l;
                             freeNode3 = true;
                         }
                     }
@@ -1821,7 +1877,7 @@ void GenomeCVRP::mutateGenomeNodeStructure()
     }
 
     // IL1->OL
-#pragma omp parallel for private(i, j, k, l) shared(ALI1OL, WLI1OL, ALI1H1, WLI1H1, ALI1H2, WLI1H2, ALI1H3, WLI1H3, ALH1OL, WLH1OL, ALH2OL, WLH2OL, ALH3OL, WLH3OL, HLA1, HLA2, HLA3)
+#pragma omp parallel for private(i, j, k, l, l2, l3) shared(ALI1OL, WLI1OL, ALI1H1, WLI1H1, ALI1H2, WLI1H2, ALI1H3, WLI1H3, ALH1OL, WLH1OL, ALH2OL, WLH2OL, ALH3OL, WLH3OL, HLA1, HLA2, HLA3)
     for (i = 0; i < 3; ++i)
     {
         for (j = 0; j < maxInputSize; ++j)
@@ -2016,7 +2072,7 @@ void GenomeCVRP::mutateGenomeNodeStructure()
     }
 
     // IL2->OL
-#pragma omp parallel for private(i, j, k, l) shared(ALI2OL, WLI2OL, ALI2H1, WLI2H1, ALI2H2, WLI2H2, ALI2H3, WLI2H3, ALH1OL, WLH1OL, ALH2OL, WLH2OL, ALH3OL, WLH3OL, HLA1, HLA2, HLA3)
+#pragma omp parallel for private(i, j, k, l, l2, l3) shared(ALI2OL, WLI2OL, ALI2H1, WLI2H1, ALI2H2, WLI2H2, ALI2H3, WLI2H3, ALH1OL, WLH1OL, ALH2OL, WLH2OL, ALH3OL, WLH3OL, HLA1, HLA2, HLA3)
     for (i = 0; i < 1; ++i)
     {
         for (j = 0; j < s; ++j)
@@ -2041,18 +2097,18 @@ void GenomeCVRP::mutateGenomeNodeStructure()
                     {
 
                         if (HLA1[l] == false)
-                        { // node k is not yet active
-                            l1 = k;
+                        { // node l is not yet active
+                            l1 = l;
                             freeNode1 = true;
                         }
                         if (HLA2[l] == false)
-                        { // node k is not yet active
-                            l2 = k;
+                        { // node l is not yet active
+                            l2 = l;
                             freeNode2 = true;
                         }
                         if (HLA3[l] == false)
-                        { // node k is not yet active
-                            l3 = k;
+                        { // node l is not yet active
+                            l3 = l;
                             freeNode3 = true;
                         }
                     }
@@ -2209,7 +2265,6 @@ void GenomeCVRP::mutateGenomeNodeStructure()
             }
         }
     }
-
     // HL1->HL3
 #pragma omp parallel for private(i, j, l) shared(ALH1H3, WLH1H3, ALH1H2, WLH1H2, ALH2H3, WLH2H3, HLA2)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
@@ -2229,8 +2284,7 @@ void GenomeCVRP::mutateGenomeNodeStructure()
             for (l = 0; l < maxNodesHiddenLayer; ++l) // Find a node in the hidden layer that is not yet used
             {
                 if (HLA2[l] == false)
-                { // node k is not yet active
-                    newNode = k;
+                { // node l is not yet active
                     HLA2[l] = true;
                     freeNode = true;
                     break;
@@ -2250,43 +2304,50 @@ void GenomeCVRP::mutateGenomeNodeStructure()
         }
     }
 
-    // HL1->OL
-#pragma omp parallel for private(i, j, k, l) shared(ALH1OL, WLH1OL, ALH1H2, WLH1H2, ALH2OL, WLH2OL, ALH1H3, WLH1H3, ALH3OL, WLH3OL, HLA2, HLA3)
+    //     // HL1->OL
+
+#pragma omp parallel for private(i, j, k, l, l2, l3) shared(ALH1OL, WLH1OL, ALH1H2, WLH1H2, ALH2OL, WLH2OL, ALH1H3, WLH1H3, ALH3OL, WLH3OL, HLA2, HLA3)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
         for (j = 0; j < maxInputSize; ++j)
         {
             for (k = 0; k < maxInputSize; ++k)
             {
+
                 if (ALH1OL[i][j][k] == 0) // If there is no connection we cannot split it
                 {
                     continue;
                 }
+
                 randFloat = (float)(rand() % 100000) / 100000;
                 if (randFloat > NEWNODEPROB) // The random number is higher than the treshold and we do not mutate
                 {
                     continue;
                 }
+
                 bool freeNode2 = false;
                 bool freeNode3 = false;
+
                 for (l = 0; l < maxNodesHiddenLayer; ++l) // Find a node in the hidden layer that is not yet used
                 {
                     if (HLA2[l] == false)
-                    { // node k is not yet active
-                        l2 = k;
+                    { // node l is not yet active
+                        l2 = l;
                         freeNode2 = true;
                     }
                     if (HLA3[l] == false)
-                    { // node k is not yet active
-                        l3 = k;
+                    { // node l is not yet active
+                        l3 = l;
                         freeNode3 = true;
                     }
                 }
-                if (freeNode2 && freeNode3) // Node can be added in both layers
+
+                if (freeNode2 & s & freeNode3) // Node can be added in both layers
                 {
                     randFloat = (float)(rand() % 100000) / 100000;
                     if (randFloat > 0.5)
                     {
+
                         HLA2[l2] = true;
                         ALH1OL[i][j][k] = false; // This connection no longer exists, as it is split
 
@@ -2294,22 +2355,25 @@ void GenomeCVRP::mutateGenomeNodeStructure()
                         WLH1H2[i][l2] = WLH1OL[i][j][k]; // The first weight is equal to the previous connection weight
 
                         ALH2OL[l2][j][k] = true;
-                        WLH2OL[l2][j][k] = 1; // and for the second it is 1, effectively not changing the values initially
+                        WLH2OL[l2][j][k] = (float)1; // and for the second it is 1, effectively not changing the values initially
                     }
                     else
                     {
                         HLA3[l3] = true;
                         ALH1OL[i][j][k] = false; // This connection no longer exists, as it is split
 
-                        ALH1H3[i][l2] = true;            // The connection is now going to node l in the first hidden layer
-                        WLH1H3[i][l2] = WLH1OL[i][j][k]; // The first weight is equal to the previous connection weight
+                        ALH1H3[i][l3] = true;            // The connection is now going to node l in the first hidden layer
+                        WLH1H3[i][l3] = WLH1OL[i][j][k]; // The first weight is equal to the previous connection weight
 
-                        ALH3OL[l2][j][k] = true;
-                        WLH3OL[l2][j][k] = 1; // and for the second it is 1, effectively not changing the values initially
+                        ALH3OL[l3][j][k] = true;
+                        WLH3OL[l3][j][k] = (float)1; // and for the second it is 1, effectively not changing the values initially
                     }
                 }
                 else if (freeNode2) // New node in the first hidden layer
                 {
+                    cout << "In second layer\n"
+                         << flush;
+
                     HLA2[l2] = true;
                     ALH1OL[i][j][k] = false; // This connection no longer exists, as it is split
 
@@ -2317,25 +2381,26 @@ void GenomeCVRP::mutateGenomeNodeStructure()
                     WLH1H2[i][l2] = WLH1OL[i][j][k]; // The first weight is equal to the previous connection weight
 
                     ALH2OL[l2][j][k] = true;
-                    WLH2OL[l2][j][k] = 1; // and for the second it is 1, effectively not changing the values initially
+                    WLH2OL[l2][j][k] = (float)1; // and for the second it is 1, effectively not changing the values initially
                 }
                 else if (freeNode3) // New node in the second hidden layer
                 {
                     HLA3[l3] = true;
                     ALH1OL[i][j][k] = false; // This connection no longer exists, as it is split
 
-                    ALH1H3[i][l2] = true;            // The connection is now going to node l in the first hidden layer
-                    WLH1H3[i][l2] = WLH1OL[i][j][k]; // The first weight is equal to the previous connection weight
+                    ALH1H3[i][l3] = true;            // The connection is now going to node l in the first hidden layer
+                    WLH1H3[i][l3] = WLH1OL[i][j][k]; // The first weight is equal to the previous connection weight
 
-                    ALH3OL[l2][j][k] = true;
-                    WLH3OL[l2][j][k] = 1; // and for the second it is 1, effectively not changing the values initially
+                    ALH3OL[l3][j][k] = true;
+                    WLH3OL[l3][j][k] = (float)1; // and for the second it is 1, effectively not changing the values initially
                 }
                 // Else do nothing as there are no places for new nodes
             }
         }
     }
-    // HL2->OL
-#pragma omp parallel for private(i, j, k, l) shared(ALH2OL, WLH2OL, ALH2H3, WLH2H3, ALH3OL, WLH3OL, HLA3)
+
+// HL2->OL
+#pragma omp parallel for private(i, j, k, l, l2, l3) shared(ALH2OL, WLH2OL, ALH2H3, WLH2H3, ALH3OL, WLH3OL, HLA3)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
         for (j = 0; j < maxInputSize; ++j)
@@ -2355,8 +2420,7 @@ void GenomeCVRP::mutateGenomeNodeStructure()
                 for (l = 0; l < maxNodesHiddenLayer; ++l) // Find a node in the hidden layer that is not yet used
                 {
                     if (HLA3[l] == false)
-                    { // node k is not yet active
-                        newNode = k;
+                    { // node l is not yet active
                         HLA3[l] = true;
                         freeNode = true;
                         break;
@@ -2372,8 +2436,8 @@ void GenomeCVRP::mutateGenomeNodeStructure()
                 WLH2H3[i][l] = WLH2OL[i][j][k]; // The first weight is equal to the previous connection weight
 
                 ALH3OL[l][j][k] = true;
-                WLH3OL[l][j][k] = 1; // and for the second it is 1, effectively not changing the values initially
-                                     // Else do nothing as there are no places for new nodes
+                WLH3OL[l][j][k] = (float)1; // and for the second it is 1, effectively not changing the values initially
+                                            // Else do nothing as there are no places for new nodes
             }
         }
     }
@@ -2382,7 +2446,7 @@ void GenomeCVRP::mutateGenomeNodeStructure()
 void GenomeCVRP::mutateGenomeConnectionStructure()
 {
     int i, j, k, l;
-    // IL0->H1
+// IL0->H1
 #pragma omp parallel for private(i, j, k) shared(HLA1, ALI0H1, WLI0H1)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2408,7 +2472,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL1->H1
+// IL1->H1
 #pragma omp parallel for private(i, j, k) shared(HLA1, ALI1H1, WLI1H1)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2434,7 +2498,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL2->H1
+// IL2->H1
 #pragma omp parallel for private(i, j, k) shared(HLA1, ALI2H1, WLI2H1)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2460,7 +2524,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL0->H2
+// IL0->H2
 #pragma omp parallel for private(i, j, k) shared(HLA2, ALI0H2, WLI0H2)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2486,7 +2550,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL1->H2
+// IL1->H2
 #pragma omp parallel for private(i, j, k) shared(HLA2, ALI1H2, WLI1H2)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2512,7 +2576,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL2->H2
+// IL2->H2
 #pragma omp parallel for private(i, j, k) shared(HLA2, ALI2H2, WLI2H2)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2538,7 +2602,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL0->H3
+// IL0->H3
 #pragma omp parallel for private(i, j, k) shared(HLA3, ALI0H3, WLI0H3)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2564,7 +2628,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL1->H3
+// IL1->H3
 #pragma omp parallel for private(i, j, k) shared(HLA3, ALI1H3, WLI1H3)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2590,7 +2654,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL2->H3
+// IL2->H3
 #pragma omp parallel for private(i, j, k) shared(HLA3, ALI2H3, WLI2H3)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2616,7 +2680,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL0->OL
+// IL0->OL
 #pragma omp parallel for private(i, j, k, l) shared(ALI0OL, WLI0OL)
     for (i = 0; i < maxInputSize; ++i)
     {
@@ -2640,7 +2704,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL1->OL
+// IL1->OL
 #pragma omp parallel for private(i, j, k, l) shared(ALI1OL, WLI1OL)
     for (i = 0; i < 3; ++i)
     {
@@ -2664,7 +2728,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // IL2->OL
+// IL2->OL
 #pragma omp parallel for private(i, j, k, l) shared(ALI2OL, WLI2OL)
     for (i = 0; i < 1; ++i)
     {
@@ -2688,7 +2752,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // H1->H2
+// H1->H2
 #pragma omp parallel for private(i, j) shared(HLA1, HLA2, ALH1H2, WLH1H2)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2714,7 +2778,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // H1->H3
+// H1->H3
 #pragma omp parallel for private(i, j) shared(HLA1, HLA3, ALH1H3, WLH1H3)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2740,7 +2804,7 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
         }
     }
 
-    // H2->H3
+// H2->H3
 #pragma omp parallel for private(i, j) shared(HLA2, HLA3, ALH2H3, WLH2H3)
     for (i = 0; i < maxNodesHiddenLayer; ++i)
     {
@@ -2762,6 +2826,413 @@ void GenomeCVRP::mutateGenomeConnectionStructure()
             { // We create a new connection
                 ALH2H3[i][j] = true;
                 WLH2H3[i][j] = ((float)(rand() % 100000) / 50000) - 1;
+            }
+        }
+    }
+// H1->OL
+#pragma omp parallel for private(i, j, k) shared(HLA1, ALH1OL, WLH1OL)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        if (HLA1[i] == 0)
+        { // Can only create a connection if the node is active
+            continue;
+        }
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALH1OL[i][j][k] == true) // Node is already active
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < NEWCONNECTIONPROB)
+                { // We create a new connection
+                    ALH1OL[i][j][k] = true;
+                    WLH1OL[i][j][k] = ((float)(rand() % 100000) / 50000) - 1;
+                }
+            }
+        }
+    }
+// H2->OL
+#pragma omp parallel for private(i, j, k) shared(HLA2, ALH2OL, WLH2OL)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        if (HLA2[i] == 0)
+        { // Can only create a connection if the node is active
+            continue;
+        }
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALH2OL[i][j][k] == true) // Node is already active
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < NEWCONNECTIONPROB)
+                { // We create a new connection
+                    ALH2OL[i][j][k] = true;
+                    WLH2OL[i][j][k] = ((float)(rand() % 100000) / 50000) - 1;
+                }
+            }
+        }
+    }
+// H1->OL
+#pragma omp parallel for private(i, j, k) shared(HLA3, ALH3OL, WLH3OL)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        if (HLA3[i] == 0)
+        { // Can only create a connection if the node is active
+            continue;
+        }
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALH3OL[i][j][k] == true) // Node is already active
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < NEWCONNECTIONPROB)
+                { // We create a new connection
+                    ALH3OL[i][j][k] = true;
+                    WLH3OL[i][j][k] = ((float)(rand() % 100000) / 50000) - 1;
+                }
+            }
+        }
+    }
+}
+
+void GenomeCVRP::removeGenomeConnections()
+{
+    int i, j, k, l;
+// IL0->H1 & IL0->H2 & IL0->H3
+#pragma omp parallel for private(i, j, k) shared(ALI0H1)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALI0H1[j][k][i] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALI0H1[j][k][i] = false;
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k) shared(ALI0H2)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALI0H2[j][k][i] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALI0H2[j][k][i] = false;
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k) shared(ALI0H3)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALI0H3[j][k][i] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALI0H3[j][k][i] = false;
+                }
+            }
+        }
+    }
+// IL1->H1 &  IL1->H2 &  IL1->H3
+#pragma omp parallel for private(i, j, k) shared(ALI1H1)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < 3; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALI1H1[j][k][i] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALI1H1[j][k][i] = false;
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k) shared(ALI1H2)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < 3; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALI1H2[j][k][i] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALI1H2[j][k][i] = false;
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k) shared(ALI1H3)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < 3; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALI1H3[j][k][i] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALI1H3[j][k][i] = false;
+                }
+            }
+        }
+    }
+// IL2->H1 &  IL2->H2 &  IL2->H3
+#pragma omp parallel for private(i, j, k) shared(ALI2H1)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < 1; ++j)
+        {
+            for (k = 0; k < s; ++k)
+            {
+                if (ALI2H1[j][k][i] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALI2H1[j][k][i] = false;
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k) shared(ALI2H2)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < 1; ++j)
+        {
+            for (k = 0; k < s; ++k)
+            {
+                if (ALI2H2[j][k][i] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALI2H2[j][k][i] = false;
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k) shared(ALI2H3)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < 1; ++j)
+        {
+            for (k = 0; k < s; ++k)
+            {
+                if (ALI2H3[j][k][i] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALI2H3[j][k][i] = false;
+                }
+            }
+        }
+    }
+// INPUT->OUTPUT
+#pragma omp parallel for private(i, j, k, l) shared(ALI0OL)
+    for (i = 0; i < maxInputSize; ++i)
+    {
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                for (l = 0; l < maxInputSize; ++l)
+                {
+                    if (ALI0OL[i][j][k][l] == false) // Connection is already inactive
+                    {
+                        continue;
+                    }
+                    if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                    { // We remove (set as innactive) the connection
+                        ALI0OL[i][j][k][l] = false;
+                    }
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k, l) shared(ALI1OL)
+    for (i = 0; i < 3; ++i)
+    {
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                for (l = 0; l < maxInputSize; ++l)
+                {
+                    if (ALI1OL[i][j][k][l] == false) // Connection is already inactive
+                    {
+                        continue;
+                    }
+                    if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                    { // We remove (set as innactive) the connection
+                        ALI1OL[i][j][k][l] = false;
+                    }
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k, l) shared(ALI2OL)
+    for (i = 0; i < 1; ++i)
+    {
+        for (j = 0; j < s; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                for (l = 0; l < maxInputSize; ++l)
+                {
+                    if (ALI2OL[i][j][k][l] == false) // Connection is already inactive
+                    {
+                        continue;
+                    }
+                    if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                    { // We remove (set as innactive) the connection
+                        ALI2OL[i][j][k][l] = false;
+                    }
+                }
+            }
+        }
+    }
+// H1->OL & H2->OL & H3->OL
+#pragma omp parallel for private(i, j, k) shared(ALH1OL)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALH1OL[i][j][k] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALH1OL[i][j][k] = false;
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k) shared(ALH2OL)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALH2OL[i][j][k] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALH2OL[i][j][k] = false;
+                }
+            }
+        }
+    }
+#pragma omp parallel for private(i, j, k) shared(ALH3OL)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < maxInputSize; ++j)
+        {
+            for (k = 0; k < maxInputSize; ++k)
+            {
+                if (ALH3OL[i][j][k] == false) // Connection is already inactive
+                {
+                    continue;
+                }
+                if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+                { // We remove (set as innactive) the connection
+                    ALH3OL[i][j][k] = false;
+                }
+            }
+        }
+    }
+    // H1->H2 & H1->H3 & H2->H3
+#pragma omp parallel for private(i, j) shared(ALH1H2)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < maxNodesHiddenLayer; ++j)
+        {
+            if (ALH1H2[i][j] == false) // Connection is already inactive
+            {
+                continue;
+            }
+            if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+            { // We remove (set as innactive) the connection
+                ALH1H2[i][j] = false;
+            }
+        }
+    }
+#pragma omp parallel for private(i, j) shared(ALH1H3)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < maxNodesHiddenLayer; ++j)
+        {
+            if (ALH1H3[i][j] == false) // Connection is already inactive
+            {
+                continue;
+            }
+            if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+            { // We remove (set as innactive) the connection
+                ALH1H3[i][j] = false;
+            }
+        }
+    }
+#pragma omp parallel for private(i, j) shared(ALH2H3)
+    for (i = 0; i < maxNodesHiddenLayer; ++i)
+    {
+        for (j = 0; j < maxNodesHiddenLayer; ++j)
+        {
+            if (ALH2H3[i][j] == false) // Connection is already inactive
+            {
+                continue;
+            }
+            if (((float)rand() / (float)RAND_MAX) < REMOVECONNECTIONPROB)
+            { // We remove (set as innactive) the connection
+                ALH2H3[i][j] = false;
             }
         }
     }
@@ -3213,7 +3684,7 @@ template <class Archive>
 void PopulationCVRP::serialize(Archive &ar, const unsigned int file_version)
 {
     // boost::serialization::split_member(ar, *this, file_version);
-    ar & genomeIDs & generation;
+    ar & genomeIDs & generation & nCostumers;
 }
 void savePopulation(PopulationCVRP &population)
 {
@@ -3244,34 +3715,69 @@ void loadPopulation(PopulationCVRP &population)
 /// @brief This method will let all the genomes run on the current CVRP istance. It starts by letting cplex run with its standard branching scheme.If it doesn branch return false.
 bool PopulationCVRP::runCPLEXGenome()
 {
-    createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 0, standardCPLEXPlaceholder);
-    cout << "Nodes CPLEX: " << standardCPLEXPlaceholder.fitness[0] << ".\n";
-    if (standardCPLEXPlaceholder.fitness[0] == 0)
+    createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 0, defaultCPLEXPlaceholder, 60);
+    cout << "Nodes CPLEX: " << defaultCPLEXPlaceholder.fitness[0] << ".\n";
+    if (defaultCPLEXPlaceholder.fitness[0] == 0 || defaultCPLEXPlaceholder.fitness[0] == 1000000)
     {
-        return false; // There was no branching in this instance
+        return false; // There was no branching in this instance or cplex didnt find a feasible solution
     }
-    createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 1, heuristicShortestPlaceholder);
-    createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 2, heuristicLongestPlaceholder);
+#pragma omp parallel num_threads(4)
+#pragma omp single
+    {
+#pragma omp task shared(vertexMatrix, costMatrix, capacity)
+        createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 1, minInfeasibleCPLEXPlaceholder, 60);
+#pragma omp task shared(vertexMatrix, costMatrix, capacity)
+        createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 2, maxInfeasibleCPLEXPlaceholder, 60);
+#pragma omp task shared(vertexMatrix, costMatrix, capacity)
+        createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 3, pseudoCPLEXPlaceholder, 60);
+#pragma omp task shared(vertexMatrix, costMatrix, capacity)
+        createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 4, strongCPLEXPlaceholder, 60);
+#pragma omp task shared(vertexMatrix, costMatrix, capacity)
+        createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 5, pseudoReducedCPLEXPlaceholder, 60);
+#pragma omp task shared(vertexMatrix, costMatrix, capacity)
+        createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 6, heuristicShortestPlaceholder, 60);
+#pragma omp task shared(vertexMatrix, costMatrix, capacity)
+        createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 7, heuristicLongestPlaceholder, 60);
+#pragma omp task shared(vertexMatrix, costMatrix, capacity)
+        createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 8, heuristicRandomPlaceholder, 60);
+    }
+
+    cout << "----------Running on Genomes.----------\n"
+         << flush;
     int i = 0;
     int j = 0;
     int nSpecies = population.size();
     int nGenomes;
-#pragma omp parallel for private(i, nGenomes, j) shared(vertexMatrix, costMatrix, capacity, population) num_threads(8)
+
+    int timeoutValue; // If cplex took many nodes to find optimality we allow the genomes to take longer due to the difference in optimization of cplex and this code
+    if (defaultCPLEXPlaceholder.fitness[0] < 100)
+    {
+        timeoutValue = 60;
+    }
+    else if (defaultCPLEXPlaceholder.fitness[0] < 300)
+    {
+        timeoutValue = 120;
+    }
+    else if (defaultCPLEXPlaceholder.fitness[0] < 500)
+    {
+        timeoutValue = 180;
+    }
+    else if (defaultCPLEXPlaceholder.fitness[0] < 1000)
+    {
+        timeoutValue = 240;
+    }
+    else
+    {
+        timeoutValue = 300;
+    }
+
+#pragma omp parallel for private(i, nGenomes, j) shared(vertexMatrix, costMatrix, capacity, population) num_threads(4)
     for (i = 0; i < nSpecies; ++i)
     {
         nGenomes = population[i].size();
-        cout << "Running on species: " << i << ".\n";
         for (j = 0; j < nGenomes; ++j)
         {
-            int tid = omp_get_thread_num();
-            // loadGenomeInstance(population[i][j]);
-            cout << "Running on genome: " << j << " on thread: " << tid << ".\n"
-                 << flush;
-            //  cout << "ALH1H2: " << population[i][j].ALH1H2.size() << "\n";
-            //  cout << "ALH1H2[0]: " << population[i][j].ALH1H2[0].size() << "\n";
-            createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 3, population[i][j]);
-            // saveGenomeInstance(population[i][j]);
-            // population[i][j].clearGenomeRAM();
+            createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 9, population[i][j], timeoutValue);
         }
     }
     return true;
@@ -3638,11 +4144,10 @@ void PopulationCVRP::mutatePopulation()
     int i, j, nInSpecies;
     int nSpecies = population.size();
     float randFloat;
-    cout << "Mutating\n";
+
     for (i = 0; i < nSpecies; ++i)
     {
         nInSpecies = population[i].size();
-            cout << "Mutating species: "<<i<<"\n";
 
         for (j = 0; j < nInSpecies; ++j)
         {
@@ -3652,14 +4157,12 @@ void PopulationCVRP::mutatePopulation()
                 continue;
             }
             if (randFloat < MUTATEWEIGHTSPROB)
-            {   
-                cout << "Mutating genome weights\n" << flush;
+            {
                 population[i][j].mutateGenomeWeights();
             }
-            cout << "mutateGenomeConnectionStructure\n" << flush;
             population[i][j].mutateGenomeConnectionStructure();
-            cout << "mutateGenomeNodeStructure\n" << flush;
             population[i][j].mutateGenomeNodeStructure();
+            population[i][j].removeGenomeConnections();
         }
     }
 }
@@ -3679,8 +4182,8 @@ void PopulationCVRP::setFloatFitnessP()
                 population[i][j].setFloatFitnessG(floatFitness);
                 continue;
             }
-            floatFitness = 1.5 * ((float)population[i][j].fitness[0] * (float)speciesSize); // we have the number of nodes visited divided by the nnumber of Genomes in the species
-            population[i][j].setFloatFitnessG(floatFitness);                                // If the solution found by the genome is not optimal it will get penalized.
+            floatFitness = (float)10 * ((float)population[i][j].fitness[0] * (float)speciesSize); // we have the number of nodes visited divided by the nnumber of Genomes in the species
+            population[i][j].setFloatFitnessG(floatFitness);                                      // If the solution found by the genome is not optimal it will get penalized.
         }
     }
 }
@@ -3755,17 +4258,41 @@ void PopulationCVRP::log(string depotLocation, string customerDistribution, int 
     }
 
     ofile << "With depot location: " << depotLocation << ", customer distribution: " << customerDistribution << ", demand distribution: " << demandDistribution << " and number of costumers: " << nCostumers << ".\n";
-    ofile << "Number of node of strong branching: " << standardCPLEXPlaceholder.fitness[0] << ".\n";
-    ofile << "Strong branching found optimal: " << standardCPLEXPlaceholder.fitness[1] << ".\n";
-    ofile << "Strong branching found value: " << standardCPLEXPlaceholder.fitness[2] << ".\n\n";
+    ofile << "Number of node of default branching: " << defaultCPLEXPlaceholder.fitness[0] << ".\n";
+    ofile << "Default branching found optimal: " << defaultCPLEXPlaceholder.fitness[1] << ".\n";
+    ofile << "Default branching found value: " << defaultCPLEXPlaceholder.fitness[2] << ".\n\n";
 
-    ofile << "Number of nodes of shortest distance heuristc: " << heuristicShortestPlaceholder.fitness[0] << ".\n";
-    ofile << "Heuristc found optimal: " << heuristicShortestPlaceholder.fitness[1] << ".\n";
-    ofile << "Heuristc found value: " << heuristicShortestPlaceholder.fitness[2] << ".\n\n";
+    ofile << "Number of node of minfeasible branching: " << minInfeasibleCPLEXPlaceholder.fitness[0] << ".\n";
+    ofile << "Minfeasible branching found optimal: " << minInfeasibleCPLEXPlaceholder.fitness[1] << ".\n";
+    ofile << "Minfeasible branching found value: " << minInfeasibleCPLEXPlaceholder.fitness[2] << ".\n\n";
 
-    ofile << "Number of nodes of longest distance heuristc: " << heuristicLongestPlaceholder.fitness[0] << ".\n";
-    ofile << "Heuristc found optimal: " << heuristicLongestPlaceholder.fitness[1] << ".\n";
-    ofile << "Heuristc found value: " << heuristicLongestPlaceholder.fitness[2] << ".\n\n";
+    ofile << "Number of node of maxfeasible branching: " << maxInfeasibleCPLEXPlaceholder.fitness[0] << ".\n";
+    ofile << "Maxfeasible branching found optimal: " << maxInfeasibleCPLEXPlaceholder.fitness[1] << ".\n";
+    ofile << "Maxfeasible branching found value: " << maxInfeasibleCPLEXPlaceholder.fitness[2] << ".\n\n";
+
+    ofile << "Number of node of pseudo branching: " << pseudoCPLEXPlaceholder.fitness[0] << ".\n";
+    ofile << "Pseudo branching found optimal: " << pseudoCPLEXPlaceholder.fitness[1] << ".\n";
+    ofile << "Pseudo branching found value: " << pseudoCPLEXPlaceholder.fitness[2] << ".\n\n";
+
+    ofile << "Number of node of strong branching: " << strongCPLEXPlaceholder.fitness[0] << ".\n";
+    ofile << "Strong branching found optimal: " << strongCPLEXPlaceholder.fitness[1] << ".\n";
+    ofile << "Strong branching found value: " << strongCPLEXPlaceholder.fitness[2] << ".\n\n";
+
+    ofile << "Number of node of pseudoreduced branching: " << pseudoReducedCPLEXPlaceholder.fitness[0] << ".\n";
+    ofile << "Pseudoreduced branching found optimal: " << pseudoReducedCPLEXPlaceholder.fitness[1] << ".\n";
+    ofile << "Pseudoreduced branching found value: " << pseudoReducedCPLEXPlaceholder.fitness[2] << ".\n\n";
+
+    ofile << "Number of nodes of shortest distance heuristic: " << heuristicShortestPlaceholder.fitness[0] << ".\n";
+    ofile << "Shortest heuristic found optimal: " << heuristicShortestPlaceholder.fitness[1] << ".\n";
+    ofile << "Shortest heuristic found value: " << heuristicShortestPlaceholder.fitness[2] << ".\n\n";
+
+    ofile << "Number of nodes of longest distance heuristic: " << heuristicLongestPlaceholder.fitness[0] << ".\n";
+    ofile << "Longest heuristic found optimal: " << heuristicLongestPlaceholder.fitness[1] << ".\n";
+    ofile << "Longest heuristic found value: " << heuristicLongestPlaceholder.fitness[2] << ".\n\n";
+
+    ofile << "Number of nodes of random heuristic: " << heuristicRandomPlaceholder.fitness[0] << ".\n";
+    ofile << "Random heuristic found optimal: " << heuristicRandomPlaceholder.fitness[1] << ".\n";
+    ofile << "Random heuristic found value: " << heuristicRandomPlaceholder.fitness[2] << ".\n\n";
 
     for (i = 0; i < population.size(); ++i)
     {
@@ -3782,7 +4309,7 @@ void PopulationCVRP::logTable(string depotLocation, string customerDistribution,
 
     int i, j, nSpecies, nGenomes, maxGenomes;
     nSpecies = population.size();
-    maxGenomes = 3; // We need at least 3, as there is at least cplex heursitc short and long
+    maxGenomes = 8; // We need at least 3, as there is at least cplex heursitc short and long
     for (i = 0; i < nSpecies; ++i)
     { // Find the species that has the most genomes
         nGenomes = population[i].size();
@@ -3801,10 +4328,17 @@ void PopulationCVRP::logTable(string depotLocation, string customerDistribution,
     ofile << "}\n ";
 
     ofile << "\\hline\n";
+
     ofile << "MISC & ";
-    ofile << standardCPLEXPlaceholder.fitness[0] << "/" << standardCPLEXPlaceholder.fitness[2] << " & ";
+    ofile << defaultCPLEXPlaceholder.fitness[0] << "/" << defaultCPLEXPlaceholder.fitness[2] << " & ";
+    ofile << minInfeasibleCPLEXPlaceholder.fitness[0] << "/" << minInfeasibleCPLEXPlaceholder.fitness[2] << " & ";
+    ofile << maxInfeasibleCPLEXPlaceholder.fitness[0] << "/" << maxInfeasibleCPLEXPlaceholder.fitness[2] << " & ";
+    ofile << pseudoCPLEXPlaceholder.fitness[0] << "/" << pseudoCPLEXPlaceholder.fitness[2] << " & ";
+    ofile << strongCPLEXPlaceholder.fitness[0] << "/" << strongCPLEXPlaceholder.fitness[2] << " & ";
+    ofile << pseudoReducedCPLEXPlaceholder.fitness[0] << "/" << pseudoReducedCPLEXPlaceholder.fitness[2] << " & ";
     ofile << heuristicShortestPlaceholder.fitness[0] << "/" << heuristicShortestPlaceholder.fitness[2] << " & ";
-    if (maxGenomes == 3)
+    ofile << heuristicRandomPlaceholder.fitness[0] << "/" << heuristicRandomPlaceholder.fitness[2] << " & ";
+    if (maxGenomes == 9)
     { // treat it as a last column
         ofile << heuristicLongestPlaceholder.fitness[0] << "/" << heuristicLongestPlaceholder.fitness[2] << " \\\\ ";
     }
@@ -3813,7 +4347,7 @@ void PopulationCVRP::logTable(string depotLocation, string customerDistribution,
         ofile << heuristicLongestPlaceholder.fitness[0] << "/" << heuristicLongestPlaceholder.fitness[2] << " & ";
     }
 
-    for (i = 3; i < maxGenomes; ++i)
+    for (i = 9; i < maxGenomes; ++i)
     {
         if (i == (maxGenomes - 1))
         { // Check if it is the last column
@@ -3866,15 +4400,22 @@ void PopulationCVRP::logTable(string depotLocation, string customerDistribution,
 
 void PopulationCVRP::logSemiColonSeparated(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers)
 {
+
     int i, j, nSpecies, nGenomes;
     nSpecies = population.size();
     string logFileTable = (string)DIRECTORY + "logSemiColonSeparated.csv";
     ofstream ofile(logFileTable, ios::out | ios::app);
-    int cplexFitness = standardCPLEXPlaceholder.fitness[2];
+    int cplexFitness = defaultCPLEXPlaceholder.fitness[2];
     ofile << depotLocation << ";" << customerDistribution << ";" << demandDistribution << ";" << nCostumers << ";";
-    ofile << standardCPLEXPlaceholder.fitness[0] << ";";
+    ofile << defaultCPLEXPlaceholder.fitness[0] << ";";
+    ofile << minInfeasibleCPLEXPlaceholder.fitness[0] << ";";
+    ofile << maxInfeasibleCPLEXPlaceholder.fitness[0] << ";";
+    ofile << pseudoCPLEXPlaceholder.fitness[0] << ";";
+    ofile << strongCPLEXPlaceholder.fitness[0] << ";";
+    ofile << pseudoReducedCPLEXPlaceholder.fitness[0] << ";";
     ofile << heuristicShortestPlaceholder.fitness[0] << ";";
     ofile << heuristicLongestPlaceholder.fitness[0] << ";";
+    ofile << heuristicRandomPlaceholder.fitness[0] << ";";
     for (i = 0; i < nSpecies; ++i)
     {
         nGenomes = population[i].size();
@@ -3887,6 +4428,67 @@ void PopulationCVRP::logSemiColonSeparated(string depotLocation, string customer
         }
     }
     ofile << "\n";
+}
+
+void PopulationCVRP::logBestSplitOrder(string depotLocation, string customerDistribution, int demandDistribution, int nCostumers)
+{
+    int i, j, nSpecies, nGenomes, bestI, bestJ, Child1, Child2;
+    nSpecies = population.size();
+    string logFileTable = (string)DIRECTORY + "logBestSplitOrder.txt";
+    ofstream ofile(logFileTable, ios::out | ios::app);
+    int cplexFitness = defaultCPLEXPlaceholder.fitness[2];
+    ofile << "With depot location: " << depotLocation << ", customer distribution: " << customerDistribution << ", demand distribution: " << demandDistribution << " and number of costumers: " << nCostumers << ".\n";
+    int bestNnodes = 1000000;
+    for (i = 0; i < nSpecies; ++i)
+    {
+        nGenomes = population[i].size();
+        for (j = 0; j < nGenomes; ++j)
+        {
+            if (population[i][j].fitness[0] < bestNnodes)
+            {
+                bestNnodes = population[i][j].fitness[0];
+                bestI = i;
+                bestJ = j;
+            }
+        }
+    }
+    vector<vector<int>> resultOrdered = fromEdgeUsageToRouteSolution(population[bestI][bestJ].result);
+    ofile << "Result routes:\n";
+    for (vector<int> row : resultOrdered)
+    {
+        ofile << "D->";
+        for (int val : row)
+        {
+            ofile << val << "->";
+        }
+        ofile << "D\n";
+    }
+    vector<int> toProcess;
+    int parent = 0;
+    int counter = 0;
+    do
+    {
+        counter++;
+        if (population[bestI][bestJ].searchTreeParentToChildren.count(parent) == 1)
+        {
+            tie(Child1, Child2, i, j) = population[bestI][bestJ].searchTreeParentToChildren[parent];
+            if (population[bestI][bestJ].result[i][j] == 1)
+            {
+                toProcess.push_back(Child1);
+                ofile << "Parent: " << parent << ", Child In Path: " << Child1 << ", Split Active: " << i << ", " << j << "\n";
+            }
+            else
+            {
+                toProcess.push_back(Child2);
+                ofile << "Parent: " << parent << ", Child In Path: " << Child2 << ", Split Inactive: " << i << ", " << j << "\n";
+            }
+        }
+        else
+        {
+            break;
+        }
+        parent = toProcess[(toProcess.size() - 1)];
+    } while (counter < 100);
 }
 
 void PopulationCVRP::decimate(float percentage)
@@ -3931,23 +4533,111 @@ void PopulationCVRP::decimate(float percentage)
     }
 }
 
+void PopulationCVRP::decimatePreserveSpecies(float percentage)
+{
+    vector<float> fitnesses(populationSize, 0);
+    int i, j, nInSpecies, worstI, worstJ;
+    float worstFitness;
+    int nSpecies = population.size();
+    int toBeEliminated = populationSize * percentage; // This will be the number of individuals not to be eliminated (total minus eliminated)
+    vector<GenomeCVRP>::iterator it;
+    do
+    { // Eliminate genomes untill enough are gone
+        worstFitness = INT_MAX;
+        for (i = 0; i < nSpecies; ++i) // eliminate the genomes
+        {
+            if (population[i].size() < 3)
+            { // Do not eliminate from population with fewer than three genomes (every species needs at least two genomes two reproduce)
+                continue;
+            }
+
+            nInSpecies = population[i].size();
+            for (j = 0; j < nInSpecies; ++j)
+            {
+                if (population[i][j].getFloatFitness() < worstFitness) // As the higher the fitness the worst the genome, eliminate only if above threshold
+                {
+                    worstI = i;
+                    worstJ = j;
+                    worstFitness = population[i][j].getFloatFitness();
+                }
+            }
+        }
+        it = population[worstI].begin() + worstJ;
+        population[worstI].erase(it);
+        --toBeEliminated;
+    } while (!(toBeEliminated == 0));
+}
+
+/// @brief This method will eliminate all the genomes from the smallest population and use the best ones of the remaining to create a new population
+void PopulationCVRP::eliminateSpeciesAndMakeNew()
+{
+    int i, j, nInSpecies, smallestI, smallestPopulationNumber;
+    smallestPopulationNumber = populationSize; // the smallest population is the one that has been performing the worst
+    int nSpecies = population.size();
+
+    for (i = 0; i < nSpecies; ++i) // eliminate the genomes
+    {
+        cout << "Species " << i << " has size: " << population[i].size() << ".\n";
+        if (population[i].size() < smallestPopulationNumber)
+        {
+            smallestI = i;
+            smallestPopulationNumber = population[i].size();
+        }
+    }
+    cout << "Smallest population is  " << smallestI << " with size: " << smallestPopulationNumber << ".\n";
+
+    population[smallestI].resize(0); // eliminate all the genomes from the population
+    i = 0;                           // is the species we are currently looking to add
+    j = 0;                           // the genome of the species (starts with the best, if all best have been added and the population is not yet complete add the second best and so forth)
+    do
+    { // Here we add the best genomes from the other species untill the population is back to its original size
+        if (i == smallestI)
+        { // Cant add from the species that has just been removed, hence continue
+            ++i;
+            continue;
+        }
+        if (!(i < population.size()))
+        { // If we have checked all the species go back to first and get the second best genome
+            i = 0;
+            ++j;
+        }
+        if (!(j < population[i].size()))
+        {
+            continue;
+        }
+        cout << "Transfering genome " << j << " from species " << i << ".\n"
+             << flush;
+        GenomeCVRP g; // create new genome
+        g.inheritParentData(population[i][j]);
+        cout << "Genome transfered.\n"
+             << flush;
+        population[smallestI].push_back(g);
+
+        ++i;                        // Go to next species
+        --smallestPopulationNumber; // Need to add one less genome to get back to species size
+    } while (!(smallestPopulationNumber == 0));
+}
 // TODO Create a function that runs all the steps of the Evolution
 void PopulationCVRP::evolutionLoop()
 {
-    int nCostumers = 10; // startin value of the number of costumers
     string depotLocation, customerDistribution;
     int demandDistribution;
     vector<tuple<string, string, int>> permutations = getCVRPPermutations();
     bool branched = true;
+    int nSpecies, species, i;
     while (true) // We have an endless training loop
     {
         for (tuple<string, string, int> instanceValues : permutations) // For each of the permutations of the CVRP we will run all the steps once
         {
+            // depotLocation = "R";
+            // customerDistribution = "R";
+            // demandDistribution = 3;
             depotLocation = get<0>(instanceValues);
             customerDistribution = get<1>(instanceValues);
             demandDistribution = get<2>(instanceValues);
 
             getCVRP(nCostumers, depotLocation, customerDistribution, demandDistribution);
+
             cout << "Generation: " << generation << "\n";
             cout << "depotLocation: " << depotLocation << "\n";
             cout << "customerDistribution: " << customerDistribution << "\n";
@@ -3956,49 +4646,71 @@ void PopulationCVRP::evolutionLoop()
             branched = runCPLEXGenome();
             if (!branched)
             { // If it hasnt branched we take another instance
-                cout << "NONODES, getting new CRVP instacne\n";
+                cout << "Instance required no branching, getting new CRVP instance.\n";
                 log(depotLocation, customerDistribution, demandDistribution, nCostumers, false);
                 continue;
             }
             if (generation % 5 == 0)
             {
+                cout << "Saving population.\n"
+                     << flush;
                 savePopulation(*this);
             }
 
-            cout << "Got here1\n"
-                 << flush;
-            // loadAllGenomes();
-            cout << "Got here1.1\n"
+            cout << "Setting float fitness.\n"
                  << flush;
             setFloatFitnessP();
-            log(depotLocation, customerDistribution, demandDistribution, nCostumers, true); // makes log cleare if in order
-            logTable(depotLocation, customerDistribution, demandDistribution, nCostumers);
-            logSemiColonSeparated(depotLocation, customerDistribution, demandDistribution, nCostumers);
-            cout << "Got here2\n"
+            cout << "Ordering genomes.\n"
                  << flush;
             orderSpecies();
-            cout << "Got here3\n"
+            cout << "Logging.\n"
                  << flush;
-            decimate();
-            cout << "Got here4\n"
+            log(depotLocation, customerDistribution, demandDistribution, nCostumers, true); // makes log clearer if in order
+            logTable(depotLocation, customerDistribution, demandDistribution, nCostumers);
+            logSemiColonSeparated(depotLocation, customerDistribution, demandDistribution, nCostumers);
+            logBestSplitOrder(depotLocation, customerDistribution, demandDistribution, nCostumers);
+            // cout << "Reorganizing genomes into species.\n"
+            //      << flush;
+            // reorganizeSpecies();
+            cout << "Decimating.\n"
+                 << flush;
+            decimatePreserveSpecies(0.3);
+            if (generation % 10 == 0)
+            { // Every tenth generation we remove a species and create a new one made out of the best genomes of the remaining species
+                cout << "Eliminating species and creating new one!\n"
+                     << flush;
+                eliminateSpeciesAndMakeNew();
+            }
+            // decimate(0.15);
+            cout << "Reproducing.\n"
                  << flush;
             reproducePopulation();
-            cout << "Got here5\n"
+            cout << "Mutating genomes.\n"
                  << flush;
             mutatePopulation();
-            cout << "Got here6\n"
+            nSpecies = population.size();
+            for (i = 0; i < nSpecies; ++i)
+            {
+                cout << "Population " << i << " has size " << population[i].size() << "\n";
+            }
+
+            cout << "Generation ready for next cycle.\n-------------------------------------------------------------------------\n"
                  << flush;
 
             ++generation;
         }
-        ++nCostumers;
+        // ++nCostumers;
+        if (nCostumers == population[0][0].maxInputSize)
+        { // Dont let ther be more costumers than the genome can learn on (It can run on more but doesnt take the last values into account then)
+            nCostumers = 10;
+        }
     }
 }
 
 //------------------------------CVRPCALLBACK---------------------------------------------------
-
+CVRPCallback::CVRPCallback(){};
 CVRPCallback::CVRPCallback(const IloInt capacity, const IloInt n, const vector<int> demands,
-                           const NumVarMatrix &_edgeUsage, vector<vector<int>> &_costMatrix, vector<vector<int>> &_coordinates, GenomeCVRP &_genome, int genomeBool) : edgeUsage(_edgeUsage)
+                           const NumVarMatrix &_edgeUsage, const vector<vector<int>> &_costMatrix, const vector<vector<int>> &_coordinates, const GenomeCVRP &_genome, const int genomeBool) : edgeUsage(_edgeUsage)
 {
     Q = capacity;
     N = n;
@@ -4009,6 +4721,8 @@ CVRPCallback::CVRPCallback(const IloInt capacity, const IloInt n, const vector<i
     coordinates = twoDimensionVectorCreator(3, 50, (float)0);
     misc = twoDimensionVectorCreator(1, 25, (float)0);
 
+    int ioTime = 0;
+    int nnTime = 0;
     // Create the first part of M1 (i.e. the distance(cost) between each node)
     //(This is a half constant input for the genome)
     for (int i = 0; i < N; ++i)
@@ -4147,6 +4861,10 @@ CVRPCallback::connectedComponents(const IloCplex::Callback::Context &context) co
     }
 }
 
+inline void 
+CVRPCallback::branchingWithCPLEX() const{
+
+}
 inline void
 CVRPCallback::branchingWithGenome(const IloCplex::Callback::Context &context) const
 {
@@ -4171,6 +4889,7 @@ CVRPCallback::branchingWithGenome(const IloCplex::Callback::Context &context) co
         mtxCVRP.lock(); // Place in the lock everything that is shared between the nodes
         branches++;
         branches++;
+        auto start = chrono::high_resolution_clock::now();
         for (IloInt i = 1; i < N; ++i) // This will get the relaxation value for each edge, as the matrix is symmetric we only fill one side
         {
             for (IloInt j = 0; j < i; j++)
@@ -4178,6 +4897,12 @@ CVRPCallback::branchingWithGenome(const IloCplex::Callback::Context &context) co
                 M1[i][j] = context.getRelaxationPoint(edgeUsage[i][j]);
             }
         }
+        auto stop = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+        ioTime += duration.count();
+        // cout <<"TIME: "<<time<<"\n"<<flush;
+        misc[0][0] = (float)context.getLongInfo(IloCplex::Callback::Context::Info::NodeDepth); // Add the depth to the first variable of miscelaneous
+        // misc[0][1] = (float)abs()/;
 
         //------------------GENOME-----------------------
         // cout << "\n----GENOME----\n";
@@ -4189,8 +4914,11 @@ CVRPCallback::branchingWithGenome(const IloCplex::Callback::Context &context) co
         vector<vector<bool>> splittedBefore = getEdgeBranches();
         int iSplit, jSplit;
 
+        start = chrono::high_resolution_clock::now();
         tie(iSplit, jSplit) = genome.feedForwardFirstTry(&M1, &coordinates, &misc, &splittedBefore);
-
+        stop = chrono::high_resolution_clock::now();
+        duration = chrono::duration_cast<chrono::microseconds>(stop - start);
+        nnTime += duration.count();
         IloNumVar branchVar = edgeUsage[iSplit][jSplit];
 
         // cout << "\ni: " << iSplit << ";  j: " << jSplit << "\n"
@@ -4204,6 +4932,7 @@ CVRPCallback::branchingWithGenome(const IloCplex::Callback::Context &context) co
         // Insert the children as key into the structure map, with the parent (current node) as value
         nodeStructure[upChild] = currentNodeID;
         nodeStructure[downChild] = currentNodeID;
+        nodeStructureParentToChilds[currentNodeID] = make_tuple(upChild, downChild, iSplit, jSplit);
         // Insert the current node (as key) in the map, with the branched variabels (edge) as value
         nodeSplit[currentNodeID] = make_tuple(iSplit, jSplit);
         // cout << "KU: " << upChild << " KD: " << downChild << "\n"
@@ -4258,6 +4987,8 @@ CVRPCallback::branchingWithShortestHeuristic(const IloCplex::Callback::Context &
         // Insert the children as key into the structure map, with the parent (current node) as value
         nodeStructure[upChild] = currentNodeID;
         nodeStructure[downChild] = currentNodeID;
+        nodeStructureParentToChilds[currentNodeID] = make_tuple(upChild, downChild, iSplit, jSplit);
+
         // Insert the current node (as key) in the map, with the branched variabels (edge) as value
         nodeSplit[currentNodeID] = make_tuple(iSplit, jSplit);
         // cout << "KU: " << upChild << " KD: " << downChild << "\n"
@@ -4312,6 +5043,65 @@ CVRPCallback::branchingWithLongestHeuristic(const IloCplex::Callback::Context &c
         // Insert the children as key into the structure map, with the parent (current node) as value
         nodeStructure[upChild] = currentNodeID;
         nodeStructure[downChild] = currentNodeID;
+        nodeStructureParentToChilds[currentNodeID] = make_tuple(upChild, downChild, iSplit, jSplit);
+
+        // Insert the current node (as key) in the map, with the branched variabels (edge) as value
+        nodeSplit[currentNodeID] = make_tuple(iSplit, jSplit);
+        // cout << "KU: " << upChild << " KD: " << downChild << "\n"
+        //      << flush;
+        mtxCVRP.unlock();
+    }
+}
+
+inline void
+CVRPCallback::branchingWithRandomHeuristic(const IloCplex::Callback::Context &context) const
+{
+    // Get the current relaxation.
+    // The function not only fetches the objective value but also makes sure
+    // the node lp is solved and returns the node lp's status. That status can
+    // be used to identify numerical issues or similar
+    IloCplex::CplexStatus status = context.getRelaxationStatus(0);
+    double obj = context.getRelaxationObjective();
+    currentNodeID = context.getLongInfo(IloCplex::Callback::Context::Info::NodeUID);
+    // Only branch if the current node relaxation could be solved to
+    // optimality.
+    // If there was any sort of trouble then don't do anything and thus let
+    // CPLEX decide how to cope with that.
+    if (status != IloCplex::Optimal &&
+        status != IloCplex::OptimalInfeas)
+    {
+        return;
+    }
+
+    {
+        mtxCVRP.lock(); // Place in the lock everything that is shared between the nodes
+        branches++;
+        branches++;
+
+        //------------------GENOME-----------------------
+        // cout << "\n----GENOME----\n";
+        // cout << "Current node: " << currentNodeID << "\n";
+        CPXLONG upChild, downChild;
+        double const up = 1;
+        double const down = 0;
+        // we make a forward pass and get the i and j values, and get the cplex variable to split
+        vector<vector<bool>> splittedBefore = getEdgeBranches();
+        int iSplit, jSplit;
+        tie(iSplit, jSplit) = findRandomNotSplit(&splittedBefore);
+
+        IloNumVar branchVar = edgeUsage[iSplit][jSplit];
+        // cout << "\ni: " << iSplit << ";  j: " << jSplit << "\n"
+        //      << flush;
+        // cout << "____GENOME____\n"
+
+        upChild = context.makeBranch(branchVar, up, IloCplex::BranchUp, obj);
+        // Create DOWN branch (branchVar <= down)
+        downChild = context.makeBranch(branchVar, down, IloCplex::BranchDown, obj);
+        // Insert the children as key into the structure map, with the parent (current node) as value
+        nodeStructure[upChild] = currentNodeID;
+        nodeStructure[downChild] = currentNodeID;
+        nodeStructureParentToChilds[currentNodeID] = make_tuple(upChild, downChild, iSplit, jSplit);
+
         // Insert the current node (as key) in the map, with the branched variabels (edge) as value
         nodeSplit[currentNodeID] = make_tuple(iSplit, jSplit);
         // cout << "KU: " << upChild << " KD: " << downChild << "\n"
@@ -4323,6 +5113,7 @@ CVRPCallback::branchingWithLongestHeuristic(const IloCplex::Callback::Context &c
 tuple<int, int> CVRPCallback::findClosestNotSplit(vector<vector<bool>> *splittedBefore) const
 {
     tuple<int, int> closestT;
+    closestT = make_tuple(0, 1);
     float closestF = 10000.0;
     for (int i = 0; i < N; ++i)
     {
@@ -4344,6 +5135,7 @@ tuple<int, int> CVRPCallback::findClosestNotSplit(vector<vector<bool>> *splitted
 tuple<int, int> CVRPCallback::findFurthestNotSplit(vector<vector<bool>> *splittedBefore) const
 {
     tuple<int, int> furthestT;
+    furthestT = make_tuple(0, 1);
     float furthestF = 0.0;
     for (int i = 0; i < N; ++i)
     {
@@ -4362,6 +5154,25 @@ tuple<int, int> CVRPCallback::findFurthestNotSplit(vector<vector<bool>> *splitte
     }
     return furthestT;
 }
+tuple<int, int> CVRPCallback::findRandomNotSplit(vector<vector<bool>> *splittedBefore) const
+{
+    tuple<int, int> furthestT;
+    float furthestF = 0.0;
+    int i, j;
+    int counter = 0;
+    while (counter < 100)
+    {
+        ++counter;
+        i = randomUniformIntGenerator(N);
+        j = randomUniformIntGenerator(N);
+        if (splittedBefore->at(i).at(j))
+        {
+            continue;
+        }
+        return make_tuple(i, j);
+    }
+    return findClosestNotSplit(splittedBefore);
+}
 
 int CVRPCallback::getCalls() const
 {
@@ -4370,6 +5181,18 @@ int CVRPCallback::getCalls() const
 int CVRPCallback::getBranches() const
 {
     return branches;
+}
+int CVRPCallback::getLastNodeID() const
+{
+    return currentNodeID;
+}
+map<int, tuple<int, int, int, int>> CVRPCallback::getNodeStructureParentToChilds() const
+{
+    return nodeStructureParentToChilds;
+}
+map<int, int> CVRPCallback::getNodeStructureChildToParent() const
+{
+    return nodeStructure;
 }
 
 vector<vector<bool>> CVRPCallback::getEdgeBranches() const
@@ -4400,6 +5223,13 @@ vector<vector<bool>> CVRPCallback::getEdgeBranches() const
     return splittedBefore;
 }
 
+void CVRPCallback::printTimes()
+{
+    cout << "Total IO time: " << ioTime << ".\n";
+    cout << "Total NN time: " << nnTime << ".\n";
+    cout << "Total GenomeNN time: " << genome.nnTime << ".\n";
+    cout << "Total invoke time: " << invokeTime << ".\n";
+}
 // This is the function that we have to implement and that CPLEX will call
 // during the solution process at the places that we asked for.
 // virtual void CVRPCallback::invoke(const IloCplex::Callback::Context &context) ILO_OVERRIDE;
@@ -4414,26 +5244,40 @@ void CVRPCallback::invoke(const IloCplex::Callback::Context &context)
         connectedComponents(context);
     }
     else if (context.inBranching())
-    {
-        if (T == 1)
-        { // if T is equal to one we branch with heuristic with shortes path
+    {   
+        mtxInvoke.lock();
+        auto startTime = chrono::high_resolution_clock::now();
+        if (T == 6)
+        { // if T is equal to six we branch with heuristic with shortes path
             branchingWithShortestHeuristic(context);
         }
-        else if (T == 2)
-        { // if T is equal to two we branch with heuristic with longest path
+        else if (T == 7)
+        { // if T is equal to seven we branch with heuristic with longest path
             branchingWithLongestHeuristic(context);
         }
-        else
+        else if (T == 8)
+        {
+            branchingWithRandomHeuristic(context);
+        }
+        else if (T == 9)
         {
             branchingWithGenome(context);
+        }else{
+            branchingWithCPLEX();
         }
+        auto stopTime = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::microseconds>(stopTime - startTime);
+        invokeTime += duration.count();
+        invokeTime++;
+        mtxInvoke.unlock();
+
     }
 }
 CVRPCallback::~CVRPCallback()
 {
 }
 
-NumVarMatrix populate(IloModel *model, NumVarMatrix edgeUsage, vector<vector<int>> *vertexMatrix, vector<vector<int>> *costMatrix, int *capacity)
+NumVarMatrix populate(IloModel *model, NumVarMatrix edgeUsage, const vector<vector<int>> *vertexMatrix, vector<vector<int>> *costMatrix, int *capacity)
 {
 
     int n = vertexMatrix->size();
@@ -4513,7 +5357,7 @@ NumVarMatrix populate(IloModel *model, NumVarMatrix edgeUsage, vector<vector<int
     return edgeUsage;
 }
 
-tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity, int runType, GenomeCVRP &genome)
+tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(const vector<vector<int>> vertexMatrix, vector<vector<int>> costMatrix, int capacity, int runType, GenomeCVRP &genome, const int timeout)
 {
     IloEnv env;
     IloModel model(env);
@@ -4528,25 +5372,51 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
     edgeUsage = populate(&model, edgeUsage, &vertexMatrix, &costMatrix, &capacity);
     IloCplex cplex(model);
 
-    cplex.setParam(IloCplex::Param::TimeLimit, 60);
-    cplex.setParam(IloCplex::Param::Threads, 10);
     // cplex.setParam(IloCplex::Param::MIP::Strategy::HeuristicFreq, -1);
-
+    CVRPCallback cgc;
     // Custom Cuts and Branch in one Custom Generic Callback
     CPXLONG contextMask = 0;
     contextMask |= IloCplex::Callback::Context::Id::Candidate;
     // If true we will use the custom branching scheme with the genome as the AI
-    if (!(runType == 0)) // If its not the standard cplex we branch using custom callback
+    if (runType == 0)
+    {
+        ; // Let CPLEX use the default
+    }
+    else if (runType == 1)
+    { // Use cplex min infeasible
+        cplex.setParam(IloCplex::Param::MIP::Strategy::VariableSelect, -1);
+    }
+    else if (runType == 2)
+    { // Use cplex max infeasible
+        cplex.setParam(IloCplex::Param::MIP::Strategy::VariableSelect, 1);
+    }
+    else if (runType == 3)
+    { // Use cplex pseudo cost branching
+        cplex.setParam(IloCplex::Param::MIP::Strategy::VariableSelect, 2);
+    }
+    else if (runType == 4)
+    { // Use cplex strong branching
+        cplex.setParam(IloCplex::Param::MIP::Strategy::VariableSelect, 3);
+    }
+    else if (runType == 5)
+    { // Use cplex pseudo reduced cost branching
+        cplex.setParam(IloCplex::Param::MIP::Strategy::VariableSelect, 4);
+    }
+    else if (runType == 6 || runType == 7 || runType == 8 || runType == 9) // If its not the standard cplex we branch using custom callback
     {
         contextMask |= IloCplex::Callback::Context::Id::Branching;
     }
+    cgc = CVRPCallback(capacity, n, demands, edgeUsage, costMatrix, vertexMatrix, genome, runType);
 
-    CVRPCallback cgc(capacity, n, demands, edgeUsage, costMatrix, vertexMatrix, genome, runType);
-
+    contextMask |= IloCplex::Callback::Context::Id::Branching;
     cplex.use(&cgc, contextMask);
 
+    cplex.setParam(IloCplex::Param::TimeLimit, 30);
+    cplex.setParam(IloCplex::Param::Threads, 1);
+    cplex.setParam(IloCplex::Param::RandomSeed, 42);
+
     // These are the CUTS that are standard in CPLEX,
-    // we can remove them to force CPLEX to use the custom Cuts
+    // we can remove them to force CPLEX to use only the custom Cut
     cplex.setParam(IloCplex::Param::MIP::Cuts::MIRCut, -1);
     cplex.setParam(IloCplex::Param::MIP::Cuts::Implied, -1);
     cplex.setParam(IloCplex::Param::MIP::Cuts::Gomory, -1);
@@ -4591,7 +5461,9 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
 
     cost = cplex.getObjValue();
     nodes = cplex.getNnodes();
-    cout << "Number of nodes: " << nodes << endl
+    cout << "Number of nodes: " << setfill(' ') << setw(5) << nodes;
+    cout << ", with value: " << setfill(' ') << setw(7) << cost;
+    cout << ",for runType: " << runType << "\n"
          << flush;
     genomeFitness[0] = nodes;
     if (IloAlgorithm::Status::Optimal == cplex.getStatus())
@@ -4605,6 +5477,11 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
     genomeFitness[2] = cost;
     genome.setFitness(genomeFitness);
 
+    genome.searchTreeParentToChildren = cgc.getNodeStructureParentToChilds();
+    genome.searchTreeChildToParent = cgc.getNodeStructureChildToParent();
+    genome.lastID = cgc.getLastNodeID();
+    genome.result = edgeUsageSolution;
+    cgc.printTimes();
     env.end();
     return make_tuple(edgeUsageSolution, cost);
 }
@@ -4612,56 +5489,173 @@ tuple<vector<vector<int>>, int> createAndRunCPLEXInstance(vector<vector<int>> ve
 int main()
 {
     srand((unsigned int)time(NULL));
-    // GenomeCVRP g0;
-    // while (true)
+    // srand(42);
+
+    // int s = 4;                               // This generates a random number between 3 and 8
+    //     vector<vector<int>> seedCoordinates(s, vector<int>(2)); // a vector containing the cluster seeds
+
+    //     vector<vector<double>> probCoordinates(50, vector<double>(50)); // probability distributiion for customers
+    //     seedCoordinates[0][0] = 10;
+    //     seedCoordinates[0][1] = 10;
+    //     seedCoordinates[1][0] = 22;
+    //     seedCoordinates[1][1] = 10;
+    //     seedCoordinates[2][0] = 10;
+    //     seedCoordinates[2][1] = 40;
+    //     seedCoordinates[3][0] = 30;
+    //     seedCoordinates[3][1] = 30;
+
+    //     double probSum = 0;
+    //     double maxmaxmax = 0;
+    //     for (int i = 0; i < 50; i++) // calculate the probability of each point as in uchoa et al.
+    //     {
+    //         for (int j = 0; j < 50; j++)
+    //         {
+    //             double probPoint = 0;
+    //             for (vector<int> seed : seedCoordinates)
+    //             {
+    //                 if (seed[0] == i && seed[1] == j)
+    //                 {                  // as all points are distinct the p of the seed location is 0
+    //                     probPoint = 0; // set the p of the current point to 0
+    //                     break;
+    //                 }
+    //                 double d = sqrt(pow((seed[0] - i), 2) + pow((seed[1] - j), 2));
+    //                 double p = exp(-d / 10);
+    //                 probPoint += p;
+    //             }
+    //             probCoordinates[i][j] = probPoint;
+    //             if(probPoint>maxmaxmax){
+    //                 maxmaxmax = probPoint;
+    //             }
+    //         }
+    //     }
+    //     cout << maxmaxmax << "MAXXAX\n";
+    //     // double2dVectorDivisor(probCoordinates, probCoordinates[999][999]);
+    // double printFloat;
+    // for (vector<double> i : probCoordinates)
     // {
-    //     tuple<vector<vector<int>>, int> instance = generateCVRPInstance(25, "C", "C", 0); // generate an instance of the problem
-    //     vector<vector<int>> vertexMatrix = get<0>(instance);
-    //     int capacity = get<1>(instance);
-    //     vector<vector<int>> costMatrix = calculateEdgeCost(&vertexMatrix);
-    //     // grapher.setInstanceCoordinates(vertexMatrix);
-    //     vector<vector<int>> result;
-    //     int resultValue;
-    //     tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, false, &g0);
-    //     result = fromEdgeUsageToRouteSolution(result);
+    //     for (double j : i)
+    //     {   
+    //         printFloat = j/maxmaxmax;
+    //         cout << fixed << setprecision(3) << printFloat << ", ";
+    //     }
+    //     cout << endl;
     // }
+    // exit(0);
+
+
+
+
+
+
+
+    // GenomeCVRP g0;
+    // CVRPGrapher grapher;
+    // tuple<vector<vector<int>>, int> instance = generateCVRPInstance(15, "C", "CR", 3); // generate an instance of the problem
+    // vector<vector<int>> vertexMatrix = get<0>(instance);
+    // // vertexMatrix[0][0] = 8;
+    // // vertexMatrix[0][1] = 16;
+    // int capacity = get<1>(instance);
+    // vector<vector<int>> costMatrix = calculateEdgeCost(&vertexMatrix);
+    // vector<vector<int>> result;
+    // int resultValue;
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 9, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 0, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 1, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 2, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 3, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 4, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 5, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 6, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 6, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 7, g0, 60);
+    // cout << "-------------------------\n";
+    // tie(result, resultValue) = createAndRunCPLEXInstance(vertexMatrix, costMatrix, capacity, 8, g0, 60);
+    // vector<vector<int>> resultOrdered = fromEdgeUsageToRouteSolution(result);
+    // vector<vector<int>> resultOrdered =  vector<vector<int>>(2,vector<int>(6,0));
+    // resultOrdered[0][0] = 1;
+    // resultOrdered[0][1] = 2;
+    // resultOrdered[0][2] = 3;
+    // resultOrdered[0][3] = 1;
+    // resultOrdered[0].resize(4);
+    // resultOrdered[1][0] = 0;
+    // resultOrdered[1][1] = 4;
+    // resultOrdered[1][2] = 5;
+    // resultOrdered[1][3] = 6;
+    // resultOrdered[1][4] = 7;
+    // resultOrdered[1][5] = 0;
+    // cout << "Total GNN time: " << g0.nnTime << ".\n";
+
+    // // printVector(resultOrdered);
+    // exit(0);
+    // printVector(resultOrdered);
+    // int current = g0.lastID;
+    // int parent;
+    // int Child1, Child2, i, j;
+    // cout << "Last ID: " << current << "\n";
+    // while(!(current==0)){
+    //     //get parent
+    //     parent = g0.searchTreeChildToParent[current];
+    //     //print splitted
+    //     tie(Child1, Child2, i, j) = g0.searchTreeParentToChildren[parent];
+    //     cout << "Child1: " <<Child1<<", Child2: " <<Child2<< "\n";
+    //     cout << "i: " << i << ", j:" << j << "\n";
+    //     current = parent;
+    // }
+    // vector<int> toProcess;
+    // parent = 0;
+    // int counter = 0;
+    // do{
+    //     counter++;
+    //     if (g0.searchTreeParentToChildren.count(parent) == 1){
+    //         tie(Child1, Child2, i, j) = g0.searchTreeParentToChildren[parent];
+    //         toProcess.push_back(Child1);
+    //         toProcess.push_back(Child2);
+    //         cout << "Parent: " << parent << ", Child1: " <<Child1<<", Child2: " << Child2 <<", i: " << i << ", j:" << j << "\n";
+    //     }
+
+    //     parent = toProcess[(toProcess.size()-1)];
+    //     toProcess.pop_back();
+    // }while(!(toProcess.size()==0) && counter<100);
+    // parent = 0;
+    // counter = 0;
+    // do{
+    //     counter++;
+    //     if (g0.searchTreeParentToChildren.count(parent) == 1){
+    //         // cout <<"IJ: " <<i <<"< "<<j<<"\n";
+    //         tie(Child1, Child2, i, j) = g0.searchTreeParentToChildren[parent];
+    //         if(result[i][j] == 1){
+    //             toProcess.push_back(Child1);
+    //             cout << "Parent: " << parent << ", Child In Path: " <<Child1 <<", Split Active: " <<  i << ", " << j << "\n";
+    //         }else{
+    //             toProcess.push_back(Child2);
+    //             cout << "Parent: " << parent << ", Child In Path: " <<Child2 <<", Split Inactive: " <<  i << ", " << j << "\n";
+    //         }
+    //     }else{
+    //         break;
+    //     }
+    //     parent = toProcess[(toProcess.size()-1)];
+    // }while(counter<100);
+    // grapher.setInstanceCoordinates(vertexMatrix);
+    // // sleep(10);
+    // // grapher.replot();
+    // // sleep(10);
+    // // grapher.setInstanceCost(resultValue);
+    // grapher.setSolutionVector(resultOrdered);
+    // exit(0);
 
     PopulationCVRP p0;
-    loadPopulation(p0);
+    // loadPopulation(p0);
 
-    // int i, j, nSpecies, nGenomes;
-    // nSpecies = p0.population.size();
-    // for (i = 0; i < nSpecies; i++)
-    // {
-    //     nGenomes = p0.population[i].size();
-    //     for (j = 0; j < nGenomes; j++)
-    //     {
-    //         cout << "RID: " << p0.population[i][j].randID << ".\n";
-    //     }
-    // }
-    // savePopulation(p0);
-    // PopulationCVRP p1;
-
-    // nSpecies = p1.population.size();
-    // for (i = 0; i < nSpecies; i++)
-    // {
-    //     nGenomes = p1.population[i].size();
-    //     for (j = 0; j < nGenomes; j++)
-    //     {
-    //         cout << "RID: " << p1.population[i][j].randID << ".\n";
-    //     }
-    // }
-    // loadPopulation(p1);
-
-    // nSpecies = p1.population.size();
-    // for (i = 0; i < nSpecies; i++)
-    // {
-    //     nGenomes = p1.population[i].size();
-    //     for (j = 0; j < nGenomes; j++)
-    //     {
-    //         cout << "RID: " << p1.population[i][j].randID << ".\n";
-    //     }
-    // }
     p0.evolutionLoop();
 
     return 0;

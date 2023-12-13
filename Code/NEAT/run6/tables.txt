@@ -1022,3 +1022,307 @@ Species 4 & 16/12558 & 10/12558 & 12/12558 & 21/12558 & 10/12558 & 16/12558 & 15
 \label{TableGeneration: 50}
 \end{table}
 With depot location: E, customer distribution: CR, demand distribution: 2 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 102/14446 & 98/14446 & 460/14446 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 166/14672 & 165/14672 & 91/14446 & 86/14446 & 184/14672 & 34/14672 & 59/14446 & 178/14642 & 129/14672 & 191/14672 & -/- \\ \hline
+Species 1 & 201/14446 & 39/14672 & 123/14672 & 167/14644 & 67/14642 & 37/14642 & 107/14672 & 148/14446 & 52/14446 & -/- & -/- \\ \hline
+Species 2 & 151/14446 & 160/14642 & 217/14446 & 73/14672 & 99/14672 & 95/14672 & 98/14672 & 118/14642 & 180/14446 & 243/14446 & 413/14446 \\ \hline
+Species 3 & 166/14672 & 172/14672 & 22/14446 & 163/14446 & 59/14672 & 39/14446 & 78/14672 & 82/14672 & 117/14446 & 101/14672 & -/- \\ \hline
+Species 4 & 125/14672 & 165/14672 & 57/14672 & 202/14446 & 151/14446 & 36/14672 & 163/14672 & 97/14642 & 134/14642 & 129/14446 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 11/12774 & 9/12774 & 7/12774 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 39/12774 & 21/12774 & 19/12774 & 18/12774 & 26/12774 & 12/12774 & 19/12774 & 35/12774 & 39/12774 & 22/12774 & -/- \\ \hline
+Species 1 & 20/12774 & 19/12774 & 53/12774 & 24/12774 & 22/12774 & 23/12774 & 18/12774 & 20/12774 & 23/12774 & -/- & -/- \\ \hline
+Species 2 & 49/12774 & 37/12774 & 22/12774 & 35/12774 & 27/12774 & 33/12774 & 21/12774 & 15/12774 & 20/12774 & 23/12774 & 24/12774 \\ \hline
+Species 3 & 19/12774 & 30/12774 & 16/12774 & 23/12774 & 40/12774 & 23/12774 & 23/12774 & 28/12774 & 15/12774 & 21/12774 & -/- \\ \hline
+Species 4 & 29/12774 & 13/12774 & 41/12774 & 23/12774 & 15/12774 & 31/12774 & 16/12774 & 35/12774 & 20/12774 & 25/12774 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 1 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 13/15610 & 77/15610 & 242/15610 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 141/15622 & 161/15622 & 122/15864 & 92/15610 & 31/15864 & 112/15622 & 37/15864 & 100/15610 & 42/15610 & 33/15864 & -/- \\ \hline
+Species 1 & 147/15622 & 149/15610 & 127/15610 & 55/15622 & 40/15610 & 132/15864 & 135/15610 & 35/15864 & 107/15610 & -/- & -/- \\ \hline
+Species 2 & 103/15610 & 148/15610 & 30/15864 & 31/15864 & 108/15610 & 92/15622 & 110/15622 & 68/15864 & 161/15610 & 89/15864 & 147/15610 \\ \hline
+Species 3 & 143/15610 & 113/15610 & 115/15622 & 154/15864 & 82/15610 & 60/15864 & 74/15610 & 28/15864 & 71/15622 & 100/15610 & -/- \\ \hline
+Species 4 & 120/15864 & 143/15704 & 145/15864 & 93/15610 & 43/15864 & 134/15622 & 88/15864 & 74/15622 & 64/15864 & 122/15610 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 2 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 15/17818 & 13/17818 & 210/17818 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 98/17818 & 106/17818 & 89/17818 & 28/17818 & 138/17976 & 129/17818 & 137/17976 & 131/17818 & 98/17818 & 86/17818 & -/- \\ \hline
+Species 1 & 122/17818 & 110/17818 & 100/17818 & 76/17818 & 91/17818 & 104/17818 & 48/17818 & 128/17976 & 150/18136 & -/- & -/- \\ \hline
+Species 2 & 86/17818 & 160/17818 & 133/17818 & 92/17818 & 157/17976 & 163/17818 & 61/17818 & 128/17818 & 125/17818 & 177/17818 & 97/17818 \\ \hline
+Species 3 & 123/18002 & 100/17818 & 96/17818 & 69/17818 & 61/17818 & 92/17818 & 80/17818 & 89/17818 & 97/17818 & 148/17818 & -/- \\ \hline
+Species 4 & 105/17818 & 30/17818 & 103/17818 & 29/17818 & 49/17982 & 84/17818 & 87/17818 & 83/17818 & 105/17818 & 152/17976 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 13/14614 & 25/14614 & 71/14614 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 67/14614 & 45/14614 & 70/14614 & 50/14614 & 46/14614 & 59/14614 & 36/14614 & 45/14614 & 59/14614 & 72/14614 & -/- \\ \hline
+Species 1 & 85/14614 & 65/14614 & 64/14614 & 61/14614 & 80/14614 & 80/14614 & 85/14614 & 85/14614 & 71/14614 & -/- & -/- \\ \hline
+Species 2 & 108/14614 & 80/14614 & 45/14614 & 51/14614 & 63/14614 & 57/14614 & 80/14614 & 30/14614 & 66/14614 & 94/14614 & 83/14614 \\ \hline
+Species 3 & 121/14614 & 97/14614 & 83/14614 & 78/14614 & 75/14614 & 53/14614 & 54/14614 & 123/14614 & 65/14614 & 69/14614 & -/- \\ \hline
+Species 4 & 127/14614 & 71/14614 & 51/14614 & 67/14614 & 44/14614 & 113/14614 & 82/14614 & 62/14614 & 40/14614 & 94/14614 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 2 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 24/13592 & 54/13592 & 170/13592 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 100/13592 & 33/13950 & 28/13592 & 64/13592 & 27/13592 & 71/13592 & 51/13592 & 66/13592 & 27/13880 & 90/13592 & -/- \\ \hline
+Species 1 & 86/13592 & 58/13592 & 84/13592 & 44/13592 & 66/13592 & 44/13592 & 74/13592 & 69/13592 & 66/13592 & -/- & -/- \\ \hline
+Species 2 & 96/13794 & 142/13826 & 55/13826 & 80/13592 & 32/13826 & 32/13826 & 41/13592 & 112/13826 & 39/13592 & 135/13826 & 51/13592 \\ \hline
+Species 3 & 78/13592 & 93/13592 & 50/13592 & 37/13592 & 84/13592 & 111/13592 & 77/13592 & 85/13592 & 74/13592 & 50/13592 & -/- \\ \hline
+Species 4 & 57/13592 & 86/13592 & 46/13592 & 56/13592 & 98/13634 & 47/13826 & 58/13592 & 68/13592 & 28/13826 & 111/13592 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 59/17272 & 38/17272 & 463/17272 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 89/17644 & 89/17620 & 38/17272 & 102/17858 & 76/18052 & 81/18348 & 78/17272 & 59/17894 & 161/17524 & 190/17620 & -/- \\ \hline
+Species 1 & 68/17858 & 82/17524 & 59/17894 & 31/17804 & 43/17894 & 23/17858 & 54/17858 & 36/17290 & 60/17638 & -/- & -/- \\ \hline
+Species 2 & 116/17858 & 28/17272 & 28/17858 & 94/17272 & 55/18396 & 28/17858 & 23/17858 & 59/17894 & 107/17272 & 56/17858 & 58/17786 \\ \hline
+Species 3 & 135/17620 & 109/17894 & 82/17786 & 56/17858 & 103/17272 & 26/17688 & 90/17804 & 80/17878 & 167/17524 & 94/17290 & -/- \\ \hline
+Species 4 & 125/17638 & 31/17688 & 76/17858 & 25/17804 & 19/17894 & 92/17272 & 26/17620 & 50/18226 & 102/17506 & 34/17688 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: CR, demand distribution: 3 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 3/14360 & 3/14360 & 23/14360 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 30/14360 & 25/14360 & 25/14360 & 31/15136 & 32/14360 & 43/14360 & 28/14360 & 13/14360 & 29/14360 & 31/14360 & -/- \\ \hline
+Species 1 & 29/14360 & 36/14360 & 27/14360 & 33/14360 & 28/14360 & 12/14360 & 27/14360 & 36/14360 & 23/14360 & -/- & -/- \\ \hline
+Species 2 & 20/14360 & 26/14360 & 40/14360 & 23/14360 & 16/14360 & 19/14360 & 24/14360 & 25/14360 & 38/14360 & 23/14360 & 36/14360 \\ \hline
+Species 3 & 34/14360 & 23/14360 & 33/14360 & 40/14360 & 9/14360 & 26/14360 & 38/14360 & 19/14360 & 25/14360 & 28/14360 & -/- \\ \hline
+Species 4 & 17/14360 & 21/14360 & 20/14360 & 37/14360 & 32/14360 & 27/14360 & 35/14360 & 40/14360 & 44/14360 & 19/14360 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 2 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 30/16650 & 27/16650 & 250/16650 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 22/16938 & 21/17066 & 39/16762 & 27/16936 & 27/16650 & 28/17006 & 23/16762 & 16/16988 & 35/17316 & 50/16650 & -/- \\ \hline
+Species 1 & 16/16650 & 19/16650 & 25/16762 & 36/17316 & 25/16898 & 24/16650 & 28/17066 & 34/17104 & 29/16762 & -/- & -/- \\ \hline
+Species 2 & 15/16650 & 23/17010 & 33/17086 & 45/16762 & 25/17316 & 31/16936 & 28/16898 & 20/17316 & 16/17316 & 45/17068 & 114/16650 \\ \hline
+Species 3 & 37/16938 & 30/16762 & 42/17316 & 35/16898 & 15/17006 & 21/17136 & 30/17128 & 19/16650 & 19/16988 & 46/16938 & -/- \\ \hline
+Species 4 & 41/16894 & 22/17066 & 45/17010 & 31/16650 & 24/16762 & 27/16894 & 35/16650 & 21/16894 & 19/17180 & 62/16898 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 1 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 86/17690 & 254/17690 & 495/17690 & -/- & -/- & -/- & -/- & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 50/17690 & 68/17690 & 66/17690 & 53/17690 & 63/17690 & 73/17690 & 42/17690 & 46/17690 & 75/17690 & 84/17690 & -/- \\ \hline
+Species 1 & 71/17690 & 63/17690 & 76/17690 & 68/17690 & 47/17690 & 43/17690 & 44/17690 & 67/17690 & 68/17690 & -/- & -/- \\ \hline
+Species 2 & 75/17690 & 87/17690 & 41/17690 & 62/17690 & 52/17690 & 67/17690 & 67/17690 & 54/17690 & 67/17690 & 80/17690 & 424/17690 \\ \hline
+Species 3 & 62/17690 & 79/17690 & 61/17690 & 42/17690 & 66/17690 & 51/17690 & 80/17690 & 57/17690 & 81/17690 & 155/17690 & -/- \\ \hline
+Species 4 & 40/17690 & 69/17690 & 61/17690 & 48/17690 & 71/17690 & 48/17690 & 88/17690 & 56/17690 & 32/17690 & 79/17690 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 1 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+ \hline
+MISC & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- & -/- & -/- \\ \hline
+Species 0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 1 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- & -/- \\ \hline
+Species 2 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 \\ \hline
+Species 3 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+Species 4 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & 0/0 & -/- \\ \hline
+\end{tabular}
+\caption{Generation: 50}
+\label{TableGeneration: 50}
+\end{table}
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.

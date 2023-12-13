@@ -1,0 +1,2643 @@
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->7->D
+D->3->9->D
+D->5->10->8->6->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 2
+Parent: 50, Child In Path: 70, Split Active: 0, 3
+Parent: 70, Child In Path: 90, Split Active: 0, 4
+Parent: 90, Child In Path: 110, Split Active: 0, 5
+Parent: 110, Child In Path: 28, Split Inactive: 8, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->10->4->D
+D->3->7->6->D
+D->8->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->10->8->D
+D->4->5->D
+D->6->9->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 1, 4
+Parent: 20, Child In Path: 29, Split Inactive: 7, 5
+Parent: 29, Child In Path: 40, Split Inactive: 1, 5
+Parent: 40, Child In Path: 39, Split Active: 8, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->10->9->8->D
+D->3->5->D
+D->6->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->2->5->D
+D->3->7->D
+D->6->9->D
+D->8->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 60, Split Inactive: 0, 2
+Parent: 60, Child In Path: 18, Split Active: 7, 0
+Parent: 18, Child In Path: 48, Split Inactive: 7, 1
+Parent: 48, Child In Path: 59, Split Active: 5, 0
+Parent: 59, Child In Path: 79, Split Active: 9, 0
+Parent: 79, Child In Path: 109, Split Inactive: 5, 1
+Parent: 109, Child In Path: 70, Split Active: 0, 3
+Parent: 70, Child In Path: 100, Split Inactive: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->4->D
+D->2->10->8->D
+D->3->5->D
+D->6->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 40, Split Inactive: 1, 2
+Parent: 40, Child In Path: 28, Split Inactive: 8, 2
+Parent: 28, Child In Path: 25, Split Inactive: 8, 3
+Parent: 25, Child In Path: 140, Split Inactive: 1, 10
+Parent: 140, Child In Path: 49, Split Inactive: 7, 6
+Parent: 49, Child In Path: 48, Split Inactive: 9, 4
+Parent: 48, Child In Path: 160, Split Inactive: 2, 4
+Parent: 160, Child In Path: 69, Split Inactive: 9, 9
+Parent: 69, Child In Path: 180, Split Inactive: 2, 6
+Parent: 180, Child In Path: 89, Split Inactive: 8, 5
+Parent: 89, Child In Path: 200, Split Inactive: 2, 9
+Parent: 200, Child In Path: 109, Split Inactive: 6, 3
+Parent: 109, Child In Path: 68, Split Inactive: 4, 5
+Parent: 68, Child In Path: 88, Split Inactive: 5, 10
+Parent: 88, Child In Path: 129, Split Inactive: 10, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->9->D
+D->2->10->D
+D->3->7->D
+D->5->6->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 9
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->10->D
+D->3->6->D
+D->4->8->D
+D->7->5->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 1, 2
+Parent: 30, Child In Path: 49, Split Inactive: 2, 4
+Parent: 49, Child In Path: 60, Split Inactive: 1, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->6->D
+D->2->4->D
+D->3->10->7->D
+D->5->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 40, Split Inactive: 1, 3
+Parent: 40, Child In Path: 28, Split Inactive: 1, 6
+Parent: 28, Child In Path: 27, Split Inactive: 2, 6
+Parent: 27, Child In Path: 80, Split Inactive: 1, 8
+Parent: 80, Child In Path: 49, Split Inactive: 5, 1
+Parent: 49, Child In Path: 100, Split Inactive: 2, 7
+Parent: 100, Child In Path: 120, Split Inactive: 4, 10
+Parent: 120, Child In Path: 69, Split Inactive: 4, 10
+Parent: 69, Child In Path: 140, Split Inactive: 5, 3
+Parent: 140, Child In Path: 37, Split Active: 10, 3
+Parent: 37, Child In Path: 67, Split Inactive: 7, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->9->D
+D->3->4->D
+D->5->7->D
+D->8->6->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+Parent: 20, Child In Path: 60, Split Inactive: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->1->7->D
+D->3->6->D
+D->4->5->9->D
+D->8->10->D
+Parent: 0, Child In Path: 10, Split Active: 1, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->4->D
+D->5->8->7->D
+D->6->3->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 3
+Parent: 20, Child In Path: 30, Split Active: 0, 6
+Parent: 30, Child In Path: 60, Split Inactive: 1, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->5->D
+D->4->1->6->D
+D->7->3->9->D
+D->8->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+Parent: 50, Child In Path: 70, Split Active: 0, 7
+Parent: 70, Child In Path: 90, Split Active: 0, 9
+Parent: 90, Child In Path: 120, Split Inactive: 1, 1
+Parent: 120, Child In Path: 14, Split Active: 6, 1
+Parent: 14, Child In Path: 46, Split Inactive: 6, 4
+Parent: 46, Child In Path: 56, Split Active: 10, 0
+Parent: 56, Child In Path: 22, Split Inactive: 1, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->9->D
+D->4->7->3->8->D
+D->5->6->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 60, Split Inactive: 0, 3
+Parent: 60, Child In Path: 28, Split Inactive: 1, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->3->10->D
+D->4->6->D
+D->5->2->7->D
+D->8->1->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->10->8->D
+D->4->9->D
+D->5->7->6->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->7->D
+D->6->5->4->8->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 1, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->6->D
+D->3->9->10->D
+D->4->1->5->D
+D->7->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 8
+Parent: 10, Child In Path: 40, Split Inactive: 1, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->10->3->D
+D->4->9->D
+D->6->8->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 9
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->4->5->6->D
+D->7->10->D
+D->8->3->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->4->2->10->D
+D->5->6->D
+D->7->8->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 5
+Parent: 10, Child In Path: 30, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->4->D
+D->3->7->D
+D->5->9->D
+D->6->8->1->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->7->6->D
+D->3->5->D
+D->8->4->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 6
+Parent: 30, Child In Path: 60, Split Inactive: 1, 1
+Parent: 60, Child In Path: 27, Split Inactive: 7, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->6->D
+D->2->10->D
+D->4->9->8->D
+D->5->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 1, 0
+Parent: 30, Child In Path: 50, Split Active: 1, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->4->1->6->10->D
+D->5->8->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->3->D
+D->5->8->4->7->D
+D->9->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+Parent: 50, Child In Path: 70, Split Active: 0, 7
+Parent: 70, Child In Path: 100, Split Inactive: 1, 1
+Parent: 100, Child In Path: 26, Split Inactive: 7, 2
+Parent: 26, Child In Path: 120, Split Inactive: 1, 2
+Parent: 120, Child In Path: 29, Split Inactive: 6, 2
+Parent: 29, Child In Path: 28, Split Inactive: 4, 1
+Parent: 28, Child In Path: 140, Split Inactive: 1, 5
+Parent: 140, Child In Path: 39, Split Active: 3, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->7->D
+D->3->6->4->D
+D->9->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->6->5->D
+D->4->3->7->D
+D->8->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->5->D
+D->3->1->9->D
+D->4->10->8->D
+D->6->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->6->D
+D->2->9->D
+D->5->4->8->D
+D->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 2
+Parent: 50, Child In Path: 80, Split Inactive: 0, 3
+Parent: 80, Child In Path: 100, Split Inactive: 0, 4
+Parent: 100, Child In Path: 110, Split Active: 0, 9
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->9->D
+D->4->10->D
+D->5->7->6->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->4->9->D
+D->3->6->D
+D->5->10->D
+D->7->1->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+Parent: 20, Child In Path: 29, Split Inactive: 1, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->6->D
+D->3->5->8->D
+D->9->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->9->D
+D->3->5->8->D
+D->7->4->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+Parent: 50, Child In Path: 70, Split Active: 0, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->8->D
+D->4->7->D
+D->5->6->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->8->D
+D->3->9->10->7->D
+D->4->5->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->6->D
+D->4->7->D
+D->5->10->D
+D->8->3->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->7->D
+D->3->9->D
+D->4->10->D
+D->6->2->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->5->1->4->7->D
+D->6->9->D
+D->8->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->10->D
+D->3->7->D
+D->4->9->1->6->D
+D->5->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 70, Split Active: 0, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->8->D
+D->2->4->10->D
+D->3->7->D
+D->5->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->4->D
+D->6->10->D
+D->8->3->7->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->1->8->7->D
+D->3->5->D
+D->4->9->D
+D->6->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 1
+Parent: 40, Child In Path: 19, Split Active: 5, 0
+Parent: 19, Child In Path: 39, Split Active: 4, 0
+Parent: 39, Child In Path: 28, Split Inactive: 9, 2
+Parent: 28, Child In Path: 90, Split Active: 0, 7
+Parent: 90, Child In Path: 120, Split Inactive: 1, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->2->D
+D->3->6->D
+D->4->8->10->D
+D->7->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 0, 6
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->3->6->8->D
+D->4->2->10->D
+D->5->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 40, Split Inactive: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->4->D
+D->3->8->D
+D->5->6->7->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->9->D
+D->3->5->4->7->D
+D->6->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->3->8->6->D
+D->4->9->D
+D->5->2->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+Parent: 50, Child In Path: 70, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->3->5->D
+D->6->4->8->D
+D->7->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->4->D
+D->3->10->D
+D->5->8->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->6->D
+D->3->8->D
+D->4->9->D
+D->5->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->6->D
+D->3->8->D
+D->4->5->1->10->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->4->D
+D->3->8->1->7->D
+D->5->6->D
+D->9->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 60, Split Inactive: 0, 8
+Parent: 60, Child In Path: 18, Split Active: 3, 0
+Parent: 18, Child In Path: 38, Split Active: 8, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->2->8->D
+D->3->6->4->D
+D->9->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->6->2->D
+D->3->10->D
+D->4->5->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->2->D
+D->3->7->D
+D->4->8->D
+D->5->6->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->7->D
+D->2->8->10->D
+D->3->4->D
+D->5->6->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->9->5->D
+D->3->7->4->D
+D->6->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->9->D
+D->2->8->5->D
+D->3->7->D
+D->4->6->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+Parent: 50, Child In Path: 70, Split Active: 0, 7
+Parent: 70, Child In Path: 100, Split Inactive: 0, 8
+Parent: 100, Child In Path: 15, Split Active: 6, 4
+Parent: 15, Child In Path: 45, Split Inactive: 10, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->1->5->D
+D->3->8->D
+D->4->10->D
+D->6->9->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->2->8->4->D
+D->3->10->9->D
+D->5->6->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->3->D
+D->7->4->10->D
+D->8->5->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 60, Split Inactive: 0, 4
+Parent: 60, Child In Path: 80, Split Inactive: 0, 5
+Parent: 80, Child In Path: 90, Split Active: 0, 8
+Parent: 90, Child In Path: 120, Split Inactive: 1, 1
+Parent: 120, Child In Path: 26, Split Inactive: 8, 1
+Parent: 26, Child In Path: 108, Split Inactive: 7, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->4->D
+D->2->9->D
+D->3->8->D
+D->5->10->6->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 60, Split Inactive: 0, 7
+Parent: 60, Child In Path: 100, Split Inactive: 1, 1
+Parent: 100, Child In Path: 25, Split Inactive: 9, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->9->D
+D->2->5->D
+D->6->7->D
+D->8->3->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+Parent: 50, Child In Path: 70, Split Active: 0, 10
+Parent: 70, Child In Path: 100, Split Inactive: 1, 2
+Parent: 100, Child In Path: 26, Split Inactive: 6, 3
+Parent: 26, Child In Path: 220, Split Inactive: 1, 5
+Parent: 220, Child In Path: 240, Split Inactive: 1, 6
+Parent: 240, Child In Path: 260, Split Inactive: 1, 7
+Parent: 260, Child In Path: 280, Split Inactive: 1, 10
+Parent: 280, Child In Path: 290, Split Active: 2, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->5->D
+D->2->4->10->D
+D->6->7->D
+D->8->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 5
+Parent: 10, Child In Path: 30, Split Active: 0, 9
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->3->1->2->9->D
+D->4->6->D
+D->5->10->D
+D->7->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+Parent: 20, Child In Path: 19, Split Active: 9, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->3->8->D
+D->5->4->6->D
+D->7->2->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->7->D
+D->4->8->D
+D->5->9->D
+D->6->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->7->8->10->D
+D->3->9->D
+D->4->5->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 60, Split Inactive: 0, 8
+Parent: 60, Child In Path: 29, Split Inactive: 5, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->2->D
+D->4->6->D
+D->5->8->7->D
+D->9->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 40, Split Inactive: 1, 2
+Parent: 40, Child In Path: 28, Split Inactive: 5, 3
+Parent: 28, Child In Path: 60, Split Inactive: 1, 4
+Parent: 60, Child In Path: 27, Split Inactive: 3, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->8->D
+D->3->4->D
+D->5->7->D
+D->6->1->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+Parent: 20, Child In Path: 29, Split Inactive: 9, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->10->7->D
+D->3->4->6->D
+D->5->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 8
+Parent: 30, Child In Path: 50, Split Active: 1, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->4->7->D
+D->5->1->8->D
+D->6->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->6->D
+D->5->10->D
+D->8->4->7->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+Parent: 50, Child In Path: 70, Split Active: 0, 8
+Parent: 70, Child In Path: 90, Split Active: 0, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->8->10->3->D
+D->4->9->D
+D->6->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 80, Split Inactive: 0, 8
+Parent: 80, Child In Path: 90, Split Active: 0, 9
+Parent: 90, Child In Path: 120, Split Inactive: 1, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->8->D
+D->3->6->D
+D->4->9->7->D
+D->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 60, Split Inactive: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->5->3->D
+D->4->7->D
+D->8->10->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->5->D
+D->4->8->D
+D->6->3->10->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+Parent: 50, Child In Path: 70, Split Active: 1, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->8->3->D
+D->5->9->10->D
+D->6->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->2->9->D
+D->3->6->D
+D->4->5->D
+D->8->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 8
+Parent: 50, Child In Path: 70, Split Active: 0, 9
+Parent: 70, Child In Path: 90, Split Active: 0, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->3->10->D
+D->4->2->8->6->D
+D->7->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->9->D
+D->5->4->8->D
+D->7->3->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 60, Split Inactive: 0, 3
+Parent: 60, Child In Path: 27, Split Inactive: 6, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->2->4->6->D
+D->3->5->D
+D->8->10->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->9->4->D
+D->3->6->D
+D->7->10->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+Parent: 50, Child In Path: 70, Split Active: 0, 5
+Parent: 70, Child In Path: 90, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->6->D
+D->3->5->D
+D->4->7->D
+D->8->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->10->5->D
+D->2->9->D
+D->3->4->D
+D->7->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->6->D
+D->2->7->D
+D->4->8->D
+D->9->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 3
+Parent: 20, Child In Path: 29, Split Inactive: 4, 1
+Parent: 29, Child In Path: 70, Split Active: 0, 9
+Parent: 70, Child In Path: 100, Split Inactive: 1, 1
+Parent: 100, Child In Path: 15, Split Active: 3, 1
+Parent: 15, Child In Path: 24, Split Inactive: 4, 6
+Parent: 24, Child In Path: 57, Split Active: 4, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->5->4->D
+D->2->8->D
+D->3->10->D
+D->6->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->8->D
+D->2->6->7->D
+D->3->9->D
+D->4->5->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->5->D
+D->3->8->1->6->D
+D->4->9->D
+D->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+Parent: 50, Child In Path: 70, Split Active: 0, 7
+Parent: 70, Child In Path: 90, Split Active: 0, 10
+Parent: 90, Child In Path: 110, Split Active: 1, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->4->D
+D->3->5->7->D
+D->6->9->D
+D->8->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->3->2->1->4->D
+D->5->6->D
+D->7->9->D
+D->8->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->9->D
+D->2->8->D
+D->4->10->D
+D->6->5->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 60, Split Inactive: 0, 5
+Parent: 60, Child In Path: 110, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->10->D
+D->2->8->D
+D->3->5->D
+D->6->9->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 80, Split Inactive: 0, 9
+Parent: 80, Child In Path: 17, Split Active: 8, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->4->8->D
+D->6->7->D
+D->9->5->1->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 40, Split Inactive: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->7->8->D
+D->2->4->D
+D->3->9->D
+D->5->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 8
+Parent: 50, Child In Path: 70, Split Active: 0, 9
+Parent: 70, Child In Path: 90, Split Active: 0, 10
+Parent: 90, Child In Path: 120, Split Inactive: 1, 2
+Parent: 120, Child In Path: 25, Split Inactive: 1, 4
+Parent: 25, Child In Path: 19, Split Active: 2, 0
+Parent: 19, Child In Path: 49, Split Inactive: 6, 0
+Parent: 49, Child In Path: 47, Split Inactive: 7, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->3->10->D
+D->4->9->2->6->D
+D->5->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->4->D
+D->2->9->D
+D->6->5->8->D
+D->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 7
+Parent: 30, Child In Path: 60, Split Inactive: 1, 2
+Parent: 60, Child In Path: 18, Split Active: 4, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->2->9->5->D
+D->3->10->4->D
+D->6->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 1, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->10->D
+D->3->7->5->6->D
+D->4->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 9
+Parent: 50, Child In Path: 80, Split Inactive: 1, 1
+Parent: 80, Child In Path: 26, Split Inactive: 7, 1
+Parent: 26, Child In Path: 100, Split Inactive: 1, 4
+Parent: 100, Child In Path: 29, Split Inactive: 1, 6
+Parent: 29, Child In Path: 110, Split Active: 1, 9
+Parent: 110, Child In Path: 140, Split Inactive: 2, 1
+Parent: 140, Child In Path: 18, Split Active: 7, 3
+Parent: 18, Child In Path: 48, Split Inactive: 2, 2
+Parent: 48, Child In Path: 49, Split Inactive: 7, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->8->D
+D->2->5->9->D
+D->3->4->D
+D->6->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->2->9->D
+D->3->8->10->D
+D->4->6->5->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->3->2->1->4->D
+D->5->8->D
+D->6->9->D
+D->7->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+Parent: 50, Child In Path: 70, Split Active: 0, 9
+Parent: 70, Child In Path: 100, Split Inactive: 1, 0
+Parent: 100, Child In Path: 110, Split Active: 1, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->4->10->D
+D->5->8->D
+D->7->6->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->3->10->D
+D->4->6->D
+D->5->2->8->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->6->1->7->D
+D->3->9->D
+D->4->5->D
+D->8->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 60, Split Inactive: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->3->D
+D->2->6->7->D
+D->4->10->D
+D->5->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->3->2->4->D
+D->6->7->D
+D->9->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+Parent: 50, Child In Path: 80, Split Inactive: 0, 5
+Parent: 80, Child In Path: 90, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->9->D
+D->2->5->7->D
+D->3->8->D
+D->6->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 5
+Parent: 40, Child In Path: 19, Split Active: 9, 0
+Parent: 19, Child In Path: 39, Split Active: 2, 0
+Parent: 39, Child In Path: 59, Split Active: 5, 2
+Parent: 59, Child In Path: 79, Split Active: 6, 0
+Parent: 79, Child In Path: 109, Split Inactive: 6, 1
+Parent: 109, Child In Path: 26, Split Inactive: 7, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->8->4->D
+D->5->3->7->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 60, Split Inactive: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->5->D
+D->3->8->D
+D->4->10->9->7->D
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->3->9->2->6->D
+D->4->10->D
+D->7->8->D
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->10->D
+D->3->4->D
+D->6->1->7->D
+D->8->5->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->5->D
+D->3->8->D
+D->4->10->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->2->D
+D->3->8->D
+D->5->9->6->D
+D->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->4->7->D
+D->5->8->6->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+Parent: 50, Child In Path: 80, Split Inactive: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->6->8->D
+D->2->9->D
+D->3->4->D
+D->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+Parent: 50, Child In Path: 70, Split Active: 1, 0
+Parent: 70, Child In Path: 100, Split Inactive: 1, 2
+Parent: 100, Child In Path: 120, Split Inactive: 1, 6
+Parent: 120, Child In Path: 140, Split Inactive: 1, 10
+Parent: 140, Child In Path: 160, Split Inactive: 2, 4
+Parent: 160, Child In Path: 180, Split Inactive: 2, 5
+Parent: 180, Child In Path: 200, Split Inactive: 2, 6
+Parent: 200, Child In Path: 220, Split Inactive: 2, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->10->D
+D->3->6->D
+D->4->7->8->D
+D->5->1->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->7->D
+D->2->6->D
+D->3->9->4->D
+D->5->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->3->6->D
+D->4->8->D
+D->5->7->2->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->8->D
+D->2->3->D
+D->4->10->D
+D->6->9->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->8->D
+D->3->7->5->D
+D->4->9->6->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->3->6->D
+D->4->2->5->D
+D->7->1->10->D
+D->8->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 1
+Parent: 40, Child In Path: 50, Split Active: 0, 4
+Parent: 50, Child In Path: 70, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->4->D
+D->3->9->D
+D->6->10->D
+D->7->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 10
+Parent: 30, Child In Path: 60, Split Inactive: 1, 1
+Parent: 60, Child In Path: 28, Split Inactive: 9, 2
+Parent: 28, Child In Path: 80, Split Inactive: 1, 3
+Parent: 80, Child In Path: 27, Split Inactive: 1, 6
+Parent: 27, Child In Path: 240, Split Inactive: 1, 7
+Parent: 240, Child In Path: 260, Split Inactive: 1, 8
+Parent: 260, Child In Path: 280, Split Inactive: 1, 9
+Parent: 280, Child In Path: 290, Split Active: 2, 0
+Parent: 290, Child In Path: 320, Split Inactive: 2, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->1->9->D
+D->3->7->D
+D->4->5->D
+D->6->10->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+Parent: 50, Child In Path: 70, Split Active: 0, 7
+Parent: 70, Child In Path: 100, Split Inactive: 1, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->3->1->5->D
+D->4->2->9->D
+D->6->10->D
+D->7->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->3->D
+D->4->8->D
+D->6->7->5->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 30, Split Active: 0, 6
+Parent: 30, Child In Path: 50, Split Active: 0, 10
+Parent: 50, Child In Path: 70, Split Active: 1, 0
+Parent: 70, Child In Path: 100, Split Inactive: 1, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->9->6->D
+D->2->10->D
+D->3->7->D
+D->5->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->3->8->D
+D->2->7->D
+D->5->10->D
+D->6->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 70, Split Active: 0, 8
+Parent: 70, Child In Path: 100, Split Inactive: 1, 1
+Parent: 100, Child In Path: 16, Split Active: 1, 4
+Parent: 16, Child In Path: 36, Split Active: 10, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->2->5->D
+D->3->4->D
+D->6->10->D
+D->8->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+Parent: 20, Child In Path: 50, Split Active: 0, 9
+Parent: 50, Child In Path: 80, Split Inactive: 1, 1
+Parent: 80, Child In Path: 17, Split Active: 10, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->2->D
+D->3->8->D
+D->4->6->9->D
+D->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->3->D
+D->6->5->8->D
+D->7->10->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->10->D
+D->4->5->7->9->D
+D->6->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+Parent: 50, Child In Path: 70, Split Active: 0, 8
+Parent: 70, Child In Path: 90, Split Active: 0, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->8->D
+D->3->6->D
+D->4->10->9->D
+D->5->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->4->8->D
+D->6->9->D
+D->7->5->1->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->1->3->D
+D->4->9->10->D
+D->5->8->D
+D->6->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 7
+Parent: 30, Child In Path: 50, Split Active: 0, 8
+Parent: 50, Child In Path: 80, Split Inactive: 0, 9
+Parent: 80, Child In Path: 27, Split Inactive: 6, 2
+Parent: 27, Child In Path: 180, Split Inactive: 1, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->6->3->D
+D->4->7->D
+D->9->8->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->3->D
+D->4->8->D
+D->6->7->D
+D->9->2->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->7->D
+D->2->3->D
+D->4->10->D
+D->5->9->6->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+Parent: 50, Child In Path: 80, Split Inactive: 0, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->10->8->D
+D->3->4->9->D
+D->5->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->5->4->8->D
+D->6->10->D
+D->7->3->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 3
+Parent: 20, Child In Path: 19, Split Active: 2, 0
+Parent: 19, Child In Path: 68, Split Inactive: 6, 1
+Parent: 68, Child In Path: 90, Split Active: 0, 5
+Parent: 90, Child In Path: 110, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->5->D
+D->6->10->D
+D->7->3->4->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->3->10->5->D
+D->4->2->9->D
+D->6->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->6->2->D
+D->3->9->D
+D->4->7->D
+D->8->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 2
+Parent: 50, Child In Path: 70, Split Active: 0, 3
+Parent: 70, Child In Path: 90, Split Active: 0, 4
+Parent: 90, Child In Path: 120, Split Inactive: 0, 5
+Parent: 120, Child In Path: 25, Split Inactive: 8, 3
+Parent: 25, Child In Path: 29, Split Inactive: 7, 7
+Parent: 29, Child In Path: 140, Split Inactive: 0, 6
+Parent: 140, Child In Path: 49, Split Inactive: 3, 1
+Parent: 49, Child In Path: 28, Split Inactive: 1, 2
+Parent: 28, Child In Path: 69, Split Inactive: 7, 8
+Parent: 69, Child In Path: 89, Split Inactive: 4, 5
+Parent: 89, Child In Path: 109, Split Inactive: 2, 3
+Parent: 109, Child In Path: 119, Split Active: 5, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->2->D
+D->3->7->4->D
+D->5->8->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 6
+Parent: 20, Child In Path: 19, Split Active: 2, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->6->10->D
+D->3->9->5->D
+D->7->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->4->10->D
+D->5->6->D
+D->7->3->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->3->D
+D->5->2->7->D
+D->6->10->D
+D->8->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->10->D
+D->3->6->7->D
+D->4->5->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->7->D
+D->4->6->5->D
+D->8->10->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+Parent: 50, Child In Path: 70, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->2->9->D
+D->3->4->D
+D->5->8->D
+D->6->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->3->6->D
+D->4->10->7->D
+D->5->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 7
+Parent: 30, Child In Path: 60, Split Inactive: 0, 10
+Parent: 60, Child In Path: 80, Split Inactive: 1, 4
+Parent: 80, Child In Path: 27, Split Inactive: 1, 6
+Parent: 27, Child In Path: 49, Split Inactive: 1, 7
+Parent: 49, Child In Path: 59, Split Active: 8, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->4->9->5->D
+D->6->3->7->D
+D->8->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->3->D
+D->2->10->D
+D->4->7->9->D
+D->5->8->D
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->2->D
+D->3->9->D
+D->6->8->D
+D->7->5->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->4->10->D
+D->5->2->8->9->D
+D->6->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->3->4->D
+D->5->2->10->D
+D->8->6->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->5->9->D
+D->6->4->1->10->D
+D->7->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->8->D
+D->4->10->D
+D->6->5->9->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 60, Split Inactive: 0, 5
+Parent: 60, Child In Path: 28, Split Inactive: 3, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->7->D
+D->3->5->D
+D->4->2->9->D
+D->6->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+Parent: 50, Child In Path: 70, Split Active: 0, 7
+Parent: 70, Child In Path: 100, Split Inactive: 0, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->6->D
+D->3->1->7->D
+D->4->5->D
+D->8->10->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+Parent: 20, Child In Path: 30, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->2->8->D
+D->3->9->D
+D->5->4->6->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 70, Split Active: 0, 9
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->8->D
+D->3->5->D
+D->4->10->D
+D->6->2->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->4->1->7->5->D
+D->6->10->D
+D->8->9->D
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->10->D
+D->4->3->7->5->D
+D->6->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+Parent: 50, Child In Path: 80, Split Inactive: 1, 2
+Parent: 80, Child In Path: 19, Split Active: 8, 0
+Parent: 19, Child In Path: 39, Split Active: 8, 1
+Parent: 39, Child In Path: 59, Split Active: 5, 0
+Parent: 59, Child In Path: 89, Split Inactive: 8, 2
+Parent: 89, Child In Path: 25, Split Inactive: 7, 1
+Parent: 25, Child In Path: 140, Split Inactive: 1, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->6->D
+D->4->7->D
+D->8->5->10->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 60, Split Inactive: 0, 5
+Parent: 60, Child In Path: 27, Split Inactive: 10, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->7->D
+D->2->5->D
+D->3->10->D
+D->8->6->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->6->D
+D->2->8->10->D
+D->4->9->D
+D->5->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->5->8->D
+D->3->7->10->D
+D->4->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->4->D
+D->5->6->D
+D->7->9->D
+D->8->3->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->3->D
+D->6->8->D
+D->7->9->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->7->3->D
+D->4->6->D
+D->8->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->6->5->D
+D->3->4->D
+D->7->1->8->D
+D->9->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 8
+Parent: 50, Child In Path: 70, Split Active: 0, 9
+Parent: 70, Child In Path: 90, Split Active: 0, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->2->D
+D->3->10->D
+D->4->7->8->D
+D->5->6->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 60, Split Inactive: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->1->8->D
+D->3->10->D
+D->4->6->5->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+Parent: 50, Child In Path: 80, Split Inactive: 1, 0
+Parent: 80, Child In Path: 17, Split Active: 10, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->3->D
+D->2->9->D
+D->4->7->D
+D->5->6->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 70, Split Active: 0, 9
+Parent: 70, Child In Path: 100, Split Inactive: 0, 10
+Parent: 100, Child In Path: 26, Split Inactive: 6, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->4->8->5->D
+D->6->2->9->D
+D->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->2->D
+D->3->9->D
+D->5->4->6->D
+D->7->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 70, Split Active: 0, 8
+Parent: 70, Child In Path: 100, Split Inactive: 1, 3
+Parent: 100, Child In Path: 120, Split Inactive: 1, 5
+Parent: 120, Child In Path: 29, Split Inactive: 9, 7
+Parent: 29, Child In Path: 25, Split Inactive: 4, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->6->D
+D->2->4->D
+D->3->7->D
+D->8->9->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->6->D
+D->2->8->7->D
+D->3->5->D
+D->4->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 2
+Parent: 50, Child In Path: 70, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->10->D
+D->3->8->6->D
+D->5->9->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->7->D
+D->4->10->D
+D->5->3->6->D
+D->8->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->7->D
+D->3->8->D
+D->4->9->D
+D->5->6->1->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->5->D
+D->3->7->6->D
+D->4->9->D
+D->8->1->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->6->10->D
+D->2->8->D
+D->3->4->D
+D->5->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 60, Split Inactive: 0, 7
+Parent: 60, Child In Path: 28, Split Inactive: 2, 7
+Parent: 28, Child In Path: 29, Split Inactive: 7, 4
+Parent: 29, Child In Path: 90, Split Active: 0, 9
+Parent: 90, Child In Path: 110, Split Active: 0, 10
+Parent: 110, Child In Path: 130, Split Active: 1, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->5->D
+D->2->7->D
+D->3->6->D
+D->9->4->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->8->7->D
+D->2->3->D
+D->5->9->D
+D->6->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->6->10->D
+D->4->7->D
+D->5->8->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->6->D
+D->2->4->D
+D->3->9->8->D
+D->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->5->D
+D->2->8->D
+D->3->7->9->D
+D->6->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 4
+Parent: 20, Child In Path: 30, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->2->D
+D->5->9->D
+D->6->7->D
+D->8->3->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 60, Split Inactive: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->1->6->4->D
+D->3->8->D
+D->5->7->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->5->D
+D->3->9->D
+D->6->4->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 60, Split Inactive: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->3->1->8->D
+D->4->2->6->D
+D->5->9->D
+D->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->10->D
+D->2->3->D
+D->4->7->8->D
+D->6->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->7->D
+D->3->5->6->D
+D->9->4->10->D
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->8->7->D
+D->3->4->6->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->8->D
+D->3->7->D
+D->4->6->5->D
+D->9->1->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 1
+Parent: 40, Child In Path: 29, Split Inactive: 6, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->3->4->D
+D->6->7->2->8->D
+D->9->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->4->D
+D->2->10->6->D
+D->3->8->D
+D->5->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 70, Split Active: 0, 8
+Parent: 70, Child In Path: 100, Split Inactive: 1, 1
+Parent: 100, Child In Path: 15, Split Active: 8, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->5->6->D
+D->4->7->D
+D->9->3->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 30, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->6->D
+D->3->10->D
+D->5->9->8->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->7->D
+D->2->8->3->D
+D->4->10->D
+D->6->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+Parent: 50, Child In Path: 80, Split Inactive: 0, 5
+Parent: 80, Child In Path: 170, Split Active: 0, 6
+Parent: 170, Child In Path: 190, Split Active: 0, 9
+Parent: 190, Child In Path: 210, Split Active: 0, 10
+Parent: 210, Child In Path: 38, Split Active: 7, 0
+Parent: 38, Child In Path: 13, Split Active: 2, 0
+Parent: 13, Child In Path: 68, Split Inactive: 7, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->4->5->8->D
+D->6->9->D
+D->7->1->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->6->D
+D->3->5->D
+D->7->4->10->D
+D->8->1->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 60, Split Inactive: 0, 4
+Parent: 60, Child In Path: 28, Split Inactive: 6, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->5->8->D
+D->4->9->10->D
+D->6->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->8->D
+D->4->7->5->6->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+Parent: 50, Child In Path: 70, Split Active: 0, 6
+Parent: 70, Child In Path: 100, Split Inactive: 1, 2
+Parent: 100, Child In Path: 16, Split Active: 1, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->5->D
+D->2->3->D
+D->4->8->7->D
+D->6->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->6->4->D
+D->5->7->9->D
+D->8->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->5->D
+D->3->10->D
+D->4->9->D
+D->7->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->7->4->D
+D->2->6->D
+D->3->5->D
+D->8->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->3->D
+D->2->5->D
+D->4->7->9->D
+D->8->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 40, Split Inactive: 0, 6
+Parent: 40, Child In Path: 50, Split Active: 0, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->4->D
+D->2->10->D
+D->3->6->5->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+Parent: 50, Child In Path: 80, Split Inactive: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->4->D
+D->2->8->D
+D->3->6->D
+D->7->5->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->3->2->5->D
+D->4->6->D
+D->8->10->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->8->D
+D->4->9->6->D
+D->5->7->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 40, Split Inactive: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->4->7->10->D
+D->5->8->D
+D->6->3->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->8->D
+D->3->7->6->D
+D->4->9->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->1->3->D
+D->4->6->D
+D->5->9->10->D
+D->7->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->6->8->D
+D->3->10->D
+D->4->5->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->10->3->D
+D->2->8->D
+D->4->5->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->8->D
+D->3->4->1->6->D
+D->5->7->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 1
+Parent: 40, Child In Path: 19, Split Active: 2, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->6->D
+D->2->5->D
+D->4->3->7->D
+D->8->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->3->2->4->D
+D->5->8->D
+D->9->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+Parent: 20, Child In Path: 30, Split Active: 0, 6
+Parent: 30, Child In Path: 60, Split Inactive: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->2->3->D
+D->4->9->D
+D->5->10->D
+D->7->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->7->D
+D->2->4->D
+D->5->9->8->D
+D->6->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 40, Split Inactive: 0, 3
+Parent: 40, Child In Path: 18, Split Active: 3, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->8->D
+D->4->3->7->6->D
+D->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 60, Split Inactive: 0, 7
+Parent: 60, Child In Path: 70, Split Active: 0, 8
+Parent: 70, Child In Path: 90, Split Active: 0, 9
+Parent: 90, Child In Path: 120, Split Inactive: 1, 1
+Parent: 120, Child In Path: 25, Split Inactive: 7, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->5->D
+D->3->6->4->7->D
+D->8->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->10->D
+D->4->5->6->D
+D->8->7->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->9->D
+D->3->5->D
+D->4->1->8->6->D
+D->7->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 4
+Parent: 10, Child In Path: 30, Split Active: 0, 6
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 80, Split Inactive: 0, 8
+Parent: 80, Child In Path: 90, Split Active: 0, 9
+Parent: 90, Child In Path: 110, Split Active: 0, 10
+Parent: 110, Child In Path: 140, Split Inactive: 1, 0
+Parent: 140, Child In Path: 24, Split Inactive: 5, 1
+Parent: 24, Child In Path: 49, Split Inactive: 5, 5
+Parent: 49, Child In Path: 22, Split Inactive: 4, 4
+Parent: 22, Child In Path: 68, Split Inactive: 4, 6
+Parent: 68, Child In Path: 47, Split Inactive: 6, 2
+Parent: 47, Child In Path: 88, Split Inactive: 5, 7
+Parent: 88, Child In Path: 108, Split Inactive: 9, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->9->10->D
+D->3->4->D
+D->6->7->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->10->5->D
+D->4->7->9->D
+D->6->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 5
+Parent: 50, Child In Path: 80, Split Inactive: 0, 7
+Parent: 80, Child In Path: 17, Split Active: 1, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->4->10->D
+D->5->8->D
+D->7->6->1->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->4->9->D
+D->3->6->D
+D->5->10->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->10->D
+D->3->5->D
+D->4->8->9->D
+D->6->1->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+Parent: 50, Child In Path: 80, Split Inactive: 1, 1
+Parent: 80, Child In Path: 27, Split Inactive: 5, 2
+Parent: 27, Child In Path: 100, Split Inactive: 1, 3
+Parent: 100, Child In Path: 28, Split Inactive: 3, 7
+Parent: 28, Child In Path: 37, Split Active: 10, 0
+Parent: 37, Child In Path: 140, Split Inactive: 1, 4
+Parent: 140, Child In Path: 160, Split Inactive: 1, 8
+Parent: 160, Child In Path: 26, Split Inactive: 3, 8
+Parent: 26, Child In Path: 180, Split Inactive: 1, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->4->5->9->D
+D->6->10->D
+D->7->3->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 5
+Parent: 20, Child In Path: 29, Split Inactive: 9, 3
+Parent: 29, Child In Path: 47, Split Inactive: 1, 1
+Parent: 47, Child In Path: 12, Split Active: 8, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->2->6->4->9->D
+D->3->5->D
+D->8->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 7
+Parent: 30, Child In Path: 18, Split Active: 0, 9
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->D
+D->2->6->10->D
+D->5->4->8->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->4->6->D
+D->5->3->9->D
+D->8->7->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->3->5->6->D
+D->4->2->10->D
+D->8->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 0, 7
+Parent: 30, Child In Path: 50, Split Active: 0, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->2->D
+D->3->6->D
+D->4->9->8->D
+D->5->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->6->D
+D->3->10->D
+D->5->8->D
+D->7->2->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+Parent: 20, Child In Path: 19, Split Active: 9, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->8->D
+D->3->5->D
+D->4->9->10->D
+D->6->1->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->8->D
+D->3->5->1->7->D
+D->4->10->D
+D->6->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 5
+Parent: 40, Child In Path: 50, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->2->7->6->D
+D->3->9->8->D
+D->4->5->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 30, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->7->D
+D->3->8->2->4->D
+D->5->9->D
+D->6->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->5->7->D
+D->3->10->D
+D->4->6->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 5
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->3->1->6->D
+D->4->10->D
+D->5->2->7->D
+D->8->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->1->3->7->D
+D->4->9->D
+D->5->8->D
+D->6->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->9->D
+D->2->8->D
+D->3->7->D
+D->6->4->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 60, Split Inactive: 0, 5
+Parent: 60, Child In Path: 70, Split Active: 0, 6
+Parent: 70, Child In Path: 90, Split Active: 0, 9
+Parent: 90, Child In Path: 110, Split Active: 0, 10
+Parent: 110, Child In Path: 130, Split Active: 1, 0
+Parent: 130, Child In Path: 160, Split Inactive: 1, 3
+Parent: 160, Child In Path: 180, Split Inactive: 1, 4
+Parent: 180, Child In Path: 200, Split Inactive: 1, 6
+Parent: 200, Child In Path: 220, Split Inactive: 1, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->3->6->D
+D->5->4->2->9->D
+D->7->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 5
+Parent: 10, Child In Path: 30, Split Active: 0, 6
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 70, Split Active: 0, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->9->D
+D->3->8->D
+D->4->6->D
+D->7->2->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->10->D
+D->5->3->4->8->D
+D->6->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->3->8->10->D
+D->4->9->D
+D->5->2->7->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->4->6->5->D
+D->7->10->D
+D->8->3->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 2
+Parent: 50, Child In Path: 70, Split Active: 0, 5
+Parent: 70, Child In Path: 100, Split Inactive: 0, 6
+Parent: 100, Child In Path: 150, Split Active: 0, 8
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->10->D
+D->3->1->5->D
+D->4->7->D
+D->8->6->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->8->7->D
+D->3->6->10->D
+D->5->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->5->7->D
+D->3->9->D
+D->6->10->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 4
+Parent: 50, Child In Path: 80, Split Inactive: 0, 5
+Parent: 80, Child In Path: 16, Split Active: 7, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->D
+D->2->8->10->D
+D->3->6->5->D
+D->7->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+Parent: 10, Child In Path: 30, Split Active: 0, 5
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+Parent: 50, Child In Path: 80, Split Inactive: 0, 8
+Parent: 80, Child In Path: 16, Split Active: 0, 9
+Parent: 16, Child In Path: 46, Split Inactive: 9, 2
+Parent: 46, Child In Path: 150, Split Active: 0, 10
+Parent: 150, Child In Path: 180, Split Inactive: 1, 1
+Parent: 180, Child In Path: 69, Split Inactive: 1, 2
+Parent: 69, Child In Path: 47, Split Inactive: 5, 1
+Parent: 47, Child In Path: 88, Split Inactive: 7, 1
+Parent: 88, Child In Path: 190, Split Active: 1, 4
+Parent: 190, Child In Path: 220, Split Inactive: 1, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->D
+D->3->5->D
+D->4->9->7->D
+D->8->6->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 60, Split Inactive: 0, 6
+Parent: 60, Child In Path: 28, Split Inactive: 3, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->4->D
+D->2->7->D
+D->3->9->10->D
+D->5->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->4->2->3->5->D
+D->6->8->D
+D->7->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 2
+Parent: 20, Child In Path: 40, Split Inactive: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->10->D
+D->3->5->7->D
+D->4->6->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 2
+Parent: 50, Child In Path: 80, Split Inactive: 0, 6
+Parent: 80, Child In Path: 15, Split Active: 9, 0
+Parent: 15, Child In Path: 12, Split Active: 10, 0
+Parent: 12, Child In Path: 32, Split Active: 8, 0
+Parent: 32, Child In Path: 52, Split Active: 4, 0
+Parent: 52, Child In Path: 72, Split Active: 7, 0
+Parent: 72, Child In Path: 102, Split Inactive: 9, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->3->6->D
+D->2->8->D
+D->4->5->7->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 1
+Parent: 30, Child In Path: 50, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->D
+D->2->9->3->D
+D->6->4->7->D
+D->8->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 50, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->10->3->D
+D->4->1->6->D
+D->5->8->D
+D->7->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->8->5->D
+D->2->6->D
+D->3->7->D
+D->4->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->4->D
+D->5->3->9->D
+D->6->10->D
+D->7->1->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+Parent: 20, Child In Path: 30, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->4->7->10->D
+D->5->9->D
+D->6->1->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 9
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->4->2->D
+D->5->10->D
+D->6->8->D
+D->7->3->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->4->9->D
+D->3->10->5->D
+D->6->7->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 30, Split Active: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->D
+D->4->7->D
+D->6->1->5->10->D
+D->8->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 7
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->3->9->D
+D->4->1->7->D
+D->5->10->D
+D->6->2->8->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 1
+Parent: 20, Child In Path: 60, Split Inactive: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->10->D
+D->3->4->6->D
+D->5->2->8->D
+D->7->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 6
+Parent: 10, Child In Path: 30, Split Active: 0, 7
+Parent: 30, Child In Path: 50, Split Active: 0, 10
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->6->D
+D->2->5->7->D
+D->3->4->D
+D->8->10->9->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 4
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->4->2->7->D
+D->5->3->10->D
+D->6->8->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 40, Split Inactive: 0, 3
+Parent: 40, Child In Path: 50, Split Active: 0, 6
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->2->3->D
+D->4->6->9->D
+D->5->7->D
+D->8->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 1
+Parent: 10, Child In Path: 40, Split Inactive: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->9->D
+D->2->8->D
+D->3->7->D
+D->4->5->6->10->D
+Parent: 0, Child In Path: 10, Split Active: 0, 2
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->3->5->D
+D->4->9->D
+D->6->1->7->D
+D->8->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 2
+Parent: 30, Child In Path: 60, Split Inactive: 0, 3
+Parent: 60, Child In Path: 28, Split Inactive: 1, 2
+Parent: 28, Child In Path: 49, Split Inactive: 1, 5
+Parent: 49, Child In Path: 59, Split Active: 0, 4
+Parent: 59, Child In Path: 89, Split Inactive: 2, 7
+Parent: 89, Child In Path: 109, Split Inactive: 9, 1
+Parent: 109, Child In Path: 17, Split Active: 7, 0
+Parent: 17, Child In Path: 37, Split Active: 10, 0
+Parent: 37, Child In Path: 67, Split Inactive: 6, 2
+Parent: 67, Child In Path: 119, Split Active: 7, 1
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->2->5->D
+D->4->3->8->D
+D->6->1->7->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 40, Split Inactive: 0, 1
+Parent: 40, Child In Path: 19, Split Active: 0, 2
+Parent: 19, Child In Path: 39, Split Active: 1, 6
+Parent: 39, Child In Path: 59, Split Active: 6, 0
+Parent: 59, Child In Path: 89, Split Inactive: 0, 3
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->8->D
+D->2->4->6->D
+D->3->7->D
+D->5->10->9->D
+Parent: 0, Child In Path: 10, Split Active: 0, 3
+Parent: 10, Child In Path: 40, Split Inactive: 0, 4
+Parent: 40, Child In Path: 18, Split Active: 7, 0
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+Result routes:
+D->1->5->4->D
+D->2->8->D
+D->3->7->6->D
+D->9->10->D
+Parent: 0, Child In Path: 20, Split Inactive: 0, 0
+Parent: 20, Child In Path: 30, Split Active: 0, 3
+Parent: 30, Child In Path: 50, Split Active: 0, 6

@@ -183,6 +183,7 @@ void clearAndResizeVector(vector<float> *vec);
 
 float randomUniformFloatGenerator(float range, float mean);
 float randomUniformFloatGenerator(double range, double mean);
+int randomUniformIntGenerator(int max);
 
 float sigmoid(float x, float sigma);
 

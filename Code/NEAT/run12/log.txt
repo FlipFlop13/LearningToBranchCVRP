@@ -1,0 +1,1180 @@
+
+Generation number: 0.
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+Number of node of default branching: 13.
+Default branching found optimal: 1.
+Default branching found value: 12488.
+
+Number of node of minfeasible branching: 0.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 12488.
+
+Number of node of maxfeasible branching: 0.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 12488.
+
+Number of node of pseudo branching: 0.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 12488.
+
+Number of node of strong branching: 0.
+Strong branching found optimal: 1.
+Strong branching found value: 12488.
+
+Number of node of pseudoreduced branching: 13.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 12488.
+
+Number of nodes of shortest distance heuristic: 26.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 12488.
+
+Number of nodes of longest distance heuristic: 79.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 12488.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 46.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 12488.
+Number of nodes of best of species 1: 34.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 12488.
+Number of nodes of best of species 2: 34.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 12488.
+Number of nodes of best of species 3: 44.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 12488.
+Number of nodes of best of species 4: 42.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 12488.
+
+Generation number: 1.
+With depot location: E, customer distribution: R, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: R, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: R, demand distribution: 4 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: R, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: R, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: C, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: C, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 1.
+With depot location: E, customer distribution: C, demand distribution: 2 and number of costumers: 10.
+Number of node of default branching: 55.
+Default branching found optimal: 1.
+Default branching found value: 14962.
+
+Number of node of minfeasible branching: 43.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 14962.
+
+Number of node of maxfeasible branching: 47.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 14962.
+
+Number of node of pseudo branching: 13.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 14962.
+
+Number of node of strong branching: 28.
+Strong branching found optimal: 1.
+Strong branching found value: 14962.
+
+Number of node of pseudoreduced branching: 55.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 14962.
+
+Number of nodes of shortest distance heuristic: 163.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 14962.
+
+Number of nodes of longest distance heuristic: 246.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 14962.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 100.
+Best of species 0 found optimal: 0.
+Best of species 0 found value: 16886.
+Number of nodes of best of species 1: 90.
+Best of species 1 found optimal: 0.
+Best of species 1 found value: 14962.
+Number of nodes of best of species 2: 70.
+Best of species 2 found optimal: 0.
+Best of species 2 found value: 16886.
+Number of nodes of best of species 3: 70.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 16886.
+Number of nodes of best of species 4: 70.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 16886.
+
+Generation number: 2.
+With depot location: E, customer distribution: C, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 2.
+With depot location: E, customer distribution: C, demand distribution: 4 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 2.
+With depot location: E, customer distribution: C, demand distribution: 5 and number of costumers: 10.
+Number of node of default branching: 5.
+Default branching found optimal: 1.
+Default branching found value: 17372.
+
+Number of node of minfeasible branching: 9.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 17372.
+
+Number of node of maxfeasible branching: 3.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 17372.
+
+Number of node of pseudo branching: 0.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 17372.
+
+Number of node of strong branching: 4.
+Strong branching found optimal: 1.
+Strong branching found value: 17372.
+
+Number of node of pseudoreduced branching: 5.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 17372.
+
+Number of nodes of shortest distance heuristic: 7.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 17372.
+
+Number of nodes of longest distance heuristic: 58.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 17372.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 42.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 17372.
+Number of nodes of best of species 1: 93.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 17372.
+Number of nodes of best of species 2: 26.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 17372.
+Number of nodes of best of species 3: 50.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 17372.
+Number of nodes of best of species 4: 27.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 17372.
+
+Generation number: 3.
+With depot location: E, customer distribution: C, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 3.
+With depot location: E, customer distribution: CR, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 3.
+With depot location: E, customer distribution: CR, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 3.
+With depot location: E, customer distribution: CR, demand distribution: 2 and number of costumers: 10.
+Number of node of default branching: 17.
+Default branching found optimal: 1.
+Default branching found value: 14500.
+
+Number of node of minfeasible branching: 15.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 14500.
+
+Number of node of maxfeasible branching: 15.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 14500.
+
+Number of node of pseudo branching: 7.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 14500.
+
+Number of node of strong branching: 14.
+Strong branching found optimal: 1.
+Strong branching found value: 14500.
+
+Number of node of pseudoreduced branching: 17.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 14500.
+
+Number of nodes of shortest distance heuristic: 17.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 14500.
+
+Number of nodes of longest distance heuristic: 33.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 14500.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 35.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 14500.
+Number of nodes of best of species 1: 16.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 14500.
+Number of nodes of best of species 2: 24.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 14500.
+Number of nodes of best of species 3: 30.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 14500.
+Number of nodes of best of species 4: 36.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 14500.
+
+Generation number: 4.
+With depot location: E, customer distribution: CR, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 4.
+With depot location: E, customer distribution: CR, demand distribution: 4 and number of costumers: 10.
+Number of node of default branching: 15.
+Default branching found optimal: 1.
+Default branching found value: 16780.
+
+Number of node of minfeasible branching: 11.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 16780.
+
+Number of node of maxfeasible branching: 31.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 16780.
+
+Number of node of pseudo branching: 0.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 16780.
+
+Number of node of strong branching: 0.
+Strong branching found optimal: 1.
+Strong branching found value: 16780.
+
+Number of node of pseudoreduced branching: 15.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 16780.
+
+Number of nodes of shortest distance heuristic: 13.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 16780.
+
+Number of nodes of longest distance heuristic: 143.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 16780.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 19.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 16780.
+Number of nodes of best of species 1: 79.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 16780.
+Number of nodes of best of species 2: 71.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 16780.
+Number of nodes of best of species 3: 68.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 16780.
+Number of nodes of best of species 4: 38.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 16780.
+
+Generation number: 5.
+With depot location: E, customer distribution: CR, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: E, customer distribution: CR, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: R, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: R, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: R, demand distribution: 4 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: R, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: R, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: C, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 5.
+With depot location: C, customer distribution: C, demand distribution: 1 and number of costumers: 10.
+Number of node of default branching: 83.
+Default branching found optimal: 1.
+Default branching found value: 8632.
+
+Number of node of minfeasible branching: 185.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 8632.
+
+Number of node of maxfeasible branching: 176.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 8632.
+
+Number of node of pseudo branching: 121.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 8632.
+
+Number of node of strong branching: 55.
+Strong branching found optimal: 1.
+Strong branching found value: 8632.
+
+Number of node of pseudoreduced branching: 83.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 8632.
+
+Number of nodes of shortest distance heuristic: 215.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 8632.
+
+Number of nodes of longest distance heuristic: 632.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 8632.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 56.
+Best of species 0 found optimal: 0.
+Best of species 0 found value: 8768.
+Number of nodes of best of species 1: 581.
+Best of species 1 found optimal: 0.
+Best of species 1 found value: 8632.
+Number of nodes of best of species 2: 68.
+Best of species 2 found optimal: 0.
+Best of species 2 found value: 8760.
+Number of nodes of best of species 3: 84.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 8850.
+Number of nodes of best of species 4: 71.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 8850.
+
+Generation number: 6.
+With depot location: C, customer distribution: C, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 6.
+With depot location: C, customer distribution: C, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 6.
+With depot location: C, customer distribution: C, demand distribution: 4 and number of costumers: 10.
+Number of node of default branching: 24.
+Default branching found optimal: 1.
+Default branching found value: 6408.
+
+Number of node of minfeasible branching: 35.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 6408.
+
+Number of node of maxfeasible branching: 24.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 6408.
+
+Number of node of pseudo branching: 10.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 6408.
+
+Number of node of strong branching: 8.
+Strong branching found optimal: 1.
+Strong branching found value: 6408.
+
+Number of node of pseudoreduced branching: 24.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 6408.
+
+Number of nodes of shortest distance heuristic: 28.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 6408.
+
+Number of nodes of longest distance heuristic: 117.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 6408.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 64.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 6408.
+Number of nodes of best of species 1: 116.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 6408.
+Number of nodes of best of species 2: 52.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 6408.
+Number of nodes of best of species 3: 62.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 6408.
+Number of nodes of best of species 4: 73.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 6408.
+
+Generation number: 7.
+With depot location: C, customer distribution: C, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: C, customer distribution: C, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: C, customer distribution: CR, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: C, customer distribution: CR, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: C, customer distribution: CR, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: C, customer distribution: CR, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: C, customer distribution: CR, demand distribution: 4 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: C, customer distribution: CR, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: C, customer distribution: CR, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 7.
+With depot location: R, customer distribution: R, demand distribution: 0 and number of costumers: 10.
+Number of node of default branching: 7.
+Default branching found optimal: 1.
+Default branching found value: 11198.
+
+Number of node of minfeasible branching: 0.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 11198.
+
+Number of node of maxfeasible branching: 0.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 11198.
+
+Number of node of pseudo branching: 7.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 11198.
+
+Number of node of strong branching: 6.
+Strong branching found optimal: 1.
+Strong branching found value: 11198.
+
+Number of node of pseudoreduced branching: 7.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 11198.
+
+Number of nodes of shortest distance heuristic: 15.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 11198.
+
+Number of nodes of longest distance heuristic: 31.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 11198.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 16.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 11198.
+Number of nodes of best of species 1: 16.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 11198.
+Number of nodes of best of species 2: 19.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 11198.
+Number of nodes of best of species 3: 6.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 11198.
+Number of nodes of best of species 4: 9.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 11198.
+
+Generation number: 8.
+With depot location: R, customer distribution: R, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 8.
+With depot location: R, customer distribution: R, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 8.
+With depot location: R, customer distribution: R, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 8.
+With depot location: R, customer distribution: R, demand distribution: 4 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 8.
+With depot location: R, customer distribution: R, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 8.
+With depot location: R, customer distribution: R, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 8.
+With depot location: R, customer distribution: C, demand distribution: 0 and number of costumers: 10.
+Number of node of default branching: 115.
+Default branching found optimal: 1.
+Default branching found value: 11330.
+
+Number of node of minfeasible branching: 5.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 11330.
+
+Number of node of maxfeasible branching: 5.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 11330.
+
+Number of node of pseudo branching: 0.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 11330.
+
+Number of node of strong branching: 0.
+Strong branching found optimal: 1.
+Strong branching found value: 11330.
+
+Number of node of pseudoreduced branching: 115.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 11330.
+
+Number of nodes of shortest distance heuristic: 15.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 11330.
+
+Number of nodes of longest distance heuristic: 220.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 11330.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 37.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 11330.
+Number of nodes of best of species 1: 48.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 11330.
+Number of nodes of best of species 2: 86.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 11330.
+Number of nodes of best of species 3: 76.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 11330.
+Number of nodes of best of species 4: 31.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 11330.
+
+Generation number: 9.
+With depot location: R, customer distribution: C, demand distribution: 1 and number of costumers: 10.
+Number of node of default branching: 30.
+Default branching found optimal: 1.
+Default branching found value: 9824.
+
+Number of node of minfeasible branching: 23.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 9824.
+
+Number of node of maxfeasible branching: 25.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 9824.
+
+Number of node of pseudo branching: 13.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 9824.
+
+Number of node of strong branching: 7.
+Strong branching found optimal: 1.
+Strong branching found value: 9824.
+
+Number of node of pseudoreduced branching: 30.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 9824.
+
+Number of nodes of shortest distance heuristic: 31.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 9824.
+
+Number of nodes of longest distance heuristic: 110.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 9824.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 47.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 9824.
+Number of nodes of best of species 1: 34.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 9824.
+Number of nodes of best of species 2: 30.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 9824.
+Number of nodes of best of species 3: 25.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 9824.
+Number of nodes of best of species 4: 39.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 9824.
+
+Generation number: 10.
+With depot location: R, customer distribution: C, demand distribution: 2 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 10.
+With depot location: R, customer distribution: C, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 10.
+With depot location: R, customer distribution: C, demand distribution: 4 and number of costumers: 10.
+Number of node of default branching: 30.
+Default branching found optimal: 1.
+Default branching found value: 5952.
+
+Number of node of minfeasible branching: 21.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 5952.
+
+Number of node of maxfeasible branching: 26.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 5952.
+
+Number of node of pseudo branching: 0.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 5952.
+
+Number of node of strong branching: 13.
+Strong branching found optimal: 1.
+Strong branching found value: 5952.
+
+Number of node of pseudoreduced branching: 30.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 5952.
+
+Number of nodes of shortest distance heuristic: 26.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 5952.
+
+Number of nodes of longest distance heuristic: 146.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 5952.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 88.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 5952.
+Number of nodes of best of species 1: 76.
+Best of species 1 found optimal: 0.
+Best of species 1 found value: 5952.
+Number of nodes of best of species 2: 126.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 5952.
+Number of nodes of best of species 3: 86.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 5952.
+Number of nodes of best of species 4: 80.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 5952.
+
+Generation number: 11.
+With depot location: R, customer distribution: C, demand distribution: 5 and number of costumers: 10.
+Number of node of default branching: 34.
+Default branching found optimal: 1.
+Default branching found value: 6802.
+
+Number of node of minfeasible branching: 68.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 6802.
+
+Number of node of maxfeasible branching: 57.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 6802.
+
+Number of node of pseudo branching: 37.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 6802.
+
+Number of node of strong branching: 15.
+Strong branching found optimal: 1.
+Strong branching found value: 6802.
+
+Number of node of pseudoreduced branching: 34.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 6802.
+
+Number of nodes of shortest distance heuristic: 85.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 6802.
+
+Number of nodes of longest distance heuristic: 122.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 6802.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 86.
+Best of species 0 found optimal: 0.
+Best of species 0 found value: 6808.
+Number of nodes of best of species 1: 136.
+Best of species 1 found optimal: 0.
+Best of species 1 found value: 6802.
+Number of nodes of best of species 2: 80.
+Best of species 2 found optimal: 0.
+Best of species 2 found value: 6808.
+Number of nodes of best of species 3: 65.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 6808.
+Number of nodes of best of species 4: 81.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 6802.
+
+Generation number: 12.
+With depot location: R, customer distribution: C, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 12.
+With depot location: R, customer distribution: CR, demand distribution: 0 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 12.
+With depot location: R, customer distribution: CR, demand distribution: 1 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 12.
+With depot location: R, customer distribution: CR, demand distribution: 2 and number of costumers: 10.
+Number of node of default branching: 7.
+Default branching found optimal: 1.
+Default branching found value: 9962.
+
+Number of node of minfeasible branching: 14.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 9962.
+
+Number of node of maxfeasible branching: 0.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 9962.
+
+Number of node of pseudo branching: 0.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 9962.
+
+Number of node of strong branching: 0.
+Strong branching found optimal: 1.
+Strong branching found value: 9962.
+
+Number of node of pseudoreduced branching: 7.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 9962.
+
+Number of nodes of shortest distance heuristic: 13.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 9962.
+
+Number of nodes of longest distance heuristic: 69.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 9962.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 9.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 9962.
+Number of nodes of best of species 1: 33.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 9962.
+Number of nodes of best of species 2: 15.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 9962.
+Number of nodes of best of species 3: 20.
+Best of species 3 found optimal: 1.
+Best of species 3 found value: 9962.
+Number of nodes of best of species 4: 31.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 9962.
+
+Generation number: 13.
+With depot location: R, customer distribution: CR, demand distribution: 3 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 13.
+With depot location: R, customer distribution: CR, demand distribution: 4 and number of costumers: 10.
+Number of node of default branching: 14.
+Default branching found optimal: 1.
+Default branching found value: 8684.
+
+Number of node of minfeasible branching: 6.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 8684.
+
+Number of node of maxfeasible branching: 6.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 8684.
+
+Number of node of pseudo branching: 11.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 8684.
+
+Number of node of strong branching: 7.
+Strong branching found optimal: 1.
+Strong branching found value: 8684.
+
+Number of node of pseudoreduced branching: 14.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 8684.
+
+Number of nodes of shortest distance heuristic: 97.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 8684.
+
+Number of nodes of longest distance heuristic: 65.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 8684.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 66.
+Best of species 0 found optimal: 1.
+Best of species 0 found value: 8684.
+Number of nodes of best of species 1: 66.
+Best of species 1 found optimal: 1.
+Best of species 1 found value: 8684.
+Number of nodes of best of species 2: 38.
+Best of species 2 found optimal: 1.
+Best of species 2 found value: 8684.
+Number of nodes of best of species 3: 69.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 8684.
+Number of nodes of best of species 4: 55.
+Best of species 4 found optimal: 1.
+Best of species 4 found value: 8684.
+
+Generation number: 14.
+With depot location: R, customer distribution: CR, demand distribution: 5 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 14.
+With depot location: R, customer distribution: CR, demand distribution: 6 and number of costumers: 10.
+No branching needed in this instance, moving on.
+
+Generation number: 14.
+With depot location: E, customer distribution: R, demand distribution: 0 and number of costumers: 11.
+Number of node of default branching: 240.
+Default branching found optimal: 1.
+Default branching found value: 16636.
+
+Number of node of minfeasible branching: 257.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 16636.
+
+Number of node of maxfeasible branching: 205.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 16636.
+
+Number of node of pseudo branching: 216.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 16636.
+
+Number of node of strong branching: 105.
+Strong branching found optimal: 1.
+Strong branching found value: 16636.
+
+Number of node of pseudoreduced branching: 240.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 16636.
+
+Number of nodes of shortest distance heuristic: 506.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 16636.
+
+Number of nodes of longest distance heuristic: 97088.
+Longest heuristic found optimal: 0.
+Longest heuristic found value: 16636.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 80.
+Best of species 0 found optimal: 0.
+Best of species 0 found value: 16808.
+Number of nodes of best of species 1: 194.
+Best of species 1 found optimal: 0.
+Best of species 1 found value: 16964.
+Number of nodes of best of species 2: 100.
+Best of species 2 found optimal: 0.
+Best of species 2 found value: 17306.
+Number of nodes of best of species 3: 56.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 17292.
+Number of nodes of best of species 4: 90.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 17524.
+
+Generation number: 15.
+With depot location: E, customer distribution: R, demand distribution: 1 and number of costumers: 11.
+No branching needed in this instance, moving on.
+
+Generation number: 15.
+With depot location: E, customer distribution: R, demand distribution: 2 and number of costumers: 11.
+Number of node of default branching: 612.
+Default branching found optimal: 1.
+Default branching found value: 17584.
+
+Number of node of minfeasible branching: 3479.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 17584.
+
+Number of node of maxfeasible branching: 1606.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 17584.
+
+Number of node of pseudo branching: 464.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 17584.
+
+Number of node of strong branching: 129.
+Strong branching found optimal: 1.
+Strong branching found value: 17584.
+
+Number of node of pseudoreduced branching: 612.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 17584.
+
+Number of nodes of shortest distance heuristic: 46581.
+Shortest heuristic found optimal: 0.
+Shortest heuristic found value: 17584.
+
+Number of nodes of longest distance heuristic: 129210.
+Longest heuristic found optimal: 0.
+Longest heuristic found value: 17584.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 48.
+Best of species 0 found optimal: 0.
+Best of species 0 found value: 20678.
+Number of nodes of best of species 1: -1088004088.
+Best of species 1 found optimal: -1094809277.
+Best of species 1 found value: -1083296843.
+Number of nodes of best of species 2: 69.
+Best of species 2 found optimal: 0.
+Best of species 2 found value: 19984.
+Number of nodes of best of species 3: 61.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 20678.
+Number of nodes of best of species 4: 78.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 20678.
+
+Generation number: 16.
+With depot location: E, customer distribution: R, demand distribution: 3 and number of costumers: 11.
+Number of node of default branching: 62.
+Default branching found optimal: 1.
+Default branching found value: 15660.
+
+Number of node of minfeasible branching: 107.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 15660.
+
+Number of node of maxfeasible branching: 67.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 15660.
+
+Number of node of pseudo branching: 84.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 15660.
+
+Number of node of strong branching: 42.
+Strong branching found optimal: 1.
+Strong branching found value: 15660.
+
+Number of node of pseudoreduced branching: 62.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 15660.
+
+Number of nodes of shortest distance heuristic: 67.
+Shortest heuristic found optimal: 1.
+Shortest heuristic found value: 15660.
+
+Number of nodes of longest distance heuristic: 752.
+Longest heuristic found optimal: 1.
+Longest heuristic found value: 15660.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 125.
+Best of species 0 found optimal: 0.
+Best of species 0 found value: 15728.
+Number of nodes of best of species 1: 1065801231.
+Best of species 1 found optimal: 1063127036.
+Best of species 1 found value: 1064984624.
+Number of nodes of best of species 2: 127.
+Best of species 2 found optimal: 0.
+Best of species 2 found value: 15660.
+Number of nodes of best of species 3: 99.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 15660.
+Number of nodes of best of species 4: 124.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 15728.
+
+Generation number: 17.
+With depot location: E, customer distribution: R, demand distribution: 4 and number of costumers: 11.
+Number of node of default branching: 1268.
+Default branching found optimal: 1.
+Default branching found value: 14136.
+
+Number of node of minfeasible branching: 3990.
+Minfeasible branching found optimal: 1.
+Minfeasible branching found value: 14136.
+
+Number of node of maxfeasible branching: 3552.
+Maxfeasible branching found optimal: 1.
+Maxfeasible branching found value: 14136.
+
+Number of node of pseudo branching: 1251.
+Pseudo branching found optimal: 1.
+Pseudo branching found value: 14136.
+
+Number of node of strong branching: 540.
+Strong branching found optimal: 1.
+Strong branching found value: 14136.
+
+Number of node of pseudoreduced branching: 1268.
+Pseudoreduced branching found optimal: 1.
+Pseudoreduced branching found value: 14136.
+
+Number of nodes of shortest distance heuristic: 50907.
+Shortest heuristic found optimal: 0.
+Shortest heuristic found value: 14390.
+
+Number of nodes of longest distance heuristic: 19278.
+Longest heuristic found optimal: 0.
+Longest heuristic found value: 14182.
+
+Number of nodes of random heuristic: 0.
+Random heuristic found optimal: 0.
+Random heuristic found value: 0.
+
+Number of nodes of best of species 0: 67.
+Best of species 0 found optimal: 0.
+Best of species 0 found value: 15094.
+Number of nodes of best of species 1: -1164339648.
+Best of species 1 found optimal: -1103135142.
+Best of species 1 found value: 1065621794.
+Number of nodes of best of species 2: 69.
+Best of species 2 found optimal: 0.
+Best of species 2 found value: 15610.
+Number of nodes of best of species 3: 68.
+Best of species 3 found optimal: 0.
+Best of species 3 found value: 15080.
+Number of nodes of best of species 4: 77.
+Best of species 4 found optimal: 0.
+Best of species 4 found value: 14888.
+
+Generation number: 18.
+With depot location: E, customer distribution: R, demand distribution: 5 and number of costumers: 11.
+No branching needed in this instance, moving on.
+
+Generation number: 18.
+With depot location: E, customer distribution: R, demand distribution: 6 and number of costumers: 11.
+No branching needed in this instance, moving on.
